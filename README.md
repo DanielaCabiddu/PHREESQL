@@ -8,9 +8,30 @@ It allows water speciation calculations and storage by means of a SQL database. 
 - Marino Vetuschi Zuccolini (DISTAV Genova, Italy)
 
 ## Dependences 
-- CMake (https://cmake.org/download)
-- SQlite (https://www.sqlite.org/download.html)
-- IPhreeQC (version 3.7.0 included in *external*)
+- CMake (https://cmake.org/download);
+- SQlite (https://www.sqlite.org/download.html);
+- IPhreeQC (version 3.7.0 included in *external*).
+
+## Installation
+**PHREESQLib** is an header-only C++ library having IPhreeQC as a mandatory dependence. To exploit PHREESQLib in your C++ project:
+- build the external dependence IPhreeQC (*external/iphreeqc-3.7.0-15749*);
+- include PHREESQLib (*phreesqlib folder*) in your project;
+- include and link IPhreeQc in your project;
+- link SQlite in your project.
+
+**PhreeSQLTool** is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. To build PhreeSQLTool:
+```
+cd phreesqltool
+mkdir build
+cd build
+cmake ..
+make
+```
+The corresponding executable will be available in *external/phreesqltool/build*.
+
+## Usage
+
+[...]
 
 ## Citing Us
 
