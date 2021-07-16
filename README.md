@@ -4,7 +4,7 @@ An in-situ real-time speciation calculation and storage tool by means of PHREEQC
 ## Authors
 
 - Daniela Cabiddu (CNR-IMATI Genova, Italy)
-- Marino Vetischi Zuccolini (DISTAV Genova, Italy)
+- Marino Vetuschi Zuccolini (DISTAV Genova, Italy)
 
 ## Dependences 
 - CMake (https://cmake.org/download)
