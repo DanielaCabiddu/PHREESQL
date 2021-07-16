@@ -1,5 +1,4 @@
-#include "PhreeqcEngine.h"
-#include "DBEngine.h"
+#include "PhreeSQLibEngine.h"
 
 #include <iostream>
 #include <stdio.h>
@@ -81,28 +80,13 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    phreesqlib::PhreeqcEngine pqc_engine;
-    std::vector<phreesqlib::PhreeqcEngineObj> results;
+    phreesqlib::PhreeSQLibEngine engine (db);
 
     if (folder.length() > 0)
-        results = pqc_engine.run_on_folder(folder);
+        engine.run_on_folder(folder);
 
     if (file.length() > 0)
-        results.push_back(pqc_engine.run_on_file(file, file + ".pqo"));
-
-    phreesqlib::DBEngine db_engine (db);
-
-    for (const phreesqlib::PhreeqcEngineObj & obj : results)
-    {
-        if (obj.get_error_counter() > 0)
-        {
-            std::cerr << "Some error occured while processing " << obj.get_in_filename()
-                      << ". IGNORED. " << std::endl;
-            continue;
-        }
-
-        db_engine.add_to_DB(obj);
-    }
+        engine.run_on_file(file);
 
     return 0;
 }
