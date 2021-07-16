@@ -16,6 +16,8 @@ It allows water speciation calculations and storage by means of a SQL database. 
 
 If you use PhreeSQLib in your academic projects, please consider citing the library using the following BibTeX entry:
 
+https://www.overleaf.com/5119426148dhjrjfrcqdvj (Draft Paper to be submitted)
+
 [BIBTEX REFERENCE AFTER PUBLICATION]
 
 ## Acknowledgments
