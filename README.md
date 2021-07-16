@@ -1,5 +1,6 @@
 # PHREESQLib
 An in-situ real-time speciation calculation and storage tool by means of PHREEQC code (USGS).
+It allows water speciation calculations and storage by means of a SQL database. Thanks to the relational data structure and query capabilities, it is possible to efficiently browse, export a large amount of data deriving from speciation computation, and to reuse them for further analyses and plot generation.
 
 ## Authors
 
