@@ -16,6 +16,10 @@ public:
 private:
 
     std::string db_filename;
+
+    const std::string in_ext = ".pqi";
+    const std::string out_ext = ".pqo";
+    const std::string meta_ext = ".meta";
 };
 
 }

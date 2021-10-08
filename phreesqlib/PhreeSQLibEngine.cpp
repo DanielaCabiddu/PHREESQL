@@ -43,7 +43,7 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
           const uint ext_id = filename.find_last_of(".");
           const std::string ext = (ext_id < UINT_MAX) ? filename.substr(ext_id) : "";
 
-          if (ext.compare(".pqi") != 0)
+          if (ext.compare(in_ext) != 0)
           {
               std::cerr << ent->d_name << " ]] Invalid Input File. IGNORED" << std::endl;
               continue;
@@ -53,8 +53,8 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
 
           std::cout << ent->d_name << "(" << basename << ", " << ext << ")" << std::endl;
 
-          const std::string out_filename = out_folder + separator + basename + ".pqo";
-          const std::string meta_filename = meta_folder + separator + basename + ".meta";
+          const std::string out_filename = out_folder + separator + basename + out_ext;
+          const std::string meta_filename = meta_folder + separator + basename + meta_ext;
 
           struct stat buffer_out, buffer_meta;
           if (stat (out_filename.c_str(), &buffer_out) != 0)
