@@ -25,16 +25,16 @@ int main(int argc, char *argv[])
              We distinguish them by their indices. */
     //      {"add",     no_argument,       0, 'a'},
           {"database",      required_argument, 0, 'd'},
-          {"in_folder",     required_argument, 0, 'I'},
-          {"out_folder",    required_argument, 0, 'O'},
-          {"meta_folder",   required_argument, 0, 'M'},
+          {"in_folder",     required_argument, 0, 'i'},
+          {"out_folder",    required_argument, 0, 'o'},
+          {"meta_folder",   required_argument, 0, 'm'},
           {0, 0, 0, 0}
         };
 
         /* getopt_long stores the option index here. */
         int option_index = 0;
 
-        int c = getopt_long (argc, argv, "d:I:O:M:", long_options, &option_index);
+        int c = getopt_long (argc, argv, "d:i:o:m:", long_options, &option_index);
 
         if (c==-1) break;
 
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 //                  break;
 
         case 'd':
-          printf ("option -d with value `%s'\n", optarg);
+          printf ("option -d (database) with value `%s'\n", optarg);
           db = optarg;
           break;
 
@@ -60,18 +60,18 @@ int main(int argc, char *argv[])
 //          file = optarg;
 //          break;
 
-        case 'I':
-          printf ("option -I with value `%s'\n", optarg);
+        case 'i':
+          printf ("option -i (input folder) with value `%s'\n", optarg);
           in_folder = optarg;
           break;
 
-        case 'O':
-          printf ("option -O with value `%s'\n", optarg);
+        case 'o':
+          printf ("option -o (output folder) with value `%s'\n", optarg);
           out_folder = optarg;
           break;
 
-        case 'M':
-          printf ("option -M with value `%s'\n", optarg);
+        case 'm':
+          printf ("option -m (meta folder) with value `%s'\n", optarg);
           meta_folder = optarg;
           break;
 
@@ -91,6 +91,10 @@ int main(int argc, char *argv[])
         std::cerr << "error - in, out and meta folders must be provided as an input." << std::endl;
         return 1;
     }
+
+    std::cout << std::endl;
+    std::cout << "========================================================================================" << std::endl;
+    std::cout << "Reading folders and filling database " << db << "..." << std::endl;
 
     phreesqlib::PhreeSQLibEngine engine (db);
 
