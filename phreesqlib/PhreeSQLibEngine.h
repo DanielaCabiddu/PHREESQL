@@ -19,7 +19,7 @@ private:
 
     const std::string in_ext = ".pqi";
     const std::string out_ext = ".pqo";
-    const std::string meta_ext = ".meta";
+    const std::string meta_ext = ".met";
 };
 
 }
