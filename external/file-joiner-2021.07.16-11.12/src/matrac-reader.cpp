@@ -106,10 +106,13 @@ public:
             this->createInputTables();
             i_manager->insertMetadata(i_file->meta, (o_file->a).id);
             i_manager->insertSolutionInputs(i_file->input_list, (o_file->a).id);
+
+            return true;
         }
         else
         {
-            cerr << "Error in opening the file" << endl;
+            cerr << "Error in opening the file " << file_path << endl;
+            return false;
         }
     }
 
