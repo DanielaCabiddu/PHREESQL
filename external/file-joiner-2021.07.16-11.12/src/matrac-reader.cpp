@@ -19,8 +19,8 @@ private:
     InputDBManager *i_manager;
     OutputDBManager *o_manager;
     DataManager *d_manager;
-    InputReaderWriter *i_file;
-    OutputReaderWriter *o_file;
+    InputReaderWriter i_file;
+    OutputReaderWriter o_file;
     string db_path;
     sqlite3 *db;
     int rc;
@@ -96,16 +96,16 @@ public:
 
     bool readInputFile(string file_path)
     {
-        if (i_file == NULL)
-        {
-            i_file = new InputReaderWriter();
-        }
+//        if (i_file == NULL)
+//        {
+//            i_file = new InputReaderWriter();
+//        }
 
-        if (i_file->readFile(file_path))
+        if (i_file.readFile(file_path))
         {
             this->createInputTables();
-            i_manager->insertMetadata(i_file->meta, (o_file->a).id);
-            i_manager->insertSolutionInputs(i_file->input_list, (o_file->a).id);
+            i_manager->insertMetadata(i_file.meta, (o_file.a).id);
+            i_manager->insertSolutionInputs(i_file.input_list, (o_file.a).id);
 
             return true;
         }
@@ -118,22 +118,22 @@ public:
 
     void readOutputFile(string file_path, string meta_path)
     {
-        if (o_file == NULL)
-        {
-            o_file = new OutputReaderWriter();
-        }
+//        if (o_file == NULL)
+//        {
+//            o_file = new OutputReaderWriter();
+//        }
 
-        if (o_file->readFile(file_path) && o_file->readMetadata(meta_path))
+        if (o_file.readFile(file_path) && o_file.readMetadata(meta_path))
         {
             o_manager->createAnalisysTable();
-            o_manager->insertAnalisys(o_file->a);
+            o_manager->insertAnalisys(o_file.a);
 
             this->createOutputTables();
-            o_manager->insertSolutionComposition(o_file->sc_list);
-            o_manager->insertDescriptionOfSolution(o_file->des_list);
-            o_manager->insertDistributionOfSpecies(o_file->dis_list);
-            o_manager->insertDistributionOfAlkalinity(o_file->alk_list);
-            o_manager->insertSaturationIndices(o_file->si_list);
+            o_manager->insertSolutionComposition(o_file.sc_list);
+            o_manager->insertDescriptionOfSolution(o_file.des_list);
+            o_manager->insertDistributionOfSpecies(o_file.dis_list);
+            o_manager->insertDistributionOfAlkalinity(o_file.alk_list);
+            o_manager->insertSaturationIndices(o_file.si_list);
         }
         else
         {
@@ -155,10 +155,10 @@ public:
             return;
         }
 
-        if (i_file == NULL)
-        {
-            i_file = new InputReaderWriter();
-        }
+//        if (i_file == NULL)
+//        {
+//            i_file = new InputReaderWriter();
+//        }
 
         DIR *dir = this->openDir(directory);
 
@@ -167,10 +167,10 @@ public:
             int num = o_manager->getNumRows("METADATA");
             for (int i = 1; i <= num; i++)
             {
-                i_manager->selectValuesFromMetadata(i_file->meta, i);
-                i_manager->selectValuesFromSolution(i_file->input_list, i);
+                i_manager->selectValuesFromMetadata(i_file.meta, i);
+                i_manager->selectValuesFromSolution(i_file.input_list, i);
                 this->deleteFileIfExists(directory + "/dump_input_" + to_string(i) + ".txt");
-                i_file->writeFile(i, directory);
+                i_file.writeFile(i, directory);
             }
             closedir(dir);
         }
@@ -192,10 +192,10 @@ public:
             return;
         }
 
-        if (o_file == NULL)
-        {
-            o_file = new OutputReaderWriter();
-        }
+//        if (o_file == NULL)
+//        {
+//            o_file = new OutputReaderWriter();
+//        }
 
         this->deleteFileIfExists(file_path);
 
@@ -203,13 +203,13 @@ public:
 
         for (int i = 1; i <= num; i++)
         {
-            o_manager->selectValuesfromAnalisys(o_file->a, i);
-            o_manager->selectValuesFromSolutionComposition(o_file->sc_list, i);
-            o_manager->selectValuesFromDescriptionOfSolution(o_file->des_list, i);
-            o_manager->selectValuesFromDistributionOfSpecies(o_file->dis_list, i);
-            o_manager->selectValuesFromDistributionOfAlkalinity(o_file->alk_list, i);
-            o_manager->selectValuesFromSaturationIndices(o_file->si_list, i);
-            o_file->writeAnalisysFile(file_path, i);
+            o_manager->selectValuesfromAnalisys(o_file.a, i);
+            o_manager->selectValuesFromSolutionComposition(o_file.sc_list, i);
+            o_manager->selectValuesFromDescriptionOfSolution(o_file.des_list, i);
+            o_manager->selectValuesFromDistributionOfSpecies(o_file.dis_list, i);
+            o_manager->selectValuesFromDistributionOfAlkalinity(o_file.alk_list, i);
+            o_manager->selectValuesFromSaturationIndices(o_file.si_list, i);
+            o_file.writeAnalisysFile(file_path, i);
         }
         this->closeDB();
     }
