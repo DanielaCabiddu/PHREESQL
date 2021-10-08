@@ -28,6 +28,7 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
 
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 
+    unsigned int file_counter = 0;
     DIR *dir;
     struct dirent *ent;
     if ((dir = opendir (in_folder.c_str())) != NULL)
@@ -40,7 +41,7 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
           if (filename.compare("..") == 0) continue;
           if (filename.compare(".") == 0) continue;
 
-          const uint ext_id = filename.find_last_of(".");
+          const unsigned int ext_id = filename.find_last_of(".");
           const std::string ext = (ext_id < UINT_MAX) ? filename.substr(ext_id) : "";
 
           if (ext.compare(in_ext) != 0)
@@ -55,9 +56,9 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
           const std::string out_absolute_path = out_folder + separator + basename + out_ext;
           const std::string meta_absolute_path = meta_folder + separator + basename + meta_ext;
 
-          std::cout << "Processing " << in_absolute_path << std::endl;
-          std::cout << " -- " << out_absolute_path << std::endl;
-          std::cout << " -- " << meta_absolute_path << std::endl;
+          std::cout << "[" << file_counter << "] Processing " << in_absolute_path << std::endl;
+//          std::cout << " -- " << out_absolute_path << std::endl;
+//          std::cout << " -- " << meta_absolute_path << std::endl;
 
           struct stat buffer_out, buffer_meta;
           if (stat (out_absolute_path.c_str(), &buffer_out) != 0)
@@ -79,10 +80,10 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
 
           db_engine->add_to_DB(obj, meta_absolute_path);
 
+          file_counter++;
+
           std::cout << std::endl;
         }
-
-
 
         closedir (dir);
     }

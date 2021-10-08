@@ -39,7 +39,7 @@ private:
         else
         {
             sqlite3_exec(db, "PRAGMA foreign_keys = ON;", 0, 0, 0);
-            fprintf(stderr, "");
+//            fprintf(stderr, "");
             return true;
         }
     }
