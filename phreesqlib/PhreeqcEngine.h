@@ -34,7 +34,9 @@ public:
 
     PhreeqcEngine () {}
 
-    std::vector<PhreeqcEngineObj> run_on_folder (const std::string &foldername) ;
+    std::vector<PhreeqcEngineObj> run_on_folder (const std::string & in_foldername,
+                                                 const std::string & out_foldername) ;
+
     PhreeqcEngineObj run_on_file(const std::string &in_filename, const std::string &out_filename) ;
 };
 

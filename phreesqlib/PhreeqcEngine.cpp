@@ -9,10 +9,11 @@
  * @return input/output mapping
  */
 inline
-std::vector<phreesqlib::PhreeqcEngineObj> phreesqlib::PhreeqcEngine::run_on_folder(const std::string & foldername)
+std::vector<phreesqlib::PhreeqcEngineObj> phreesqlib::PhreeqcEngine::run_on_folder(const std::string & in_foldername,
+                                                                                   const std::string & out_foldername)
 {
     struct dirent *entry;
-    DIR *dir = opendir(foldername.c_str());
+    DIR *dir = opendir(in_foldername.c_str());
 
     std::vector<PhreeqcEngineObj> results;
 
@@ -20,6 +21,7 @@ std::vector<phreesqlib::PhreeqcEngineObj> phreesqlib::PhreeqcEngine::run_on_fold
     {
         while ((entry = readdir(dir)) != NULL)
         {
+// get corresponding out name
             results.push_back(run_on_file(entry->d_name, std::string(entry->d_name) + ".pqo"));
         }
 

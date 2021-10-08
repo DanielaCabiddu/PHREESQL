@@ -11,7 +11,7 @@ class DBEngine
 public:
     DBEngine (const std::string filename) { db_filename = filename; }
 
-    void add_to_DB(const PhreeqcEngineObj &obj);
+    void add_to_DB(const PhreeqcEngineObj &obj, const std::string metadata_filename);
 
 private:
 

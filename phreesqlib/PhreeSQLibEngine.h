@@ -11,8 +11,7 @@ class PhreeSQLibEngine
 public:
     PhreeSQLibEngine (const std::string db) { db_filename=db; }
 
-    void run_on_folder (const std::string folder);
-    void run_on_file (const std::string file);
+    void run_on_folder (const std::string in_folder, const std::string out_folder, const std::string meta_folder);
 
 private:
 
