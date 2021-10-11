@@ -1,6 +1,6 @@
 #include "PhreeSQLibEngine.h"
 
-#include "PhreeqcEngine.h"
+#include "PhreeqcEngineObj.h"
 #include "DBEngine.h"
 
 #include <limits.h>

@@ -16,6 +16,11 @@ public:
         matrac_reader = new MatracReader(db_filename);
     }
 
+    ~DBEngine ()
+    {
+        delete matrac_reader;
+    }
+
     void add_to_DB(const PhreeqcEngineObj &obj, const std::string metadata_filename);
 
 private:
