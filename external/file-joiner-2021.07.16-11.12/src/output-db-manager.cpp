@@ -8,6 +8,8 @@ private:
 public:
     OutputDBManager(sqlite3 *db) : DBManager(db) {}
 
+    ~OutputDBManager () {}
+
     bool isOutputEmpty()
     {
         int num_tables;

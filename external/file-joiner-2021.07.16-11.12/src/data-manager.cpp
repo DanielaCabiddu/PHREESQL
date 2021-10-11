@@ -8,6 +8,8 @@ class DataManager : public DBManager
 public:
     DataManager(sqlite3 *db) : DBManager(db) {}
 
+    ~DataManager () {}
+
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)
     {
         char **res;

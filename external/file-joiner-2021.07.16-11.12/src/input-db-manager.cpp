@@ -6,6 +6,8 @@ class InputDBManager : public DBManager
 public:
     InputDBManager(sqlite3 *db) : DBManager(db) {}
 
+    ~InputDBManager () {}
+
     bool isInputEmpty()
     {
         int num_tables;

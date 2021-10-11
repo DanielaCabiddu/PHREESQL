@@ -88,6 +88,15 @@ public:
         d_manager = new DataManager(db);
     }
 
+    ~MatracReader()
+    {
+        delete i_manager;
+        delete o_manager;
+        delete d_manager;
+
+        sqlite3_close(db);
+    }
+
     void readInputOutputFiles(string input_path, string output_path, string meta_path)
     {
         readOutputFile(output_path, meta_path);

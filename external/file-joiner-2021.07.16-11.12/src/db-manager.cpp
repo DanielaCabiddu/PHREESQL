@@ -42,6 +42,8 @@ public:
         this->db = db;
     }
 
+    ~DBManager () {}
+
     void queryResult(int rc, string message)
     {
         this->err_message = 0;
