@@ -18,10 +18,10 @@ set(EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 
 include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 
-execute_process (
-    WORKING_DIRECTORY ${EXTERNAL_FOLDER}
-    COMMAND /bin/bash -c "./build_all.sh"
-)
+#execute_process (
+#    WORKING_DIRECTORY ${EXTERNAL_FOLDER}
+#    COMMAND /bin/bash -c "./build_all.sh"
+#)
 
 add_executable(phreesql main.cpp)
 
