@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14424
+#County Waterford City {County} County Council
+#Site_Name Ballyduff/Kilmeaden WS
+#Easting 248279
+#Northing 110242
+#New_Code IE_SE_G_0149_3800_0001
+#Sample_Date 03/09/20
+units mg/L
+pH 5.8 
+temp 12.10
+O(0) 5.20
+pe 10.9607
+Alkalinity 50
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 25.69 as NO3
+P 0.011 as PO4
+C(-4) -1.0
+Si 6.50
+Cl 22
+F -0.20
+S(6) 10 as SO4
+Na 12.0
+K 1.1
+Mg 8.40
+Ca 17.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 12 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu -1 ug/L
+Zn -1.0 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 2 ug/L
+Pb -0.2 ug/L
+U -0.2 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 40 ug/L
+Be -1.0 ug/L
+END

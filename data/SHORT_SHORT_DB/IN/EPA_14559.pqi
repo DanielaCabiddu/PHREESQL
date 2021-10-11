@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14559
+#County Meath County Council
+#Site_Name Mattock MK3Shallow
+#Easting 301983
+#Northing 280640
+#New_Code IE_EA_G_0010_2300_0018
+#Sample_Date 10/11/20
+units mg/L
+pH 12.0 
+temp 9.90
+O(0) 0.40
+pe -4.11723
+Alkalinity 488
+N(-3) 1.200 as NH4 
+N(3) 0.019 as NO2
+N(5) -0.90 as NO3
+P -0.010 as PO4
+C(-4) 4.2
+Si 2.50
+Cl 94
+F -0.20
+S(6) 19 as SO4
+Na 19.0
+K 3.3
+Mg -0.25
+Ca 220.0
+Fe -10 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al 270 ug/L
+Cr -1.0 ug/L
+Ni 2.8 ug/L
+Cu -1 ug/L
+Zn -1.0 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 140 ug/L
+Pb -0.2 ug/L
+U -0.2 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo 2.3 ug/L
+Sr 920 ug/L
+Be -1.0 ug/L
+END

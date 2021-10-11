@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14426
+#County Galway County Council
+#Site_Name Caltra/Castleblakney
+#Easting 172023
+#Northing 240104
+#New_Code IE_SH_G_0225_1200_0005
+#Sample_Date 03/09/20
+units mg/L
+pH 6.9 
+temp 10.70
+O(0) 4.60
+pe 4.52524
+Alkalinity 374
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 10.63 as NO3
+P 0.015 as PO4
+C(-4) 3.1
+Si 4.40
+Cl 19
+F -0.20
+S(6) 6 as SO4
+Na 7.7
+K 2.6
+Mg 7.40
+Ca 130.0
+Fe 24 ug/L
+Mn -5 ug/L
+B 14 ug/L
+Al 19 ug/L
+Cr -1.0 ug/L
+Ni 1.5 ug/L
+Cu -1 ug/L
+Zn 2.3 ug/L
+As -1.0 ug/L
+Cd 0.1 ug/L
+Sb -1.0 ug/L
+Ba 9 ug/L
+Pb -0.2 ug/L
+U 1.2 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 470 ug/L
+Be -1.0 ug/L
+END

@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14551
+#County Cork County Council
+#Site_Name Carraignadoura GWS
+#Easting 114252
+#Northing 69996
+#New_Code IE_SW_G_0005_0500_0006
+#Sample_Date 09/11/20
+units mg/L
+pH 6.5 
+temp 11.10
+O(0) 3.00
+pe 10.5898
+Alkalinity 114
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 7.53 as NO3
+P 0.014 as PO4
+C(-4) 1.1
+Si 14.00
+Cl 23
+F -0.20
+S(6) 6 as SO4
+Na 11.0
+K 0.5
+Mg 7.50
+Ca 34.0
+Fe -10 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu 17 ug/L
+Zn 15.0 ug/L
+As 1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 3 ug/L
+Pb 0.7 ug/L
+U 2.2 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 140 ug/L
+Be -1.0 ug/L
+END

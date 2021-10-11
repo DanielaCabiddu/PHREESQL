@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14427
+#County Galway County Council
+#Site_Name Kilkerrin Moylough
+#Easting 164326
+#Northing 253939
+#New_Code IE_SH_G_0225_1200_0012
+#Sample_Date 03/09/20
+units mg/L
+pH 6.8 
+temp 11.00
+O(0) 0.70
+pe 5.82346
+Alkalinity 390
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 4.34 as NO3
+P 0.024 as PO4
+C(-4) 4.3
+Si 5.60
+Cl 17
+F -0.20
+S(6) 6 as SO4
+Na 8.0
+K 2.5
+Mg 5.80
+Ca 140.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 12 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni 1.5 ug/L
+Cu 2 ug/L
+Zn 2.9 ug/L
+As -1.0 ug/L
+Cd 0.2 ug/L
+Sb -1.0 ug/L
+Ba 17 ug/L
+Pb -0.2 ug/L
+U 1.1 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 450 ug/L
+Be -1.0 ug/L
+END

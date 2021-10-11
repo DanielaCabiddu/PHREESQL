@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14429
+#County Cork County Council
+#Site_Name Conna PWS
+#Easting 191887
+#Northing 93390
+#New_Code IE_SW_G_0074_0500_0011
+#Sample_Date 03/09/20
+units mg/L
+pH 6.2 
+temp 11.30
+O(0) 8.60
+pe 1.03858
+Alkalinity 112
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 29.67 as NO3
+P 0.010 as PO4
+C(-4) 1.0
+Si 7.20
+Cl 20
+F -0.20
+S(6) 11 as SO4
+Na 10.0
+K 1.5
+Mg 11.00
+Ca 38.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 12 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu 3 ug/L
+Zn 5.6 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 1 ug/L
+Pb 0.5 ug/L
+U 0.3 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 73 ug/L
+Be -1.0 ug/L
+END

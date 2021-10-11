@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14550
+#County Clare County Council
+#Site_Name Scarriff
+#Easting 166294
+#Northing 188521
+#New_Code IE_SH_G_0236_0300_0003
+#Sample_Date 09/11/20
+units mg/L
+pH 7.0 
+temp 10.30
+O(0) 13.90
+pe 0.945849
+Alkalinity 250
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 3.63 as NO3
+P -0.010 as PO4
+C(-4) 1.5
+Si 8.60
+Cl 14
+F -0.20
+S(6) 4 as SO4
+Na 9.7
+K 1.6
+Mg 14.00
+Ca 71.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 11 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni 1.4 ug/L
+Cu -1 ug/L
+Zn -1.0 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 42 ug/L
+Pb -0.2 ug/L
+U 0.5 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 180 ug/L
+Be -1.0 ug/L
+END

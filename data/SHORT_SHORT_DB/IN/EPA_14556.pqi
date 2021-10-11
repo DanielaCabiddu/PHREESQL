@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14556
+#County Meath County Council
+#Site_Name Mattock MK1Subsoil
+#Easting 301590
+#Northing 280321
+#New_Code IE_EA_G_0010_2300_0014
+#Sample_Date 10/11/20
+units mg/L
+pH 5.8 
+temp 10.10
+O(0) 5.80
+pe -1.05713
+Alkalinity 71
+N(-3) 0.022 as NH4 
+N(3) -0.013 as NO2
+N(5) 13.29 as NO3
+P 0.033 as PO4
+C(-4) 1.5
+Si 5.20
+Cl 10
+F -0.20
+S(6) 16 as SO4
+Na 9.3
+K 8.2
+Mg 3.80
+Ca 24.0
+Fe 15 ug/L
+Mn -5 ug/L
+B 18 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu -1 ug/L
+Zn 1.4 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 74 ug/L
+Pb -0.2 ug/L
+U -0.2 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 53 ug/L
+Be -1.0 ug/L
+END

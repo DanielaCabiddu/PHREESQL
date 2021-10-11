@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14552
+#County Kerry County Council
+#Site_Name Portmagee (Lateeve BH 1)
+#Easting 38182
+#Northing 71662
+#New_Code IE_SW_G_0022_1300_0012
+#Sample_Date 09/11/20
+units mg/L
+pH 6.0 
+temp 13.00
+O(0) 4.10
+pe -1.14986
+Alkalinity 78
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 7.09 as NO3
+P 0.025 as PO4
+C(-4) 1.2
+Si 10.00
+Cl 54
+F -0.20
+S(6) 14 as SO4
+Na 26.0
+K 2.1
+Mg 7.10
+Ca 25.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 18 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu 15 ug/L
+Zn 17.0 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 6 ug/L
+Pb 0.9 ug/L
+U 1.1 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 110 ug/L
+Be -1.0 ug/L
+END

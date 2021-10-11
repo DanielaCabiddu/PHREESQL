@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14553
+#County Kerry County Council
+#Site_Name Knockavota (Poulgorm Spring)
+#Easting 81092
+#Northing 101065
+#New_Code IE_SW_G_0026_1300_0009
+#Sample_Date 09/11/20
+units mg/L
+pH 7.1 
+temp 12.40
+O(0) 2.60
+pe -2.20698
+Alkalinity 235
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 7.09 as NO3
+P -0.010 as PO4
+C(-4) -1.0
+Si 12.00
+Cl 36
+F -0.20
+S(6) 13 as SO4
+Na 20.0
+K 1.4
+Mg 7.70
+Ca 78.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 14 ug/L
+Al 8 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu 6 ug/L
+Zn 21.0 ug/L
+As -1.0 ug/L
+Cd 0.2 ug/L
+Sb -1.0 ug/L
+Ba 3 ug/L
+Pb 0.5 ug/L
+U 0.7 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 110 ug/L
+Be -1.0 ug/L
+END

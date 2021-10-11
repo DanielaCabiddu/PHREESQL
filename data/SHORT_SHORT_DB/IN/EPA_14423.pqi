@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14423
+#County Tipperary County Council
+#Site_Name Coolnamuck
+#Easting 238688
+#Northing 121347
+#New_Code IE_SE_G_0030_3700_0002
+#Sample_Date 03/09/20
+units mg/L
+pH 6.7 
+temp 11.70
+O(0) 9.00
+pe 0.352375
+Alkalinity 183
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 9.74 as NO3
+P 0.031 as PO4
+C(-4) 1.0
+Si 7.00
+Cl 10
+F -0.20
+S(6) 4 as SO4
+Na 6.7
+K 0.8
+Mg 4.30
+Ca 63.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 12 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu 2 ug/L
+Zn 11.0 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 12 ug/L
+Pb -0.2 ug/L
+U 0.4 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 87 ug/L
+Be -1.0 ug/L
+END

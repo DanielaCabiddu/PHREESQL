@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14425
+#County Kilkenny County Council
+#Site_Name Pilltown WS
+#Easting 247761
+#Northing 125427
+#New_Code IE_SE_G_0155_1500_0015
+#Sample_Date 03/09/20
+units mg/L
+pH 5.0 
+temp 11.10
+O(0) 7.60
+pe 0.667658
+Alkalinity 15
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 22.59 as NO3
+P 0.027 as PO4
+C(-4) -1.0
+Si 7.20
+Cl 19
+F -0.20
+S(6) 6 as SO4
+Na 8.6
+K 1.7
+Mg 4.60
+Ca 8.1
+Fe -10 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al 3 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu -1 ug/L
+Zn 48.0 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 31 ug/L
+Pb -0.2 ug/L
+U -0.2 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 30 ug/L
+Be -1.0 ug/L
+END

@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14428
+#County Galway County Council
+#Site_Name Mountbellew
+#Easting 166069
+#Northing 244830
+#New_Code IE_SH_G_0225_1200_0017
+#Sample_Date 03/09/20
+units mg/L
+pH 6.9 
+temp 10.50
+O(0) 4.90
+pe 5.10017
+Alkalinity 383
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 5.31 as NO3
+P 0.020 as PO4
+C(-4) 2.8
+Si 4.50
+Cl 18
+F -0.20
+S(6) 5 as SO4
+Na 8.3
+K 2.7
+Mg 6.10
+Ca 140.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 14 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu -1 ug/L
+Zn -1.0 ug/L
+As -1.0 ug/L
+Cd 0.1 ug/L
+Sb -1.0 ug/L
+Ba 12 ug/L
+Pb 0.6 ug/L
+U 0.8 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 540 ug/L
+Be -1.0 ug/L
+END

@@ -1,0 +1,47 @@
+SOLUTION
+#ID 14420
+#County Cork County Council
+#Site_Name Ballinatona (Spring1)
+#Easting 128306
+#Northing 112340
+#New_Code IE_SW_G_0070_0500_0002
+#Sample_Date 02/09/20
+units mg/L
+pH 7.2 
+temp 13.50
+O(0) 3.10
+pe -2.15134
+Alkalinity 246
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 6.20 as NO3
+P 0.013 as PO4
+C(-4) -1.0
+Si 11.00
+Cl 16
+F -0.20
+S(6) 6 as SO4
+Na 11.0
+K 0.8
+Mg 8.00
+Ca 77.0
+Fe -10 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al -2 ug/L
+Cr -1.0 ug/L
+Ni -1.0 ug/L
+Cu -1 ug/L
+Zn -1.0 ug/L
+As 1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 15 ug/L
+Pb -0.2 ug/L
+U 2.0 ug/L
+Hg -0.02 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 170 ug/L
+Be -1.0 ug/L
+END
