@@ -11,10 +11,10 @@ include_directories(BEFORE ../phreesqlib/)
 
 set(EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 
-include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/)
-include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/phreeqcpp)
-include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/phreeqcpp/common)
-include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/phreeqcpp/PhreeqcKeywords)
+#include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/)
+#include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/phreeqcpp)
+#include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/phreeqcpp/common)
+#include_directories(BEFORE ${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749/src/phreeqcpp/PhreeqcKeywords)
 
 include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 
@@ -25,6 +25,6 @@ execute_process (
 
 add_executable(phreesql main.cpp)
 
-set(IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
+#set(IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
 
-target_link_libraries(${PROJECT_NAME} ${IPHREEQC_LIB} sqlite3)
+target_link_libraries(${PROJECT_NAME} #[[${IPHREEQC_LIB}]] sqlite3)

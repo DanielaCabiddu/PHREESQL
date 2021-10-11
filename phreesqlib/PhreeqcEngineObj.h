@@ -1,8 +1,6 @@
 #ifndef PHREEQCOBJ_ENGINE
 #define PHREEQCOBJ_ENGINE
 
-#include <IPhreeqc.hpp>
-
 #include <string>
 
 namespace phreesqlib

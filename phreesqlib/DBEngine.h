@@ -1,7 +1,7 @@
 #ifndef DB_ENGINE
 #define DB_ENGINE
 
-#include "PhreeqcEngine.h"
+//#include "PhreeqcEngine.h"
 
 #include "matrac-reader.cpp"
 
