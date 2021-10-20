@@ -62,7 +62,7 @@ public:
         query = "CREATE TABLE IF NOT EXISTS DESCRIPTION_OF_SOLUTION "
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
                 "ANALYSIS_ID INTEGER NOT NULL,"
-                "KEY TEXT,"
+                "PARAM TEXT,"
                 "VALUE DOUBLE, "
                 "CONSTRAINT ANALYSIS_ID "
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
@@ -171,7 +171,7 @@ public:
 
         for (int i = 0; i < des_list.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO DESCRIPTION_OF_SOLUTION (ANALYSIS_ID, KEY, VALUE) VALUES ('" +
+            query = "INSERT OR REPLACE INTO DESCRIPTION_OF_SOLUTION (ANALYSIS_ID, PARAM, VALUE) VALUES ('" +
                     to_string(a_id) + "', '" +
                     des_list[i].key_name + "', '" +
                     des_list[i].value + "');";
