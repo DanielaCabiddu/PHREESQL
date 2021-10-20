@@ -22,11 +22,11 @@ public:
         query = "CREATE TABLE IF NOT EXISTS METADATA "
                 "( ID INTEGER PRIMARY KEY NOT NULL,"
                 "DATABASE TEXT,"
-                "ANALISYS_ID INTEGER NOT NULL,"
+                "ANALYSIS_ID INTEGER NOT NULL,"
                 "TITLE TEXT,"
                 "SOLUTION TEXT,"
-                "CONSTRAINT ANALISYS_ID "
-                "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "Create table metadata");
@@ -37,11 +37,11 @@ public:
         this->err_message = 0;
         query = "CREATE TABLE IF NOT EXISTS SOLUTION_INPUT "
                 "( ID INTEGER PRIMARY KEY NOT NULL,"
-                "ANALISYS_ID INTEGER NOT NULL,"
+                "ANALYSIS_ID INTEGER NOT NULL,"
                 "SOLUTION_NUMBER TEXT,"
                 "PARAM TEXT, VALUE TEXT,"
-                "CONSTRAINT ANALISYS_ID "
-                "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "Create table solution_input");
@@ -49,7 +49,7 @@ public:
 
     void insertMetadata(metadata meta, int a_id)
     {
-        query = "INSERT OR REPLACE INTO METADATA (ANALISYS_ID, DATABASE, TITLE, SOLUTION) VALUES ('" +
+        query = "INSERT OR REPLACE INTO METADATA (ANALYSIS_ID, DATABASE, TITLE, SOLUTION) VALUES ('" +
                 to_string(a_id) + "', '" +
                 meta["DATABASE"] + "', '" +
                 meta["TITLE"] + "', '" +
@@ -65,7 +65,7 @@ public:
 
         for (int i = 0; i < inputs.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO SOLUTION_INPUT (ANALISYS_ID, SOLUTION_NUMBER, PARAM, VALUE) VALUES ('" +
+            query = "INSERT OR REPLACE INTO SOLUTION_INPUT (ANALYSIS_ID, SOLUTION_NUMBER, PARAM, VALUE) VALUES ('" +
                     to_string(a_id) + "', '" +
                     inputs[i].solution_number + "', '" +
                     inputs[i].unit + "', '" +
@@ -78,12 +78,12 @@ public:
         sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
     }
 
-    void selectValuesFromMetadata(metadata &meta, int analisys_num)
+    void selectValuesFromMetadata(metadata &meta, int ANALYSIS_num)
     {
         char **res;
         int row, column;
 
-        query = "SELECT * FROM METADATA WHERE ANALISYS_ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM METADATA WHERE ANALYSIS_ID='" + to_string(ANALYSIS_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting data from metadata");
 
@@ -94,13 +94,13 @@ public:
         sqlite3_free_table(res);
     }
 
-    void selectValuesFromSolution(vector<SolutionInput> &inputs, int analisys_num)
+    void selectValuesFromSolution(vector<SolutionInput> &inputs, int ANALYSIS_num)
     {
         char **res;
         int row, column;
         SolutionInput input;
 
-        query = "SELECT * FROM SOLUTION_INPUT WHERE ANALISYS_ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM SOLUTION_INPUT WHERE ANALYSIS_ID='" + to_string(ANALYSIS_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting data from solution_input");
 

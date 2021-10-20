@@ -13,7 +13,7 @@ public:
     bool isOutputEmpty()
     {
         int num_tables;
-        query = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='ANALISYS';";
+        query = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='ANALYSIS';";
         rc = sqlite3_exec(db, query.c_str(), emptyDBCallback, &num_tables, &err_message);
         this->queryResult(rc, "check if empty");
         return num_tables == 0;
@@ -23,7 +23,7 @@ public:
 
     void createAnalisysTable()
     {
-        query = "CREATE TABLE IF NOT EXISTS ANALISYS "
+        query = "CREATE TABLE IF NOT EXISTS ANALYSIS "
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
                 "JOB_TYPE TEXT,"
                 "SURVEY TEXT,"
@@ -46,12 +46,12 @@ public:
     {
         query = "CREATE TABLE IF NOT EXISTS SOLUTION_COMPOSITION "
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
-                "ANALISYS_ID INTEGER NOT NULL,"
+                "ANALYSIS_ID INTEGER NOT NULL,"
                 "ELEMENTS TEXT,"
                 "MOLALITY DOUBLE,"
                 "MOLES DOUBLE,"
-                "CONSTRAINT ANALISYS_ID "
-                "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating solution_composition");
@@ -61,11 +61,11 @@ public:
     {
         query = "CREATE TABLE IF NOT EXISTS DESCRIPTION_OF_SOLUTION "
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
-                "ANALISYS_ID INTEGER NOT NULL,"
+                "ANALYSIS_ID INTEGER NOT NULL,"
                 "KEY TEXT,"
                 "VALUE DOUBLE, "
-                "CONSTRAINT ANALISYS_ID "
-                "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating description_of_solution");
@@ -75,15 +75,15 @@ public:
     {
         query = "CREATE TABLE IF NOT EXISTS DISTRIBUTION_OF_SPECIES "
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
-                "ANALISYS_ID INTEGER NOT NULL,"
+                "ANALYSIS_ID INTEGER NOT NULL,"
                 "SPECIES TEXT,"
                 "MOLALITY DOUBLE,"
                 "ACTIVITY DOUBLE,"
                 "LOG_MOLALITY DECIMAL (3, 3),"
                 "LOG_ACTIVITY DECIMAL (3, 3),"
                 "LOG_GAMMA DECIMAl (3, 3),"
-                "CONSTRAINT ANALISYS_ID "
-                "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating distribution_of_species");
@@ -93,13 +93,13 @@ public:
     {
         query = "CREATE TABLE IF NOT EXISTS DISTRIBUTION_OF_ALKALINITY "
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
-                "ANALISYS_ID INTEGER NOT NULL,"
+                "ANALYSIS_ID INTEGER NOT NULL,"
                 "SPECIES TEXT,"
                 "ALKALINITY DOUBLE,"
                 "MOLALITY DOUBLE,"
                 "ALK_MOL DECIMAL (2, 2),"
-                "CONSTRAINT ANALISYS_ID "
-                "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating distribution_of_alkalinity");
@@ -109,14 +109,14 @@ public:
     {
         query = "CREATE TABLE IF NOT EXISTS SATURATION_INDICES "
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
-                "ANALISYS_ID INTEGER NOT NULL,"
+                "ANALYSIS_ID INTEGER NOT NULL,"
                 "PHASE TEXT,"
                 "SI DECIMAL (3 ,2),"
                 "LOG_IAP DECIMAL (3 ,2),"
                 "LOG_K DECIMAL (3 ,2),"
                 "FORMULA TEXT,"
-                "CONSTRAINT ANALISYS_ID "
-                "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating saturation_indices");
@@ -126,7 +126,7 @@ public:
 
     void insertAnalisys(Analisys &a)
     {
-        query = "INSERT OR REPLACE INTO ANALISYS (JOB_TYPE, SURVEY, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP) VALUES ('" +
+        query = "INSERT OR REPLACE INTO ANALYSIS (JOB_TYPE, SURVEY, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP) VALUES ('" +
                 a.job_type + "', '" +
                 a.survey + "', '" +
                 a.date + "', '" +
@@ -152,7 +152,7 @@ public:
 
         for (int i = 0; i < sc_list.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO SOLUTION_COMPOSITION (ANALISYS_ID, ELEMENTS, MOLALITY, MOLES) VALUES ('" +
+            query = "INSERT OR REPLACE INTO SOLUTION_COMPOSITION (ANALYSIS_ID, ELEMENTS, MOLALITY, MOLES) VALUES ('" +
                     to_string(a_id) + "', '" +
                     sc_list[i].element + "', '" +
                     sc_list[i].molality + "', '" +
@@ -171,7 +171,7 @@ public:
 
         for (int i = 0; i < des_list.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO DESCRIPTION_OF_SOLUTION (ANALISYS_ID, KEY, VALUE) VALUES ('" +
+            query = "INSERT OR REPLACE INTO DESCRIPTION_OF_SOLUTION (ANALYSIS_ID, KEY, VALUE) VALUES ('" +
                     to_string(a_id) + "', '" +
                     des_list[i].key_name + "', '" +
                     des_list[i].value + "');";
@@ -189,7 +189,7 @@ public:
 
         for (int i = 0; i < dis_list.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO DISTRIBUTION_OF_SPECIES (ANALISYS_ID, SPECIES, MOLALITY, ACTIVITY, LOG_MOLALITY, LOG_ACTIVITY, LOG_GAMMA) VALUES ('" +
+            query = "INSERT OR REPLACE INTO DISTRIBUTION_OF_SPECIES (ANALYSIS_ID, SPECIES, MOLALITY, ACTIVITY, LOG_MOLALITY, LOG_ACTIVITY, LOG_GAMMA) VALUES ('" +
                     to_string(a_id) + "', '" +
                     dis_list[i].species + "', '" +
                     dis_list[i].molality + "', '" +
@@ -211,7 +211,7 @@ public:
 
         for (int i = 0; i < alk_list.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO DISTRIBUTION_OF_ALKALINITY (ANALISYS_ID, SPECIES, ALKALINITY, MOLALITY, ALK_MOL) VALUES ('" +
+            query = "INSERT OR REPLACE INTO DISTRIBUTION_OF_ALKALINITY (ANALYSIS_ID, SPECIES, ALKALINITY, MOLALITY, ALK_MOL) VALUES ('" +
                     to_string(a_id) + "', '" +
                     alk_list[i].species + "', '" +
                     alk_list[i].alkalinity + "', '" +
@@ -231,7 +231,7 @@ public:
 
         for (int i = 0; i < si_list.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO SATURATION_INDICES (ANALISYS_ID, PHASE, SI, LOG_IAP, LOG_K, FORMULA) VALUES ('" +
+            query = "INSERT OR REPLACE INTO SATURATION_INDICES (ANALYSIS_ID, PHASE, SI, LOG_IAP, LOG_K, FORMULA) VALUES ('" +
                     to_string(a_id) + "', '" +
                     si_list[i].phase + "', '" +
                     si_list[i].si + "', '" +
@@ -254,7 +254,7 @@ public:
         int row, column;
         SolutionComposition sc;
 
-        query = "SELECT * FROM ANALISYS WHERE ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM ANALYSIS WHERE ID='" + to_string(analisys_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting analisys");
 
@@ -282,7 +282,7 @@ public:
         int row, column;
         SolutionComposition sc;
 
-        query = "SELECT * FROM SOLUTION_COMPOSITION WHERE ANALISYS_ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM SOLUTION_COMPOSITION WHERE ANALYSIS_ID='" + to_string(analisys_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selection solution_composition");
 
@@ -305,7 +305,7 @@ public:
         int row, column;
         DescriptionOfSolution des;
 
-        query = "SELECT * FROM DESCRIPTION_OF_SOLUTION WHERE ANALISYS_ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM DESCRIPTION_OF_SOLUTION WHERE ANALYSIS_ID='" + to_string(analisys_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selection distribution_of_solution");
 
@@ -328,7 +328,7 @@ public:
         int row, column;
         DistributionOfSpecies dis;
 
-        query = "SELECT * FROM DISTRIBUTION_OF_SPECIES WHERE ANALISYS_ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM DISTRIBUTION_OF_SPECIES WHERE ANALYSIS_ID='" + to_string(analisys_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selectiong distribution_of_species");
 
@@ -355,7 +355,7 @@ public:
         int row, column;
         DistributionOfAlkalinity alk;
 
-        query = "SELECT * FROM DISTRIBUTION_OF_ALKALINITY WHERE ANALISYS_ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM DISTRIBUTION_OF_ALKALINITY WHERE ANALYSIS_ID='" + to_string(analisys_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selection distribution_of_alkalinity");
 
@@ -380,7 +380,7 @@ public:
         int row, column;
         SaturationIndices si;
 
-        query = "SELECT * FROM SATURATION_INDICES WHERE ANALISYS_ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM SATURATION_INDICES WHERE ANALYSIS_ID='" + to_string(analisys_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selection of saturation_indicies");
 
