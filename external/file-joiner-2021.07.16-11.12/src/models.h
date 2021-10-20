@@ -68,6 +68,7 @@ struct Analisys
     int id;
     string job_type;
     string survey;
+    string site_name;
     string date;
     string database;
     string phreeqc_version;

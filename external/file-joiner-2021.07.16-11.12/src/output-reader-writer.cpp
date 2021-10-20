@@ -83,6 +83,10 @@ public:
         {
             a.sample_name = value;
         }
+        else if (strcmp(key.c_str(), "SITE") == 0)
+        {
+            a.site_name = value;
+        }
         else if (strcmp(key.c_str(), "INPUT_FILE") == 0)
         {
             a.input_file = value;

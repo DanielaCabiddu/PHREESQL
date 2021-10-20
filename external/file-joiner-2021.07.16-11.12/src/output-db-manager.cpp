@@ -27,6 +27,7 @@ public:
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
                 "JOB_TYPE TEXT,"
                 "SURVEY TEXT,"
+                "SITE_NAME TEXT,"
                 "DATE DATETIME,"
                 "DATABASE TEXT,"
                 "PHREEQC_VERSION TEXT,"
@@ -126,9 +127,10 @@ public:
 
     void insertAnalisys(Analisys &a)
     {
-        query = "INSERT OR REPLACE INTO ANALYSIS (JOB_TYPE, SURVEY, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP) VALUES ('" +
+        query = "INSERT OR REPLACE INTO ANALYSIS (JOB_TYPE, SURVEY, SITE_NAME, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP) VALUES ('" +
                 a.job_type + "', '" +
                 a.survey + "', '" +
+                a.site_name + "', '" +
                 a.date + "', '" +
                 a.database + "', '" +
                 a.phreeqc_version + "', '" +
