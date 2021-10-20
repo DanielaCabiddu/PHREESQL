@@ -58,14 +58,14 @@ public:
                 }
                 else
                 {
-                    if (key.compare("units") != 0)
-                    {
+//                    if (key.compare("units") != 0)
+//                    {
                         SolutionInput input;
                         input.unit = trim(key);
                         input.ppm = trim(line.substr(line.find(key) + key.size(), line.size()));
                         input.solution_number = solution;
                         input_list.push_back(input);
-                    }
+//                    }
                 }
             }
             input_file.close(); //close the file object.

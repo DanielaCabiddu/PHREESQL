@@ -39,7 +39,7 @@ public:
                 "( ID INTEGER PRIMARY KEY NOT NULL,"
                 "ANALISYS_ID INTEGER NOT NULL,"
                 "SOLUTION_NUMBER TEXT,"
-                "UNIT TEXT, PPM TEXT,"
+                "PARAM TEXT, VALUE TEXT,"
                 "CONSTRAINT ANALISYS_ID "
                 "FOREIGN KEY (ANALISYS_ID) REFERENCES ANALISYS(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
@@ -65,7 +65,7 @@ public:
 
         for (int i = 0; i < inputs.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO SOLUTION_INPUT (ANALISYS_ID, SOLUTION_NUMBER, UNIT, PPM) VALUES ('" +
+            query = "INSERT OR REPLACE INTO SOLUTION_INPUT (ANALISYS_ID, SOLUTION_NUMBER, PARAM, VALUE) VALUES ('" +
                     to_string(a_id) + "', '" +
                     inputs[i].solution_number + "', '" +
                     inputs[i].unit + "', '" +
