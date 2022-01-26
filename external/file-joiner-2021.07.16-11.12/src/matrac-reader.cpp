@@ -154,7 +154,7 @@ public:
 
         if (dir != NULL)
         {
-            int num = o_manager->getNumRows("METADATA");
+            int num = o_manager->getNumRows(o_manager->metadata_table_name);
             for (int i = 1; i <= num; i++)
             {
                 i_manager->selectValuesFromMetadata(i_file.meta, i);
@@ -189,7 +189,7 @@ public:
 
         this->deleteFileIfExists(file_path);
 
-        int num = o_manager->getNumRows("ANALISYS");
+        int num = o_manager->getNumRows(o_manager->metadata_table_name);
 
         for (int i = 1; i <= num; i++)
         {

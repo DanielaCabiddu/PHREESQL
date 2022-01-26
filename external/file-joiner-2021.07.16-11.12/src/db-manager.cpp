@@ -36,9 +36,11 @@ protected:
     int rc;
     string query;
 
-    string metadata_table_name = "METADATA";
 
 public:
+
+    const string metadata_table_name = "METADATA";
+
     DBManager(sqlite3 *db)
     {
         this->db = db;
