@@ -83,7 +83,7 @@ public:
         char **res;
         int row, column;
 
-        query = "SELECT * FROM METADATA WHERE ANALYSIS_ID='" + to_string(ANALYSIS_num) + "';";
+        query = "SELECT * FROM " + metadata_table_name + " WHERE ID='" + to_string(ANALYSIS_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting data from metadata");
 
