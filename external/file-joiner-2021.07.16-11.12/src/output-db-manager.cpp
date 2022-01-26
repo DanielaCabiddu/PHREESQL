@@ -13,7 +13,7 @@ public:
     bool isOutputEmpty()
     {
         int num_tables;
-        query = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='ANALYSIS';";
+        query = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='" + metadata_table_name + "';";
         rc = sqlite3_exec(db, query.c_str(), emptyDBCallback, &num_tables, &err_message);
         this->queryResult(rc, "check if empty");
         return num_tables == 0;
@@ -23,7 +23,7 @@ public:
 
     void createAnalisysTable()
     {
-        query = "CREATE TABLE IF NOT EXISTS ANALYSIS "
+        query = "CREATE TABLE IF NOT EXISTS " + metadata_table_name +
                 "( ID INTEGER PRIMARY KEY NOT NULL, "
                 "JOB_TYPE TEXT,"
                 "SURVEY TEXT,"
@@ -37,7 +37,9 @@ public:
                 "COORD_X DOUBLE,"
                 "COORD_Y DOUBLE,"
                 "EPSG INT,"
-                "TIMESTAMP DATETIME );";
+                "TIMESTAMP DATETIME,"
+                "TITLE TEXT,"
+                "SOLUTION TEXT );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating analisys table");
@@ -52,7 +54,7 @@ public:
                 "MOLALITY DOUBLE,"
                 "MOLES DOUBLE,"
                 "CONSTRAINT ANALYSIS_ID "
-                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating solution_composition");
@@ -66,7 +68,7 @@ public:
                 "PARAM TEXT,"
                 "VALUE DOUBLE, "
                 "CONSTRAINT ANALYSIS_ID "
-                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating description_of_solution");
@@ -84,7 +86,7 @@ public:
                 "LOG_ACTIVITY DECIMAL (3, 3),"
                 "LOG_GAMMA DECIMAl (3, 3),"
                 "CONSTRAINT ANALYSIS_ID "
-                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating distribution_of_species");
@@ -100,7 +102,7 @@ public:
                 "MOLALITY DOUBLE,"
                 "ALK_MOL DECIMAL (2, 2),"
                 "CONSTRAINT ANALYSIS_ID "
-                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating distribution_of_alkalinity");
@@ -117,7 +119,7 @@ public:
                 "LOG_K DECIMAL (3 ,2),"
                 "FORMULA TEXT,"
                 "CONSTRAINT ANALYSIS_ID "
-                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating saturation_indices");
@@ -125,9 +127,9 @@ public:
 
     //INSERT VALUES
 
-    void insertAnalisys(Analisys &a)
+    void insertAnalisys(Analisys &a, metadata meta)
     {
-        query = "INSERT OR REPLACE INTO ANALYSIS (JOB_TYPE, SURVEY, SITE_NAME, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP) VALUES ('" +
+        query = "INSERT OR REPLACE INTO " + metadata_table_name + " (JOB_TYPE, SURVEY, SITE_NAME, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP, TITLE, SOLUTION) VALUES ('" +
                 a.job_type + "', '" +
                 a.survey + "', '" +
                 a.site_name + "', '" +
@@ -140,7 +142,9 @@ public:
                 a.coord_x + "', '" +
                 a.coord_y + "', '" +
                 a.epsg + "', '" +
-                a.timestamp + "');";
+                a.timestamp + "', '" +
+                meta["TITLE"] + "', '" +
+                meta["SOLUTION"] + "');";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "inserting analisys");
@@ -256,7 +260,7 @@ public:
         int row, column;
         SolutionComposition sc;
 
-        query = "SELECT * FROM ANALYSIS WHERE ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM " + metadata_table_name + " WHERE ID='" + to_string(analisys_num) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting analisys");
 

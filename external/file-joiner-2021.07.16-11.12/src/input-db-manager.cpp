@@ -17,20 +17,20 @@ public:
         return num_tables == 0;
     }
 
-    void createMetadataTable()
-    {
-        query = "CREATE TABLE IF NOT EXISTS METADATA "
-                "( ID INTEGER PRIMARY KEY NOT NULL,"
-                "DATABASE TEXT,"
-                "ANALYSIS_ID INTEGER NOT NULL,"
-                "TITLE TEXT,"
-                "SOLUTION TEXT,"
-                "CONSTRAINT ANALYSIS_ID "
-                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
-        rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
+//    void createMetadataTable()
+//    {
+//        query = "CREATE TABLE IF NOT EXISTS METADATA "
+//                "( ID INTEGER PRIMARY KEY NOT NULL,"
+//                "DATABASE TEXT,"
+//                "ANALYSIS_ID INTEGER NOT NULL,"
+//                "TITLE TEXT,"
+//                "SOLUTION TEXT,"
+//                "CONSTRAINT ANALYSIS_ID "
+//                "FOREIGN KEY (ANALYSIS_ID) REFERENCES ANALYSIS(ID) );";
+//        rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
-        this->queryResult(rc, "Create table metadata");
-    }
+//        this->queryResult(rc, "Create table metadata");
+//    }
 
     void createSolutionInputTable()
     {
@@ -47,17 +47,17 @@ public:
         this->queryResult(rc, "Create table solution_input");
     }
 
-    void insertMetadata(metadata meta, int a_id)
-    {
-        query = "INSERT OR REPLACE INTO METADATA (ANALYSIS_ID, DATABASE, TITLE, SOLUTION) VALUES ('" +
-                to_string(a_id) + "', '" +
-                meta["DATABASE"] + "', '" +
-                meta["TITLE"] + "', '" +
-                meta["SOLUTION"] + "');";
+//    void insertMetadata(metadata meta, int a_id)
+//    {
+//        query = "INSERT OR REPLACE INTO METADATA (ANALYSIS_ID, DATABASE, TITLE, SOLUTION) VALUES ('" +
+//                to_string(a_id) + "', '" +
+//                meta["DATABASE"] + "', '" +
+//                meta["TITLE"] + "', '" +
+//                meta["SOLUTION"] + "');";
 
-        rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
-        this->queryResult(rc, "insert or replace metadata");
-    }
+//        rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
+//        this->queryResult(rc, "insert or replace metadata");
+//    }
 
     void insertSolutionInputs(vector<SolutionInput> inputs, int a_id)
     {

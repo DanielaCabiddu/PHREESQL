@@ -99,55 +99,36 @@ public:
 
     void readInputOutputFiles(string input_path, string output_path, string meta_path)
     {
-        readOutputFile(output_path, meta_path);
-        readInputFile(input_path);
+//        readOutputFile(output_path, meta_path);
+//        readInputFile(input_path);
+
+        readIOMFiles(input_path, output_path, meta_path);
     }
 
-    bool readInputFile(string file_path)
+    bool readIOMFiles(string ifile_path, string ofile_path, string meta_path)
     {
-//        if (i_file == NULL)
-//        {
-//            i_file = new InputReaderWriter();
-//        }
-
-        if (i_file.readFile(file_path))
+        if (i_file.readFile(ifile_path) && o_file.readFile(ofile_path) && o_file.readMetadata(meta_path))
         {
             this->createInputTables();
-            i_manager->insertMetadata(i_file.meta, (o_file.a).id);
-            i_manager->insertSolutionInputs(i_file.input_list, (o_file.a).id);
-
-            return true;
-        }
-        else
-        {
-            cerr << "Error in opening the file " << file_path << endl;
-            return false;
-        }
-    }
-
-    void readOutputFile(string file_path, string meta_path)
-    {
-//        if (o_file == NULL)
-//        {
-//            o_file = new OutputReaderWriter();
-//        }
-
-        if (o_file.readFile(file_path) && o_file.readMetadata(meta_path))
-        {
-            o_manager->createAnalisysTable();
-            o_manager->insertAnalisys(o_file.a);
-
             this->createOutputTables();
+            o_manager->createAnalisysTable();
+
+            o_manager->insertAnalisys(o_file.a, i_file.meta);
+
             o_manager->insertSolutionComposition(o_file.sc_list);
             o_manager->insertDescriptionOfSolution(o_file.des_list);
             o_manager->insertDistributionOfSpecies(o_file.dis_list);
             o_manager->insertDistributionOfAlkalinity(o_file.alk_list);
             o_manager->insertSaturationIndices(o_file.si_list);
+
+            return true;
         }
         else
         {
-            cerr << "Error in opening the file" << endl;
+            cerr << "Error in opening either input/output or metadata file " << endl;
+            return false;
         }
+
     }
 
     void writeInputFile(string directory)
@@ -225,7 +206,7 @@ public:
 
     void createInputTables()
     {
-        i_manager->createMetadataTable();
+//        i_manager->createMetadataTable();
         i_manager->createSolutionInputTable();
     }
 

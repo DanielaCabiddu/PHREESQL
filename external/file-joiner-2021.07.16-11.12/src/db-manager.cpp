@@ -36,6 +36,8 @@ protected:
     int rc;
     string query;
 
+    string metadata_table_name = "METADATA";
+
 public:
     DBManager(sqlite3 *db)
     {

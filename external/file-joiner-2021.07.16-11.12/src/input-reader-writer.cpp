@@ -69,6 +69,13 @@ public:
                 }
             }
             input_file.close(); //close the file object.
+
+            if (meta.find("TITLE") == meta.end())
+                meta.insert(pair<string, string>("TITLE", ""));
+
+            if (meta.find("SOLUTION") == meta.end())
+                meta.insert(pair<string, string>("SOLUTION", ""));
+
             return true;
         }
         return false;

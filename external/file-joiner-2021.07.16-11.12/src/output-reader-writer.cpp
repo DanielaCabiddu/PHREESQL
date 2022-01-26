@@ -204,6 +204,31 @@ public:
             DescriptionOfSolution des;
             key = trim(line.substr(0, line.find('=')));
             value = trim(line.substr(line.find('=') + 1, line.size()));
+
+            // Get the first occurrence
+            std::string toSearch = std::to_string(char(176));
+            size_t pos = key.find(toSearch);
+
+            std::cout << toSearch << std::endl;
+
+            std::cout << key << " , " << pos << std::endl;
+
+            if (pos < key.length())
+            {
+                std::string replaceStr = key;
+                // Repeat till end is reached
+                while( pos != std::string::npos)
+                {
+                    // Replace this occurrence of Sub String
+                    key.replace(pos, toSearch.size(), "U+2103");
+                    // Get the next occurrence from the current position
+                    pos =key.find(toSearch, pos + replaceStr.size());
+                }
+
+                key = replaceStr;
+            }
+
+            std::cout << key << std::endl;
             des.key_name = key;
             des.value = value;
             this->des_list.push_back(des);
