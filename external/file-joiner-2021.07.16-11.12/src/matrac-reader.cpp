@@ -131,7 +131,7 @@ public:
 
     }
 
-    void writeInputFile(string directory)
+    void writeInputFile(string directory, int analysis_id)
     {
         if (i_manager->isDBEmpty())
         {
@@ -154,19 +154,35 @@ public:
 
         if (dir != NULL)
         {
-            int num = o_manager->getNumRows(o_manager->metadata_table_name);
-            for (int i = 1; i <= num; i++)
-            {
-                i_manager->selectValuesFromMetadata(i_file.meta, i);
-                i_manager->selectValuesFromSolution(i_file.input_list, i);
-                this->deleteFileIfExists(directory + "/dump_input_" + to_string(i) + ".txt");
-                i_file.writeFile(i, directory);
-            }
+//            int num = o_manager->getNumRows(o_manager->metadata_table_name);
+//            for (int i = 1; i <= num; i++)
+//            {
+                i_manager->selectValuesFromMetadata(i_file.meta, analysis_id);
+                i_manager->selectValuesFromSolution(i_file.input_list, analysis_id);
+                this->deleteFileIfExists(directory + "/dump_input_" + to_string(analysis_id) + ".txt");
+                i_file.writeFile(analysis_id, directory);
+//            }
             closedir(dir);
         }
         else
             return;
     }
+
+    void writeInputFiles(string directory, std::vector<int> analysis_ids)
+    {
+        for (const int analysis_id : analysis_ids)
+            writeInputFile(directory, analysis_id);
+    }
+
+    void writeAllInputFiles(string directory)
+    {
+        int num = o_manager->getNumRows(o_manager->metadata_table_name);
+        for (int analysis_id = 1; analysis_id <= num; analysis_id++)
+        {
+            writeInputFile(directory, analysis_id);
+        }
+    }
+
 
     void writeOutputFile(string file_path)
     {
