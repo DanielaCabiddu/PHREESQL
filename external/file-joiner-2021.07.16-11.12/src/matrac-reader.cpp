@@ -112,10 +112,9 @@ public:
             this->createInputTables();
             this->createOutputTables();
             o_manager->createAnalisysTable();
+            o_manager->insertAnalisys(o_file.a, i_file.meta);
 
             i_manager->insertSolutionInputs(i_file.input_list, (o_file.a).id);
-
-            o_manager->insertAnalisys(o_file.a, i_file.meta);
 
             o_manager->insertSolutionComposition(o_file.sc_list);
             o_manager->insertDescriptionOfSolution(o_file.des_list);
