@@ -134,6 +134,8 @@ public:
 
     void writeInputFile(string directory, int analysis_id)
     {
+        std::cout << "Writing Input File - Analysis ID : [" << analysis_id << "]" << std::endl;
+
         if (i_manager->isDBEmpty())
         {
             cerr << "Error: Empty Database" << endl;
@@ -185,7 +187,7 @@ public:
     }
 
 
-    void writeOutputFile(string file_path)
+    void writeOutputFile(string directory, int analysis_id)
     {
         if (o_manager->isDBEmpty())
         {
@@ -204,21 +206,40 @@ public:
 //            o_file = new OutputReaderWriter();
 //        }
 
-        this->deleteFileIfExists(file_path);
+//        int num = o_manager->getNumRows(o_manager->metadata_table_name);
 
+//        for (int i = 1; i <= num; i++)
+//        {
+            std::cout << "Writing Output File - Analysis ID : [" << analysis_id << "]" << std::endl;
+
+            o_manager->selectValuesfromAnalisys(o_file.a, analysis_id);
+            o_manager->selectValuesFromSolutionComposition(o_file.sc_list, analysis_id);
+            o_manager->selectValuesFromDescriptionOfSolution(o_file.des_list, analysis_id);
+            o_manager->selectValuesFromDistributionOfSpecies(o_file.dis_list, analysis_id);
+            o_manager->selectValuesFromDistributionOfAlkalinity(o_file.alk_list, analysis_id);
+            o_manager->selectValuesFromSaturationIndices(o_file.si_list, analysis_id);
+
+            const std::string file_path = directory + "/dump_output_" + to_string(analysis_id) + ".txt";
+            this->deleteFileIfExists(file_path);
+
+            o_file.writeAnalisysFile(file_path, analysis_id);
+//        }
+
+    }
+
+    void writeOutputFiles(string directory, std::vector<int> analysis_ids)
+    {
+        for (const int analysis_id : analysis_ids)
+            writeOutputFile(directory, analysis_id);
+    }
+
+    void writeAllOutputFiles(string directory)
+    {
         int num = o_manager->getNumRows(o_manager->metadata_table_name);
-
-        for (int i = 1; i <= num; i++)
+        for (int analysis_id = 1; analysis_id <= num; analysis_id++)
         {
-            o_manager->selectValuesfromAnalisys(o_file.a, i);
-            o_manager->selectValuesFromSolutionComposition(o_file.sc_list, i);
-            o_manager->selectValuesFromDescriptionOfSolution(o_file.des_list, i);
-            o_manager->selectValuesFromDistributionOfSpecies(o_file.dis_list, i);
-            o_manager->selectValuesFromDistributionOfAlkalinity(o_file.alk_list, i);
-            o_manager->selectValuesFromSaturationIndices(o_file.si_list, i);
-            o_file.writeAnalisysFile(file_path, i);
+            writeOutputFile(directory, analysis_id);
         }
-        this->closeDB();
     }
 
     void createInputTables()

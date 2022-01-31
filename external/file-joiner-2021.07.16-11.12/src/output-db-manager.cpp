@@ -254,15 +254,21 @@ public:
 
     // SELECT
 
-    void selectValuesfromAnalisys(Analisys &a, int analisys_num)
+    void selectValuesfromAnalisys(Analisys &a, int analysis_id)
     {
         char **res;
         int row, column;
         SolutionComposition sc;
 
-        query = "SELECT * FROM " + metadata_table_name + " WHERE ID='" + to_string(analisys_num) + "';";
+        query = "SELECT * FROM " + metadata_table_name + " WHERE ID='" + to_string(analysis_id) + "';";
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting analisys");
+
+        if (row == 0 || column == 0)
+        {
+            std::cerr << __FUNCTION__ << " ERROR : Unexisting analysis ID " << analysis_id << std::endl;
+            return;
+        }
 
         a.id = atoi(res[0 + column]);
         a.job_type = res[1 + column];
