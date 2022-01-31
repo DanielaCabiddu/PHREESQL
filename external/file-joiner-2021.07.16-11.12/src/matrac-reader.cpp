@@ -113,6 +113,8 @@ public:
             this->createOutputTables();
             o_manager->createAnalisysTable();
 
+            i_manager->insertSolutionInputs(i_file.input_list, (o_file.a).id);
+
             o_manager->insertAnalisys(o_file.a, i_file.meta);
 
             o_manager->insertSolutionComposition(o_file.sc_list);
