@@ -122,6 +122,11 @@ public:
             o_manager->insertDistributionOfAlkalinity(o_file.alk_list);
             o_manager->insertSaturationIndices(o_file.si_list);
 
+            std::cout << std::endl << " ============== REPORT ================== " << std::endl << std::endl;
+
+            std::cout << o_manager->metadata_table_name << " #rows : " << o_manager->getNumRows(o_manager->metadata_table_name) << std::endl;
+            std::cout << "SOLUTION_INPUT" << " #rows : " << o_manager->getNumRows("SOLUTION_INPUT") << std::endl;
+
             return true;
         }
         else
