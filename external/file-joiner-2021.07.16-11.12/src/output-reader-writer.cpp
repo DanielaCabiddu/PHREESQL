@@ -209,10 +209,6 @@ public:
             std::string toSearch = std::to_string(char(176));
             size_t pos = key.find(toSearch);
 
-            std::cout << toSearch << std::endl;
-
-            std::cout << key << " , " << pos << std::endl;
-
             if (pos < key.length())
             {
                 std::string replaceStr = key;
@@ -228,7 +224,6 @@ public:
                 key = replaceStr;
             }
 
-            std::cout << key << std::endl;
             des.key_name = key;
             des.value = value;
             this->des_list.push_back(des);
