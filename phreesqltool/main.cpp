@@ -143,7 +143,8 @@ int main(int argc, char *argv[])
 
     phreesqlib::PhreeSQLibEngine engine (db);
 
-    engine.run_phreeqc_on_folder(in_folder, out_folder, "/home/danielacabiddu/Devel/src/PHREESQLib/external/iphreeqc-3.7.0-15749/database/llnl.dat");
+    if (run_phreeqc)
+        engine.run_phreeqc_on_folder(in_folder, out_folder, phreeqc_db_path);
 
     if (in_folder.length() > 0)
         engine.run_on_folder(in_folder, out_folder, meta_folder);
