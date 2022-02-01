@@ -254,7 +254,7 @@ public:
 
     // SELECT
 
-    void selectValuesfromAnalisys(Analisys &a, int analysis_id)
+    bool selectValuesfromAnalisys(Analisys &a, int analysis_id)
     {
         char **res;
         int row, column;
@@ -267,7 +267,7 @@ public:
         if (row == 0 || column == 0)
         {
             std::cerr << __FUNCTION__ << " ERROR : Unexisting analysis ID " << analysis_id << std::endl;
-            return;
+            return false;
         }
 
         a.id = atoi(res[0 + column]);
@@ -285,6 +285,8 @@ public:
         a.timestamp = res[12 + column];
 
         sqlite3_free_table(res);
+
+        return true;
     }
 
     void

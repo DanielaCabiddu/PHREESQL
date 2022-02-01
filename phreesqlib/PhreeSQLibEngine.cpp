@@ -97,3 +97,18 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
 
     delete db_engine;
 }
+
+void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, const std::vector<int> analysis_ids)
+{
+    phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
+    db_engine->export_input(out_folder, analysis_ids);
+    delete db_engine;
+}
+
+void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, const std::vector<int> analysis_ids)
+{
+    phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
+
+    db_engine->export_output(out_folder, analysis_ids);
+    delete db_engine;
+}

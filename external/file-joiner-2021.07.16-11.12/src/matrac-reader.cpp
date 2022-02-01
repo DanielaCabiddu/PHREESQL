@@ -217,7 +217,14 @@ public:
 //        {
             std::cout << "Writing Output File - Analysis ID : [" << analysis_id << "]" << std::endl;
 
-            o_manager->selectValuesfromAnalisys(o_file.a, analysis_id);
+            bool exists = o_manager->selectValuesfromAnalisys(o_file.a, analysis_id);
+
+            if (!exists)
+            {
+                std::cerr << "error - exporting analysis id " << analysis_id << std::endl;
+                return;
+            }
+
             o_manager->selectValuesFromSolutionComposition(o_file.sc_list, analysis_id);
             o_manager->selectValuesFromDescriptionOfSolution(o_file.des_list, analysis_id);
             o_manager->selectValuesFromDistributionOfSpecies(o_file.dis_list, analysis_id);
