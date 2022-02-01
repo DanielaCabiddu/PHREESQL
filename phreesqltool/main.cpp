@@ -18,8 +18,11 @@ int main(int argc, char *argv[])
     std::string export_ids_list_filename;
     int export_analysis_id = INT_MAX;
 
+    std::string phreeqc_db_path;
+
     int export_input = 0;
     int export_output = 0;
+    int run_phreeqc = 0;
 
     while (1)
     {
@@ -27,14 +30,17 @@ int main(int argc, char *argv[])
         {
             /* These options set a flag. */
 //            {"export_input",    no_argument,       &export_input,  0},
-            {"export_input",   no_argument,       &export_input, 1},
-            {"export_output",   no_argument,      &export_output, 1},
+            {"export_input",    no_argument,      &export_input,    1},
+            {"export_output",   no_argument,      &export_output,   1},
+            {"run_phreeqc",     no_argument,      &run_phreeqc,     1},
             /* These options don’t set a flag.
              We distinguish them by their indices. */
             //      {"add",     no_argument,       0, 'a'},
             {"export_folder",  required_argument, 0, 'F'},
             {"export_id",  required_argument, 0, 'I'},
             {"export_list_ids",  required_argument, 0, 'L'},
+
+            {"phreeqc_db",  required_argument, 0, 'P'},
 
             {"database",      required_argument, 0, 'd'},
             {"in_folder",     required_argument, 0, 'i'},
@@ -46,7 +52,7 @@ int main(int argc, char *argv[])
         /* getopt_long stores the option index here. */
         int option_index = 0;
 
-        int c = getopt_long (argc, argv, "d:F:i:I:o:m:S:", long_options, &option_index);
+        int c = getopt_long (argc, argv, "d:F:i:I:o:m:P:S:", long_options, &option_index);
 
         if (c==-1) break;
 
@@ -55,6 +61,7 @@ int main(int argc, char *argv[])
         case 0:
           /* If this option set a flag, do nothing else now. */
           if (long_options[option_index].flag != 0)
+            printf ("option %s set to true\n", long_options[option_index].name);
             break;
           printf ("option %s", long_options[option_index].name);
           if (optarg)
@@ -97,6 +104,11 @@ int main(int argc, char *argv[])
           meta_folder = optarg;
           break;
 
+        case 'P':
+          printf ("option -P (Phreeqc DB) with value `%s'\n", optarg);
+          phreeqc_db_path = optarg;
+          break;
+
         default:
           abort ();
         }
@@ -120,11 +132,18 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    if (run_phreeqc > 0 && phreeqc_db_path.length()==0)
+    {
+        std::cerr << "error - PhreeQC DB must be provided to run PhreeQC. " << std::endl;
+    }
+
     std::cout << std::endl;
     std::cout << "========================================================================================" << std::endl;
     std::cout << "Reading folders and filling database " << db << "..." << std::endl;
 
     phreesqlib::PhreeSQLibEngine engine (db);
+
+    engine.run_phreeqc_on_folder(in_folder, out_folder, "/home/danielacabiddu/Devel/src/PHREESQLib/external/iphreeqc-3.7.0-15749/database/llnl.dat");
 
     if (in_folder.length() > 0)
         engine.run_on_folder(in_folder, out_folder, meta_folder);

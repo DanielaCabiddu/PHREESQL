@@ -14,8 +14,9 @@ public:
 
     void run_on_folder (const std::string in_folder, const std::string out_folder, const std::string meta_folder);
 
-    void export_input (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> ());
+    void run_phreeqc_on_folder (const std::string in_folder, const std::string out_folder, const std::string phreeqc_db_path);
 
+    void export_input (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> ());
     void export_output (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> ());
 
 private:

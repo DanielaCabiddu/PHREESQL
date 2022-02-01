@@ -3,6 +3,8 @@
 #include "PhreeqcEngineObj.h"
 #include "DBEngine.h"
 
+#include <IPhreeqc.hpp>
+
 #include <limits.h>
 
 /**
@@ -97,6 +99,66 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
 
     delete db_engine;
 }
+
+void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_folder,
+                                                          const std::string out_folder,
+                                                          const std::string phreeqc_db_path)
+{
+    std::string separator;
+
+#ifdef _WIN32
+   separator = "\\";
+#else
+   separator = "/";
+#endif
+
+    phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
+
+    unsigned int file_counter = 0;
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir (in_folder.c_str())) != NULL)
+    {
+        /* print all the files and directories within directory */
+        while ((ent = readdir (dir)) != NULL)
+        {
+            const std::string filename = ent->d_name;
+
+              if (filename.compare("..") == 0) continue;
+              if (filename.compare(".") == 0) continue;
+
+              const unsigned int ext_id = filename.find_last_of(".");
+              const std::string ext = (ext_id < UINT_MAX) ? filename.substr(ext_id) : "";
+
+              if (ext.compare(in_ext) != 0)
+              {
+                  std::cerr << ent->d_name << " ]] Invalid Input File. IGNORED" << std::endl;
+                  continue;
+              }
+
+              const std::string basename = (ext_id < UINT_MAX) ? filename.substr(0, ext_id) : filename;
+
+              const std::string in_absolute_path = in_folder + separator + basename + in_ext;
+              const std::string out_absolute_path = out_folder + separator + basename + out_ext;
+
+              //// run phreeqc
+              ///
+              IPhreeqc *phreeqc_engine = new IPhreeqc();
+              phreeqc_engine->SetErrorStringOn(true);
+              phreeqc_engine->SetOutputStringOn(true);
+
+              phreeqc_engine->SetErrorFileOn(true);
+              phreeqc_engine->SetOutputFileOn(true);
+              phreeqc_engine->SetOutputFileName(out_absolute_path.c_str());
+
+              phreeqc_engine->LoadDatabase(phreeqc_db_path.c_str());
+
+              std::cout << ent->d_name << ": running phreeqc -> " << out_absolute_path << std::endl;
+              phreeqc_engine->RunFile(in_absolute_path.c_str());
+        }
+    }
+}
+
 
 void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, const std::vector<int> analysis_ids)
 {
