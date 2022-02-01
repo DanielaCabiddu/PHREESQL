@@ -137,14 +137,19 @@ int main(int argc, char *argv[])
         std::cerr << "error - PhreeQC DB must be provided to run PhreeQC. " << std::endl;
     }
 
-    std::cout << std::endl;
-    std::cout << "========================================================================================" << std::endl;
-    std::cout << "Reading folders and filling database " << db << "..." << std::endl;
-
     phreesqlib::PhreeSQLibEngine engine (db);
 
     if (run_phreeqc > 0)
+    {
+        std::cout << std::endl;
+        std::cout << "========================================================================================" << std::endl;
+        std::cout << "Running PhreeQC using DB " << phreeqc_db_path << "..." << std::endl;
         engine.run_phreeqc_on_folder(in_folder, out_folder, phreeqc_db_path);
+    }
+
+    std::cout << std::endl;
+    std::cout << "========================================================================================" << std::endl;
+    std::cout << "Reading folders and filling database " << db << "..." << std::endl;
 
     if (in_folder.length() > 0)
         engine.run_on_folder(in_folder, out_folder, meta_folder);
