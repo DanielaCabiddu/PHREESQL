@@ -14,55 +14,77 @@ int main(int argc, char *argv[])
     std::string meta_folder;
     std::string db;
 
+    std::string export_folder;
+    std::string export_ids_list_filename;
+    int export_analysis_id = INT_MAX;
+
+    int export_input = 0;
+    int export_output = 0;
+
     while (1)
     {
         static struct option long_options[] =
         {
-          /* These options set a flag. */
-    //      {"verbose", no_argument,       &verbose_flag, 1},
-    //      {"brief",   no_argument,       &verbose_flag, 0},
-          /* These options don’t set a flag.
+            /* These options set a flag. */
+//            {"export_input",    no_argument,       &export_input,  0},
+            {"export_input",   no_argument,       &export_input, 1},
+            {"export_output",   no_argument,      &export_output, 1},
+            /* These options don’t set a flag.
              We distinguish them by their indices. */
-    //      {"add",     no_argument,       0, 'a'},
-          {"database",      required_argument, 0, 'd'},
-          {"in_folder",     required_argument, 0, 'i'},
-          {"out_folder",    required_argument, 0, 'o'},
-          {"meta_folder",   required_argument, 0, 'm'},
-          {0, 0, 0, 0}
+            //      {"add",     no_argument,       0, 'a'},
+            {"export_folder",  required_argument, 0, 'F'},
+            {"export_id",  required_argument, 0, 'I'},
+            {"export_list_ids",  required_argument, 0, 'L'},
+
+            {"database",      required_argument, 0, 'd'},
+            {"in_folder",     required_argument, 0, 'i'},
+            {"out_folder",    required_argument, 0, 'o'},
+            {"meta_folder",   required_argument, 0, 'm'},
+            {0, 0, 0, 0}
         };
 
         /* getopt_long stores the option index here. */
         int option_index = 0;
 
-        int c = getopt_long (argc, argv, "d:i:o:m:", long_options, &option_index);
+        int c = getopt_long (argc, argv, "d:F:i:I:o:m:S:", long_options, &option_index);
 
         if (c==-1) break;
 
         switch (c)
         {
-//        case 0:
+        case 0:
           /* If this option set a flag, do nothing else now. */
-//                  if (long_options[option_index].flag != 0)
-//                    break;
-//                  printf ("option %s", long_options[option_index].name);
-//                  if (optarg)
-//                    printf (" with arg %s", optarg);
-//                  printf ("\n");
-//                  break;
+          if (long_options[option_index].flag != 0)
+            break;
+          printf ("option %s", long_options[option_index].name);
+          if (optarg)
+            printf (" with arg %s", optarg);
+          printf ("\n");
+          break;
 
         case 'd':
           printf ("option -d (database) with value `%s'\n", optarg);
           db = optarg;
           break;
 
-//        case 'f':
-//          printf ("option -f with value `%s'\n", optarg);
-//          file = optarg;
-//          break;
+        case 'F':
+          printf ("option -F (export folder) with value `%s'\n", optarg);
+          export_folder = optarg;
+          break;
 
         case 'i':
           printf ("option -i (input folder) with value `%s'\n", optarg);
           in_folder = optarg;
+          break;
+
+        case 'I':
+          printf ("option -I (export single analysis) with value `%s'\n", optarg);
+          export_analysis_id = atoi(optarg);
+          break;
+
+        case 'L':
+          printf ("option -I (export list of analysis) with value `%s'\n", optarg);
+          export_ids_list_filename = optarg;
           break;
 
         case 'o':
@@ -92,6 +114,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    if ((export_input > 0 || export_output > 0) && export_folder.length() == 0)
+    {
+        std::cerr << "error - export folder must be provided to perform export operations." << std::endl;
+        return 1;
+    }
+
     std::cout << std::endl;
     std::cout << "========================================================================================" << std::endl;
     std::cout << "Reading folders and filling database " << db << "..." << std::endl;
@@ -100,6 +128,50 @@ int main(int argc, char *argv[])
 
     if (in_folder.length() > 0)
         engine.run_on_folder(in_folder, out_folder, meta_folder);
+
+    if (export_input > 0 || export_output > 0)
+    {
+        std::vector<int> ids;
+
+        if (export_ids_list_filename.length() > 0)
+        {
+            ////leggi file...
+            std::ifstream list_file;
+            list_file.open(export_ids_list_filename);
+
+            if (!list_file.is_open())
+            {
+                std::cerr << "error - opening ID list file " << export_ids_list_filename << std::endl;
+            }
+            else
+            {
+                int id;
+                while (list_file >> id)
+                    ids.push_back(id);
+
+                list_file.close();
+            }
+        }
+
+        if (export_analysis_id < INT_MAX)
+        {
+            ids.push_back(export_analysis_id);
+        }
+
+        if (export_input > 0)
+        {
+            std::cout << "========================================================================================" << std::endl;
+            std::cout << "Exporting inputs from " << db << "..." << std::endl;
+            engine.export_input(export_folder, ids);
+        }
+
+        if (export_output > 0)
+        {
+            std::cout << "========================================================================================" << std::endl;
+            std::cout << "Exporting outputs from " << db << "..." << std::endl;
+            engine.export_output(export_folder, ids);
+        }
+    }
 
     return 0;
 }
