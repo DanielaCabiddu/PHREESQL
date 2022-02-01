@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
 
     phreesqlib::PhreeSQLibEngine engine (db);
 
-    if (run_phreeqc)
+    if (run_phreeqc > 0)
         engine.run_phreeqc_on_folder(in_folder, out_folder, phreeqc_db_path);
 
     if (in_folder.length() > 0)
