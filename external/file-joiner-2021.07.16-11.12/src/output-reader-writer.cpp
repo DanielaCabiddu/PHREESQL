@@ -365,11 +365,11 @@ public:
         if (output_file.is_open())
         { //checking whether the file is open
 
-            output_file << "\n";
-            output_file << "Analisys " << analisys_id << endl;
-            output_file << "\n";
+//            output_file << "\n";
+//            output_file << "Analisys " << analisys_id << endl;
+//            output_file << "\n";
 
-            writeMetadata(output_file);
+//            writeMetadata(output_file);
             writeSolutionComposition(output_file);
             writeDescriptionOfSolution(output_file);
             writeDistributionOfSpecies(output_file);
