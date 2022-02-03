@@ -225,16 +225,20 @@ public:
                 return;
             }
 
+            i_manager->selectValuesFromSolution(i_file.input_list, analysis_id);
+
             o_manager->selectValuesFromSolutionComposition(o_file.sc_list, analysis_id);
             o_manager->selectValuesFromDescriptionOfSolution(o_file.des_list, analysis_id);
             o_manager->selectValuesFromDistributionOfSpecies(o_file.dis_list, analysis_id);
             o_manager->selectValuesFromDistributionOfAlkalinity(o_file.alk_list, analysis_id);
             o_manager->selectValuesFromSaturationIndices(o_file.si_list, analysis_id);
 
-            const std::string file_path = directory + "/dump_output_" + to_string(analysis_id) + ".txt";
+            const std::string filename = o_file.a.input_file.substr(0, o_file.a.input_file.find_last_of(("."))) + ".pqo";
+
+            const std::string file_path = directory + separator() + filename ;
             this->deleteFileIfExists(file_path);
 
-            o_file.writeAnalisysFile(file_path, analysis_id);
+            o_file.writeAnalisysFile(file_path, analysis_id, i_file.input_list);
 //        }
 
     }

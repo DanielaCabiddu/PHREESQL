@@ -357,7 +357,7 @@ public:
         //printSaturationIndices(this->si_list);
     }
 
-    bool writeAnalisysFile(string path, int analisys_id)
+    bool writeAnalisysFile(string path, int analisys_id, const vector<SolutionInput> &input_list)
     {
         fstream output_file;
 
@@ -370,6 +370,27 @@ public:
 //            output_file << "\n";
 
 //            writeMetadata(output_file);
+
+            output_file << "Input file: " << a.input_file << std::endl;
+            output_file << "Output file: " << path << std::endl;
+            output_file << "Database file: " << a.database << std::endl;
+
+
+            output_file << "------------------------------------" << std::endl;
+            output_file << "Reading input data for simulation 1." << std::endl;
+            output_file << "------------------------------------" << std::endl;
+
+            output_file << "SOLUTION" << std::endl;
+
+            for (int i = 0; i < input_list.size(); i++)
+            {
+                output_file << "\t";
+                output_file.width(15);
+                output_file << left << input_list[i].unit;
+                output_file.width(15);
+                output_file << left << input_list[i].ppm << endl;
+            }
+
             writeSolutionComposition(output_file);
             writeDescriptionOfSolution(output_file);
             writeDistributionOfSpecies(output_file);
