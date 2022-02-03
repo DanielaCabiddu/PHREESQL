@@ -148,16 +148,18 @@ void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, c
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 
+    std::string final_folder = out_folder + separator() + "IN";
+
     if (!dirExists(out_folder))
     {
         if (!createDir(out_folder))
             return;
 
-        if (!createDir(out_folder + separator() + "IN"))
+        if (!createDir(final_folder))
             return;
     }
 
-    db_engine->export_input(out_folder, analysis_ids);
+    db_engine->export_input(final_folder, analysis_ids);
     delete db_engine;
 }
 
@@ -165,15 +167,17 @@ void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, 
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 
+    std::string final_folder = out_folder + separator() + "OUT";
+
     if (!dirExists(out_folder))
     {
         if (!createDir(out_folder))
             return;
 
-        if (!createDir(out_folder + separator() + "OUT"))
+        if (!createDir(final_folder))
             return;
     }
 
-    db_engine->export_output(out_folder, analysis_ids);
+    db_engine->export_output(final_folder, analysis_ids);
     delete db_engine;
 }
