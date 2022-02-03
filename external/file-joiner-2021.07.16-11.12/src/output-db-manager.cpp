@@ -264,6 +264,8 @@ public:
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting analisys");
 
+        std::cout << query << std::endl;
+
         if (row == 0 || column == 0)
         {
             std::cerr << __FUNCTION__ << " ERROR : Unexisting analysis ID " << analysis_id << std::endl;
@@ -273,16 +275,17 @@ public:
         a.id = atoi(res[0 + column]);
         a.job_type = res[1 + column];
         a.survey = res[2 + column];
-        a.date = res[3 + column];
-        a.database = res[4 + column];
-        a.phreeqc_version = res[5 + column];
-        a.run_number = res[6 + column];
-        a.sample_name = res[7 + column];
-        a.input_file = res[8 + column];
-        a.coord_x = res[9 + column];
-        a.coord_y = res[10 + column];
-        a.epsg = res[11 + column];
-        a.timestamp = res[12 + column];
+        a.site_name = res[3 + column];
+        a.date = res[4 + column];
+        a.database = res[5 + column];
+        a.phreeqc_version = res[6 + column];
+        a.run_number = res[7 + column];
+        a.sample_name = res[8 + column];
+        a.input_file = res[9 + column];
+        a.coord_x = res[10 + column];
+        a.coord_y = res[11 + column];
+        a.epsg = res[12 + column];
+        a.timestamp = res[13 + column];
 
         sqlite3_free_table(res);
 
