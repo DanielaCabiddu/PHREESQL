@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 
     int export_input = 0;
     int export_output = 0;
+    int export_metadata = 0;
     int run_phreeqc = 0;
     int fill_db = 0;
 
@@ -33,6 +34,7 @@ int main(int argc, char *argv[])
 //            {"export_input",    no_argument,       &export_input,  0},
             {"export_input",    no_argument,      &export_input,    1},
             {"export_output",   no_argument,      &export_output,   1},
+            {"export_metadata", no_argument,      &export_metadata, 1},
             {"fill_db",         no_argument,      &fill_db,         1},
             {"run_phreeqc",     no_argument,      &run_phreeqc,     1},
             /* These options don’t set a flag.
@@ -131,7 +133,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    if ((export_input > 0 || export_output > 0) && export_folder.length() == 0)
+    if ((export_input > 0 || export_output > 0 || export_metadata > 0) && export_folder.length() == 0)
     {
         std::cerr << "error - export folder must be provided to perform export operations." << std::endl;
         return 1;
@@ -159,7 +161,7 @@ int main(int argc, char *argv[])
     if (in_folder.length() > 0)
         engine.run_on_folder(in_folder, out_folder, meta_folder);
 
-    if (export_input > 0 || export_output > 0)
+    if (export_input > 0 || export_output > 0 || export_metadata)
     {
         std::vector<int> ids;
 
@@ -201,6 +203,15 @@ int main(int argc, char *argv[])
             std::cout << "Exporting outputs from " << db << "..." << std::endl;
             engine.export_output(export_folder, ids);
         }
+
+        if (export_metadata > 0)
+        {
+            std::cout << "========================================================================================" << std::endl;
+            std::cout << "Exporting metadata from " << db << "..." << std::endl;
+            engine.export_metadata(export_folder, ids);
+        }
+
+
     }
 
     return 0;

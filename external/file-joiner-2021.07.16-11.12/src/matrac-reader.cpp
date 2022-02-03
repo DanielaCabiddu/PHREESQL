@@ -228,7 +228,7 @@ public:
                 o_manager->selectValuesfromAnalisys(o_file.a, analysis_id);
 //                i_manager->selectValuesFromMetadata(i_file.meta, analysis_id);
 
-                const std::string filename = o_file.a.input_file.substr(0, o_file.a.input_file.find_last_of(("."))) + ".pqo";
+                const std::string filename = o_file.a.input_file.substr(0, o_file.a.input_file.find_last_of(("."))) + ".met";
 
                 const std::string file_path = directory + separator() + filename ;
                 this->deleteFileIfExists(file_path);

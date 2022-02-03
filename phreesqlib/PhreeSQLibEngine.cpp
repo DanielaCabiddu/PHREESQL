@@ -187,3 +187,25 @@ void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, 
     db_engine->export_output(final_folder, analysis_ids);
     delete db_engine;
 }
+
+void phreesqlib::PhreeSQLibEngine::export_metadata (const std::string out_folder, const std::vector<int> analysis_ids)
+{
+    phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
+
+    std::string final_folder = out_folder + separator() + "META";
+
+    if (!dirExists(out_folder))
+    {
+        if (!createDir(out_folder))
+            return;
+    }
+
+    if (!dirExists(final_folder))
+    {
+        if (!createDir(final_folder))
+            return;
+    }
+
+    db_engine->export_metadata(final_folder, analysis_ids);
+    delete db_engine;
+}

@@ -38,3 +38,16 @@ void phreesqlib::DBEngine::export_output (const std::string out_folder, const st
         matrac_reader->writeOutputFiles(out_folder, analysis_ids);
     delete  matrac_reader;
 }
+
+void phreesqlib::DBEngine::export_metadata (const std::string out_folder, const std::vector<int> analysis_ids)
+{
+    MatracReader *matrac_reader = new MatracReader(db_filename);
+    if (analysis_ids.empty())
+        matrac_reader->writeAllMetadataFiles(out_folder);
+    else
+        if (analysis_ids.size()==1)
+            matrac_reader->writeMetadataFile(out_folder, analysis_ids.at(0));
+    else
+        matrac_reader->writeMetadataFiles(out_folder, analysis_ids);
+    delete  matrac_reader;
+}

@@ -25,6 +25,8 @@ public:
 
     void export_input (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> ());
     void export_output (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> ());
+    void export_metadata (const std::string out_folder, const std::vector<int> analysis_ids);
+
 
 private:
 
