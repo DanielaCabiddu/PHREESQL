@@ -154,12 +154,14 @@ int main(int argc, char *argv[])
         engine.run_phreeqc_on_folder(in_folder, out_folder, phreeqc_db_path);
     }
 
-    std::cout << std::endl;
-    std::cout << "========================================================================================" << std::endl;
-    std::cout << "Reading folders and filling database " << db << "..." << std::endl;
+    if (fill_db > 0)
+    {
+        std::cout << std::endl;
+        std::cout << "========================================================================================" << std::endl;
+        std::cout << "Reading folders and filling database " << db << "..." << std::endl;
 
-    if (in_folder.length() > 0)
         engine.run_on_folder(in_folder, out_folder, meta_folder);
+    }
 
     if (export_input > 0 || export_output > 0 || export_metadata)
     {
