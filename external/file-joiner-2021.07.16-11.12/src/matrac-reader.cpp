@@ -192,6 +192,77 @@ public:
     }
 
 
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    void writeMetadataFile(string directory, int analysis_id)
+    {
+        std::cout << "Writing Input File - Analysis ID : [" << analysis_id << "]" << std::endl;
+
+        if (i_manager->isDBEmpty())
+        {
+            cerr << "Error: Empty Database" << endl;
+            return;
+        }
+
+        if (i_manager->isInputEmpty())
+        {
+            cerr << "Error: No input tables found" << endl;
+            return;
+        }
+
+//        if (i_file == NULL)
+//        {
+//            i_file = new InputReaderWriter();
+//        }
+
+        DIR *dir = this->openDir(directory);
+
+        if (dir != NULL)
+        {
+//            int num = o_manager->getNumRows(o_manager->metadata_table_name);
+//            for (int i = 1; i <= num; i++)
+//            {
+                o_manager->selectValuesfromAnalisys(o_file.a, analysis_id);
+//                i_manager->selectValuesFromMetadata(i_file.meta, analysis_id);
+
+                const std::string filename = o_file.a.input_file.substr(0, o_file.a.input_file.find_last_of(("."))) + ".pqo";
+
+                const std::string file_path = directory + separator() + filename ;
+                this->deleteFileIfExists(file_path);
+
+                o_file.writeMetadata(file_path.c_str());
+//            }
+            closedir(dir);
+        }
+        else
+            return;
+    }
+
+    void writeMetadataFiles(string directory, std::vector<int> analysis_ids)
+    {
+        for (const int analysis_id : analysis_ids)
+            writeMetadataFile(directory, analysis_id);
+    }
+
+    void writeAllMetadataFiles(string directory)
+    {
+        int num = o_manager->getNumRows(o_manager->metadata_table_name);
+        for (int analysis_id = 1; analysis_id <= num; analysis_id++)
+        {
+            writeMetadataFile(directory, analysis_id);
+        }
+    }
+
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////
+
+
     void writeOutputFile(string directory, int analysis_id)
     {
         if (o_manager->isDBEmpty())

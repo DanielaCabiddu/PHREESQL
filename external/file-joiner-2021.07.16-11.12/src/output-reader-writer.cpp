@@ -405,29 +405,39 @@ public:
         return false;
     }
 
-    void writeMetadata(fstream &file)
+    void writeMetadata(const std::string file_path)
     {
+        fstream file;
 
-        file << "--------------------Info Header--------------------" << endl;
-        file << endl;
-        file << "job_type: " << a.job_type << endl;
-        file << "survey: " << a.survey << endl;
-        file << "date: " << a.date << endl;
-        file << "database: " << a.database << endl;
-        file << "phreeqc_version: " << a.phreeqc_version << endl;
-        file << "number_run: " << a.run_number << endl;
+        file.open(file_path, ios::out | ios::app); //open a file to perform write operation using file object
+        if (file.is_open())
+        {
 
-        file << endl;
-        file << "===================================================" << endl;
-        file << "--------------------Input file--------------------" << endl;
-        file << endl;
-        file << "sample_name: " << a.sample_name << endl;
-        file << "input_file: " << a.input_file << endl;
-        file << "coord_x: " << a.coord_x << endl;
-        file << "coord_y: " << a.coord_y << endl;
-        file << "EPSG: " << a.epsg << endl;
-        file << "timestamp: " << a.timestamp << endl;
-        file << endl;
+//            file << "--------------------Info Header--------------------" << endl;
+//            file << endl;
+            file << "job_type: " << a.job_type << endl;
+            file << "survey: " << a.survey << endl;
+            file << "date: " << a.date << endl;
+            file << "database: " << a.database << endl;
+            file << "phreeqc_version: " << a.phreeqc_version << endl;
+            file << "number_run: " << a.run_number << endl;
+
+//            file << endl;
+//            file << "===================================================" << endl;
+//            file << "--------------------Input file--------------------" << endl;
+//            file << endl;
+            file << "sample_name: " << a.sample_name << endl;
+            file << "input_file: " << a.input_file << endl;
+            file << "coord_x: " << a.coord_x << endl;
+            file << "coord_y: " << a.coord_y << endl;
+            file << "EPSG: " << a.epsg << endl;
+            file << "timestamp: " << a.timestamp << endl;
+            file << endl;
+        }
+        else
+        {
+            std::cerr << "Error opening metadata file " << file_path << std::endl;
+        }
     }
 
     void writeSolutionComposition(fstream &file)
