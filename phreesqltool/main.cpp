@@ -116,14 +116,14 @@ int main(int argc, char *argv[])
         }
     }
 
+    if (db.length() == 0)
+    {
+        std::cerr << "error - database parameter missing" << std::endl;
+        return 1;
+    }
+
     if (fill_db > 0)
     {
-        if (db.length() == 0)
-        {
-            std::cerr << "error - database parameter missing" << std::endl;
-            return 1;
-        }
-
         if (in_folder.length() == 0 || out_folder.length() == 0 || meta_folder.length() == 0)
         {
             std::cerr << "error - in, out and meta folders must be provided as an input." << std::endl;

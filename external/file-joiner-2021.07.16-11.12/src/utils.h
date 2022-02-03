@@ -32,7 +32,9 @@ inline std::string separator ()
 
 inline bool createDir (const std::string folder)
 {
-    mode_t nMode = 0777; // UNIX style permissions
+    std::cout << "Creating folder " << folder << std::endl;
+
+    mode_t nMode = 0770; // UNIX style permissions
     int nError = 0;
     #if defined(_WIN32)
       nError = _mkdir(folder.c_str()); // can be used on Windows
@@ -53,11 +55,11 @@ inline bool dirExists(const std::string path)
     struct stat info;
 
     if(stat( path.c_str(), &info ) != 0)
-        return true;
-    else if(info.st_mode & S_IFDIR)
         return false;
-    else
+    else if(info.st_mode & S_IFDIR)
         return true;
+    else
+        return false;
 }
 
 inline std::string ltrim(const std::string &s)

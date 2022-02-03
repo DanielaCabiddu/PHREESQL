@@ -64,7 +64,7 @@ private:
         DIR *dir = opendir(directory.c_str());
         if (!dir)
         {
-            if (mkdir(directory.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
+            if (mkdir(directory.c_str(), 0777/*, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH*/) == -1)
             {
                 cerr << "Error in creating directory!" << endl;
                 return NULL;

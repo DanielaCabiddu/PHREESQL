@@ -154,7 +154,10 @@ void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, c
     {
         if (!createDir(out_folder))
             return;
+    }
 
+    if (!dirExists(final_folder))
+    {
         if (!createDir(final_folder))
             return;
     }
@@ -173,7 +176,10 @@ void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, 
     {
         if (!createDir(out_folder))
             return;
+    }
 
+    if (!dirExists(final_folder))
+    {
         if (!createDir(final_folder))
             return;
     }

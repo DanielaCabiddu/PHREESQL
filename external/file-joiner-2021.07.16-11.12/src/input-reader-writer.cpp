@@ -93,10 +93,10 @@ public:
             output_file << "TITLE " << meta["TITLE"] << endl;
             output_file << "SOLUTION " << meta["SOLUTION"] << endl;
 
-            output_file.width(15);
-            output_file << left << "\tunits";
-            output_file.width(15);
-            output_file << left << "ppm" << endl;
+//            output_file.width(15);
+//            output_file << left << "\tunits";
+//            output_file.width(15);
+//            output_file << left << "ppm" << endl;
 
             for (int i = 0; i < input_list.size(); i++)
             {
