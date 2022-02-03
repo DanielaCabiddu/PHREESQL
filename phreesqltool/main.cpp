@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     int export_input = 0;
     int export_output = 0;
     int run_phreeqc = 0;
+    int fill_db = 0;
 
     while (1)
     {
@@ -32,6 +33,7 @@ int main(int argc, char *argv[])
 //            {"export_input",    no_argument,       &export_input,  0},
             {"export_input",    no_argument,      &export_input,    1},
             {"export_output",   no_argument,      &export_output,   1},
+            {"fill_db",         no_argument,      &fill_db,         1},
             {"run_phreeqc",     no_argument,      &run_phreeqc,     1},
             /* These options don’t set a flag.
              We distinguish them by their indices. */
@@ -114,16 +116,19 @@ int main(int argc, char *argv[])
         }
     }
 
-    if (db.length() == 0)
+    if (fill_db > 0)
     {
-        std::cerr << "error - database parameter missing" << std::endl;
-        return 1;
-    }
+        if (db.length() == 0)
+        {
+            std::cerr << "error - database parameter missing" << std::endl;
+            return 1;
+        }
 
-    if (in_folder.length() == 0 || out_folder.length() == 0 || meta_folder.length() == 0)
-    {
-        std::cerr << "error - in, out and meta folders must be provided as an input." << std::endl;
-        return 1;
+        if (in_folder.length() == 0 || out_folder.length() == 0 || meta_folder.length() == 0)
+        {
+            std::cerr << "error - in, out and meta folders must be provided as an input." << std::endl;
+            return 1;
+        }
     }
 
     if ((export_input > 0 || export_output > 0) && export_folder.length() == 0)
