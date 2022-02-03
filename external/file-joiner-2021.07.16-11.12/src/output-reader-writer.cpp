@@ -415,23 +415,23 @@ public:
 
 //            file << "--------------------Info Header--------------------" << endl;
 //            file << endl;
-            file << "job_type: " << a.job_type << endl;
-            file << "survey: " << a.survey << endl;
-            file << "date: " << a.date << endl;
-            file << "database: " << a.database << endl;
-            file << "phreeqc_version: " << a.phreeqc_version << endl;
-            file << "number_run: " << a.run_number << endl;
+            file << "JOB TYPE: " << a.job_type << endl;
+            file << "SURVEY: " << a.survey << endl;
+            file << "DATE: " << a.date << endl;
+            file << "DATABASE: " << a.database << endl;
+            file << "PHREEQC_VERSION: " << a.phreeqc_version << endl;
+            file << "RUN_NUMBER: " << a.run_number << endl << endl;
 
 //            file << endl;
 //            file << "===================================================" << endl;
 //            file << "--------------------Input file--------------------" << endl;
 //            file << endl;
-            file << "sample_name: " << a.sample_name << endl;
-            file << "input_file: " << a.input_file << endl;
-            file << "coord_x: " << a.coord_x << endl;
-            file << "coord_y: " << a.coord_y << endl;
+            file << "SAMPLE_NAME: " << a.sample_name << endl;
+            file << "INPUT_FILE: " << a.input_file << endl;
+            file << "COORD_X: " << a.coord_x << endl;
+            file << "COORD_Y: " << a.coord_y << endl;
             file << "EPSG: " << a.epsg << endl;
-            file << "timestamp: " << a.timestamp << endl;
+            file << "TIMESTAMP: " << a.timestamp << endl;
             file << endl;
         }
         else
