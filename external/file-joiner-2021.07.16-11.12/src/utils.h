@@ -10,7 +10,55 @@ using namespace std;
 #define UTILS
 #pragma once
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 const std::string WHITESPACE = " \n\r\t\f\v";
+
+inline std::string separator ()
+{
+    std::string separator;
+
+    #ifdef _WIN32
+    separator = "\\";
+    #else
+    separator = "/";
+    #endif
+
+    return separator;
+}
+
+inline bool createDir (const std::string folder)
+{
+    mode_t nMode = 0777; // UNIX style permissions
+    int nError = 0;
+    #if defined(_WIN32)
+      nError = _mkdir(folder.c_str()); // can be used on Windows
+    #else
+      nError = mkdir(folder.c_str(),nMode); // can be used on non-Windows
+    #endif
+    if (nError != 0)
+    {
+      std::cerr << "Error creating folder " << folder << std::endl;
+      return false;
+    }
+
+    return true;
+}
+
+inline bool dirExists(const std::string path)
+{
+    struct stat info;
+
+    if(stat( path.c_str(), &info ) != 0)
+        return true;
+    else if(info.st_mode & S_IFDIR)
+        return false;
+    else
+        return true;
+}
 
 inline std::string ltrim(const std::string &s)
 {

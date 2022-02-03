@@ -15,14 +15,6 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
                                                   const std::string out_folder,
                                                   const std::string meta_folder)
 {
-     std::string separator;
-
-#ifdef _WIN32
-    separator = "\\";
-#else
-    separator = "/";
-#endif
-
 //    phreesqlib::PhreeqcEngine *pqc_engine = new phreesqlib::PhreeqcEngine ();
 //    results = pqc_engine->run_on_folder(in_folder, out_folder);
 
@@ -54,9 +46,9 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
 
           const std::string basename = (ext_id < UINT_MAX) ? filename.substr(0, ext_id) : filename;
 
-          const std::string in_absolute_path = in_folder + separator + basename + in_ext;
-          const std::string out_absolute_path = out_folder + separator + basename + out_ext;
-          const std::string meta_absolute_path = meta_folder + separator + basename + meta_ext;
+          const std::string in_absolute_path = in_folder + separator() + basename + in_ext;
+          const std::string out_absolute_path = out_folder + separator() + basename + out_ext;
+          const std::string meta_absolute_path = meta_folder + separator() + basename + meta_ext;
 
           std::cout << "[" << file_counter << "] Processing " << in_absolute_path << std::endl;
 //          std::cout << " -- " << out_absolute_path << std::endl;
@@ -77,7 +69,7 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
 
 
           phreesqlib::PhreeqcEngineObj obj;
-          obj.set_in_filename(in_folder + separator + filename);
+          obj.set_in_filename(in_folder + separator() + filename);
           obj.set_out_filename(out_absolute_path);
 
           db_engine->add_to_DB(obj, meta_absolute_path);
@@ -104,14 +96,6 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
                                                           const std::string out_folder,
                                                           const std::string phreeqc_db_path)
 {
-    std::string separator;
-
-#ifdef _WIN32
-   separator = "\\";
-#else
-   separator = "/";
-#endif
-
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 
     unsigned int file_counter = 0;
@@ -138,8 +122,8 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
 
               const std::string basename = (ext_id < UINT_MAX) ? filename.substr(0, ext_id) : filename;
 
-              const std::string in_absolute_path = in_folder + separator + basename + in_ext;
-              const std::string out_absolute_path = out_folder + separator + basename + out_ext;
+              const std::string in_absolute_path = in_folder + separator() + basename + in_ext;
+              const std::string out_absolute_path = out_folder + separator() + basename + out_ext;
 
               //// run phreeqc
               ///
@@ -163,6 +147,16 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
 void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, const std::vector<int> analysis_ids)
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
+
+    if (!dirExists(out_folder))
+    {
+        if (!createDir(out_folder))
+            return;
+
+        if (!createDir(out_folder + separator() + "IN"))
+            return;
+    }
+
     db_engine->export_input(out_folder, analysis_ids);
     delete db_engine;
 }
@@ -170,6 +164,15 @@ void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, c
 void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, const std::vector<int> analysis_ids)
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
+
+    if (!dirExists(out_folder))
+    {
+        if (!createDir(out_folder))
+            return;
+
+        if (!createDir(out_folder + separator() + "OUT"))
+            return;
+    }
 
     db_engine->export_output(out_folder, analysis_ids);
     delete db_engine;
