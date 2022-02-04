@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     int export_input = 0;
     int export_output = 0;
     int export_metadata = 0;
+    int export_all = 0;
     int run_phreeqc = 0;
     int fill_db = 0;
 
@@ -32,6 +33,7 @@ int main(int argc, char *argv[])
         {
             /* These options set a flag. */
 //            {"export_input",    no_argument,       &export_input,  0},
+            {"export_all",      no_argument,      &export_all,      1},
             {"export_input",    no_argument,      &export_input,    1},
             {"export_output",   no_argument,      &export_output,   1},
             {"export_metadata", no_argument,      &export_metadata, 1},
@@ -116,6 +118,13 @@ int main(int argc, char *argv[])
         default:
           abort ();
         }
+    }
+
+    if (export_all > 0)
+    {
+        export_input = 1;
+        export_output = 1;
+        export_metadata = 1;
     }
 
     if (fill_db > 0)
