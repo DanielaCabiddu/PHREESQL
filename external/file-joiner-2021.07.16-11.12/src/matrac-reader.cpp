@@ -165,6 +165,9 @@ public:
 //            int num = o_manager->getNumRows(o_manager->metadata_table_name);
 //            for (int i = 1; i <= num; i++)
 //            {
+
+                i_file.meta.clear();
+
                 i_manager->selectValuesFromMetadata(i_file.meta, analysis_id);
                 i_manager->selectValuesFromSolution(i_file.input_list, analysis_id);
 //                this->deleteFileIfExists(directory + "/dump_input_" + to_string(analysis_id) + ".txt");
@@ -202,7 +205,7 @@ public:
 
     void writeMetadataFile(string directory, int analysis_id)
     {
-        std::cout << "Writing Input File - Analysis ID : [" << analysis_id << "]" << std::endl;
+        std::cout << "Writing Metadata File - Analysis ID : [" << analysis_id << "]" << std::endl;
 
         if (i_manager->isDBEmpty())
         {

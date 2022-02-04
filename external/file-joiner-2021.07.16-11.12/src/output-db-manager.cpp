@@ -264,8 +264,6 @@ public:
         rc = sqlite3_get_table(db, query.c_str(), &res, &row, &column, &err_message);
         this->queryResult(rc, "selecting analisys");
 
-        std::cout << query << std::endl;
-
         if (row == 0 || column == 0)
         {
             std::cerr << __FUNCTION__ << " ERROR : Unexisting analysis ID " << analysis_id << std::endl;
