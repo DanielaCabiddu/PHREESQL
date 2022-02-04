@@ -37,6 +37,10 @@ int main(int argc, char *argv[])
             {"export_input",    no_argument,      &export_input,    1},
             {"export_output",   no_argument,      &export_output,   1},
             {"export_metadata", no_argument,      &export_metadata, 1},
+            {"e_a",             no_argument,      &export_all,      1},
+            {"e_i",             no_argument,      &export_input,    1},
+            {"e_o",             no_argument,      &export_output,   1},
+            {"e_m",             no_argument,      &export_metadata, 1},
             {"fill_db",         no_argument,      &fill_db,         1},
             {"run_phreeqc",     no_argument,      &run_phreeqc,     1},
             /* These options don’t set a flag.
