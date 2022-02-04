@@ -167,8 +167,11 @@ public:
 //            {
                 i_manager->selectValuesFromMetadata(i_file.meta, analysis_id);
                 i_manager->selectValuesFromSolution(i_file.input_list, analysis_id);
-                this->deleteFileIfExists(directory + "/dump_input_" + to_string(analysis_id) + ".txt");
-                i_file.writeFile(analysis_id, directory);
+//                this->deleteFileIfExists(directory + "/dump_input_" + to_string(analysis_id) + ".txt");
+
+                const std::string filename = i_file.meta["INPUT_FILE"].substr(0, i_file.meta["INPUT_FILE"].find_last_of(("."))) + ".pqi";
+
+                i_file.writeFile(analysis_id, directory + separator() + filename);
 //            }
             closedir(dir);
         }

@@ -81,11 +81,11 @@ public:
         return false;
     }
 
-    bool writeFile(int i, string directory)
+    bool writeFile(int i, string file_path)
     {
         fstream output_file;
 
-        output_file.open(directory + "/dump_input_" + to_string(i) + ".txt", ios::out); //open a file to perform write operation using file object
+        output_file.open(file_path, ios::out); //open a file to perform write operation using file object
         if (output_file.is_open())
         { //checking whether the file is open
 
