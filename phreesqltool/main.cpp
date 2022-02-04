@@ -118,30 +118,68 @@ int main(int argc, char *argv[])
         }
     }
 
-    if (db.length() == 0)
-    {
-        std::cerr << "error - database parameter missing" << std::endl;
-        return 1;
-    }
-
     if (fill_db > 0)
     {
+        bool error = false;
+
         if (in_folder.length() == 0 || out_folder.length() == 0 || meta_folder.length() == 0)
         {
             std::cerr << "error - in, out and meta folders must be provided as an input." << std::endl;
-            return 1;
+            error = true;
         }
+
+        if (db.length() == 0)
+        {
+            std::cerr << "error - database parameter missing" << std::endl;
+            error = true;
+        }
+
+        if (error) return 1;
     }
 
-    if ((export_input > 0 || export_output > 0 || export_metadata > 0) && export_folder.length() == 0)
+    if ((export_input > 0 || export_output > 0 || export_metadata > 0))
     {
-        std::cerr << "error - export folder must be provided to perform export operations." << std::endl;
-        return 1;
+        bool error = false;
+
+        if (export_folder.length() == 0)
+        {
+            std::cerr << "error - export folder must be provided to perform export operations." << std::endl;
+            error = true;
+        }
+
+        if (db.length() == 0)
+        {
+            std::cerr << "error - database parameter missing" << std::endl;
+            error = true;
+        }
+
+        if (error) return 1;
     }
 
-    if (run_phreeqc > 0 && phreeqc_db_path.length()==0)
+    if (run_phreeqc > 0 )
     {
-        std::cerr << "error - PhreeQC DB must be provided to run PhreeQC. " << std::endl;
+        bool error = false;
+
+        if (in_folder.length() == 0)
+        {
+            std::cerr << "error - PhreeQC input folder must be provided to run PhreeQC. " << std::endl;
+            error = true;
+        }
+
+        if ( out_folder.length() == 0)
+        {
+            std::cerr << "error - PhreeQC output folder must be provided to run PhreeQC. " << std::endl;
+            error = true;
+        }
+
+        if (phreeqc_db_path.length()==0 )
+        {
+            std::cerr << "error - PhreeQC DB must be provided to run PhreeQC. " << std::endl;
+            error = true;
+        }
+
+        if (error)
+            return 1;
     }
 
     phreesqlib::PhreeSQLibEngine engine (db);
