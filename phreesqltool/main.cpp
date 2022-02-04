@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
     int export_all = 0;
     int run_phreeqc = 0;
     int fill_db = 0;
+    int overwrite = 0;
 
     while (1)
     {
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
             {"e_o",             no_argument,      &export_output,   1},
             {"e_m",             no_argument,      &export_metadata, 1},
             {"fill_db",         no_argument,      &fill_db,         1},
+            {"overwrite",       no_argument,      &overwrite,       1},
             {"run_phreeqc",     no_argument,      &run_phreeqc,     1},
             /* These options don’t set a flag.
              We distinguish them by their indices. */
@@ -247,21 +249,21 @@ int main(int argc, char *argv[])
         {
             std::cout << "========================================================================================" << std::endl;
             std::cout << "Exporting inputs from " << db << "..." << std::endl;
-            engine.export_input(export_folder, ids);
+            engine.export_input(export_folder, ids, overwrite);
         }
 
         if (export_output > 0)
         {
             std::cout << "========================================================================================" << std::endl;
             std::cout << "Exporting outputs from " << db << "..." << std::endl;
-            engine.export_output(export_folder, ids);
+            engine.export_output(export_folder, ids, overwrite);
         }
 
         if (export_metadata > 0)
         {
             std::cout << "========================================================================================" << std::endl;
             std::cout << "Exporting metadata from " << db << "..." << std::endl;
-            engine.export_metadata(export_folder, ids);
+            engine.export_metadata(export_folder, ids, overwrite);
         }
 
 

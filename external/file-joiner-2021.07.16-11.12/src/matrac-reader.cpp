@@ -137,7 +137,7 @@ public:
 
     }
 
-    void writeInputFile(string directory, int analysis_id)
+    void writeInputFile(string directory, int analysis_id, const bool overwrite)
     {
         std::cout << "Writing Input File - Analysis ID : [" << analysis_id << "]" << std::endl;
 
@@ -167,11 +167,18 @@ public:
 //            {
                 i_manager->selectValuesFromMetadata(i_file.meta, analysis_id);
                 i_manager->selectValuesFromSolution(i_file.input_list, analysis_id);
-//                this->deleteFileIfExists(directory + "/dump_input_" + to_string(analysis_id) + ".txt");
+                this->deleteFileIfExists(directory + "/dump_input_" + to_string(analysis_id) + ".txt");
 
                 const std::string filename = i_file.meta["INPUT_FILE"].substr(0, i_file.meta["INPUT_FILE"].find_last_of(("."))) + ".pqi";
+                const std::string full_path = directory + separator() + filename;
 
-                i_file.writeFile(analysis_id, directory + separator() + filename);
+                if (!overwrite && fileExists(full_path))
+                {
+                    std::cerr << "Input file " << full_path << " already exists. Set the --overwrite flag to overwrite." << std::endl;
+                    return;
+                }
+
+                i_file.writeFile(analysis_id, full_path);
 //            }
             closedir(dir);
         }
@@ -179,18 +186,18 @@ public:
             return;
     }
 
-    void writeInputFiles(string directory, std::vector<int> analysis_ids)
+    void writeInputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
     {
         for (const int analysis_id : analysis_ids)
-            writeInputFile(directory, analysis_id);
+            writeInputFile(directory, analysis_id, overwrite);
     }
 
-    void writeAllInputFiles(string directory)
+    void writeAllInputFiles(string directory, const bool overwrite)
     {
         int num = o_manager->getNumRows(o_manager->metadata_table_name);
         for (int analysis_id = 1; analysis_id <= num; analysis_id++)
         {
-            writeInputFile(directory, analysis_id);
+            writeInputFile(directory, analysis_id, overwrite);
         }
     }
 
@@ -200,7 +207,7 @@ public:
 
     //////////////////////////////////////////////////////////////////////////////////////
 
-    void writeMetadataFile(string directory, int analysis_id)
+    void writeMetadataFile(string directory, int analysis_id, const bool overwrite)
     {
         std::cout << "Writing Metadata File - Analysis ID : [" << analysis_id << "]" << std::endl;
 
@@ -234,7 +241,12 @@ public:
                 const std::string filename = o_file.a.input_file.substr(0, o_file.a.input_file.find_last_of(("."))) + ".met";
 
                 const std::string file_path = directory + separator() + filename ;
-                this->deleteFileIfExists(file_path);
+
+                if (!overwrite && fileExists(file_path))
+                {
+                    std::cerr << "Metadata file " << file_path << " already exists. Set the --overwrite flag to overwrite." << std::endl;
+                    return;
+                }
 
                 o_file.writeMetadata(file_path.c_str());
 //            }
@@ -244,18 +256,18 @@ public:
             return;
     }
 
-    void writeMetadataFiles(string directory, std::vector<int> analysis_ids)
+    void writeMetadataFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
     {
         for (const int analysis_id : analysis_ids)
-            writeMetadataFile(directory, analysis_id);
+            writeMetadataFile(directory, analysis_id, overwrite);
     }
 
-    void writeAllMetadataFiles(string directory)
+    void writeAllMetadataFiles(string directory, const bool overwrite)
     {
         int num = o_manager->getNumRows(o_manager->metadata_table_name);
         for (int analysis_id = 1; analysis_id <= num; analysis_id++)
         {
-            writeMetadataFile(directory, analysis_id);
+            writeMetadataFile(directory, analysis_id, overwrite);
         }
     }
 
@@ -266,7 +278,7 @@ public:
     //////////////////////////////////////////////////////////////////////////////////////
 
 
-    void writeOutputFile(string directory, int analysis_id)
+    void writeOutputFile(string directory, int analysis_id, const bool overwrite)
     {
         if (o_manager->isDBEmpty())
         {
@@ -308,27 +320,32 @@ public:
             o_manager->selectValuesFromSaturationIndices(o_file.si_list, analysis_id);
 
             const std::string filename = o_file.a.input_file.substr(0, o_file.a.input_file.find_last_of(("."))) + ".pqo";
-
             const std::string file_path = directory + separator() + filename ;
-            this->deleteFileIfExists(file_path);
+
+            if (!overwrite && fileExists(file_path))
+            {
+                std::cerr << "Output file " << file_path << " already exists. Set the --overwrite flag to overwrite." << std::endl;
+                return;
+            }
+
 
             o_file.writeAnalisysFile(file_path, analysis_id, i_file.input_list);
 //        }
 
     }
 
-    void writeOutputFiles(string directory, std::vector<int> analysis_ids)
+    void writeOutputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
     {
         for (const int analysis_id : analysis_ids)
-            writeOutputFile(directory, analysis_id);
+            writeOutputFile(directory, analysis_id, overwrite);
     }
 
-    void writeAllOutputFiles(string directory)
+    void writeAllOutputFiles(string directory, const bool overwrite)
     {
         int num = o_manager->getNumRows(o_manager->metadata_table_name);
         for (int analysis_id = 1; analysis_id <= num; analysis_id++)
         {
-            writeOutputFile(directory, analysis_id);
+            writeOutputFile(directory, analysis_id, overwrite);
         }
     }
 

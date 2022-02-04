@@ -144,7 +144,7 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
 }
 
 
-void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, const std::vector<int> analysis_ids)
+void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite)
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 
@@ -156,11 +156,11 @@ void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, c
             return;
     }
 
-    db_engine->export_input(final_folder, analysis_ids);
+    db_engine->export_input(final_folder, analysis_ids, overwrite);
     delete db_engine;
 }
 
-void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, const std::vector<int> analysis_ids)
+void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite)
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 
@@ -172,11 +172,11 @@ void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, 
             return;
     }
 
-    db_engine->export_output(final_folder, analysis_ids);
+    db_engine->export_output(final_folder, analysis_ids, overwrite);
     delete db_engine;
 }
 
-void phreesqlib::PhreeSQLibEngine::export_metadata (const std::string out_folder, const std::vector<int> analysis_ids)
+void phreesqlib::PhreeSQLibEngine::export_metadata (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite)
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 
@@ -188,6 +188,6 @@ void phreesqlib::PhreeSQLibEngine::export_metadata (const std::string out_folder
             return;
     }
 
-    db_engine->export_metadata(final_folder, analysis_ids);
+    db_engine->export_metadata(final_folder, analysis_ids, overwrite);
     delete db_engine;
 }

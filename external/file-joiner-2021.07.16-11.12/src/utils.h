@@ -32,6 +32,19 @@ inline std::string separator ()
     return separator;
 }
 
+inline bool fileExists(string path)
+{
+    ofstream file;
+    file.open(path);
+    if (file)
+    {
+        file.close();
+        return true;
+    }
+
+    return false;
+}
+
 inline bool dirExists(const std::string path)
 {
     struct stat info;
