@@ -150,15 +150,9 @@ void phreesqlib::PhreeSQLibEngine::export_input (const std::string out_folder, c
 
     std::string final_folder = out_folder + separator() + "IN";
 
-    if (!dirExists(out_folder))
-    {
-        if (!createDir(out_folder))
-            return;
-    }
-
     if (!dirExists(final_folder))
     {
-        if (!createDir(final_folder))
+        if (!mkpath(final_folder))
             return;
     }
 
@@ -172,15 +166,9 @@ void phreesqlib::PhreeSQLibEngine::export_output (const std::string out_folder, 
 
     std::string final_folder = out_folder + separator() + "OUT";
 
-    if (!dirExists(out_folder))
-    {
-        if (!createDir(out_folder))
-            return;
-    }
-
     if (!dirExists(final_folder))
     {
-        if (!createDir(final_folder))
+        if (!mkpath(final_folder))
             return;
     }
 
@@ -194,15 +182,9 @@ void phreesqlib::PhreeSQLibEngine::export_metadata (const std::string out_folder
 
     std::string final_folder = out_folder + separator() + "META";
 
-    if (!dirExists(out_folder))
-    {
-        if (!createDir(out_folder))
-            return;
-    }
-
     if (!dirExists(final_folder))
     {
-        if (!createDir(final_folder))
+        if (!mkpath(final_folder))
             return;
     }
 

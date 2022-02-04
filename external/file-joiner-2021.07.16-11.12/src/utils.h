@@ -3,6 +3,8 @@
 #include <ostream>
 #include <stdio.h>
 #include <iostream>
+
+#include <cstring>
 #include <ctype.h>
 using namespace std;
 
@@ -30,26 +32,6 @@ inline std::string separator ()
     return separator;
 }
 
-inline bool createDir (const std::string folder)
-{
-    std::cout << "Creating folder " << folder << std::endl;
-
-    mode_t nMode = 0770; // UNIX style permissions
-    int nError = 0;
-    #if defined(_WIN32)
-      nError = _mkdir(folder.c_str()); // can be used on Windows
-    #else
-      nError = mkdir(folder.c_str(),nMode); // can be used on non-Windows
-    #endif
-    if (nError != 0)
-    {
-      std::cerr << "Error creating folder " << folder << std::endl;
-      return false;
-    }
-
-    return true;
-}
-
 inline bool dirExists(const std::string path)
 {
     struct stat info;
@@ -60,6 +42,51 @@ inline bool dirExists(const std::string path)
         return true;
     else
         return false;
+}
+
+inline bool mkpath (const std::string dir)
+{
+    char tmp[256];
+    char *p = NULL;
+    size_t len;
+
+    snprintf(tmp, sizeof(tmp),"%s",dir.c_str());
+    len = strlen(tmp);
+
+    int error = 0;
+
+    if(tmp[len - 1] == separator().c_str()[0])
+        tmp[len - 1] = 0;
+
+    for(p = tmp + 1; *p; p++)
+    {
+        if(*p == separator().c_str()[0])
+        {
+            *p = 0;
+
+            if (!dirExists(tmp))
+            {
+                error = mkdir(tmp, S_IRWXU);
+
+                if (error != 0)
+                {
+                    std::cerr << "error creating folder " << tmp << std::endl;
+                    return false;
+                }
+            }
+            *p = separator().c_str()[0];
+        }
+    }
+
+    error = mkdir(tmp, S_IRWXU);
+
+    if (error != 0)
+    {
+        std::cerr << "error creating folder " << tmp << std::endl;
+        return false;
+    }
+
+    return true;
 }
 
 inline std::string ltrim(const std::string &s)
