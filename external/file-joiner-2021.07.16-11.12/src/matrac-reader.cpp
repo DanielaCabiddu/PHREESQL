@@ -126,11 +126,6 @@ public:
                 o_manager->insertSaturationIndices(o_file.si_list);
             }
 
-            std::cout << std::endl << " ============== REPORT ================== " << std::endl << std::endl;
-
-            std::cout << o_manager->metadata_table_name << " #rows : " << o_manager->getNumRows(o_manager->metadata_table_name) << std::endl;
-            std::cout << "SOLUTION_INPUT" << " #rows : " << o_manager->getNumRows("SOLUTION_INPUT") << std::endl;
-
             return true;
         }
         else
@@ -383,5 +378,15 @@ public:
         {
             cerr << "Error: no data" << endl;
         }
+    }
+
+    std::string getMetadataTableName () const
+    {
+        return o_manager->metadata_table_name;
+    }
+
+    uint getNumMetadataRecords () const
+    {
+        return o_manager->getNumRows(o_manager->metadata_table_name);
     }
 };

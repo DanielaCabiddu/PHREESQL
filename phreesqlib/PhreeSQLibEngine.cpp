@@ -89,6 +89,8 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
         return ;
     }
 
+    db_engine->print_DB_summary();
+
     delete db_engine;
 }
 

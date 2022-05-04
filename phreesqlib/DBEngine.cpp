@@ -11,6 +11,21 @@ void phreesqlib::DBEngine::add_to_DB (const PhreeqcEngineObj &obj, const std::st
     delete  matrac_reader;
 }
 
+void phreesqlib::DBEngine::print_DB_summary () const
+{
+    MatracReader *matrac_reader = new MatracReader(db_filename);
+
+    std::cout << std::endl << " ============== DB SUMMARY ================== " << std::endl << std::endl;
+
+    std::cout << " " << matrac_reader->getMetadataTableName() << " #records : " << matrac_reader->getNumMetadataRecords() << std::endl;
+
+    std::cout << std::endl << " ============================================ " << std::endl << std::endl;
+
+
+    delete  matrac_reader;
+}
+
+
 void phreesqlib::DBEngine::export_input (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite)
 {
     MatracReader *matrac_reader = new MatracReader(db_filename);
