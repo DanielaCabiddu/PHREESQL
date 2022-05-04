@@ -39,7 +39,8 @@ public:
                 "EPSG INT,"
                 "TIMESTAMP DATETIME,"
                 "TITLE TEXT,"
-                "SOLUTION TEXT );";
+                "SOLUTION TEXT,"
+                "UNIQUE(DATABASE, INPUT_FILE) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
         this->queryResult(rc, "creating analisys table");
@@ -127,7 +128,7 @@ public:
 
     //INSERT VALUES
 
-    void insertAnalisys(Analisys &a, metadata meta)
+    int insertAnalisys(Analisys &a, metadata meta)
     {
         query = "INSERT OR REPLACE INTO " + metadata_table_name + " (JOB_TYPE, SURVEY, SITE_NAME, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP, TITLE, SOLUTION) VALUES ('" +
                 a.job_type + "', '" +
@@ -145,11 +146,30 @@ public:
                 a.timestamp + "', '" +
                 meta["TITLE"] + "', '" +
                 meta["SOLUTION"] + "');";
+
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
-        this->queryResult(rc, "inserting analisys");
-        a.id = sqlite3_last_insert_rowid(db);
-        this->a_id = a.id;
+        if (rc == SQLITE_OK)
+        {
+            this->queryResult(rc, "inserting analisys");
+            a.id = sqlite3_last_insert_rowid(db);
+            this->a_id = a.id;
+        }
+        else
+        {
+            std::cerr << "\033[1;31mSQL ERROR " << rc << ": " << err_message << "\033[0m" << std::endl;
+
+            switch (rc)
+            {
+            case SQLITE_CONSTRAINT:
+                std::cerr << "\033[1;31mAnalysis " << a.input_file << " may already be in the database. IGNORED.\033[0m" << std::endl;
+            break;
+            default:
+                std::cerr << "" << std::endl;
+            }
+        }
+
+        return rc;
     }
 
     void insertSolutionComposition(vector<SolutionComposition> sc_list)
