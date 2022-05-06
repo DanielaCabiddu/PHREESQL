@@ -162,7 +162,7 @@ public:
             switch (rc)
             {
             case SQLITE_CONSTRAINT:
-                std::cerr << "\033[1;31mAnalysis " << a.input_file << " may already be in the database. IGNORED.\033[0m" << std::endl;
+                std::cerr << "\033[1;31mAnalysis " << a.input_file << " may already be in the database computed with the same PHREEQC database and it is considered as a duplicate IGNORED.\033[0m" << std::endl;
             break;
             default:
                 std::cerr << "" << std::endl;
