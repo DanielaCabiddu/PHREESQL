@@ -136,10 +136,10 @@ inline void removeHeaders1(ifstream &file, string first, int &row)
     {
         getline(file, line);
         row++;
-        if (line.length() > 0 && strstr(line.c_str(), first.c_str()) == NULL && strstr(line.c_str(), "Log") == NULL)
-        {
-            cerr << "\033[1;33m*** Warning: Line " << row << " " << line << " ***\033[0m" << endl;
-        }
+//        if (line.length() > 0 && strstr(line.c_str(), first.c_str()) == NULL && strstr(line.c_str(), "Log") == NULL)
+//        {
+//            cerr << "\033[1;33m*** Warning: Line " << row << " " << line << " ***\033[0m" << endl;
+//        }
     }
     getline(file, line); //remove empty line
     row++;
