@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09900
+#County Limerick
+#Site_Name Glin
+#Easting 113117
+#Northing 146507
+#New_Code IE_SH_G_0030_3600_0011
+#Sample_Date 2014/11/04
+units mg/L
+pH 7.2 
+temp 12.00
+O(0) 0.40
+pe 3.3012
+Alkalinity 128 as HCO3
+N(-3) 0.300 as NH4 
+N(3) -0.013 as NO2
+N(5) -0.90 as NO3
+P 0.019 as PO4
+C(-4) -1.5
+Si 14
+Cl 26
+F -0.2
+S(6) 7 as SO4
+Na 51.0
+K 0.9
+Mg 12.00
+Ca 33.0
+Fe 740 ug/L
+Mn 380 ug/L
+B 53 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu -1 ug/L
+Zn 120 ug/L
+As 1.4 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 59 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 640 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09914
+#County Cavan
+#Site_Name Bawnboy
+#Easting 220817
+#Northing 318046
+#New_Code IE_NW_G_0031_0200_0002
+#Sample_Date 2014/11/05
+units mg/L
+pH 7.3 
+temp 10.40
+O(0) 0.90
+pe 1.83606
+Alkalinity 148 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 3.94 as NO3
+P 0.014 as PO4
+C(-4) -1.5
+Si 7
+Cl 14
+F -0.2
+S(6) 2 as SO4
+Na 8.6
+K 1.0
+Mg 17.00
+Ca 73.0
+Fe 17 ug/L
+Mn -5 ug/L
+B 16 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu -1 ug/L
+Zn 13 ug/L
+As -1.0 ug/L
+Cd 0.1 ug/L
+Sb -1.0 ug/L
+Ba 7 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 330 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

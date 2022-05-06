@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09933
+#County Wexford
+#Site_Name Carrickbyrne WS
+#Easting 283269
+#Northing 124270
+#New_Code IE_SE_G_0001_3300_0002
+#Sample_Date 2014/11/10
+units mg/L
+pH 5.7 
+temp 11.00
+O(0) 7.00
+pe 3.00446
+Alkalinity 22 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 17.71 as NO3
+P -0.010 as PO4
+C(-4) -1.5
+Si 11
+Cl 31
+F -0.2
+S(6) 9 as SO4
+Na 16.0
+K 1.1
+Mg 5.40
+Ca 11.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 12 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu 4 ug/L
+Zn 7 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 8 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 41 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

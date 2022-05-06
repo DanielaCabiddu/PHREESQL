@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09912
+#County Meath
+#Site_Name Curragha PW1
+#Easting 303369
+#Northing 255734
+#New_Code IE_EA_G_0014_2300_0001
+#Sample_Date 2014/11/05
+units mg/L
+pH 6.9 
+temp 11.30
+O(0) 2.00
+pe 0.185461
+Alkalinity 232 as HCO3
+N(-3) 0.100 as NH4 
+N(3) -0.013 as NO2
+N(5) -0.90 as NO3
+P 0.018 as PO4
+C(-4) 1.8
+Si 8
+Cl 25
+F -0.2
+S(6) 10 as SO4
+Na 12.0
+K 1.4
+Mg 13.00
+Ca 160.0
+Fe 1100 ug/L
+Mn 340 ug/L
+B 22 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 32 ug/L
+Cu -1 ug/L
+Zn 25 ug/L
+As 3.1 ug/L
+Cd 0.1 ug/L
+Sb -1.0 ug/L
+Ba 82 ug/L
+Pb -1.0 ug/L
+U 1.5 ug/L
+Hg -0.05 ug/L
+Co 2.3 ug/L
+Mo 1.5 ug/L
+Sr 710 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

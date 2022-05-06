@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09909
+#County Meath
+#Site_Name Killmessan (Swainstown)
+#Easting 289091
+#Northing 257282
+#New_Code IE_EA_G_0002_2300_0006
+#Sample_Date 2014/11/05
+units mg/L
+pH 7.0 
+temp 11.30
+O(0) 2.00
+pe 6.45403
+Alkalinity 210 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 3.06 as NO3
+P -0.010 as PO4
+C(-4) 1.7
+Si 10
+Cl 20
+F -0.2
+S(6) 5 as SO4
+Na 21.0
+K 1.1
+Mg 24.00
+Ca 100.0
+Fe -10 ug/L
+Mn 7 ug/L
+B 57 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 2 ug/L
+Cu 23 ug/L
+Zn 35 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 49 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo 1.1 ug/L
+Sr 2700 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

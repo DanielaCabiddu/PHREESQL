@@ -1,0 +1,96 @@
+   Input file: IN/minteq/EPA_09925.pqi
+  Output file: OUT/minteq/EPA_09925.pqo
+Database file: /Users/zucco/softwarehouse/phreeqc-3.6.1-15000/database/minteq.dat
+
+------------------
+Reading data base.
+------------------
+
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	SOLUTION_SPECIES
+	PHASES
+	SURFACE_MASTER_SPECIES
+	SURFACE_SPECIES
+	END
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	SOLUTION
+	units mg/L
+	pH 0.0 
+	pe 0
+	PRINT
+	alkalinity
+	END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Pure water     
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   0.000    
+                                       pe  =   0.000    
+                        Activity of water  =   0.977
+                 Ionic strength (mol/kgw)  =   6.619e-01
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -1.324e+00
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   1.324e+00
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  = 100.00
+                               Iterations  =   3
+                                  Total H  = 1.123375e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              1.324e+00   1.000e+00     0.122     0.000    -0.122      0.00
+   OH-             1.609e-14   9.820e-15   -13.793   -14.008    -0.214     (0)  
+   H2O             5.551e+01   9.775e-01     1.744    -0.010     0.000     18.07
+H(0)          1.216e-03
+   H2              6.079e-04   7.079e-04    -3.216    -3.150     0.066     (0)  
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -86.166   -86.100     0.066     (0)  
+
+--------------------------Distribution of alkalinity---------------------------
+
+	Total alkalinity (eq/kgw)  =  -1.324e+00
+
+	Species          Alkalinity    Molality   Alk/Mol
+
+	H+               -1.324e+00   1.324e+00     -1.00
+	OH-               1.609e-14   1.609e-14      1.00
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  O2(g)           -83.14     -0.02   83.12  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+----------------------------------
+End of Run after 0.019901 Seconds.
+----------------------------------
+

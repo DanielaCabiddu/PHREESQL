@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09920
+#County Roscommon
+#Site_Name Keadew
+#Easting 190581
+#Northing 311870
+#New_Code IE_SH_G_0105_2600_0009
+#Sample_Date 2014/11/05
+units mg/L
+pH 7.3 
+temp 10.10
+O(0) 3.50
+pe 13.075
+Alkalinity 168 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 7.97 as NO3
+P 0.028 as PO4
+C(-4) -1.5
+Si 7
+Cl 18
+F -0.2
+S(6) 10 as SO4
+Na 11.0
+K 1.3
+Mg 19.00
+Ca 80.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 14 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu 10 ug/L
+Zn 9 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 11 ug/L
+Pb -1.0 ug/L
+U 2.4 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 160 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

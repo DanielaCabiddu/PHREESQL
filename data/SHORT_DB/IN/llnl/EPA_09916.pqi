@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09916
+#County Kerry
+#Site_Name South Ardfert
+#Easting 78148
+#Northing 121655
+#New_Code IE_SH_G_0008_1300_0002
+#Sample_Date 2014/11/05
+units mg/L
+pH 6.9 
+temp 11.50
+O(0) 4.50
+pe 4.59942
+Alkalinity 195 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 24.36 as NO3
+P -0.010 as PO4
+C(-4) -1.5
+Si 7
+Cl 46
+F -0.2
+S(6) -2 as SO4
+Na 25.0
+K 1.5
+Mg 7.50
+Ca 130.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 24 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu 2 ug/L
+Zn 2 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 5 ug/L
+Pb -1.0 ug/L
+U 1.5 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo 5.1 ug/L
+Sr 120 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

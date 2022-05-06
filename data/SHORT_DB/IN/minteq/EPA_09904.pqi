@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09904
+#County Leitrim
+#Site_Name Manorhamilton
+#Easting 183683
+#Northing 338569
+#New_Code IE_WE_G_0042_1700_0003
+#Sample_Date 2014/11/04
+units mg/L
+pH 7.6 
+temp 9.60
+O(0) 10.50
+pe 3.57939
+Alkalinity 133 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 4.43 as NO3
+P 0.011 as PO4
+C(-4) 3.8
+Si 2
+Cl 13
+F -0.2
+S(6) -2 as SO4
+Na 6.5
+K 0.9
+Mg 6.70
+Ca 74.0
+Fe 53 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 3 ug/L
+Cu -1 ug/L
+Zn -1 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 6 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 57 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

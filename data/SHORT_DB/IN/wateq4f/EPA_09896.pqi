@@ -1,0 +1,48 @@
+SOLUTION
+#ID 09896
+#County Wicklow
+#Easting 318268
+#Northing 203007
+#New_Code IE_EA_G_0076_3400_0011
+#Sample_Date 2014/11/04
+units mg/L
+pH 5.9 
+temp 9.90
+O(0) 6.90
+pe 2.44808
+Alkalinity 21 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 24.80 as NO3
+P -0.010 as PO4
+C(-4) -1.5
+Si 8
+Cl 12
+F -0.2
+S(6) 4 as SO4
+Na 6.4
+K 1.0
+Mg 6.70
+Ca 9.8
+Fe -10 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 2 ug/L
+Cu 36 ug/L
+Zn 45 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba -1 ug/L
+Pb 2.4 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 51 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

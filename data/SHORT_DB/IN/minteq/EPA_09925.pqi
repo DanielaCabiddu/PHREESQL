@@ -1,0 +1,14 @@
+SOLUTION
+#ID 09925
+#County Tipperary South
+#Site_Name Coolmore (Stud BH)
+#Easting 222794
+#Northing 140167
+#New_Code IE_SE_G_0040_3700_0001
+#Sample_Date 2014/11/06
+units mg/L
+pH 0.0 
+pe 0
+PRINT
+-alkalinity
+END

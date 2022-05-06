@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09910
+#County Meath
+#Site_Name Trim Waterworks
+#Easting 282885
+#Northing 255978
+#New_Code IE_EA_G_0002_2300_0011
+#Sample_Date 2014/11/05
+units mg/L
+pH 7.1 
+temp 11.20
+O(0) 7.60
+pe 0.0185461
+Alkalinity 181 as HCO3
+N(-3) 0.087 as NH4 
+N(3) -0.013 as NO2
+N(5) -0.90 as NO3
+P 0.012 as PO4
+C(-4) 2.4
+Si 8
+Cl 17
+F 0.4
+S(6) 22 as SO4
+Na 13.0
+K 0.9
+Mg 15.00
+Ca 96.0
+Fe 1000 ug/L
+Mn 110 ug/L
+B 24 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 3 ug/L
+Cu -1 ug/L
+Zn 17 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 32 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo 2.1 ug/L
+Sr 410 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09915
+#County Kerry
+#Site_Name Ballyheigue
+#Easting 76766
+#Northing 126491
+#New_Code IE_SH_G_0008_1300_0001
+#Sample_Date 2014/11/05
+units mg/L
+pH 6.7 
+temp 11.10
+O(0) 3.90
+pe 4.84052
+Alkalinity 224 as HCO3
+N(-3) 0.024 as NH4 
+N(3) -0.013 as NO2
+N(5) 33.21 as NO3
+P -0.010 as PO4
+C(-4) 2.4
+Si 9
+Cl 96
+F -0.2
+S(6) 30 as SO4
+Na 55.0
+K 4.8
+Mg 15.00
+Ca 150.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 41 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu -1 ug/L
+Zn 3 ug/L
+As -1.0 ug/L
+Cd 0.1 ug/L
+Sb -1.0 ug/L
+Ba 11 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 280 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

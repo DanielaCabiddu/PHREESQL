@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09908
+#County Meath
+#Site_Name Dunshaughlin Bore (College Park)
+#Easting 296611
+#Northing 252259
+#New_Code IE_EA_G_0002_2300_0002
+#Sample_Date 2014/11/05
+units mg/L
+pH 6.9 
+temp 11.50
+O(0) 0.50
+pe 0.352375
+Alkalinity 205 as HCO3
+N(-3) 0.044 as NH4 
+N(3) -0.013 as NO2
+N(5) -0.90 as NO3
+P -0.010 as PO4
+C(-4) 2.0
+Si 8
+Cl 23
+F 0.2
+S(6) 102 as SO4
+Na 11.0
+K 1.5
+Mg 10.00
+Ca 150.0
+Fe 1200 ug/L
+Mn 200 ug/L
+B 21 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 7 ug/L
+Cu -1 ug/L
+Zn 5 ug/L
+As 3.7 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 130 ug/L
+Pb -1.0 ug/L
+U 3.5 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo 4.9 ug/L
+Sr 820 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

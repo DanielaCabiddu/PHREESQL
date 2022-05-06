@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09922
+#County Meath
+#Site_Name Enfield Bore
+#Easting 278141
+#Northing 241368
+#New_Code IE_EA_G_0002_2300_0004
+#Sample_Date 2014/11/06
+units mg/L
+pH 7.1 
+temp 11.10
+O(0) 0.20
+pe -0.871665
+Alkalinity 159 as HCO3
+N(-3) 0.210 as NH4 
+N(3) -0.013 as NO2
+N(5) -0.90 as NO3
+P 0.028 as PO4
+C(-4) -1.5
+Si 9
+Cl 14
+F -0.2
+S(6) -2 as SO4
+Na 13.0
+K 1.2
+Mg 10.00
+Ca 100.0
+Fe 900 ug/L
+Mn 370 ug/L
+B 37 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 4 ug/L
+Cu -1 ug/L
+Zn -1 ug/L
+As 2.2 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 110 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo 2.0 ug/L
+Sr 2400 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

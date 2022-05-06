@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09931
+#County Cork
+#Site_Name Cloyne PWS
+#Easting 191880
+#Northing 67175
+#New_Code IE_SW_G_0028_0500_0009
+#Sample_Date 2014/11/06
+units mg/L
+pH 7.0 
+temp 11.30
+O(0) 5.30
+pe 4.09868
+Alkalinity 146 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 25.69 as NO3
+P -0.010 as PO4
+C(-4) -1.5
+Si 7
+Cl 35
+F -0.2
+S(6) -2 as SO4
+Na 18.0
+K 2.1
+Mg 8.30
+Ca 110.0
+Fe -10 ug/L
+Mn 6 ug/L
+B 19 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu 3 ug/L
+Zn 9 ug/L
+As -1.0 ug/L
+Cd 0.1 ug/L
+Sb -1.0 ug/L
+Ba 2 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo 15.0 ug/L
+Sr 140 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

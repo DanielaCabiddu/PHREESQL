@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09897
+#County Donegal
+#Site_Name Pettigo
+#Easting 210538
+#Northing 368362
+#New_Code IE_NW_G_0011_0600_0004
+#Sample_Date 2014/11/04
+units mg/L
+pH 7.0 
+temp 10.70
+O(0) 0.80
+pe 4.2285
+Alkalinity 244 as HCO3
+N(-3) -0.020 as NH4 
+N(3) 0.033 as NO2
+N(5) 7.04 as NO3
+P -0.010 as PO4
+C(-4) 1.7
+Si 10
+Cl 20
+F -0.2
+S(6) 40 as SO4
+Na 12.0
+K 3.9
+Mg 46.00
+Ca 95.0
+Fe -10 ug/L
+Mn 33 ug/L
+B 10 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 6 ug/L
+Cu 5 ug/L
+Zn 13 ug/L
+As 4.6 ug/L
+Cd 0.0 ug/L
+Sb 2.9 ug/L
+Ba 54 ug/L
+Pb -1.0 ug/L
+U 1.2 ug/L
+Hg -0.05 ug/L
+Co 1.8 ug/L
+Mo -1.0 ug/L
+Sr 250 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

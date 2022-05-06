@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09905
+#County Sligo
+#Site_Name Calry
+#Easting 175861
+#Northing 338344
+#New_Code IE_WE_G_0042_2700_0001
+#Sample_Date 2014/11/04
+units mg/L
+pH 8.3 
+temp 9.50
+O(0) 10.80
+pe 3.0601
+Alkalinity 122 as HCO3
+N(-3) 0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 2.39 as NO3
+P -0.010 as PO4
+C(-4) 3.9
+Si 4
+Cl 14
+F -0.2
+S(6) -2 as SO4
+Na 7.2
+K 0.4
+Mg 7.50
+Ca 70.0
+Fe -10 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu -1 ug/L
+Zn -1 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 18 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 320 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

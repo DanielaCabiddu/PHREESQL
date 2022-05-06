@@ -1,0 +1,255 @@
+   Input file: IN/minteq/EPA_09905.pqi
+  Output file: OUT/minteq/EPA_09905.pqo
+Database file: /Users/zucco/softwarehouse/phreeqc-3.6.1-15000/database/minteq.dat
+
+------------------
+Reading data base.
+------------------
+
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	SOLUTION_SPECIES
+	PHASES
+	SURFACE_MASTER_SPECIES
+	SURFACE_SPECIES
+	END
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	SOLUTION
+	units mg/L
+	pH 8.3 
+	temp 9.50
+	O(0) 10.80
+	pe 3.0601
+	Alkalinity 122 as HCO3
+	N(-3) 0.020 as NH4 
+	N(3) -0.013 as NO2
+	N(5) 2.39 as NO3
+	P -0.010 as PO4
+	C(-4) 3.9
+	Si 4
+	Cl 14
+	F -0.2
+	S(6) -2 as SO4
+	Na 7.2
+	K 0.4
+	Mg 7.50
+	Ca 70.0
+	Fe -10 ug/L
+	Mn -5 ug/L
+	B -10 ug/L
+	Al -10 ug/L
+	Cr -1 ug/L
+	Ni -1 ug/L
+	Cu -1 ug/L
+	Zn -1 ug/L
+	As -1.0 ug/L
+	Cd 0.0 ug/L
+	Sb -1.0 ug/L
+	Ba 18 ug/L
+	Pb -1.0 ug/L
+	U -1.0 ug/L
+	Hg -0.05 ug/L
+	Co -1.0 ug/L
+	Mo -1.0 ug/L
+	Sr 320 ug/L
+	Be -1.0 ug/L
+	PRINT
+	alkalinity
+	END
+WARNING: Could not find element in database, C(-4).
+	Concentration is set to zero.
+WARNING: Could not find element in database, Co.
+	Concentration is set to zero.
+WARNING: Could not find element in database, Mo.
+	Concentration is set to zero.
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Alkalinity        2.000e-03   2.000e-03
+	Ba                1.311e-07   1.311e-07
+	Ca                1.747e-03   1.747e-03
+	Cl                3.950e-04   3.950e-04
+	K                 1.023e-05   1.023e-05
+	Mg                3.086e-04   3.086e-04
+	N(-3)             1.109e-06   1.109e-06
+	N(5)              3.855e-05   3.855e-05
+	Na                3.133e-04   3.133e-04
+	O(0)              6.752e-04   6.752e-04
+	Si                4.163e-05   4.163e-05
+	Sr                3.653e-06   3.653e-06
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   8.300    
+                                       pe  =   3.060    
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   5.419e-03
+                       Mass of water (kg)  =   1.000e+00
+                    Total carbon (mol/kg)  =   1.982e-03
+                       Total CO2 (mol/kg)  =   1.982e-03
+                         Temperature (°C)  =   9.50
+                  Electrical balance (eq)  =   2.010e-03
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  29.71
+                               Iterations  =   7
+                                  Total H  = 1.110146e+02
+                                  Total O  = 5.551312e+01
+
+---------------------------------Redox couples---------------------------------
+
+	Redox couple             pe  Eh (volts)
+
+	N(-3)/N(5)           5.6439      0.3165
+	O(-2)/O(0)          13.7067      0.7687
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             6.300e-07   5.828e-07    -6.201    -6.234    -0.034     (0)  
+   H+              5.372e-09   5.012e-09    -8.270    -8.300    -0.030      0.00
+   H2O             5.551e+01   9.999e-01     1.744    -0.000     0.000     18.02
+Ba            1.311e-07
+   Ba+2            1.311e-07   9.700e-08    -6.882    -7.013    -0.131     (0)  
+   BaOH+           2.263e-13   2.099e-13   -12.645   -12.678    -0.033     (0)  
+C(4)          1.982e-03
+   HCO3-           1.912e-03   1.775e-03    -2.718    -2.751    -0.032     (0)  
+   H2CO3           1.679e-05   1.682e-05    -4.775    -4.774     0.001     (0)  
+   CaCO3           1.583e-05   1.585e-05    -4.800    -4.800     0.001     (0)  
+   CaHCO3+         1.576e-05   1.464e-05    -4.802    -4.834    -0.032     (0)  
+   CO3-2           1.528e-05   1.133e-05    -4.816    -4.946    -0.130     (0)  
+   MgHCO3+         4.367e-06   4.044e-06    -5.360    -5.393    -0.033     (0)  
+   MgCO3           1.927e-06   1.929e-06    -5.715    -5.715     0.001     (0)  
+   NaHCO3          1.979e-07   1.981e-07    -6.704    -6.703     0.001     (0)  
+   NaCO3-          2.879e-08   2.672e-08    -7.541    -7.573    -0.032     (0)  
+Ca            1.747e-03
+   Ca+2            1.715e-03   1.280e-03    -2.766    -2.893    -0.127     (0)  
+   CaCO3           1.583e-05   1.585e-05    -4.800    -4.800     0.001     (0)  
+   CaHCO3+         1.576e-05   1.464e-05    -4.802    -4.834    -0.032     (0)  
+   CaOH+           1.807e-08   1.678e-08    -7.743    -7.775    -0.032     (0)  
+Cl            3.950e-04
+   Cl-             3.950e-04   3.652e-04    -3.403    -3.438    -0.034     (0)  
+H(0)          3.170e-26
+   H2              1.585e-26   1.587e-26   -25.800   -25.799     0.001     (0)  
+K             1.023e-05
+   K+              1.023e-05   9.460e-06    -4.990    -5.024    -0.034     (0)  
+Mg            3.086e-04
+   Mg+2            3.022e-04   2.263e-04    -3.520    -3.645    -0.126     (0)  
+   MgHCO3+         4.367e-06   4.044e-06    -5.360    -5.393    -0.033     (0)  
+   MgCO3           1.927e-06   1.929e-06    -5.715    -5.715     0.001     (0)  
+   MgOH+           1.931e-08   1.795e-08    -7.714    -7.746    -0.032     (0)  
+N(-3)         1.109e-06
+   NH4+            1.074e-06   9.915e-07    -5.969    -6.004    -0.035     (0)  
+   NH3             3.540e-08   3.544e-08    -7.451    -7.451     0.001     (0)  
+N(5)          3.855e-05
+   NO3-            3.855e-05   3.564e-05    -4.414    -4.448    -0.034     (0)  
+Na            3.133e-04
+   Na+             3.130e-04   2.901e-04    -3.504    -3.537    -0.033     (0)  
+   NaHCO3          1.979e-07   1.981e-07    -6.704    -6.703     0.001     (0)  
+   NaCO3-          2.879e-08   2.672e-08    -7.541    -7.573    -0.032     (0)  
+O(0)          6.752e-04
+   O2              3.376e-04   3.380e-04    -3.472    -3.471     0.001     (0)  
+Si            4.163e-05
+   H4SiO4          4.118e-05   4.123e-05    -4.385    -4.385     0.001     (0)  
+   H3SiO4-         4.432e-07   4.104e-07    -6.353    -6.387    -0.033     (0)  
+   H2SiO4-2        2.999e-11   2.225e-11   -10.523   -10.653    -0.130     (0)  
+Sr            3.653e-06
+   Sr+2            3.653e-06   2.703e-06    -5.437    -5.568    -0.131     (0)  
+   SrOH+           1.009e-11   9.358e-12   -10.996   -11.029    -0.033     (0)  
+
+--------------------------Distribution of alkalinity---------------------------
+
+	Total alkalinity (eq/kgw)  =   2.000e-03
+
+	Species          Alkalinity    Molality   Alk/Mol
+
+	HCO3-             1.912e-03   1.912e-03      1.00
+	CaCO3             3.167e-05   1.583e-05      2.00
+	CO3-2             3.056e-05   1.528e-05      2.00
+	CaHCO3+           1.576e-05   1.576e-05      1.00
+	MgHCO3+           4.367e-06   4.367e-06      1.00
+	MgCO3             3.854e-06   1.927e-06      2.00
+	OH-               6.300e-07   6.300e-07      1.00
+	H3SiO4-           4.432e-07   4.432e-07      1.00
+	NaHCO3            1.979e-07   1.979e-07      1.00
+	NaCO3-            5.757e-08   2.879e-08      2.00
+	NH3               3.540e-08   3.540e-08      1.00
+	MgOH+             1.931e-08   1.931e-08      1.00
+	CaOH+             1.807e-08   1.807e-08      1.00
+	H+               -5.372e-09   5.372e-09     -1.00
+	H2SiO4-2          5.999e-11   2.999e-11      2.00
+	SrOH+             1.009e-11   1.009e-11      1.00
+	BaOH+             2.263e-13   2.263e-13      1.00
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(282 K,   1 atm)
+
+  Akerminite      -18.95     31.60   50.54  Ca2MgSi2O7
+  Aragonite         0.41     -7.84   -8.25  CaCO3
+  Artinite         -6.39      4.36   10.76  MgCO3:Mg(OH)2:3H2O
+  Brucite          -4.88     12.95   17.83  Mg(OH)2
+  Ca-Olivine      -16.82     23.03   39.85  Ca2SiO4
+  Ca3SiO5         -41.40     36.74   78.14  Ca3SiO5
+  Calcite           0.57     -7.84   -8.41  CaCO3
+  CH4(g)          -69.87   -112.43  -42.55  CH4
+  Chalcedony       -0.68     -4.38   -3.71  SiO2
+  Chrysotile       -4.20     30.09   34.30  Mg3Si2O5(OH)4
+  Clinoenstatite   -3.57      8.57   12.14  MgSiO3
+  CO2(g)           -3.36    -21.55  -18.18  CO2
+  Cristobalite     -0.58     -4.38   -3.81  SiO2
+  Diopside         -3.29     17.89   21.18  CaMgSi2O6
+  Dolomite          0.24    -16.43  -16.67  CaMg(CO3)2
+  Forsterite       -8.72     21.52   30.25  Mg2SiO4
+  Halite           -8.52     -6.97    1.55  NaCl
+  Huntite          -4.68    -33.61  -28.93  CaMg3(CO3)4
+  Hydromagnesite  -14.74    -21.41   -6.67  Mg5(CO3)4(OH)2:4H2O
+  Larnite         -18.41     23.03   41.44  Ca2SiO4
+  Lime            -20.95     13.71   34.66  CaO
+  Magadiite       -11.63    -25.93  -14.30  NaSi7O13(OH)3:3H2O
+  Magnesite        -0.81     -8.59   -7.78  MgCO3
+  Merwinite       -27.54     45.31   72.85  Ca3MgSi2O8
+  Monticellite     -9.98     22.28   32.26  CaMgSiO4
+  Natron          -10.08    -12.02   -1.94  Na2CO3:10H2O
+  Nesquehonite     -3.20     -8.59   -5.39  MgCO3:3H2O
+  O2(g)           -43.06     45.44   88.50  O2
+  P-Wollstanite    -5.37      9.32   14.69  CaSiO3
+  Periclase       -10.01     12.95   22.96  MgO
+  Portlandite     -10.20     13.71   23.91  Ca(OH)2
+  Quartz           -0.13     -4.38   -4.26  SiO2
+  Sepiolite(a)     -6.02     12.76   18.78  Mg2Si3O7.5OH:3H2O
+  Sepiolite(c)     -4.25     12.76   17.01  Mg2Si3O7.5OH:3H2O
+  SiO2(a)          -1.19     -4.38   -3.20  SiO2
+  SiO2(am)         -1.52     -4.38   -2.87  SiO2
+  Strontianite     -1.29    -10.51   -9.22  SrCO3
+  Talc             -3.14     21.33   24.46  Mg3Si4O10(OH)2
+  Thermonatrite   -12.26    -12.02    0.24  Na2CO3:H2O
+  Tremolite        -3.32     57.11   60.43  Ca2Mg5Si8O22(OH)2
+  Witherite        -3.36    -11.96   -8.60  BaCO3
+  Wollastonite     -4.46      9.32   13.78  CaSiO3
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+----------------------------------
+End of Run after 0.022071 Seconds.
+----------------------------------
+

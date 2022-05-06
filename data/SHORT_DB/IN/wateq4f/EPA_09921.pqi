@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09921
+#County Sligo
+#Site_Name Culfadda 
+#Easting 165617
+#Northing 312642
+#New_Code IE_WE_G_0037_2700_0002
+#Sample_Date 2014/11/05
+units mg/L
+pH 7.3 
+temp 10.10
+O(0) 3.70
+pe 5.00744
+Alkalinity 150 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 3.32 as NO3
+P 0.013 as PO4
+C(-4) 5.6
+Si 6
+Cl 15
+F -0.2
+S(6) -2 as SO4
+Na 8.1
+K 2.3
+Mg 6.30
+Ca 90.0
+Fe 12 ug/L
+Mn -5 ug/L
+B 16 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu 1 ug/L
+Zn 3 ug/L
+As -1.0 ug/L
+Cd 0.1 ug/L
+Sb -1.0 ug/L
+Ba 23 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 350 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09895
+#County Wicklow
+#Site_Name Bulford Farm
+#Easting 329175
+#Northing 207821
+#New_Code IE_EA_G_0036_3400_0004
+#Sample_Date 2014/11/04
+units mg/L
+pH 7.3 
+temp 10.60
+O(0) 3.10
+pe 2.70772
+Alkalinity 159 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 23.47 as NO3
+P 0.010 as PO4
+C(-4) -1.5
+Si 12
+Cl 25
+F -0.2
+S(6) 25 as SO4
+Na 14.0
+K 1.0
+Mg 12.00
+Ca 97.0
+Fe -10 ug/L
+Mn -5 ug/L
+B 13 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu 28 ug/L
+Zn 36 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 29 ug/L
+Pb -1.0 ug/L
+U 2.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 270 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

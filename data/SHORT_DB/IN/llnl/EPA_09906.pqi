@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09906
+#County Sligo
+#Site_Name Tobernalt
+#Easting 171030
+#Northing 332881
+#New_Code IE_WE_G_0042_2700_0003
+#Sample_Date 2014/11/04
+units mg/L
+pH 7.0 
+temp 10.50
+O(0) 9.30
+pe 3.65357
+Alkalinity 155 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 14.17 as NO3
+P 0.026 as PO4
+C(-4) 3.0
+Si 4
+Cl 19
+F -0.2
+S(6) 13 as SO4
+Na 10.0
+K 1.7
+Mg 6.60
+Ca 100.0
+Fe 15 ug/L
+Mn -5 ug/L
+B 12 ug/L
+Al 17 ug/L
+Cr 1 ug/L
+Ni 1 ug/L
+Cu 4 ug/L
+Zn 2 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 12 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 240 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

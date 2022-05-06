@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09928
+#County Laois
+#Site_Name Portarlington PWS (Lough BHA)
+#Easting 254062
+#Northing 208593
+#New_Code IE_SE_G_0153_1600_0010
+#Sample_Date 2014/11/06
+units mg/L
+pH 6.9 
+temp 11.60
+O(0) 0.60
+pe 0.890211
+Alkalinity 177 as HCO3
+N(-3) 0.034 as NH4 
+N(3) -0.013 as NO2
+N(5) 13.29 as NO3
+P -0.010 as PO4
+C(-4) 1.5
+Si 8
+Cl 21
+F -0.2
+S(6) 3 as SO4
+Na 10.0
+K 2.8
+Mg 13.00
+Ca 130.0
+Fe 14 ug/L
+Mn -5 ug/L
+B 28 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 1 ug/L
+Cu 10 ug/L
+Zn 19 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 130 ug/L
+Pb -1.0 ug/L
+U 1.6 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 280 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

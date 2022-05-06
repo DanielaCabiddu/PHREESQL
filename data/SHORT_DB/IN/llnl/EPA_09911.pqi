@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09911
+#County Dublin
+#Site_Name Bog of the Ring  PW3
+#Easting 317427
+#Northing 260377
+#New_Code IE_EA_G_0014_0900_0008
+#Sample_Date 2014/11/05
+units mg/L
+pH 7.0 
+temp 12.60
+O(0) 0.50
+pe 0.0370921
+Alkalinity 207 as HCO3
+N(-3) 0.130 as NH4 
+N(3) -0.013 as NO2
+N(5) -0.90 as NO3
+P -0.010 as PO4
+C(-4) 3.1
+Si 10
+Cl 28
+F -0.2
+S(6) 4 as SO4
+Na 24.0
+K 3.3
+Mg 29.00
+Ca 130.0
+Fe 730 ug/L
+Mn 470 ug/L
+B 47 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni 2 ug/L
+Cu -1 ug/L
+Zn 14 ug/L
+As 5.2 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 38 ug/L
+Pb -1.0 ug/L
+U 2.2 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo 2.8 ug/L
+Sr 810 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

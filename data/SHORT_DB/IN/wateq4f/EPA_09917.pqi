@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09917
+#County Kerry
+#Site_Name Gale Bridge
+#Easting 95774
+#Northing 136291
+#New_Code IE_SH_G_0027_1300_0012
+#Sample_Date 2014/11/05
+units mg/L
+pH 6.7 
+temp 11.20
+O(0) 2.50
+pe 4.24705
+Alkalinity 117 as HCO3
+N(-3) 0.034 as NH4 
+N(3) -0.013 as NO2
+N(5) 27.01 as NO3
+P -0.010 as PO4
+C(-4) 3.8
+Si 6
+Cl 33
+F -0.2
+S(6) 10 as SO4
+Na 19.0
+K 1.4
+Mg 7.70
+Ca 74.0
+Fe 30 ug/L
+Mn -5 ug/L
+B 17 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu -1 ug/L
+Zn 25 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 3 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 120 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

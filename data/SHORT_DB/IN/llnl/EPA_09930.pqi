@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09930
+#County Cork
+#Site_Name Watergrasshill PWS
+#Easting 178447
+#Northing 83981
+#New_Code IE_SW_G_0004_0500_0028
+#Sample_Date 2014/11/06
+units mg/L
+pH 5.6 
+temp 11.10
+O(0) 6.50
+pe 4.59942
+Alkalinity 13 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 4.34 as NO3
+P 0.013 as PO4
+C(-4) -1.5
+Si 6
+Cl 15
+F -0.2
+S(6) -2 as SO4
+Na 8.7
+K 0.5
+Mg 1.90
+Ca 6.6
+Fe -10 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al -10 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu -1 ug/L
+Zn 1 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 7 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 18 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END

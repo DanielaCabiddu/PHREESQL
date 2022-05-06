@@ -1,0 +1,49 @@
+SOLUTION
+#ID 09907
+#County Leitrim
+#Site_Name Kinlough/Tullaghan
+#Easting 183022
+#Northing 348241
+#New_Code IE_WE_G_0060_1700_0002
+#Sample_Date 2014/11/04
+units mg/L
+pH 7.6 
+temp 11.60
+O(0) 10.50
+pe 3.57939
+Alkalinity 50 as HCO3
+N(-3) -0.020 as NH4 
+N(3) -0.013 as NO2
+N(5) 1.42 as NO3
+P 0.014 as PO4
+C(-4) 6.5
+Si 2
+Cl 10
+F -0.2
+S(6) 2 as SO4
+Na 5.5
+K -0.3
+Mg 1.60
+Ca 29.0
+Fe 45 ug/L
+Mn -5 ug/L
+B -10 ug/L
+Al 20 ug/L
+Cr -1 ug/L
+Ni -1 ug/L
+Cu -1 ug/L
+Zn -1 ug/L
+As -1.0 ug/L
+Cd 0.0 ug/L
+Sb -1.0 ug/L
+Ba 22 ug/L
+Pb -1.0 ug/L
+U -1.0 ug/L
+Hg -0.05 ug/L
+Co -1.0 ug/L
+Mo -1.0 ug/L
+Sr 140 ug/L
+Be -1.0 ug/L
+PRINT
+-alkalinity
+END
