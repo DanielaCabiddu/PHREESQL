@@ -158,6 +158,8 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
               delete  phreeqc_engine;
         }
     }
+
+    std::cout << "COMPLETED. " << ents.size() << "/" << ents.size() << " files: " << (ents.size() * 100.0) / (ents.size()) << "%" << std::endl;
 }
 
 

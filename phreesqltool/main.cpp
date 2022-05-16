@@ -28,6 +28,9 @@ int main(int argc, char *argv[])
     int fill_db = 0;
     int overwrite = 0;
 
+    std::cout << "========================================================================================" << std::endl;
+    std::cout << std::endl << argv[0] << " started with the following parameters: " << std::endl << std::endl;
+
     while (1)
     {
         static struct option long_options[] =
@@ -203,7 +206,7 @@ int main(int argc, char *argv[])
     {
         std::cout << std::endl;
         std::cout << "========================================================================================" << std::endl;
-        std::cout << "Running PhreeQC using DB " << phreeqc_db_path << "..." << std::endl;
+        std::cout << std::endl << "Running PhreeQC using DB " << phreeqc_db_path << "..." << std::endl << std::endl;
         engine.run_phreeqc_on_folder(in_folder, out_folder, phreeqc_db_path);
     }
 
