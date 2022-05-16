@@ -112,6 +112,7 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
         {
             ents.push_back(ent);
         }
+
 #pragma omp parallel for
         for (uint i=0; i < ents.size(); i++)
         {

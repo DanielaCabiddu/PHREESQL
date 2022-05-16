@@ -8,10 +8,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "-std=c++17 -fpermissive")
 
 find_package(OpenMP)
-if (OPENMP_FOUND)
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-    set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+
+if (NOT OPENMP_FOUND)
+    #set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    #set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+    message ("OpenMP not found. Parallelism DISABLED.")
 endif()
 
 include_directories(BEFORE ../phreesqlib/)
@@ -42,5 +44,9 @@ include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 
 add_executable(phreesql main.cpp)
 
+set (LINKER_LIBS ${IPHREEQC_LIB} "sqlite3")
+if (OPENMP_FOUND)
+    set (LINKER_LIBS ${LINKER_LIBS} "OpenMP::OpenMP_CXX")
+endif()
 
-target_link_libraries(${PROJECT_NAME} ${IPHREEQC_LIB} sqlite3)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${LINKER_LIBS} )
