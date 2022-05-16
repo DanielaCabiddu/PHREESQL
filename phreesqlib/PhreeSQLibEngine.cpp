@@ -2,9 +2,11 @@
 
 #include "PhreeqcEngineObj.h"
 #include "DBEngine.h"
+#include "utils.h"
 
 #include <IPhreeqc.hpp>
 
+#include <cmath>
 #include <limits.h>
 
 /**
@@ -57,13 +59,13 @@ void phreesqlib::PhreeSQLibEngine::run_on_folder (const std::string in_folder,
           struct stat buffer_out, buffer_meta;
           if (stat (out_absolute_path.c_str(), &buffer_out) != 0)
           {
-              std::cerr << ent->d_name << " ]] No Matching OUT File. IGNORED." << std::endl;
+              std::cerr << yellow << ent->d_name << " ]] No Matching OUT File. IGNORED." << reset << std::endl;
               continue;
           }
 
           if (stat (meta_absolute_path.c_str(), &buffer_meta) != 0)
           {
-              std::cerr << ent->d_name << " ]] No Matching META File. IGNORED." << std::endl;
+              std::cerr << yellow << ent->d_name << " ]] No Matching META File. IGNORED." << reset << std::endl;
               continue;
           }
 
@@ -152,14 +154,14 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
 
               if (i % (int)(ents.size() * 5.0/100.0) == 0)
               {
-                  std::cout << "Completed " << i << "/" << ents.size() << " files: " << (i * 100.0) / (ents.size()) << "%" << std::endl;
+                  std::cout << "Completed " << i << "/" << ents.size() << " files: " << std:: round((i * 100.0) / (ents.size())) << "%" << std::endl;
               }
 
               delete  phreeqc_engine;
         }
     }
 
-    std::cout << "COMPLETED. " << ents.size() << "/" << ents.size() << " files: " << (ents.size() * 100.0) / (ents.size()) << "%" << std::endl;
+    std::cout << green << "COMPLETED. " << ents.size() << "/" << ents.size() << " files: " << (ents.size() * 100.0) / (ents.size()) << "%" << reset << std::endl;
 }
 
 
