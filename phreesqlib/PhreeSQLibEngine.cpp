@@ -113,7 +113,7 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
             ents.push_back(ent->d_name);
         }
 
-#pragma omp parallel for
+#pragma omp parallel for schedule(static,1) ordered
         for (uint i=0; i < ents.size(); i++)
         {
               const std::string filename = ents.at(i);
@@ -147,8 +147,13 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
 
               phreeqc_engine->LoadDatabase(phreeqc_db_path.c_str());
 
-              std::cout << filename << ": running phreeqc -> " << out_absolute_path << std::endl;
+//              std::cout << filename << ": running phreeqc -> " << out_absolute_path << std::endl;
               phreeqc_engine->RunFile(in_absolute_path.c_str());
+
+              if (i % (int)(ents.size() * 5.0/100.0) == 0)
+              {
+                  std::cout << "Completed " << i << "/" << ents.size() << " files: " << (i * 100.0) / (ents.size()) << "%" << std::endl;
+              }
 
               delete  phreeqc_engine;
         }
