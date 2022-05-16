@@ -43,8 +43,6 @@ public:
                 "UNIQUE(DATABASE, INPUT_FILE) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
-        std::cout << query << std::endl;
-
         this->queryResult(rc, "creating analisys table");
     }
 
@@ -60,8 +58,6 @@ public:
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
-        std::cout << query << std::endl;
-
         this->queryResult(rc, "creating solution_composition");
     }
 
@@ -75,8 +71,6 @@ public:
                 "CONSTRAINT ANALYSIS_ID "
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
-
-        std::cout << query << std::endl;
 
         this->queryResult(rc, "creating description_of_solution");
     }
@@ -96,8 +90,6 @@ public:
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
-        std::cout << query << std::endl;
-
         this->queryResult(rc, "creating distribution_of_species");
     }
 
@@ -113,8 +105,6 @@ public:
                 "CONSTRAINT ANALYSIS_ID "
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
-
-        std::cout << query << std::endl;
 
         this->queryResult(rc, "creating distribution_of_alkalinity");
     }
@@ -132,8 +122,6 @@ public:
                 "CONSTRAINT ANALYSIS_ID "
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
-
-        std::cout << query << std::endl;
 
         this->queryResult(rc, "creating saturation_indices");
     }

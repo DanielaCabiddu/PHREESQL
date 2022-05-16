@@ -44,8 +44,6 @@ public:
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
-        std::cout << query << std::endl;
-
         this->queryResult(rc, "Create table solution_input");
     }
 
