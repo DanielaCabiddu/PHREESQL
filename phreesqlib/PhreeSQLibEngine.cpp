@@ -103,12 +103,21 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
     unsigned int file_counter = 0;
     DIR *dir;
     struct dirent *ent;
+
+    std::vector< struct dirent *> ents;
     if ((dir = opendir (in_folder.c_str())) != NULL)
     {
         /* print all the files and directories within directory */
         while ((ent = readdir (dir)) != NULL)
         {
-            const std::string filename = ent->d_name;
+            ents.push_back(ent);
+        }
+#pragma omp parallel for
+        for (uint i=0; i < ents.size(); i++)
+        {
+              struct dirent *ent = ents.at(i);
+
+              const std::string filename = ent->d_name;
 
               if (filename.compare("..") == 0) continue;
               if (filename.compare(".") == 0) continue;
@@ -141,6 +150,8 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
 
               std::cout << ent->d_name << ": running phreeqc -> " << out_absolute_path << std::endl;
               phreeqc_engine->RunFile(in_absolute_path.c_str());
+
+              delete  phreeqc_engine;
         }
     }
 }
