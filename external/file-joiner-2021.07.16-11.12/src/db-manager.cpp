@@ -2,6 +2,7 @@
 #include <sqlite3.h>
 #include <algorithm>
 #include <iterator>
+#include <fstream>
 #include "models.h"
 using namespace std;
 
@@ -24,6 +25,25 @@ static int emptyDBCallback(void *param, int argc, char **argv, char **azColName)
     int *value = static_cast<int *>(param);
 
     *value = atoi(argv[0]);
+
+    return 0;
+}
+
+static int printDBCallback(void *list, int count, char **data, char **columns)
+{
+    int idx;
+
+    std::vector<std::vector<std::pair<std::string, std::string>>> *res_list =
+            (std::vector<std::vector<std::pair<std::string, std::string>>> *) list;
+
+    std::vector<std::pair<std::string, std::string>> record;
+
+    for (idx = 0; idx < count; idx++) {
+//        printf("The data in column \"%s\" is: %s\n", columns[idx], data[idx]);
+         record.push_back(std::pair<std::string, std::string> (columns[idx], data[idx]));
+    }
+
+    res_list->push_back(record);
 
     return 0;
 }

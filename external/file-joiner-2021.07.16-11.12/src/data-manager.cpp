@@ -1,3 +1,5 @@
+#include "db-manager.cpp"
+
 #include <string>
 #include <vector>
 #include "utils.h"
@@ -9,6 +11,29 @@ public:
     DataManager(sqlite3 *db) : DBManager(db) {}
 
     ~DataManager () {}
+
+    void data2epsg(const int epsg, const std::string filename)
+    {
+        int row, column;
+        std::vector<std::vector<std::pair<std::string, std::string>>> res;
+
+        std::remove(filename.c_str());
+
+        std::string query = "SELECT * FROM " + metadata_table_name + ";";
+        std::cout << query << std::endl;
+        rc = sqlite3_exec(db, query.c_str(), printDBCallback, &res, &err_message);
+        this->queryResult(rc, "data2epsg");
+
+        for (uint i=0; i < res.size(); i++)
+        {
+            std::cout << "[" << i << "]" << res.at(i).size() << std::endl;
+
+            for (const std::pair<std::string, std::string> &p : res.at(i))
+            {
+                std::cout << p.first << " : " << p.second << std::endl;
+            }
+        }
+    }
 
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)
     {

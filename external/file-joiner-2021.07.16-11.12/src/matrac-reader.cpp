@@ -11,6 +11,7 @@
 #include "data-manager.cpp"
 #include "input-reader-writer.cpp"
 #include "output-reader-writer.cpp"
+
 using namespace std;
 
 class MatracReader
@@ -38,6 +39,7 @@ private:
         }
         else
         {
+            std::cout << "DB " << db_path << " open." << std::endl;
             sqlite3_exec(db, "PRAGMA foreign_keys = ON;", 0, 0, 0);
 //            fprintf(stderr, "");
             return true;
@@ -95,6 +97,11 @@ public:
         delete d_manager;
 
         sqlite3_close(db);
+    }
+
+    void convert_epsg (const int epsg)
+    {
+        d_manager->data2epsg(epsg, "doc.txt");
     }
 
     void readInputOutputFiles(string input_path, string output_path, string meta_path)

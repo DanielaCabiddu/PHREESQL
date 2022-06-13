@@ -11,6 +11,19 @@ void phreesqlib::DBEngine::add_to_DB (const PhreeqcEngineObj &obj, const std::st
     delete  matrac_reader;
 }
 
+/**
+ * @brief phreesqlib::DBEngine::convert_epsg
+ * @param epsg
+ */
+void phreesqlib::DBEngine::convert_epsg (const int epsg)
+{
+    MatracReader *matrac_reader = new MatracReader(db_filename);
+
+    matrac_reader->convert_epsg (epsg);
+
+    delete matrac_reader;
+}
+
 void phreesqlib::DBEngine::print_DB_summary () const
 {
     MatracReader *matrac_reader = new MatracReader(db_filename);

@@ -212,3 +212,12 @@ void phreesqlib::PhreeSQLibEngine::export_metadata (const std::string out_folder
     db_engine->export_metadata(final_folder, analysis_ids, overwrite);
     delete db_engine;
 }
+
+void phreesqlib::PhreeSQLibEngine::epsg_convert (const int epsg)
+{
+    phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
+
+    db_engine->convert_epsg (epsg);
+
+    delete db_engine;
+}
