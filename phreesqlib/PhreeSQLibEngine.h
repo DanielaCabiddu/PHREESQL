@@ -20,7 +20,7 @@ public:
     void export_output (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
     void export_metadata (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite = true);
 
-    void epsg_convert (const int epsg);
+    void epsg_convert (const int epsg, const std::string filename);
 
 private:
 

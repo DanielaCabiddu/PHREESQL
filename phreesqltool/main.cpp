@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     std::string out_folder;
     std::string meta_folder;
     std::string db;
+    int epsg = INT_MAX;
 
     std::string export_folder;
     std::string export_ids_list_filename;
@@ -20,6 +21,7 @@ int main(int argc, char *argv[])
 
     std::string phreeqc_db_path;
 
+    int epsg_convert = 0;
     int export_input = 0;
     int export_output = 0;
     int export_metadata = 0;
@@ -48,6 +50,7 @@ int main(int argc, char *argv[])
             {"fill_db",         no_argument,      &fill_db,         1},
             {"overwrite",       no_argument,      &overwrite,       1},
             {"run_phreeqc",     no_argument,      &run_phreeqc,     1},
+            {"epsg_convert",    no_argument,      &epsg_convert,    1},
             /* These options don’t set a flag.
              We distinguish them by their indices. */
             //      {"add",     no_argument,       0, 'a'},
@@ -58,6 +61,7 @@ int main(int argc, char *argv[])
             {"phreeqc_db",  required_argument, 0, 'P'},
 
             {"database",      required_argument, 0, 'd'},
+            {"epsg",          required_argument, 0, 'e'},
             {"in_folder",     required_argument, 0, 'i'},
             {"out_folder",    required_argument, 0, 'o'},
             {"meta_folder",   required_argument, 0, 'm'},
@@ -87,6 +91,11 @@ int main(int argc, char *argv[])
         case 'd':
           printf ("option -d (database) with value `%s'\n", optarg);
           db = optarg;
+          break;
+
+        case 'e':
+          printf ("option -e (epsg) with value `%s'\n", optarg);
+          epsg = atoi(optarg);
           break;
 
         case 'F':
@@ -174,6 +183,25 @@ int main(int argc, char *argv[])
         if (error) return 1;
     }
 
+    if (epsg_convert > 0)
+    {
+        bool error = false;
+
+        if (epsg == INT_MAX)
+        {
+            std::cerr << "error - epsg parameter missing" << std::endl;
+            error = true;
+        }
+
+        if (db.length() == 0)
+        {
+            std::cerr << "error - database parameter missing" << std::endl;
+            error = true;
+        }
+
+        if (error) return 1;
+    }
+
     if (run_phreeqc > 0 )
     {
         bool error = false;
@@ -217,6 +245,16 @@ int main(int argc, char *argv[])
         std::cout << "Reading folders and filling database " << db << "..." << std::endl;
 
         engine.run_on_folder(in_folder, out_folder, meta_folder);
+    }
+
+    if (epsg_convert > 0)
+    {
+        std::cout << std::endl;
+        std::cout << "========================================================================================" << std::endl;
+        std::cout << "EPSG Routine Running ..." << std::endl;
+
+        std::string filename = db + "_epsg" + std::to_string(epsg) + ".csv";
+        engine.epsg_convert (epsg, filename);
     }
 
     if (export_input > 0 || export_output > 0 || export_metadata)

@@ -27,7 +27,7 @@ echo ${PROJ_BUILD_FOLDER}
 rm -rf ${PROJ_BUILD_FOLDER}
 mkdir ${PROJ_BUILD_FOLDER}
 cd ${PROJ_BUILD_FOLDER}
-cmake ${SCRIPT_DIR}/proj-osgeo
+cmake ${SCRIPT_DIR}/proj-osgeo -DBUILD_TESTING=OFF
 make -j8
 
 echo "Building ProJ ... DONE"

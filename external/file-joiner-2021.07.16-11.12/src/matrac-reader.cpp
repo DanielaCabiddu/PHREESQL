@@ -39,7 +39,7 @@ private:
         }
         else
         {
-            std::cout << "DB " << db_path << " open." << std::endl;
+//            std::cout << "DB " << db_path << " open." << std::endl;
             sqlite3_exec(db, "PRAGMA foreign_keys = ON;", 0, 0, 0);
 //            fprintf(stderr, "");
             return true;
@@ -99,9 +99,10 @@ public:
         sqlite3_close(db);
     }
 
-    void convert_epsg (const int epsg)
+    std::vector<std::vector<std::pair<std::string, std::string>>> getMetadata ()
     {
-        d_manager->data2epsg(epsg, "doc.txt");
+        std::vector<std::vector<std::pair<std::string, std::string>>> res = d_manager->getMetadata();
+        return res;
     }
 
     void readInputOutputFiles(string input_path, string output_path, string meta_path)

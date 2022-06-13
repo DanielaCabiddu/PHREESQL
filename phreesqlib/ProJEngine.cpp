@@ -4,7 +4,8 @@
 #include <math.h>
 #include <string>
 
-void ProjEngine::epsg2epsg (const double epsg1_x, const double epsg1_y, const double epsg1_z, const unsigned int epsg1, const unsigned int epsg2,
+inline
+void phreesqlib::ProjEngine::epsg2epsg (const double epsg1_x, const double epsg1_y, const double epsg1_z, const unsigned int epsg1, const unsigned int epsg2,
                  double &epsg2_x, double &epsg2_y, double &epsg2_z )
 {
 
@@ -19,7 +20,7 @@ void ProjEngine::epsg2epsg (const double epsg1_x, const double epsg1_y, const do
     proj_context_destroy (c);
 }
 
-void epsg2epsg (PJ *transformation, const double epsg1_x, const double epsg1_y, const double epsg1_z, double &epsg2_x, double &epsg2_y, double &epsg2_z )
+void phreesqlib::ProjEngine::epsg2epsg (PJ *transformation, const double epsg1_x, const double epsg1_y, const double epsg1_z, double &epsg2_x, double &epsg2_y, double &epsg2_z )
 {
 
     if (!transformation)

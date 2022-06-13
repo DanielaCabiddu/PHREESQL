@@ -20,13 +20,6 @@ include_directories(BEFORE ../phreesqlib/)
 
 set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 
-## PhreeQC paths.
-## They refer to the included PhreeQC version.
-## They must be properly set by users if a different version of PhreeQC is used.
-set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749")
-set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
-set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
-
 ## Automatic PhreeQC building approach.
 ## It refers to the included PhreeQC version.
 ## Disable if a different version of PhreeQC is used.
@@ -34,6 +27,18 @@ execute_process (
     WORKING_DIRECTORY ${EXTERNAL_FOLDER}
     COMMAND /bin/bash -c "./build_all.sh"
 )
+
+## PhreeQC paths.
+## They refer to the included PhreeQC version.
+## They must be properly set by users if a different version of PhreeQC is used.
+set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749")
+set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
+set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
+
+set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
+set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
+set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.so")
+
 
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER})
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp)
@@ -45,6 +50,7 @@ include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 add_executable(phreesql main.cpp)
 
 set (LINKER_LIBS ${IPHREEQC_LIB} "sqlite3")
+set (LINKER_LIBS ${LINKER_LIBS} ${PROJ_LIB})
 if (OPENMP_FOUND)
     set (LINKER_LIBS ${LINKER_LIBS} "OpenMP::OpenMP_CXX")
 endif()
