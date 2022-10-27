@@ -30,6 +30,10 @@ int main(int argc, char *argv[])
     int fill_db = 0;
     int overwrite = 0;
 
+    std::vector<phreesqlib::EPSG_CONVERT_TYPE> epsg_convert_types;
+    std::vector<std::string> epsg_convert_outputs;
+
+
     std::cout << "========================================================================================" << std::endl;
     std::cout << std::endl << argv[0] << " started with the following parameters: " << std::endl << std::endl;
 
@@ -61,7 +65,9 @@ int main(int argc, char *argv[])
             {"phreeqc_db",  required_argument, 0, 'P'},
 
             {"database",      required_argument, 0, 'd'},
-            {"epsg",          required_argument, 0, 'e'},
+            {"out_filename",  required_argument, 0, 'f'},
+            {"out_table",     required_argument, 0, 't'},
+            {"out_database",  required_argument, 0, 'b'},
             {"in_folder",     required_argument, 0, 'i'},
             {"out_folder",    required_argument, 0, 'o'},
             {"meta_folder",   required_argument, 0, 'm'},
@@ -88,6 +94,12 @@ int main(int argc, char *argv[])
           printf ("\n");
           break;
 
+        case 'b':
+          printf ("option -b (export database) with value `%s'\n", optarg);
+          epsg_convert_types.push_back(phreesqlib::DB);
+          epsg_convert_outputs.push_back(optarg);
+          break;
+
         case 'd':
           printf ("option -d (database) with value `%s'\n", optarg);
           db = optarg;
@@ -97,6 +109,11 @@ int main(int argc, char *argv[])
           printf ("option -e (epsg) with value `%s'\n", optarg);
           epsg = atoi(optarg);
           break;
+
+        case 'f':
+          printf ("option -f (export filename) with value `%s'\n", optarg);
+          epsg_convert_types.push_back(phreesqlib::CSV);
+          epsg_convert_outputs.push_back(optarg);          break;
 
         case 'F':
           printf ("option -F (export folder) with value `%s'\n", optarg);
@@ -131,6 +148,12 @@ int main(int argc, char *argv[])
         case 'P':
           printf ("option -P (Phreeqc DB) with value `%s'\n", optarg);
           phreeqc_db_path = optarg;
+          break;
+
+        case 't':
+          printf ("option -t (export table) with value `%s'\n", optarg);
+          epsg_convert_types.push_back(phreesqlib::TABLE);
+          epsg_convert_outputs.push_back(optarg);
           break;
 
         default:
@@ -199,6 +222,12 @@ int main(int argc, char *argv[])
             error = true;
         }
 
+        if (epsg_convert_types.empty())
+        {
+            std::cerr << "error - epsg conversion output parameter missing" << std::endl;
+            error = true;
+        }
+
         if (error) return 1;
     }
 
@@ -254,7 +283,7 @@ int main(int argc, char *argv[])
         std::cout << "EPSG Routine Running ..." << std::endl;
 
         std::string filename = db + "_epsg" + std::to_string(epsg) + ".csv";
-        engine.epsg_convert (epsg, filename);
+        engine.epsg_convert (epsg, epsg_convert_types, epsg_convert_outputs);
     }
 
     if (export_input > 0 || export_output > 0 || export_metadata)
