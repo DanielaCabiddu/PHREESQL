@@ -1,6 +1,7 @@
 #ifndef PHREESQLIB_ENGINE
 #define PHREESQLIB_ENGINE
 
+#include "DBEngine.h"
 #include <string>
 #include <vector>
 
@@ -20,7 +21,7 @@ public:
     void export_output (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
     void export_metadata (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite = true);
 
-    void epsg_convert (const int epsg, const std::string filename);
+    void epsg_convert (const int epsg, const std::vector<EPSG_CONVERT_TYPE> types, std::vector<std::string> outputs);
 
 private:
 

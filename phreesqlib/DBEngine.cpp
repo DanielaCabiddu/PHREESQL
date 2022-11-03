@@ -16,68 +16,86 @@ void phreesqlib::DBEngine::add_to_DB (const PhreeqcEngineObj &obj, const std::st
  * @brief phreesqlib::DBEngine::convert_epsg
  * @param epsg
  */
-void phreesqlib::DBEngine::convert_epsg (const uint epsg, const std::string filename)
+void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_CONVERT_TYPE> types, std::vector<std::string> outputs)
 {
     MatracReader *matrac_reader = new MatracReader(db_filename);
     std::vector<std::vector<std::pair<std::string, std::string>>> metadata_table = matrac_reader->getMetadata ();
 
     phreesqlib::ProjEngine proj_engine;
 
-    ofstream out_file;
-    out_file.open(filename.c_str());
-
-    for (uint i=0; i < metadata_table.at(0).size()-1; i++)
-        out_file << metadata_table.at(0).at(i).first << ";";
-
-    out_file << metadata_table.at(0).at(metadata_table.at(0).size()-1).first << std::endl;
-
-    for (uint i=0; i < metadata_table.size(); i++)
+    for (uint t=0; t < types.size(); t++)
     {
-        double x = DBL_MAX;
-        double y = DBL_MAX;
-        uint epsg_curr = UINT_MAX;
-
-        for (uint j=0; j < metadata_table.at(i).size(); j++)
+        if (types.at(t) == TABLE)
         {
-            if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
-                epsg_curr = std::atoi(metadata_table.at(i).at(j).second.c_str());
-            else if (metadata_table.at(i).at(j).first.compare("COORD_X") == 0)
-                x = std::stod(metadata_table.at(i).at(j).second.c_str());
-            else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
-                y = std::stod(metadata_table.at(i).at(j).second.c_str());
+
         }
 
-        if (epsg == epsg_curr) continue;
-
-        double x_converted = DBL_MAX;
-        double y_converted = DBL_MAX;
-        double z_converted = DBL_MAX;
-
-        proj_engine.epsg2epsg(x, y, 0.0, epsg_curr, epsg, x_converted, y_converted, z_converted);
-
-        for (uint j=0; j < metadata_table.at(i).size(); j++)
+        if (types.at(t) == DB)
         {
-            if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
-                out_file << epsg << ";";
-            else if (metadata_table.at(i).at(j).first.compare("COORD_X") == 0)
-                out_file << std::fixed << x_converted << ";";
-            else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
-                out_file << std::fixed << y_converted << ";";
-            else
-            {
-                out_file << metadata_table.at(i).at(j).second ;
 
-                if (j == metadata_table.at(i).size()-1)
-                    out_file << std::endl;
-                else
-                    out_file << ";";
+        }
+
+        if (types.at(t) == CSV)
+        {
+            std::string filename = outputs.at(t);
+
+            ofstream out_file;
+            out_file.open(filename.c_str());
+
+            for (uint i=0; i < metadata_table.at(0).size()-1; i++)
+                out_file << metadata_table.at(0).at(i).first << ";";
+
+            out_file << metadata_table.at(0).at(metadata_table.at(0).size()-1).first << std::endl;
+
+            for (uint i=0; i < metadata_table.size(); i++)
+            {
+                double x = DBL_MAX;
+                double y = DBL_MAX;
+                uint epsg_curr = UINT_MAX;
+
+                for (uint j=0; j < metadata_table.at(i).size(); j++)
+                {
+                    if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
+                        epsg_curr = std::atoi(metadata_table.at(i).at(j).second.c_str());
+                    else if (metadata_table.at(i).at(j).first.compare("COORD_X") == 0)
+                        x = std::stod(metadata_table.at(i).at(j).second.c_str());
+                    else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
+                        y = std::stod(metadata_table.at(i).at(j).second.c_str());
+                }
+
+                if (epsg == epsg_curr) continue;
+
+                double x_converted = DBL_MAX;
+                double y_converted = DBL_MAX;
+                double z_converted = DBL_MAX;
+
+                proj_engine.epsg2epsg(x, y, 0.0, epsg_curr, epsg, x_converted, y_converted, z_converted);
+
+                for (uint j=0; j < metadata_table.at(i).size(); j++)
+                {
+                    if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
+                        out_file << epsg << ";";
+                    else if (metadata_table.at(i).at(j).first.compare("COORD_X") == 0)
+                        out_file << std::fixed << x_converted << ";";
+                    else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
+                        out_file << std::fixed << y_converted << ";";
+                    else
+                    {
+                        out_file << metadata_table.at(i).at(j).second ;
+
+                        if (j == metadata_table.at(i).size()-1)
+                            out_file << std::endl;
+                        else
+                            out_file << ";";
+                    }
+                }
             }
+
+            out_file.close();
+
+            std::cout << "Saved into " << filename << std::endl;
         }
     }
-
-    out_file.close();
-
-    std::cout << "Saved into " << filename << std::endl;
 
     delete matrac_reader;
 }
