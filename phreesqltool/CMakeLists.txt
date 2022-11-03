@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.23)
 
 project(phreesql LANGUAGES CXX)
 
@@ -23,10 +23,10 @@ set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 ## Automatic PhreeQC building approach.
 ## It refers to the included PhreeQC version.
 ## Disable if a different version of PhreeQC is used.
-execute_process (
-    WORKING_DIRECTORY ${EXTERNAL_FOLDER}
-    COMMAND /bin/bash -c "./build_all.sh"
-)
+#execute_process (
+#    WORKING_DIRECTORY ${EXTERNAL_FOLDER}
+#    COMMAND /bin/bash -c "./build_all.sh"
+#)
 
 ## PhreeQC paths.
 ## They refer to the included PhreeQC version.
@@ -34,6 +34,16 @@ execute_process (
 set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749")
 set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
 set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
+
+message (${IPHREEQC_LIB})
+message (${CMAKE_CURRENT_SOURCE_DIR}/../)
+
+add_custom_command(
+  OUTPUT "${IPHREEQC_LIB}"
+  COMMAND mkdir -p build && cd build && mkdir -p phreeqc && cd phreeqc && cmake ${PHREEQC_FOLDER} && make -j16
+  #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
+  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
+)
 
 set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
 set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
@@ -44,6 +54,13 @@ else()
     set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.so")
 endif()
 
+add_custom_command(
+  OUTPUT "${PROJ_LIB}"
+  COMMAND mkdir -p build && cd build && mkdir -p proj && cd proj && cmake ${PROJ_FOLDER} -DBUILD_TESTING=OFF && make -j16
+  #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
+  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
+)
+
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER})
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp)
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/common)
@@ -51,7 +68,11 @@ include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/PhreeqcKeywords)
 
 include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 
-add_executable(phreesql main.cpp)
+add_executable(phreesql
+    main.cpp
+    ${IPHREEQC_LIB}
+    ${PROJ_LIB}
+)
 
 set (LINKER_LIBS ${IPHREEQC_LIB} "sqlite3")
 set (LINKER_LIBS ${LINKER_LIBS} ${PROJ_LIB})
