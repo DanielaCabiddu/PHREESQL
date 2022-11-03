@@ -99,6 +99,13 @@ public:
         sqlite3_close(db);
     }
 
+    void copyDB (const std::string file_path)
+    {
+        std::ifstream src(db_path, std::ios::binary);
+        std::ofstream dest(file_path, std::ios::binary);
+        dest << src.rdbuf();
+    }
+
     std::vector<std::vector<std::pair<std::string, std::string>>> getMetadata ()
     {
         std::vector<std::vector<std::pair<std::string, std::string>>> res = d_manager->getMetadata();
@@ -376,6 +383,14 @@ public:
 //        const std::string table_name = "EPSG_" + std::to_string(epsg);
         o_manager->createEpsgTable(table_name);
         o_manager->insertEpsg(table_name, id, x, y);
+    }
+
+    void updateAnalysisEPSG (const uint epsg,
+                             const std::vector<std::string> &id,
+                             const std::vector<double> &x,
+                             const std::vector<double> &y)
+    {
+        d_manager->updateMetadataEPSG(epsg, id, x, y);
     }
 
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)

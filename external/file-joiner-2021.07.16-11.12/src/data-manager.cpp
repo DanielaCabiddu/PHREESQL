@@ -37,6 +37,33 @@ public:
         return res;
     }
 
+    void updateMetadataEPSG (const uint epsg,
+                             const std::vector<std::string> &id,
+                             const std::vector<double> &x,
+                             const std::vector<double> &y)
+    {
+        for (uint i=0; i < id.size(); i++)
+        {
+            query = "UPDATE " + metadata_table_name + " " +
+                    "SET EPSG = '" + to_string(epsg) + "', " +
+                         "COORD_X = '" + to_string(x.at(i)) + "', " +
+                         "COORD_Y = '" + to_string(y.at(i)) + "' " +
+                    "WHERE ID = '" + id.at(i) + "'";
+
+            rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
+
+            if (rc == SQLITE_OK)
+            {
+//                this->queryResult(rc, "inserting epsg");
+            }
+            else
+            {
+                std::cerr << "\033[1;31mSQL ERROR " << rc << ": " << err_message << "\033[0m" << std::endl;
+            }
+
+        }
+    }
+
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)
     {
         char **res;

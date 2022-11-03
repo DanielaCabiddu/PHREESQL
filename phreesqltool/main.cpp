@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
             {"phreeqc_db",  required_argument, 0, 'P'},
 
             {"database",      required_argument, 0, 'd'},
-            {"epsg",      required_argument, 0, 'e'},
+            {"epsg",          required_argument, 0, 'e'},
             {"out_filename",  required_argument, 0, 'f'},
             {"out_table",     required_argument, 0, 't'},
             {"out_database",  required_argument, 0, 'b'},
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
         /* getopt_long stores the option index here. */
         int option_index = 0;
 
-        int c = getopt_long (argc, argv, "d:e:f:F:i:I:o:m:P:S:t:", long_options, &option_index);
+        int c = getopt_long (argc, argv, "b:d:e:f:F:i:I:o:m:P:S:t:", long_options, &option_index);
 
         if (c==-1) break;
 

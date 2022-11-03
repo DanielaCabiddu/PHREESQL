@@ -72,6 +72,13 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
 
         if (types.at(t) == DB)
         {
+            matrac_reader->copyDB(outputs.at(t));
+
+            MatracReader *matrac_reader_copy = new MatracReader(outputs.at(t));
+
+            matrac_reader_copy->updateAnalysisEPSG (epsg, ids, x_vect, y_vect);
+
+            delete  matrac_reader_copy;
 
         }
 
