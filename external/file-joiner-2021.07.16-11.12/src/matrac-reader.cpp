@@ -378,19 +378,23 @@ public:
         o_manager->createSaturationIndicesTable();
     }
 
-    void create_and_insert_EpsgTable(const std::string table_name, const std::vector<std::string> &id, const std::vector<double> &x, const std::vector<double> &y)
+    bool create_and_insert_EpsgTable(const std::string table_name, const std::vector<std::string> &id, const std::vector<double> &x, const std::vector<double> &y)
     {
 //        const std::string table_name = "EPSG_" + std::to_string(epsg);
-        o_manager->createEpsgTable(table_name);
-        o_manager->insertEpsg(table_name, id, x, y);
+        bool success = o_manager->createEpsgTable(table_name);
+
+        if (success)
+            success = o_manager->insertEpsg(table_name, id, x, y);
+
+        return success;
     }
 
-    void updateAnalysisEPSG (const uint epsg,
+    bool updateAnalysisEPSG (const uint epsg,
                              const std::vector<std::string> &id,
                              const std::vector<double> &x,
                              const std::vector<double> &y)
     {
-        d_manager->updateMetadataEPSG(epsg, id, x, y);
+        return d_manager->updateMetadataEPSG(epsg, id, x, y);
     }
 
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)

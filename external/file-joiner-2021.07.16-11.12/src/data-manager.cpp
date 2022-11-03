@@ -37,7 +37,7 @@ public:
         return res;
     }
 
-    void updateMetadataEPSG (const uint epsg,
+    bool updateMetadataEPSG (const uint epsg,
                              const std::vector<std::string> &id,
                              const std::vector<double> &x,
                              const std::vector<double> &y)
@@ -62,6 +62,8 @@ public:
             }
 
         }
+
+        return (rc == SQLITE_OK);
     }
 
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)

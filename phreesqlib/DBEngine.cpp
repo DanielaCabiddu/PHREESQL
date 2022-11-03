@@ -67,7 +67,12 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
     {
         if (types.at(t) == TABLE)
         {
-            matrac_reader->create_and_insert_EpsgTable(outputs.at(t), ids, x_vect, y_vect);
+            bool success = matrac_reader->create_and_insert_EpsgTable(outputs.at(t), ids, x_vect, y_vect);
+
+            if (success)
+                std::cout << "Created table " << outputs.at(t) << " in DB : " << db_filename << std::endl;
+            else
+                std::cerr << "\033[1;31mERROR in creating table " << outputs.at(t) << " in DB : " << db_filename << "\033[0m" << std::endl;
         }
 
         if (types.at(t) == DB)
@@ -76,10 +81,14 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
 
             MatracReader *matrac_reader_copy = new MatracReader(outputs.at(t));
 
-            matrac_reader_copy->updateAnalysisEPSG (epsg, ids, x_vect, y_vect);
+            bool success = matrac_reader_copy->updateAnalysisEPSG (epsg, ids, x_vect, y_vect);
 
             delete  matrac_reader_copy;
 
+            if (success)
+                std::cout << "Created DB : " << outputs.at(t) << std::endl;
+            else
+                std::cerr << "\033[1;31mERROR in creating DB : " << outputs.at(t) << "\033[0m" << std::endl;
         }
 
         if (types.at(t) == CSV)
@@ -118,7 +127,7 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
 
             out_file.close();
 
-            std::cout << "Saved into " << filename << std::endl;
+            std::cout << "Saved CSV : " << filename << std::endl;
         }
     }
 
