@@ -20,6 +20,19 @@ public:
     }
 
     //CREATE TABLES
+    void createEpsgTable(const std::string table_name)
+    {
+        query = "CREATE TABLE IF NOT EXISTS " + table_name + " "
+                "( ID INTEGER PRIMARY KEY NOT NULL, "
+                "ANALYSIS_ID INTEGER NOT NULL,"
+                "COORD_X DOUBLE,"
+                "COORD_Y DOUBLE,"
+                "CONSTRAINT ANALYSIS_ID "
+                "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
+        rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
+
+        this->queryResult(rc, "creating solution_composition");
+    }
 
     void createAnalisysTable()
     {
@@ -127,6 +140,31 @@ public:
     }
 
     //INSERT VALUES
+
+    int insertEpsg(const std::string table_name,
+                   const std::vector<std::string> &id,
+                   const std::vector<double> &x,
+                   const std::vector<double> &y)
+    {
+        for (uint i=0; i < id.size(); i++)
+        {
+            query = "INSERT OR REPLACE INTO " + table_name + " (ANALYSIS_ID, COORD_X, COORD_Y) VALUES ('" +
+                    id.at(i).c_str() + "', '" +
+                    to_string(x.at(i)) + "', '" +
+                    to_string(y.at(i)) + "');";
+
+            rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
+
+            if (rc == SQLITE_OK)
+            {
+//                this->queryResult(rc, "inserting epsg");
+            }
+            else
+            {
+                std::cerr << "\033[1;31mSQL ERROR " << rc << ": " << err_message << "\033[0m" << std::endl;
+            }
+        }
+    }
 
     int insertAnalisys(Analisys &a, metadata meta)
     {

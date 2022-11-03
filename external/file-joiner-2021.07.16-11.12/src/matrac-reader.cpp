@@ -371,6 +371,13 @@ public:
         o_manager->createSaturationIndicesTable();
     }
 
+    void create_and_insert_EpsgTable(const std::string table_name, const std::vector<std::string> &id, const std::vector<double> &x, const std::vector<double> &y)
+    {
+//        const std::string table_name = "EPSG_" + std::to_string(epsg);
+        o_manager->createEpsgTable(table_name);
+        o_manager->insertEpsg(table_name, id, x, y);
+    }
+
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)
     {
         return d_manager->getData(table_name, value, column_name, timestamp);
