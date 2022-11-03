@@ -37,8 +37,12 @@ set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
 
 set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
 set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
-set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib")
 
+if(APPLE)
+    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.dylib")
+else()
+    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.so")
+endif()
 
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER})
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp)
@@ -50,7 +54,8 @@ include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 add_executable(phreesql main.cpp)
 
 set (LINKER_LIBS ${IPHREEQC_LIB} "sqlite3")
-set (LINKER_LIBS ${LINKER_LIBS} "proj")
+set (LINKER_LIBS ${LINKER_LIBS} ${PROJ_LIB})
+
 if (OPENMP_FOUND)
     set (LINKER_LIBS ${LINKER_LIBS} "OpenMP::OpenMP_CXX")
 endif()
