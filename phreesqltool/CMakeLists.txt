@@ -23,10 +23,12 @@ set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 ## Automatic PhreeQC building approach.
 ## It refers to the included PhreeQC version.
 ## Disable if a different version of PhreeQC is used.
-execute_process (
-    WORKING_DIRECTORY ${EXTERNAL_FOLDER}
-    COMMAND /bin/bash -c "./build_all.sh"
-)
+
+
+#execute_process (
+#    WORKING_DIRECTORY ${EXTERNAL_FOLDER}
+#    COMMAND /bin/bash -c "./build_all.sh"
+#)
 
 ## PhreeQC paths.
 ## They refer to the included PhreeQC version.
@@ -43,6 +45,13 @@ if(APPLE)
 else()
     set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.so")
 endif()
+
+add_custom_command(
+  OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a" "${LIB_PROJ}"
+  COMMAND /bin/bash -c "./build_all.sh"
+  #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
+  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/.."
+)
 
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER})
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp)
