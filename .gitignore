@@ -36,3 +36,6 @@
 #Build Folders
 build
 build-*/
+
+Supplementary/run_DB/*
+Supplementary/scratch/*
