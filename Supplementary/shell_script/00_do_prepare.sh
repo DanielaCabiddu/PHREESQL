@@ -9,6 +9,12 @@ echo " start do prepare"
 
 echo ">>>>>>>>>>>>>>  QUI 4  $dataset <<<<<<<<<<<<<<<<<"
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	SED="sed -i ''"
+else
+	SED="sed -i"
+fi
+
 
 # create METADATA
 awk -v dout=OUT/${db} -v tmpl=shell_script/metadata.cfg -v out=${job} -v db=${db} -f shell_script/metadata.awk  < scratch/${pfile}
@@ -47,7 +53,7 @@ echo ">>>>>>>>>>>>>>  QUI 5  e db "${db}" <<<<<<<<<<<<<<<<<"
 awk -v c="${le}" -F '.' '{print substr($1,c,length($1))}' scratch/no_carb.dat > scratch/temp
 for i in `cat scratch/temp`
 do
-  sed -i '' "/${i}/d" scratch/samples.dat
+  $SED "/${i}/d" scratch/samples.dat
   rm run_DB/$dataset/IN/${db}/${job}${i}.pqi 
   rm run_DB/$dataset/META/${db}/${job}${i}.met
 done
@@ -55,7 +61,7 @@ echo ">>>>>>>>>>>>>>  QUI 6  <<<<<<<<<<<<<<<<<"
 awk -v c=${le} -F '.' '{print substr($1,c,length($1))}' scratch/no_temp.dat > scratch/temp
 for i in `cat scratch/temp`
 do
-  sed -i '' "/${i}/d" scratch/samples.dat
+  $SED "/${i}/d" scratch/samples.dat
   rm run_DB/$dataset/IN/${db}/${job}${i}.pqi 
   rm run_DB/$dataset/META/${db}/${job}${i}.met
 done
@@ -64,7 +70,7 @@ echo ">>>>>>>>>>>>>>  QUI 7  <<<<<<<<<<<<<<<<<"
 awk -v c=${le} -F '.' '{print substr($1,c,length($1))}' scratch/no_ph.dat > scratch/temp
 for i in `cat scratch/temp`
 do
-  sed -i '' "/${i}/d" scratch/samples.dat
+  $SED "/${i}/d" scratch/samples.dat
   rm run_DB/$dataset/IN/${db}/${job}${i}.pqi 
   rm run_DB/$dataset/META/${db}/${job}${i}.met
 done
@@ -73,12 +79,12 @@ echo ">>>>>>>>>>>>>>  QUI 8  <<<<<<<<<<<<<<<<<"
 awk -v c=${le} -F '.' '{print substr($1,c,length($1))}' scratch/no_pe.dat > scratch/temp
 for i in `cat scratch/temp`
 do
-  sed -i 's/^pe 0$/pe nd/g' run_DB/$dataset/IN/${db}/${job}${i}.pqi
+  $SED "s/^pe 0$/pe nd/g" run_DB/$dataset/IN/${db}/${job}${i}.pqi
 done
 
 for i in `cat scratch/samples.dat`
 do
-  sed -i ' /nd/d ' run_DB/$dataset/IN/${db}/${job}${i}.pqi
+  $SED '/nd/d' run_DB/$dataset/IN/${db}/${job}${i}.pqi
 done
 
 echo "exit do_prepare"
