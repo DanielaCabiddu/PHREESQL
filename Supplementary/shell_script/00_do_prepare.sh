@@ -61,7 +61,7 @@ do
 done
 echo ">>>>>>>>>>>>>>  QUI 7  <<<<<<<<<<<<<<<<<"
 
-awk -v c=${le} -F '.' '{print substr($1,c,length($1))}' scratch/no_pH.dat > scratch/temp
+awk -v c=${le} -F '.' '{print substr($1,c,length($1))}' scratch/no_ph.dat > scratch/temp
 for i in `cat scratch/temp`
 do
   sed -i '' "/${i}/d" scratch/samples.dat
@@ -73,12 +73,12 @@ echo ">>>>>>>>>>>>>>  QUI 8  <<<<<<<<<<<<<<<<<"
 awk -v c=${le} -F '.' '{print substr($1,c,length($1))}' scratch/no_pe.dat > scratch/temp
 for i in `cat scratch/temp`
 do
-  sed -i '' 's/^pe 0$/pe nd/g' run_DB/$dataset/IN/${db}/${job}${i}.pqi
+  sed -i 's/^pe 0$/pe nd/g' run_DB/$dataset/IN/${db}/${job}${i}.pqi
 done
 
 for i in `cat scratch/samples.dat`
 do
-  sed -i '' ' /nd/d ' run_DB/$dataset/IN/${db}/${job}${i}.pqi
+  sed -i ' /nd/d ' run_DB/$dataset/IN/${db}/${job}${i}.pqi
 done
 
 echo "exit do_prepare"
