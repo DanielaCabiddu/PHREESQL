@@ -7,9 +7,12 @@ rm -rf db.db
 cmake ../phreesqltool
 make
 
-mkdir -p ../data/SHORT_SHORT_DB/OUT_phreeqc
+rm -f ../Supplementary/phreesql
+ln -s ./phreesql ../Supplementary/phreesql
 
-./phreesql --fill_db -d db_example.db -i ../data/SHORT_DB/IN/llnl -o ../data/SHORT_DB/OUT/llnl -m ../data/SHORT_DB/META/llnl
+#mkdir -p ../data/SHORT_SHORT_DB/OUT_phreeqc
+
+#./phreesql --fill_db -d db_example.db -i ../data/SHORT_DB/IN/llnl -o ../data/SHORT_DB/OUT/llnl -m ../data/SHORT_DB/META/llnl
 # --export_input --export_output --export_metadata --export_folder export_test --export_id 10 #--export_list_ids file_list.txt
 # --run_phreeqc --phreeqc_db /home/danielacabiddu/Devel/src/PHREESQ/llnl.dat
 
