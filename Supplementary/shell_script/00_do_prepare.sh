@@ -10,9 +10,9 @@ echo " start do prepare"
 echo ">>>>>>>>>>>>>>  QUI 4  $dataset <<<<<<<<<<<<<<<<<"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	SED="sed -i ''"
+	SED="gsed -i "
 else
-	SED="sed -i"
+	SED="sed -i "
 fi
 
 
