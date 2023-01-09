@@ -32,7 +32,7 @@ private:
     {
         rc = sqlite3_open(db_path.c_str(), &db);
 
-        if (rc)
+        if (rc != 0)
         {
             fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
             return false;
@@ -40,8 +40,9 @@ private:
         else
         {
 //            std::cout << "DB " << db_path << " open." << std::endl;
-            sqlite3_exec(db, "PRAGMA foreign_keys = ON;", 0, 0, 0);
+            int rc = sqlite3_exec(db, "PRAGMA foreign_keys = ON;", 0, 0, 0);
 //            fprintf(stderr, "");
+            std::cout << rc << std::endl;
             return true;
         }
     }
@@ -83,11 +84,16 @@ public:
     MatracReader(string db_path)
     {
         this->db_path = db_path;
-        openDB();
+        bool success = openDB();
+
+        if (success) std::cout << db_path << " open" << std::endl;
+        else std::cerr << "error opening " << db_path << std::endl;
 
         i_manager = new InputDBManager(db);
         o_manager = new OutputDBManager(db);
         d_manager = new DataManager(db);
+
+        bool empty = d_manager->isDBEmpty();
     }
 
     ~MatracReader()
@@ -378,13 +384,17 @@ public:
         o_manager->createSaturationIndicesTable();
     }
 
-    bool create_and_insert_EpsgTable(const std::string table_name, const std::vector<std::string> &id, const std::vector<double> &x, const std::vector<double> &y)
+    bool create_and_insert_EpsgTable(const std::string table_name,
+                                     const std::vector<std::string> &id,
+                                     const std::vector<double> &x,
+                                     const std::vector<double> &y,
+                                     const std::vector<double> &z)
     {
 //        const std::string table_name = "EPSG_" + std::to_string(epsg);
         bool success = o_manager->createEpsgTable(table_name);
 
         if (success)
-            success = o_manager->insertEpsg(table_name, id, x, y);
+            success = o_manager->insertEpsg(table_name, id, x, y, z);
 
         return success;
     }

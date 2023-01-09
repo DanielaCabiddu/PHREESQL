@@ -77,6 +77,7 @@ struct Analisys
     string input_file;
     string coord_x;
     string coord_y;
+    string coord_z;
     string epsg;
     string timestamp;
 };
