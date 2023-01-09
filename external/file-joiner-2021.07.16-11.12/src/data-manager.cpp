@@ -25,8 +25,6 @@ public:
         rc = sqlite3_exec(db, query.c_str(), printDBCallback, &res, &err_message);
         this->queryResult(rc, "data2epsg");
 
-        std::cout << res.size() << std::endl;
-
         for (uint i=0; i < res.size(); i++)
         {
             std::cout << "[" << i << "]" << res.at(i).size() << std::endl;

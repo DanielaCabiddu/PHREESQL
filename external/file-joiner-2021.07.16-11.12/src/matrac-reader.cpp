@@ -42,7 +42,6 @@ private:
 //            std::cout << "DB " << db_path << " open." << std::endl;
             int rc = sqlite3_exec(db, "PRAGMA foreign_keys = ON;", 0, 0, 0);
 //            fprintf(stderr, "");
-            std::cout << rc << std::endl;
             return true;
         }
     }
@@ -86,8 +85,11 @@ public:
         this->db_path = db_path;
         bool success = openDB();
 
-        if (success) std::cout << db_path << " open" << std::endl;
-        else std::cerr << "error opening " << db_path << std::endl;
+        if (!success)
+        {
+            std::cerr << "error opening " << db_path << std::endl;
+            return;
+        }
 
         i_manager = new InputDBManager(db);
         o_manager = new OutputDBManager(db);
