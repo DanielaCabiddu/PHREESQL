@@ -27,6 +27,7 @@ public:
                 "ANALYSIS_ID INTEGER NOT NULL,"
                 "COORD_X DOUBLE,"
                 "COORD_Y DOUBLE,"
+                "COORD_Z DOUBLE,"
                 "CONSTRAINT ANALYSIS_ID "
                 "FOREIGN KEY (ANALYSIS_ID) REFERENCES " + metadata_table_name + "(ID) );";
         rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
@@ -51,6 +52,7 @@ public:
                 "INPUT_FILE TEXT,"
                 "COORD_X DOUBLE,"
                 "COORD_Y DOUBLE,"
+                "COORD_Z DOUBLE,"
                 "EPSG INT,"
                 "TIMESTAMP DATETIME,"
                 "TITLE TEXT,"
@@ -146,14 +148,16 @@ public:
     bool insertEpsg(const std::string table_name,
                    const std::vector<std::string> &id,
                    const std::vector<double> &x,
-                   const std::vector<double> &y)
+                   const std::vector<double> &y,
+                   const std::vector<double> &z)
     {
         for (uint i=0; i < id.size(); i++)
         {
-            query = "INSERT OR REPLACE INTO " + table_name + " (ANALYSIS_ID, COORD_X, COORD_Y) VALUES ('" +
+            query = "INSERT OR REPLACE INTO " + table_name + " (ANALYSIS_ID, COORD_X, COORD_Y, COORD_Z) VALUES ('" +
                     id.at(i).c_str() + "', '" +
                     to_string(x.at(i)) + "', '" +
-                    to_string(y.at(i)) + "');";
+                    to_string(y.at(i)) + "', '" +
+                    to_string(z.at(i)) + "');";
 
             rc = sqlite3_exec(db, query.c_str(), 0, 0, &err_message);
 
@@ -172,7 +176,7 @@ public:
 
     int insertAnalisys(Analisys &a, metadata meta)
     {
-        query = "INSERT OR REPLACE INTO " + metadata_table_name + " (JOB_TYPE, SURVEY, SITE_NAME, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, EPSG, TIMESTAMP, TITLE, SOLUTION) VALUES ('" +
+        query = "INSERT OR REPLACE INTO " + metadata_table_name + " (JOB_TYPE, SURVEY, SITE_NAME, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, COORD_Z, EPSG, TIMESTAMP, TITLE, SOLUTION) VALUES ('" +
                 a.job_type + "', '" +
                 a.survey + "', '" +
                 a.site_name + "', '" +
@@ -184,6 +188,7 @@ public:
                 a.input_file + "', '" +
                 a.coord_x + "', '" +
                 a.coord_y + "', '" +
+                a.coord_z + "', '" +
                 a.epsg + "', '" +
                 a.timestamp + "', '" +
                 meta["TITLE"] + "', '" +
@@ -344,8 +349,9 @@ public:
         a.input_file = res[9 + column];
         a.coord_x = res[10 + column];
         a.coord_y = res[11 + column];
-        a.epsg = res[12 + column];
-        a.timestamp = res[13 + column];
+        a.coord_z = res[12 + column];
+        a.epsg = res[13 + column];
+        a.timestamp = res[14 + column];
 
         sqlite3_free_table(res);
 

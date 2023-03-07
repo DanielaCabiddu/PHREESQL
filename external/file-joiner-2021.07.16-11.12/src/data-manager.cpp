@@ -20,19 +20,20 @@ public:
         std::vector<std::vector<std::pair<std::string, std::string>>> res;
 
         std::string query = "SELECT * FROM " + metadata_table_name + ";";
-//        std::cout << query << std::endl;
+        std::cout << query << std::endl;
+
         rc = sqlite3_exec(db, query.c_str(), printDBCallback, &res, &err_message);
         this->queryResult(rc, "data2epsg");
 
-//        for (uint i=0; i < res.size(); i++)
-//        {
-//            std::cout << "[" << i << "]" << res.at(i).size() << std::endl;
+        for (uint i=0; i < res.size(); i++)
+        {
+            std::cout << "[" << i << "]" << res.at(i).size() << std::endl;
 
-//            for (const std::pair<std::string, std::string> &p : res.at(i))
-//            {
-//                std::cout << p.first << " : " << p.second << std::endl;
-//            }
-//        }
+            for (const std::pair<std::string, std::string> &p : res.at(i))
+            {
+                std::cout << p.first << " : " << p.second << std::endl;
+            }
+        }
 
         return res;
     }

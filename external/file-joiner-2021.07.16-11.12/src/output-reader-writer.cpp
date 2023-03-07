@@ -99,6 +99,10 @@ public:
         {
             a.coord_y = value;
         }
+        else if (strcmp(key.c_str(), "COORD_Z") == 0)
+        {
+            a.coord_z = value;
+        }
         else if (strcmp(key.c_str(), "EPSG") == 0)
         {
             a.epsg = value;
@@ -430,6 +434,7 @@ public:
             file << "INPUT_FILE: " << a.input_file << endl;
             file << "COORD_X: " << a.coord_x << endl;
             file << "COORD_Y: " << a.coord_y << endl;
+            file << "COORD_Z: " << a.coord_z << endl;
             file << "EPSG: " << a.epsg << endl;
             file << "TIMESTAMP: " << a.timestamp << endl;
             file << endl;

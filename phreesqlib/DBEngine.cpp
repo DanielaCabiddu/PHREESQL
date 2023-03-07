@@ -24,6 +24,7 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
     std::vector<std::string> ids;
     std::vector<double> x_vect;
     std::vector<double> y_vect;
+    std::vector<double> z_vect;
 
     phreesqlib::ProjEngine proj_engine;
 
@@ -31,11 +32,14 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
     {
         double x = DBL_MAX;
         double y = DBL_MAX;
+        double z = DBL_MAX;
         uint epsg_curr = UINT_MAX;
         std::string id;
 
         for (uint j=0; j < metadata_table.at(i).size(); j++)
         {
+            try {
+
             if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
                 epsg_curr = std::atoi(metadata_table.at(i).at(j).second.c_str());
             else if (metadata_table.at(i).at(j).first.compare("ID") == 0)
@@ -44,6 +48,14 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
                 x = std::stod(metadata_table.at(i).at(j).second.c_str());
             else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
                 y = std::stod(metadata_table.at(i).at(j).second.c_str());
+            else if (metadata_table.at(i).at(j).first.compare("COORD_Z") == 0)
+                z = std::stod(metadata_table.at(i).at(j).second.c_str());
+
+
+            }  catch (exception e) {
+                std::cerr << metadata_table.at(i).at(j).second.c_str() << std::endl;
+                std::cerr << e.what() << std::endl;exit(1);
+            }
         }
 
         double x_converted = DBL_MAX;
@@ -54,12 +66,15 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
         {
             x_converted = x;
             y_converted = y;
+            z_converted = z;
         }
         else
             proj_engine.epsg2epsg(x, y, 0.0, epsg_curr, epsg, x_converted, y_converted, z_converted);
 
         x_vect.push_back(x_converted);
         y_vect.push_back(y_converted);
+        z_vect.push_back(z_converted);
+
         ids.push_back(id);
     }
 
@@ -67,7 +82,7 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
     {
         if (types.at(t) == TABLE)
         {
-            bool success = matrac_reader->create_and_insert_EpsgTable(outputs.at(t), ids, x_vect, y_vect);
+            bool success = matrac_reader->create_and_insert_EpsgTable(outputs.at(t), ids, x_vect, y_vect, z_vect);
 
             if (success)
                 std::cout << "Created table " << outputs.at(t) << " in DB : " << db_filename << std::endl;
@@ -113,6 +128,8 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
                         out_file << std::fixed << x_vect.at(i) << ";";
                     else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
                         out_file << std::fixed << y_vect.at(i) << ";";
+                    else if (metadata_table.at(i).at(j).first.compare("COORD_Z") == 0)
+                        out_file << std::fixed << z_vect.at(i) << ";";
                     else
                     {
                         out_file << metadata_table.at(i).at(j).second ;
