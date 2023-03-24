@@ -31,7 +31,7 @@ set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 ## PhreeQC paths.
 ## They refer to the included PhreeQC version.
 ## They must be properly set by users if a different version of PhreeQC is used.
-set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc-3.7.0-15749")
+set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc")
 set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
 set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
 
