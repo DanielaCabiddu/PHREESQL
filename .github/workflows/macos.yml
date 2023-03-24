@@ -1,0 +1,21 @@
+name: macos-build
+
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: build
+        run: |
+          ./build.sh
+      - name: test
+        run: |
+          ./test.sh
