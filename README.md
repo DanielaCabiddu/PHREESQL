@@ -1,6 +1,9 @@
-# PHREESQLib
-An in-situ real-time speciation calculation and storage tool by means of PHREEQC code (USGS).
-It allows water speciation calculations and storage by means of a SQL database. Thanks to the relational data structure and query capabilities, it is possible to efficiently browse, export a large amount of data deriving from speciation computation, and to reuse them for further analyses and plot generation.
+# PHREESQL
+
+PHREESQL is a toolkit for efficiently storing the huge amount of data from geochemical speciation simulations run by PHREEQC in an
+SQL database. It includes both a C++ library, namely PHREESQLib, and a command-line interface, namely PHREESQLexe, to ease the usability of PHREESQLib by technical experts
+with low programming knowledge. Thanks to its relational data structure, PHREESQL allows to be exploited in third-party packages based on and to re-use them for other analyses by external pack-
+ages of environmental interest.
 
 ## Authors
 
@@ -10,34 +13,28 @@ It allows water speciation calculations and storage by means of a SQL database. 
 ## Dependences 
 - CMake (https://cmake.org/download);
 - SQlite (https://www.sqlite.org/download.html);
-- IPhreeQC (version 3.7.0 included in *external*).
+- IPhreeQC (included as a submodule in *external*);
+- PROJ (included as a submodule in *external*);
 
-## Installation
-**PHREESQLib** is an header-only C++ library having IPhreeQC as a mandatory dependence. To exploit PHREESQLib in your C++ project:
-- build the external dependence IPhreeQC (*external/iphreeqc-3.7.0-15749*);
-- include PHREESQLib (*phreesqlib folder*) in your project;
-- include and link IPhreeQc in your project;
-- link SQlite in your project.
+## How to build (and test)
 
-**PhreeSQLTool** is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. To build PhreeSQLTool:
-```
-cd phreesqltool
-mkdir build
-cd build
-cmake ..
-make
-```
-The corresponding executable will be available in *external/phreesqltool/build*.
+PHREESQL provides a *build_and_test.sh* script. 
+Simply run it to build the toolkit (together with the dependencies), generate the *PhreeSQLexe* tool and run a preliminary test.
 
 ## Usage
 
-[...]
+**PHREESQLib** is an header-only C++ library having IPhreeQC and PROJ as mandatory dependences. To exploit PHREESQLib in your C++ project:
+- build the external dependence IPhreeQC (*external/iphreeqc*);
+- build the external dependence PROJ (*external/proj-osgeo*);
+- include PHREESQLib (*phreesqlib folder*) in your project;
+- include and link IPhreeQC and PROJ in your project;
+- link SQlite in your project.
+
+**PhreeSQLExe** is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. 
 
 ## Citing Us
 
 If you use PhreeSQLib in your academic projects, please consider citing the library using the following BibTeX entry:
-
-https://www.overleaf.com/5119426148dhjrjfrcqdvj (Draft Paper to be submitted)
 
 [BIBTEX REFERENCE AFTER PUBLICATION]
 
