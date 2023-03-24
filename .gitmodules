@@ -1,3 +1,6 @@
 [submodule "external/proj-osgeo"]
 	path = external/proj-osgeo
 	url = https://github.com/OSGeo/PROJ
+[submodule "external/iphreeqc"]
+	path = external/iphreeqc
+	url = https://github.com/ufz/iphreeqc.git
