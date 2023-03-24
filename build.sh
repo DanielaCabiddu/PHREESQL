@@ -6,17 +6,20 @@ set -e
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 BUILD_DIR=${SCRIPT_DIR}/build
 
+rm -rf ${BUILD_DIR}/CMakeFiles
+rm -f ${BUILD_DIR}/CMakeCache.txt
+rm -f ${BUILD_DIR}/cmake_install.cmake
+rm -f ${BUILD_DIR}/Makefile
+
 mkdir -p ${BUILD_DIR}
 cd ${BUILD_DIR}
 
-rm -rf *
 cmake ../phreesqltool
 make
 
 cp $PWD/proj/data/proj.db $PWD/
 ln -sf $PWD/phreesql $PWD/../Supplementary/phreesql
 
-./phreesql --fill_db -d db_example.db -i ../data/SHORT_SHORT_DB/IN -o ../data/SHORT_SHORT_DB/OUT -m ../data/SHORT_SHORT_DB/META
 )
 
 # --export_input --export_output --export_metadata --export_folder export_test --export_id 10 #--export_list_ids file_list.txt
