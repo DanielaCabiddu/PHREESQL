@@ -70,6 +70,8 @@ include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/PhreeqcKeywords)
 
 include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 
+include_directories(BEFORE ${PROJ_SRC_FOLDER})
+
 add_executable(phreesql
     main.cpp
     ${IPHREEQC_LIB}
