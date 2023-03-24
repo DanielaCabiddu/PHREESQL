@@ -14,6 +14,9 @@ jobs:
         with:
           submodules: recursive
       - name: build
+        env:
+          CC: clang-10
+          CXX: clang++-10
         run: |
           ./build.sh
       - name: test
