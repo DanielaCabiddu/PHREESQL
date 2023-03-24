@@ -14,14 +14,12 @@ jobs:
         run: |
           sudo apt update
           sudo apt-get install -y libsqlite3-dev
-      - name: configure
+      - name: build
         env:
           CC: gcc-9
           CXX: g++-9
         run: |
-          ls
-          ./build_and_test.sh
-      - name: build
+          ./build.sh
+      - name: test
         run: |
-          ls
-          ./build_and_test.sh
+          ./test.sh
