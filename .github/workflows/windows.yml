@@ -20,7 +20,7 @@ jobs:
           mkdir build
           cd build
           cmake ../phreesqltool -G "Visual Studio 17 2022"
-          make
+          cmake --build . --parallel 8
       - name: test
         run: |
           cd build
