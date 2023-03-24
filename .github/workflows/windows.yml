@@ -1,0 +1,27 @@
+name: windows-build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: dependencies
+        run: |
+          choco install sqlite -y
+          cd C:\ProgramData\chocolatey\lib\SQLite\tools
+          echo "SQLITE3_LIB_DIR=C:\ProgramData\chocolatey\lib\SQLite\tools" >> $env:GITHUB_ENV
+      - name: build
+        run: |
+          mkdir build
+          cd build
+          cmake ../phreesqltool -G "Visual Studio 17 2022"
+          make
+      - name: test
+        run: |
+          cd build
+          ./phreesql.exe --fill_db -d db_example.db -i ../data/SHORT_SHORT_DB/IN -o ../data/SHORT_SHORT_DB/OUT -m ../data/SHORT_SHORT_DB/META
