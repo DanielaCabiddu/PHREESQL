@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_FLAGS "-std=c++17 -fpermissive")
 
+#option(BUILD_DOC "Build documentation" OFF)
+
 find_package(OpenMP)
 
 if (NOT OPENMP_FOUND)
@@ -34,9 +36,6 @@ set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc")
 set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
 set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
-
-message (${IPHREEQC_LIB})
-message (${CMAKE_CURRENT_SOURCE_DIR}/../)
 
 add_custom_command(
   OUTPUT "${IPHREEQC_LIB}"
@@ -71,6 +70,29 @@ include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/PhreeqcKeywords)
 include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 
 include_directories(BEFORE ${PROJ_SRC_FOLDER})
+
+if (BUILD_DOC)
+    # check if Doxygen is installed
+    find_package(Doxygen)
+    if (DOXYGEN_FOUND)
+        # set input and output files
+        set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/../docs/Doxyfile.in)
+        set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+
+        # request to configure the file
+        configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+        message("Doxygen build started")
+
+        # note the option ALL which allows to build the docs together with the application
+        add_custom_target( doc_doxygen ALL
+            COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+            COMMENT "Generating API documentation with Doxygen"
+            VERBATIM )
+    else (DOXYGEN_FOUND)
+      message("Doxygen need to be installed to generate the doxygen documentation")
+    endif (DOXYGEN_FOUND)
+endif()
 
 add_executable(phreesql
     main.cpp

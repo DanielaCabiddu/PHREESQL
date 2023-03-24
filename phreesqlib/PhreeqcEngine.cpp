@@ -3,11 +3,6 @@
 #include <dirent.h>
 #include <iostream>
 
-/**
- * @brief phreesqlib::PhreeqcEngine::run_on_folder
- * @param foldername the input folder name
- * @return input/output mapping
- */
 inline
 std::vector<phreesqlib::PhreeqcEngineObj> phreesqlib::PhreeqcEngine::run_on_folder(const std::string & in_foldername,
                                                                                    const std::string & out_foldername)
@@ -31,12 +26,6 @@ std::vector<phreesqlib::PhreeqcEngineObj> phreesqlib::PhreeqcEngine::run_on_fold
     return results;
 }
 
-/**
- * @brief phreesqlib::PhreeqcEngine::run_on_file
- * @param in_filename the input filename
- * @param out_filename the output filename
- * @return input/output mapping with error code returned by phreeqc
- */
 inline
 phreesqlib::PhreeqcEngineObj phreesqlib::PhreeqcEngine::run_on_file(const std::string & in_filename,
                                                                     const std::string & out_filename)

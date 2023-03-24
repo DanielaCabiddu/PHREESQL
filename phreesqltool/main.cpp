@@ -1,3 +1,4 @@
+
 #include "PhreeSQLibEngine.h"
 
 #include <iostream>
@@ -5,8 +6,14 @@
 #include <stdlib.h>
 #include <getopt.h>
 
-using namespace std;
+/*! \file
+ *  \brief Main entry point for PhreeSQLExe application.
+ */
 
+/*! Main function.
+ *  --fill_db
+ *  --export
+ */
 int main(int argc, char *argv[])
 {
     std::string in_folder;

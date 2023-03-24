@@ -14,20 +14,66 @@
 
 using namespace std;
 
+///
+/// \brief The MatracReader class
+///
 class MatracReader
 {
 private:
+    ///
+    /// \brief i_manager
+    ///
     InputDBManager *i_manager;
+
+    ///
+    /// \brief o_manager
+    ///
     OutputDBManager *o_manager;
+
+    ///
+    /// \brief d_manager
+    ///
     DataManager *d_manager;
+
+    ///
+    /// \brief i_file
+    ///
     InputReaderWriter i_file;
+
+    ///
+    /// \brief o_file
+    ///
     OutputReaderWriter o_file;
+
+    ///
+    /// \brief db_path
+    ///
     string db_path;
+
+    ///
+    /// \brief db
+    ///
     sqlite3 *db;
+
+    ///
+    /// \brief rc
+    ///
     int rc;
+
+    ///
+    /// \brief is_i_file
+    ///
     bool is_i_file;
+
+    ///
+    /// \brief is_o_file
+    ///
     bool is_o_file;
 
+    ///
+    /// \brief openDB
+    /// \return
+    ///
     bool openDB()
     {
         rc = sqlite3_open(db_path.c_str(), &db);
@@ -46,11 +92,18 @@ private:
         }
     }
 
+    ///
+    /// \brief closeDB
+    ///
     void closeDB()
     {
         sqlite3_close(db);
     }
 
+    ///
+    /// \brief deleteFileIfExists
+    /// \param path
+    ///
     void deleteFileIfExists(string path)
     {
         ofstream file;
@@ -61,6 +114,11 @@ private:
         }
     }
 
+    ///
+    /// \brief openDir
+    /// \param directory
+    /// \return
+    ///
     DIR *openDir(string directory)
     {
         DIR *dir = opendir(directory.c_str());
@@ -80,6 +138,10 @@ private:
     }
 
 public:
+    ///
+    /// \brief MatracReader
+    /// \param db_path
+    ///
     MatracReader(string db_path)
     {
         this->db_path = db_path;
@@ -107,6 +169,10 @@ public:
         sqlite3_close(db);
     }
 
+    ///
+    /// \brief copyDB
+    /// \param file_path
+    ///
     void copyDB (const std::string file_path)
     {
         std::ifstream src(db_path, std::ios::binary);
@@ -114,12 +180,22 @@ public:
         dest << src.rdbuf();
     }
 
+    ///
+    /// \brief getMetadata
+    /// \return
+    ///
     std::vector<std::vector<std::pair<std::string, std::string>>> getMetadata ()
     {
         std::vector<std::vector<std::pair<std::string, std::string>>> res = d_manager->getMetadata();
         return res;
     }
 
+    ///
+    /// \brief readInputOutputFiles
+    /// \param input_path
+    /// \param output_path
+    /// \param meta_path
+    ///
     void readInputOutputFiles(string input_path, string output_path, string meta_path)
     {
 //        readOutputFile(output_path, meta_path);
@@ -128,6 +204,13 @@ public:
         readIOMFiles(input_path, output_path, meta_path);
     }
 
+    ///
+    /// \brief readIOMFiles
+    /// \param ifile_path
+    /// \param ofile_path
+    /// \param meta_path
+    /// \return
+    ///
     bool readIOMFiles(string ifile_path, string ofile_path, string meta_path)
     {
         if (i_file.readFile(ifile_path) && o_file.readFile(ofile_path) && o_file.readMetadata(meta_path))
@@ -159,6 +242,12 @@ public:
 
     }
 
+    ///
+    /// \brief writeInputFile
+    /// \param directory
+    /// \param analysis_id
+    /// \param overwrite
+    ///
     void writeInputFile(string directory, int analysis_id, const bool overwrite)
     {
         std::cout << "Writing Input File - Analysis ID : [" << analysis_id << "]" << std::endl;
@@ -208,12 +297,23 @@ public:
             return;
     }
 
+    ///
+    /// \brief writeInputFiles
+    /// \param directory
+    /// \param analysis_ids
+    /// \param overwrite
+    ///
     void writeInputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
     {
         for (const int analysis_id : analysis_ids)
             writeInputFile(directory, analysis_id, overwrite);
     }
 
+    ///
+    /// \brief writeAllInputFiles
+    /// \param directory
+    /// \param overwrite
+    ///
     void writeAllInputFiles(string directory, const bool overwrite)
     {
         int num = o_manager->getNumRows(o_manager->metadata_table_name);
@@ -223,12 +323,14 @@ public:
         }
     }
 
-
-
-
-
     //////////////////////////////////////////////////////////////////////////////////////
 
+    ///
+    /// \brief writeMetadataFile
+    /// \param directory
+    /// \param analysis_id
+    /// \param overwrite
+    ///
     void writeMetadataFile(string directory, int analysis_id, const bool overwrite)
     {
         std::cout << "Writing Metadata File - Analysis ID : [" << analysis_id << "]" << std::endl;
@@ -278,12 +380,23 @@ public:
             return;
     }
 
+    ///
+    /// \brief writeMetadataFiles
+    /// \param directory
+    /// \param analysis_ids
+    /// \param overwrite
+    ///
     void writeMetadataFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
     {
         for (const int analysis_id : analysis_ids)
             writeMetadataFile(directory, analysis_id, overwrite);
     }
 
+    ///
+    /// \brief writeAllMetadataFiles
+    /// \param directory
+    /// \param overwrite
+    ///
     void writeAllMetadataFiles(string directory, const bool overwrite)
     {
         int num = o_manager->getNumRows(o_manager->metadata_table_name);
@@ -293,13 +406,14 @@ public:
         }
     }
 
-
-
-
-
     //////////////////////////////////////////////////////////////////////////////////////
 
-
+    ///
+    /// \brief writeOutputFile
+    /// \param directory
+    /// \param analysis_id
+    /// \param overwrite
+    ///
     void writeOutputFile(string directory, int analysis_id, const bool overwrite)
     {
         if (o_manager->isDBEmpty())
@@ -356,12 +470,23 @@ public:
 
     }
 
+    ///
+    /// \brief writeOutputFiles
+    /// \param directory
+    /// \param analysis_ids
+    /// \param overwrite
+    ///
     void writeOutputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
     {
         for (const int analysis_id : analysis_ids)
             writeOutputFile(directory, analysis_id, overwrite);
     }
 
+    ///
+    /// \brief writeAllOutputFiles
+    /// \param directory
+    /// \param overwrite
+    ///
     void writeAllOutputFiles(string directory, const bool overwrite)
     {
         int num = o_manager->getNumRows(o_manager->metadata_table_name);
@@ -371,12 +496,18 @@ public:
         }
     }
 
+    ///
+    /// \brief createInputTables
+    ///
     void createInputTables()
     {
 //        i_manager->createMetadataTable();
         i_manager->createSolutionInputTable();
     }
 
+    ///
+    /// \brief createOutputTables
+    ///
     void createOutputTables()
     {
         o_manager->createSolutionCompositionTable();
@@ -386,6 +517,15 @@ public:
         o_manager->createSaturationIndicesTable();
     }
 
+    ///
+    /// \brief create_and_insert_EpsgTable
+    /// \param table_name
+    /// \param id
+    /// \param x
+    /// \param y
+    /// \param z
+    /// \return
+    ///
     bool create_and_insert_EpsgTable(const std::string table_name,
                                      const std::vector<std::string> &id,
                                      const std::vector<double> &x,
@@ -401,6 +541,14 @@ public:
         return success;
     }
 
+    ///
+    /// \brief updateAnalysisEPSG
+    /// \param epsg
+    /// \param id
+    /// \param x
+    /// \param y
+    /// \return
+    ///
     bool updateAnalysisEPSG (const uint epsg,
                              const std::vector<std::string> &id,
                              const std::vector<double> &x,
@@ -409,11 +557,24 @@ public:
         return d_manager->updateMetadataEPSG(epsg, id, x, y);
     }
 
+    ///
+    /// \brief getData
+    /// \param table_name
+    /// \param value
+    /// \param column_name
+    /// \param timestamp
+    /// \return
+    ///
     vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp)
     {
         return d_manager->getData(table_name, value, column_name, timestamp);
     }
 
+    ///
+    /// \brief writeData
+    /// \param file_path
+    /// \param data
+    ///
     void writeData(string file_path, vector<vector<string> > data)
     {
         if (!data.empty())
@@ -426,11 +587,19 @@ public:
         }
     }
 
+    ///
+    /// \brief getMetadataTableName
+    /// \return
+    ///
     std::string getMetadataTableName () const
     {
         return o_manager->metadata_table_name;
     }
 
+    ///
+    /// \brief getNumMetadataRecords
+    /// \return
+    ///
     uint getNumMetadataRecords () const
     {
         return o_manager->getNumRows(o_manager->metadata_table_name);

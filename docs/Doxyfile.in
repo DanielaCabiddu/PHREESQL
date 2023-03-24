@@ -1,0 +1,14 @@
+PROJECT_NAME           = "@CMAKE_PROJECT_NAME@"
+PROJECT_NUMBER         = @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@
+STRIP_FROM_PATH        = @PROJECT_SOURCE_DIR@
+INPUT                  = @doxy_main_page@ \
+                         @PROJECT_SOURCE_DIR@ \
+                         @PROJECT_SOURCE_DIR@/../phreesqlib \
+                         @PROJECT_SOURCE_DIR@/../external/file-joiner-2021.07.16-11.12/src \
+                         @PROJECT_SOURCE_DIR@/../README.md
+OUTPUT_DIRECTORY       = @PROJECT_SOURCE_DIR@/../docs/
+FILE_PATTERNS          = *.h \
+                         *.cpp
+RECURSIVE              = YES
+USE_MDFILE_AS_MAINPAGE = @PROJECT_SOURCE_DIR@/../README.md
+
