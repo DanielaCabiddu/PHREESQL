@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.21)
 
 project(phreesql LANGUAGES CXX)
 
@@ -40,7 +40,8 @@ message (${CMAKE_CURRENT_SOURCE_DIR}/../)
 
 add_custom_command(
   OUTPUT "${IPHREEQC_LIB}"
-  COMMAND mkdir -p build && cd build && mkdir -p phreeqc && cd phreeqc && cmake ${PHREEQC_FOLDER} && make -j16
+  COMMAND mkdir -p build && cd build && mkdir -p phreeqc && cd phreeqc && 
+  	cmake ${PHREEQC_FOLDER} -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF && make -j16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
 )
@@ -56,7 +57,8 @@ endif()
 
 add_custom_command(
   OUTPUT "${PROJ_LIB}"
-  COMMAND mkdir -p build && cd build && mkdir -p proj && cd proj && cmake ${PROJ_FOLDER} -DBUILD_TESTING=OFF && make -j16
+  COMMAND mkdir -p build && cd build && mkdir -p proj && cd proj && 
+  	cmake ${PROJ_FOLDER} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF && make -j16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
 )
