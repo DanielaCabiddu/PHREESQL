@@ -1,0 +1,24 @@
+name: macos-build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: dependencies
+        run: |
+          brew install sqlite3
+      - name: build
+        env:
+          CC: clang
+          CXX: clang++
+        run: |
+          ./build.sh
+      - name: test
+        run: |
+          ./test.sh
