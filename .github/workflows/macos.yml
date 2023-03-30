@@ -18,11 +18,14 @@ jobs:
           CC: clang
           CXX: clang++
         run: |
-          cd external/iphreeqc
           mkdir build
           cd build
-          cmake .. -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF
+          mkdir phreeqc
+          cd phreeqc
+          cmake ../../external/iphreeqc -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF
           make -j16
+          cd ../../
+          ./build.sh
       - name: test
         run: |
-          echo "test.sh"
+          ./test.sh
