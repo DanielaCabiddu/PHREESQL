@@ -14,8 +14,8 @@ rm -f ${BUILD_DIR}/Makefile
 mkdir -p ${BUILD_DIR}
 cd ${BUILD_DIR}
 
-cmake ../phreesqltool
-make
+cmake ../phreesqltool #-DBUILD_DOC=ON
+cmake --build .
 
 cp $PWD/proj/data/proj.db $PWD/
 ln -sf $PWD/phreesql $PWD/../Supplementary/phreesql
