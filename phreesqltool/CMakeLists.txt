@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(phreesql LANGUAGES CXX)
+project(phreesqlexe LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -22,14 +22,6 @@ include_directories(BEFORE ../phreesqlib/)
 
 set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 
-## Automatic PhreeQC building approach.
-## It refers to the included PhreeQC version.
-## Disable if a different version of PhreeQC is used.
-#execute_process (
-#    WORKING_DIRECTORY ${EXTERNAL_FOLDER}
-#    COMMAND /bin/bash -c "./build_all.sh"
-#)
-
 ## PhreeQC paths.
 ## They refer to the included PhreeQC version.
 ## They must be properly set by users if a different version of PhreeQC is used.
@@ -40,7 +32,8 @@ set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
 add_custom_command(
   OUTPUT "${IPHREEQC_LIB}"
   COMMAND mkdir -p build && cd build && mkdir -p phreeqc && cd phreeqc && 
-        cmake ${PHREEQC_FOLDER} -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF && make -j16
+        cmake ${PHREEQC_FOLDER} -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF &&
+        cmake --build .
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
 )
@@ -57,7 +50,8 @@ endif()
 add_custom_command(
   OUTPUT "${PROJ_LIB}"
   COMMAND mkdir -p build && cd build && mkdir -p proj && cd proj && 
-  	cmake ${PROJ_FOLDER} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF && make -j16
+        cmake ${PROJ_FOLDER} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF &&
+        cmake --build .
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
 )
@@ -92,7 +86,7 @@ if (BUILD_DOC)
     endif (DOXYGEN_FOUND)
 endif()
 
-add_executable(phreesql
+add_executable(${PROJECT_NAME}
     main.cpp
     ${IPHREEQC_LIB}
     ${PROJ_LIB}
@@ -107,6 +101,7 @@ if (OPENMP_FOUND)
 endif()
 
 message (${PROJ_LIB})
-
-link_directories(${PROJ_LIB})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS} )
+
+get_target_property(OUT ${PROJECT_NAME} LINK_LIBRARIES)
+message(STATUS "ldd:  ${OUT}")

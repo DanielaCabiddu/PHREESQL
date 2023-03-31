@@ -5,7 +5,7 @@ set -e
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 BUILD_DIR=${SCRIPT_DIR}/build
-EXE_FILE=${BUILD_DIR}/phreesql
+EXE_FILE=${BUILD_DIR}/phreesqlexe
 DB_FILE=${BUILD_DIR}/db_example.db
 
 if [ ! -f ${EXE_FILE} ]
