@@ -1,0 +1,31 @@
+name: macos-build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: dependencies
+        run: |
+          brew install sqlite3
+      - name: build
+        env:
+          CC: clang
+          CXX: clang++
+        run: |
+          mkdir build
+          cd build
+          mkdir phreeqc
+          cd phreeqc
+          cmake ../../external/iphreeqc -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF
+          make -j16
+          cd ../../
+          ./build.sh
+      - name: test
+        run: |
+          ./test.sh
