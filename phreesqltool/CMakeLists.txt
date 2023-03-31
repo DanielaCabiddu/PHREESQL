@@ -42,15 +42,15 @@ set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
 set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
 
 if(APPLE)
-    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.dylib")
-else()
     set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.so")
+else()
+    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.a")
 endif()
 
 add_custom_command(
   OUTPUT "${PROJ_LIB}"
   COMMAND mkdir -p build && cd build && mkdir -p proj && cd proj && 
-        cmake ${PROJ_FOLDER} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF &&
+        cmake ${PROJ_FOLDER} -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF &&
         cmake --build .
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
@@ -100,7 +100,6 @@ if (OPENMP_FOUND)
     list(APPEND EXTRA_LIBS "OpenMP::OpenMP_CXX")
 endif()
 
-message (${PROJ_LIB})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS} )
 
 get_target_property(OUT ${PROJECT_NAME} LINK_LIBRARIES)
