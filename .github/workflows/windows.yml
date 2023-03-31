@@ -14,9 +14,11 @@ jobs:
         run: |
           choco install sqlite --params "/NoTools"
       - name: build
+        shell: bash
         run: |
           ./build.sh
           ls build/proj/lib
       - name: test
+        shell: bash
         run: |
           ./test.sh
