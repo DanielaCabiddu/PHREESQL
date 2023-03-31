@@ -22,4 +22,4 @@ jobs:
           ls build/proj/lib
       - name: test
         run: |
-          echo "./test.sh"
+          ./test.sh
