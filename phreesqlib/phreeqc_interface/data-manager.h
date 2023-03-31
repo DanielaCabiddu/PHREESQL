@@ -27,102 +27,68 @@
 *                                                                               *
 *********************************************************************************/
 
-#ifndef DB_ENGINE
-#define DB_ENGINE
+#ifndef PHREESQLIB_DATA_MANAGER
+#define PHREESQLIB_DATA_MANAGER
 
-#include "PhreeqcEngine.h"
+#include "db-manager.h"
 
-#include "phreeqc_interface/matrac-reader.h"
+#include <string>
+#include <vector>
+#include <float.h>
+#include <limits.h>
+#include "utils.h"
 
-namespace phreesqlib
-{
-
-///
-/// \brief The EPSG_CONVERT_TYPE enum
-///
-enum EPSG_CONVERT_TYPE
-{
-    CSV,
-    TABLE,
-    DB,
-    UNSET,
-};
-
-///
-/// \brief The DBEngine class
-///
-class DBEngine
+class DataManager : public DBManager
 {
 public:
     ///
-    /// \brief DBEngine
-    /// \param filename
+    /// \brief DataManager
+    /// \param db
     ///
-    DBEngine (const std::string filename) {
-        db_filename = filename;
-    }
+    DataManager(sqlite3 *db) : DBManager(db) {}
 
-    ~DBEngine ()
-    {
-    }
+    ~DataManager () {}
 
     ///
-    /// \brief add_to_DB
-    /// \param obj
-    /// \param metadata_filename
+    /// \brief getMetadata
+    /// \return
     ///
-    void add_to_DB(const PhreeqcEngineObj &obj, const std::string metadata_filename);
+    std::vector<std::vector<std::pair<std::string, std::string>>> getMetadata();
 
     ///
-    /// \brief export_input
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
-    ///
-    void export_input (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
-
-    ///
-    /// \brief export_output
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
-    ///
-    void export_output (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
-
-    ///
-    /// \brief export_metadata
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
-    ///
-    void export_metadata (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite = true);
-
-    ///
-    /// \brief convert_epsg
+    /// \brief updateMetadataEPSG
     /// \param epsg
-    /// \param types
-    /// \param outputs
+    /// \param id
+    /// \param x
+    /// \param y
+    /// \return
     ///
-    void convert_epsg (const int epsg, const std::vector<EPSG_CONVERT_TYPE> types, std::vector<string> outputs);
+    bool updateMetadataEPSG (const uint epsg,
+                             const std::vector<std::string> &id,
+                             const std::vector<double> &x,
+                             const std::vector<double> &y);
 
     ///
-    /// \brief print_DB_summary
+    /// \brief getData
+    /// \param table_name
+    /// \param value
+    /// \param column_name
+    /// \param timestamp
+    /// \return
     ///
-    void print_DB_summary () const;
-
-private:
+    vector<vector<string> > getData(string table_name, string value, string column_name, string timestamp);
 
     ///
-    /// \brief db_filename
+    /// \brief writeToFile
+    /// \param path
+    /// \param data
+    /// \return
     ///
-    std::string db_filename;
-
+    bool writeToFile(string path, vector<vector<string> > data);
 };
 
-}
-
 #ifndef PHREESQL_STATIC
-#include "DBEngine.cpp"
+#include "data-manager.cpp"
 #endif
 
 #endif

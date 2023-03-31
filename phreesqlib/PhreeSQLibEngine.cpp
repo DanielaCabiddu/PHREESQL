@@ -31,7 +31,7 @@
 
 #include "PhreeqcEngineObj.h"
 #include "DBEngine.h"
-#include "utils.h"
+#include "phreeqc_interface/utils.h"
 
 #include <IPhreeqc.hpp>
 

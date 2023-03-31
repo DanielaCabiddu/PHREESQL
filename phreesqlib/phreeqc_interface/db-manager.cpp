@@ -27,102 +27,84 @@
 *                                                                               *
 *********************************************************************************/
 
-#ifndef DB_ENGINE
-#define DB_ENGINE
+#include "db-manager.h"
 
-#include "PhreeqcEngine.h"
-
-#include "phreeqc_interface/matrac-reader.h"
-
-namespace phreesqlib
+inline
+static int count_rows(void *param, int argc, char **argv, char **azColName)
 {
+    int *value = static_cast<int *>(param);
 
-///
-/// \brief The EPSG_CONVERT_TYPE enum
-///
-enum EPSG_CONVERT_TYPE
-{
-    CSV,
-    TABLE,
-    DB,
-    UNSET,
-};
+    *value = atoi(argv[0]);
 
-///
-/// \brief The DBEngine class
-///
-class DBEngine
-{
-public:
-    ///
-    /// \brief DBEngine
-    /// \param filename
-    ///
-    DBEngine (const std::string filename) {
-        db_filename = filename;
-    }
-
-    ~DBEngine ()
-    {
-    }
-
-    ///
-    /// \brief add_to_DB
-    /// \param obj
-    /// \param metadata_filename
-    ///
-    void add_to_DB(const PhreeqcEngineObj &obj, const std::string metadata_filename);
-
-    ///
-    /// \brief export_input
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
-    ///
-    void export_input (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
-
-    ///
-    /// \brief export_output
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
-    ///
-    void export_output (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
-
-    ///
-    /// \brief export_metadata
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
-    ///
-    void export_metadata (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite = true);
-
-    ///
-    /// \brief convert_epsg
-    /// \param epsg
-    /// \param types
-    /// \param outputs
-    ///
-    void convert_epsg (const int epsg, const std::vector<EPSG_CONVERT_TYPE> types, std::vector<string> outputs);
-
-    ///
-    /// \brief print_DB_summary
-    ///
-    void print_DB_summary () const;
-
-private:
-
-    ///
-    /// \brief db_filename
-    ///
-    std::string db_filename;
-
-};
-
+    return 0;
 }
 
-#ifndef PHREESQL_STATIC
-#include "DBEngine.cpp"
-#endif
+inline
+static int emptyDBCallback(void *param, int argc, char **argv, char **azColName)
+{
+    int *value = static_cast<int *>(param);
 
-#endif
+    *value = atoi(argv[0]);
+
+    return 0;
+}
+
+inline
+static int printDBCallback(void *list, int count, char **data, char **columns)
+{
+    int idx;
+
+    std::vector<std::vector<std::pair<std::string, std::string>>> *res_list =
+            (std::vector<std::vector<std::pair<std::string, std::string>>> *) list;
+
+    std::vector<std::pair<std::string, std::string>> record;
+
+    for (idx = 0; idx < count; idx++) {
+//        printf("The data in column \"%s\" is: %s\n", columns[idx], data[idx]);
+         record.push_back(std::pair<std::string, std::string> (columns[idx], data[idx]));
+    }
+
+    res_list->push_back(record);
+
+    return 0;
+}
+
+inline
+DBManager::DBManager(sqlite3 *db)
+{
+    this->db = db;
+}
+
+inline
+void DBManager::queryResult(int rc, string message)
+{
+    this->err_message = 0;
+    if (rc != SQLITE_OK)
+    {
+        fprintf(stderr, "SQL error on %s: %s (%s)\n", message.c_str(), err_message, sqlite3_errstr(rc));
+        sqlite3_free(err_message);
+    }
+    else
+    {
+        //fprintf(stdout, message.c_str());
+    }
+}
+
+inline
+bool DBManager::isDBEmpty()
+{
+    int num_tables;
+    query = "SELECT count(*) FROM sqlite_master WHERE type='table';";
+    rc = sqlite3_exec(db, query.c_str(), emptyDBCallback, &num_tables, &err_message);
+    this->queryResult(rc, "isDBEmpty");
+    return num_tables == 0;
+}
+
+inline
+int DBManager::getNumRows(string table_name)
+{
+    int num;
+    query = "SELECT count(*) FROM " + table_name + ";";
+    rc = sqlite3_exec(db, query.c_str(), count_rows, &num, &err_message);
+    return num;
+}

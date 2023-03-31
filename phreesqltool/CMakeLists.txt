@@ -40,7 +40,7 @@ set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
 add_custom_command(
   OUTPUT "${IPHREEQC_LIB}"
   COMMAND mkdir -p build && cd build && mkdir -p phreeqc && cd phreeqc && 
-  	cmake ${PHREEQC_FOLDER} -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF && make -j16
+        cmake ${PHREEQC_FOLDER} -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF && make -j16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
 )
@@ -66,8 +66,6 @@ include_directories(BEFORE ${PHREEQC_SRC_FOLDER})
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp)
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/common)
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/PhreeqcKeywords)
-
-include_directories(BEFORE ${EXTERNAL_FOLDER}/file-joiner-2021.07.16-11.12/src)
 
 include_directories(BEFORE ${PROJ_SRC_FOLDER})
 
@@ -106,6 +104,9 @@ set (LINKER_LIBS ${LINKER_LIBS} ${PROJ_LIB})
 if (OPENMP_FOUND)
     set (LINKER_LIBS ${LINKER_LIBS} "OpenMP::OpenMP_CXX")
 endif()
+
+message (${PROJ_LIB})
+message (${LINKER_LIBS})
 
 link_directories(${PROJ_LIB})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${LINKER_LIBS} )

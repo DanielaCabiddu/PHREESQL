@@ -27,102 +27,90 @@
 *                                                                               *
 *********************************************************************************/
 
-#ifndef DB_ENGINE
-#define DB_ENGINE
+#ifndef PHREESQLIB_DB_MANAGER
+#define PHREESQLIB_DB_MANAGER
 
-#include "PhreeqcEngine.h"
+#include <sqlite3.h>
+#include <algorithm>
+#include <iterator>
+#include <fstream>
+#include "models.h"
 
-#include "phreeqc_interface/matrac-reader.h"
+//const char *DB_NAME = "matrac.db";
+#ifndef DBM
+#define DBM
+#pragma once
 
-namespace phreesqlib
+static int count_rows(void *param, int argc, char **argv, char **azColName);
+
+static int emptyDBCallback(void *param, int argc, char **argv, char **azColName);
+
+static int printDBCallback(void *list, int count, char **data, char **columns);
+
+class DBManager
 {
+protected:
 
-///
-/// \brief The EPSG_CONVERT_TYPE enum
-///
-enum EPSG_CONVERT_TYPE
-{
-    CSV,
-    TABLE,
-    DB,
-    UNSET,
-};
+    ///
+    /// \brief db
+    ///
+    sqlite3 *db;
 
-///
-/// \brief The DBEngine class
-///
-class DBEngine
-{
+    ///
+    /// \brief err_message
+    ///
+    char *err_message;
+
+    ///
+    /// \brief rc
+    ///
+    int rc;
+
+    ///
+    /// \brief query
+    ///
+    string query;
+
+
 public:
-    ///
-    /// \brief DBEngine
-    /// \param filename
-    ///
-    DBEngine (const std::string filename) {
-        db_filename = filename;
-    }
-
-    ~DBEngine ()
-    {
-    }
 
     ///
-    /// \brief add_to_DB
-    /// \param obj
-    /// \param metadata_filename
+    /// \brief metadata_table_name
     ///
-    void add_to_DB(const PhreeqcEngineObj &obj, const std::string metadata_filename);
+    const string metadata_table_name = "METADATA";
 
     ///
-    /// \brief export_input
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
+    /// \brief DBManager
+    /// \param db
     ///
-    void export_input (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
+    DBManager(sqlite3 *db);
+
+    ~DBManager () {}
 
     ///
-    /// \brief export_output
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
+    /// \brief queryResult
+    /// \param rc
+    /// \param message
     ///
-    void export_output (const std::string out_folder, const std::vector<int> analysis_ids = std::vector<int> (), const bool overwrite = true);
+    void queryResult(int rc, string message);
 
     ///
-    /// \brief export_metadata
-    /// \param out_folder
-    /// \param analysis_ids
-    /// \param overwrite
+    /// \brief isDBEmpty
+    /// \return
     ///
-    void export_metadata (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite = true);
+    bool isDBEmpty();
 
     ///
-    /// \brief convert_epsg
-    /// \param epsg
-    /// \param types
-    /// \param outputs
+    /// \brief getNumRows
+    /// \param table_name
+    /// \return
     ///
-    void convert_epsg (const int epsg, const std::vector<EPSG_CONVERT_TYPE> types, std::vector<string> outputs);
-
-    ///
-    /// \brief print_DB_summary
-    ///
-    void print_DB_summary () const;
-
-private:
-
-    ///
-    /// \brief db_filename
-    ///
-    std::string db_filename;
-
+    int getNumRows(string table_name);
 };
-
-}
 
 #ifndef PHREESQL_STATIC
-#include "DBEngine.cpp"
+#include "db-manager.cpp"
 #endif
 
+#endif
 #endif

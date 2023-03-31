@@ -36,7 +36,7 @@
  */
 void phreesqlib::DBEngine::add_to_DB (const PhreeqcEngineObj &obj, const std::string metadata_filename)
 {
-    MatracReader *matrac_reader = new MatracReader(db_filename);
+    PhreeqcInterface *matrac_reader = new PhreeqcInterface(db_filename);
     matrac_reader->readInputOutputFiles(obj.get_in_filename(), obj.get_out_filename(), metadata_filename);
     delete  matrac_reader;
 }
@@ -47,7 +47,7 @@ void phreesqlib::DBEngine::add_to_DB (const PhreeqcEngineObj &obj, const std::st
  */
 void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_CONVERT_TYPE> types, std::vector<std::string> outputs)
 {
-    MatracReader *matrac_reader = new MatracReader(db_filename);
+    PhreeqcInterface *matrac_reader = new PhreeqcInterface(db_filename);
     std::vector<std::vector<std::pair<std::string, std::string>>> metadata_table = matrac_reader->getMetadata ();
 
     std::vector<std::string> ids;
@@ -123,7 +123,7 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
         {
             matrac_reader->copyDB(outputs.at(t));
 
-            MatracReader *matrac_reader_copy = new MatracReader(outputs.at(t));
+            PhreeqcInterface *matrac_reader_copy = new PhreeqcInterface(outputs.at(t));
 
             bool success = matrac_reader_copy->updateAnalysisEPSG (epsg, ids, x_vect, y_vect);
 
@@ -182,7 +182,7 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
 
 void phreesqlib::DBEngine::print_DB_summary () const
 {
-    MatracReader *matrac_reader = new MatracReader(db_filename);
+    PhreeqcInterface *matrac_reader = new PhreeqcInterface(db_filename);
 
     std::cout << std::endl << " ============== DB SUMMARY ================== " << std::endl << std::endl;
 
@@ -197,7 +197,7 @@ void phreesqlib::DBEngine::print_DB_summary () const
 
 void phreesqlib::DBEngine::export_input (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite)
 {
-    MatracReader *matrac_reader = new MatracReader(db_filename);
+    PhreeqcInterface *matrac_reader = new PhreeqcInterface(db_filename);
 
     if (analysis_ids.empty())
         matrac_reader->writeAllInputFiles(out_folder, overwrite);
@@ -212,7 +212,7 @@ void phreesqlib::DBEngine::export_input (const std::string out_folder, const std
 
 void phreesqlib::DBEngine::export_output (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite)
 {
-    MatracReader *matrac_reader = new MatracReader(db_filename);
+    PhreeqcInterface *matrac_reader = new PhreeqcInterface(db_filename);
     if (analysis_ids.empty())
         matrac_reader->writeAllOutputFiles(out_folder, overwrite);
     else
@@ -225,7 +225,7 @@ void phreesqlib::DBEngine::export_output (const std::string out_folder, const st
 
 void phreesqlib::DBEngine::export_metadata (const std::string out_folder, const std::vector<int> analysis_ids, const bool overwrite)
 {
-    MatracReader *matrac_reader = new MatracReader(db_filename);
+    PhreeqcInterface *matrac_reader = new PhreeqcInterface(db_filename);
     if (analysis_ids.empty())
         matrac_reader->writeAllMetadataFiles(out_folder, overwrite);
     else
