@@ -40,12 +40,7 @@ add_custom_command(
 
 set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
 set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
-
-if(APPLE)
-    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.so")
-else()
-    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.a")
-endif()
+set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.a")
 
 add_custom_command(
   OUTPUT "${PROJ_LIB}"
