@@ -27,7 +27,12 @@ set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 ## They must be properly set by users if a different version of PhreeQC is used.
 set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc")
 set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
-set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
+
+IF (WIN32)
+    set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.lib")
+ELSE()
+    set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
+ENDIF()
 
 add_custom_command(
   OUTPUT "${IPHREEQC_LIB}"
@@ -40,7 +45,12 @@ add_custom_command(
 
 set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
 set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
-set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.a")
+
+IF (WIN32)
+    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.lib")
+ELSE()
+    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.a")
+ENDIF()
 
 add_custom_command(
   OUTPUT "${PROJ_LIB}"
