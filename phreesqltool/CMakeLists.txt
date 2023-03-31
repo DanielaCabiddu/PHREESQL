@@ -98,15 +98,15 @@ add_executable(phreesql
     ${PROJ_LIB}
 )
 
-set (LINKER_LIBS ${IPHREEQC_LIB} "sqlite3")
-set (LINKER_LIBS ${LINKER_LIBS} ${PROJ_LIB})
+list(APPEND EXTRA_LIBS ${IPHREEQC_LIB})
+list(APPEND EXTRA_LIBS "sqlite3")
+list(APPEND EXTRA_LIBS ${PROJ_LIB})
 
 if (OPENMP_FOUND)
-    set (LINKER_LIBS ${LINKER_LIBS} "OpenMP::OpenMP_CXX")
+    list(APPEND EXTRA_LIBS "OpenMP::OpenMP_CXX")
 endif()
 
 message (${PROJ_LIB})
-message (${LINKER_LIBS})
 
 link_directories(${PROJ_LIB})
-target_link_libraries(${PROJECT_NAME} PUBLIC ${LINKER_LIBS} )
+target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS} )
