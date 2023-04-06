@@ -19,8 +19,13 @@ jobs:
           arch: x64
       - name : link Sqlite3
         run: |
+          cd C:/ProgramData/chocolatey/lib/SQLite/
+          ls
+          echo "===="
           cd C:/ProgramData/chocolatey/lib/SQLite/tools
+          ls
           lib /def:sqlite3.def
+          ls
           cd D:/a/PHREESQL/PHREESQL
           bash ./build.sh
       - name: build
