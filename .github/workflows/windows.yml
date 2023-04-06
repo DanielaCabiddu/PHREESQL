@@ -21,10 +21,12 @@ jobs:
         run: |
           cd C:/ProgramData/chocolatey/lib/SQLite/tools
           lib /def:sqlite3.def
+          cd D:/a/PHREESQL/PHREESQL
+          bash ./build.sh
       - name: build
         shell: bash
         run: |
-          ./build.sh
+          echo "./build.sh"
       - name: test
         shell: bash
         run: |
