@@ -16,7 +16,7 @@ jobs:
       - name: build
         shell: bash
         run: |
-          ls C:\ProgramData\chocolatey\lib\SQLite\tools
+          ls C:/ProgramData/chocolatey/lib/SQLite/tools
           echo "./build.sh"
       - name: test
         shell: bash
