@@ -13,9 +13,13 @@ jobs:
       - name: dependencies
         run: |
           choco install sqlite
+          cd C:/ProgramData/chocolatey/lib/SQLite/tools
+          lib /def:sqlite3.def
       - name: build
         shell: bash
         run: |
+          ls C:/ProgramData/chocolatey/lib/SQLite/tools
+          echo "===="
           ls C:/ProgramData/chocolatey/lib/SQLite/tools
           echo "./build.sh"
       - name: test
