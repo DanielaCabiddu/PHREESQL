@@ -22,43 +22,54 @@ include_directories(BEFORE ../phreesqlib/)
 
 set (EXTERNAL_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../external")
 
+set (BUILD_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../build)
+
+file (MAKE_DIRECTORY ${BUILD_DIRECTORY})
+
 ## PhreeQC paths.
 ## They refer to the included PhreeQC version.
 ## They must be properly set by users if a different version of PhreeQC is used.
 set (PHREEQC_FOLDER "${EXTERNAL_FOLDER}/iphreeqc")
 set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
 
+set (PHREEQC_BUILD_DIRECTORY ${BUILD_DIRECTORY}/phreeqc)
+file (MAKE_DIRECTORY ${PHREEQC_BUILD_DIRECTORY})
+
 IF (WIN32)
-    set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.lib")
+    set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/libIPhreeqc.lib")
 ELSE()
-    set (IPHREEQC_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/phreeqc/libIPhreeqc.a")
+    set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/libIPhreeqc.a")
 ENDIF()
 
 add_custom_command(
   OUTPUT "${IPHREEQC_LIB}"
-  COMMAND mkdir -p build && cd build && mkdir -p phreeqc && cd phreeqc && 
+  COMMAND
         cmake ${PHREEQC_FOLDER} -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF &&
-        cmake --build .
+        cmake --build . --parallel 16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
-  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
+  WORKING_DIRECTORY "${PHREEQC_BUILD_DIRECTORY}"
 )
 
 set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
 set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
 
+set (PROJ_BUILD_DIRECTORY ${BUILD_DIRECTORY}/proj)
+file (MAKE_DIRECTORY ${PROJ_BUILD_DIRECTORY})
+
+
 IF (WIN32)
-    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.lib")
+    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/libproj.lib")
 ELSE()
-    set (PROJ_LIB "${CMAKE_CURRENT_SOURCE_DIR}/../build/proj/lib/libproj.a")
+    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/libproj.a")
 ENDIF()
 
 add_custom_command(
   OUTPUT "${PROJ_LIB}"
-  COMMAND mkdir -p build && cd build && mkdir -p proj && cd proj && 
+  COMMAND
         cmake ${PROJ_FOLDER} -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF &&
-        cmake --build .
+        cmake --build . --parallel 16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
-  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../"
+  WORKING_DIRECTORY "${PROJ_BUILD_DIRECTORY}"
 )
 
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER})

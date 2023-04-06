@@ -11,10 +11,11 @@ rm -f ${BUILD_DIR}/CMakeCache.txt
 rm -f ${BUILD_DIR}/cmake_install.cmake
 rm -f ${BUILD_DIR}/Makefile
 
-mkdir -p ${BUILD_DIR}
-cd ${BUILD_DIR}
+#mkdir -p ${BUILD_DIR}
+#cd ${BUILD_DIR}
 
-cmake ../phreesqltool #-DBUILD_DOC=ON
+cmake -S${SCRIPT_DIR}/phreesqltool -B${BUILD_DIR} #-DBUILD_DOC=ON
+cd ${BUILD_DIR}
 cmake --build .
 
 cp $PWD/proj/data/proj.db $PWD/
