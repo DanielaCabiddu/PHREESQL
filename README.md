@@ -5,6 +5,8 @@ SQL database. It includes both a C++ library, namely PHREESQLib, and a command-l
 with low programming knowledge. Thanks to its relational data structure, PHREESQL allows to be exploited in third-party packages based on and to re-use them for other analyses by external pack-
 ages of environmental interest.
 
+<p align="center"><img src="PHREESQL_Graphical_Abstract.jpg" width="500"></p>
+
 ## Authors
 
 - Daniela Cabiddu (CNR-IMATI Genova, Italy)
