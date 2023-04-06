@@ -13,6 +13,12 @@ jobs:
       - name: dependencies
         run: |
           choco install sqlite
+      - name: Set up Visual Studio shell
+        uses: egor-tensin/vs-shell@v2
+        with:
+          arch: x64
+      - name : link Sqlite3
+        run: |
           cd C:/ProgramData/chocolatey/lib/SQLite/tools
           lib /def:sqlite3.def
       - name: build
