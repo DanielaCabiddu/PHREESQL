@@ -11,6 +11,7 @@ ages of environmental interest.
 
 - Daniela Cabiddu (CNR-IMATI Genova, Italy)
 - Marino Vetuschi Zuccolini (DISTAV Genova, Italy)
+- Simone Pittaluga (CNR-IMATI Genova, Italy)
 
 ## Dependences 
 - CMake (https://cmake.org/download);
