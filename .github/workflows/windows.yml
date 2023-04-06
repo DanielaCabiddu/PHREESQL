@@ -12,7 +12,7 @@ jobs:
           submodules: recursive
       - name: dependencies
         run: |
-          choco install sqlite --params "/NoTools"
+          choco install sqlite
       - name: build
         shell: bash
         run: |
