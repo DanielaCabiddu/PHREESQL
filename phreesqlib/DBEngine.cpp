@@ -69,17 +69,25 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
         {
             try {
 
-            if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
-                epsg_curr = std::atoi(metadata_table.at(i).at(j).second.c_str());
-            else if (metadata_table.at(i).at(j).first.compare("ID") == 0)
-                id = metadata_table.at(i).at(j).second.c_str();
-            else if (metadata_table.at(i).at(j).first.compare("COORD_X") == 0)
-                x = std::stod(metadata_table.at(i).at(j).second.c_str());
-            else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
-                y = std::stod(metadata_table.at(i).at(j).second.c_str());
-            else if (metadata_table.at(i).at(j).first.compare("COORD_Z") == 0)
-                z = std::stod(metadata_table.at(i).at(j).second.c_str());
-
+                if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
+                    epsg_curr = std::atoi(metadata_table.at(i).at(j).second.c_str());
+                else if (metadata_table.at(i).at(j).first.compare("ID") == 0)
+                    id = metadata_table.at(i).at(j).second.c_str();
+                else if (metadata_table.at(i).at(j).first.compare("COORD_X") == 0)
+                    x = std::stod(metadata_table.at(i).at(j).second.c_str());
+                else if (metadata_table.at(i).at(j).first.compare("COORD_Y") == 0)
+                    y = std::stod(metadata_table.at(i).at(j).second.c_str());
+                else if (metadata_table.at(i).at(j).first.compare("COORD_Z") == 0)
+                {
+                    try
+                    {
+                        z = std::stod(metadata_table.at(i).at(j).second.c_str());
+                    }  catch (exception e)
+                    {
+                        std::cerr << "\033[1;33m Warning: [" << i << "] Z coordinate not available. Set to 0.0. \033[0m" << std::endl;
+                        z=0.0;
+                    }
+                }
 
             }  catch (exception e) {
                 std::cerr << metadata_table.at(i).at(j).second.c_str() << std::endl;
@@ -98,7 +106,7 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
             z_converted = z;
         }
         else
-            proj_engine.epsg2epsg(x, y, 0.0, epsg_curr, epsg, x_converted, y_converted, z_converted);
+            proj_engine.epsg2epsg(x, y, z, epsg_curr, epsg, x_converted, y_converted, z_converted);
 
         x_vect.push_back(x_converted);
         y_vect.push_back(y_converted);

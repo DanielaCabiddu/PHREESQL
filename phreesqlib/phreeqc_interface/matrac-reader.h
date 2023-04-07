@@ -45,7 +45,7 @@
 #include "output-reader-writer.h"
 
 ///
-/// \brief The MatracReader class
+/// \brief The PhreeqcInterface class
 ///
 class PhreeqcInterface
 {
@@ -129,7 +129,7 @@ public:
     /// \brief MatracReader
     /// \param db_path
     ///
-    PhreeqcInterface(string db_path);
+    PhreeqcInterface(const std::string db_path);
 
     ~PhreeqcInterface()
     {
@@ -150,7 +150,7 @@ public:
     /// \brief getMetadata
     /// \return
     ///
-    std::vector<std::vector<std::pair<std::string, std::string>>> getMetadata ();
+    std::vector<std::vector<std::pair<std::string, std::string>>> getMetadata () const;
 
     ///
     /// \brief readInputOutputFiles

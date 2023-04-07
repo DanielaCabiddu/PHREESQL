@@ -30,7 +30,7 @@
 #include "matrac-reader.h"
 
 inline
-PhreeqcInterface::PhreeqcInterface(string db_path)
+PhreeqcInterface::PhreeqcInterface(const string db_path)
 {
     this->db_path = db_path;
     bool success = openDB();
@@ -111,7 +111,7 @@ void PhreeqcInterface::copyDB (const std::string file_path)
 }
 
 inline
-std::vector<std::vector<std::pair<std::string, std::string>>> PhreeqcInterface::getMetadata ()
+std::vector<std::vector<std::pair<std::string, std::string>>> PhreeqcInterface::getMetadata () const
 {
     std::vector<std::vector<std::pair<std::string, std::string>>> res = d_manager->getMetadata();
     return res;
