@@ -40,6 +40,11 @@ build-*/
 docs/html
 docs/latex
 
+example/DB/*
 example/run_DB/*
 example/scratch/*
 example/*.err
+example/sql_scripts/plot*
+example/sql_scripts/pp_*
+
+example/bin
