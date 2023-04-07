@@ -19,8 +19,6 @@ cd ${BUILD_DIR}
 cmake --build .
 
 cp $PWD/proj/data/proj.db $PWD/
-ln -sf $PWD/phreesql $PWD/../Supplementary/phreesql
-
 )
 
 # --export_input --export_output --export_metadata --export_folder export_test --export_id 10 #--export_list_ids file_list.txt
