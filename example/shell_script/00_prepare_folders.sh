@@ -11,6 +11,10 @@ dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 #db=${dir}/../../external/iphreeqc/database
 #data=${dir}/../run_DB/${SQLDB}
 
+mkdir -p $dir/../run_DB/
+mkdir -p $dir/../scratch/
+mkdir -p $dir/../DB/
+
 all="phreeqc llnl minteq wateq4f sit"
 
 for dataset in SHORT MEDIUM FULL
