@@ -1,6 +1,6 @@
 
 
-.open DB/FULL_ALL.db
+/*.open DB/FULL_ALL.db*/
 
 DROP view if exists S ;
 DROP view if exists Sphreeqc ;
@@ -18,7 +18,7 @@ WHERE ( m.SAMPLE_NAME = 'IE_EA_G_0010_2100_0009' AND s.PHASE='Chalcedony' AND m.
 
 
 .mode csv
-.output scratch/SI_chal_phreeqc.csv
+.output SI_chal_phreeqc.csv
 .separator ";"
 
 SELECT * from Sphreeqc;
@@ -34,7 +34,7 @@ WHERE ( m.SAMPLE_NAME = 'IE_EA_G_0010_2100_0009' AND s.PHASE='Chalcedony' AND m.
 
 
 .mode csv
-.output scratch/SI_chal_llnl.csv
+.output SI_chal_llnl.csv
 .separator ";"
 
 SELECT * from Sllnl;
@@ -50,7 +50,7 @@ WHERE ( m.SAMPLE_NAME = 'IE_EA_G_0010_2100_0009' AND s.PHASE='Chalcedony' AND m.
 
 
 .mode csv
-.output scratch/SI_chal_minteq.csv
+.output SI_chal_minteq.csv
 .separator ";"
 
 SELECT * from Sminteq;
@@ -66,7 +66,7 @@ WHERE ( m.SAMPLE_NAME = 'IE_EA_G_0010_2100_0009' AND s.PHASE='Chalcedony' AND m.
 
 
 .mode csv
-.output scratch/SI_chal_sit.csv
+.output SI_chal_sit.csv
 .separator ";"
 
 SELECT * from Ssit;
@@ -82,7 +82,7 @@ WHERE ( m.SAMPLE_NAME = 'IE_EA_G_0010_2100_0009' AND s.PHASE='Chalcedony' AND m.
 
 
 .mode csv
-.output scratch/SI_chal_wateq4f.csv
+.output SI_chal_wateq4f.csv
 .separator ";"
 
 SELECT * from Swateq4f;

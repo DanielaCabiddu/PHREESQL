@@ -1,6 +1,6 @@
 
 
-.open DB/FULL_wateq4f_2157.db
+/*.open DB/FULL_wateq4f_2157.db*/
 
 
 create view cs2cs (site, ID, name, date, X, Y, SI, phase) as
@@ -18,5 +18,5 @@ AND m.SITE_NAME NOT LIKE '%Shallow2%' );
 SELECT * from cs2cs;
 
 .mode csv
-.output scratch/cs2cs.csv
+.output cs2cs.csv
 .separator ";"

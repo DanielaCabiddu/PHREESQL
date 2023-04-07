@@ -4,7 +4,7 @@
 --
 --
 /* OPEN DATABASE */
-.open DB/FULL_wateq4f.db
+/*.open DB/FULL_wateq4f.db*/
 
 /* CLEAN VIEWS and TABLES */
 DROP VIEW if exists S;
@@ -132,7 +132,7 @@ abs(Alk+SO4*(2)+Cl)*1000, abs(Ca*(2)+Mg*(2)+Na+K)*1000,
 from LL;
 
 .mode csv
-.output scratch/LL.csv
+.output LL.csv
 .separator ";"
 
 SELECT * from LL_2;
@@ -151,7 +151,7 @@ WHERE County = 'Kilkenny';
 
 /* CREATE data files to be used in diagram*/
 .mode csv
-.output scratch/LL_Kilkenny.csv
+.output LL_Kilkenny.csv
 .separator ";"
 
 SELECT * from LL_3;
@@ -169,7 +169,7 @@ WHERE County = 'Donegal';
 
 /* CREATE data files to be used in diagram*/
 .mode csv
-.output scratch/LL_Donegal.csv
+.output LL_Donegal.csv
 .separator ";"
 
 SELECT * from LL_4;
@@ -183,7 +183,7 @@ FROM LL_2;
 
 /* CREATE data files to be used in diagram*/
 .mode csv
-.output scratch/LL_ALL.csv
+.output LL_ALL.csv
 .separator ";"
 
 SELECT * from LL_5;

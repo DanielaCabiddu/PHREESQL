@@ -1,5 +1,5 @@
 /* OPEN DATABASE */
-.open DB/FULL_wateq4f.db
+/*.open DB/FULL_wateq4f.db*/
 
 drop
 	view if exists calcite;
@@ -90,7 +90,7 @@ S_c = 'Donegal'
 ;
 
 .mode csv
-.output scratch/SI_Donegal.csv
+.output SI_Donegal.csv
 .separator ";"
 
 SELECT * from Donegal;
@@ -105,7 +105,7 @@ S_c = 'Kilkenny'
 ;
 
 .mode csv
-.output scratch/SI_Kilkenny.csv
+.output SI_Kilkenny.csv
 .separator ";"
 
 SELECT * from Kilkenny;
