@@ -49,8 +49,6 @@ $40,$41,$42,$43,$44,$45,$46}' $dir/../scratch/${ffile} > $dir/../scratch/${pfile
 #temp_dataset.txt
 
 echo $dir/../scratch/${ffile}
-exit
-
 
 #echo ">>>>>>>>>>>>>>  QUI 2  <<<<<<<<<<<<<<<<<"
 

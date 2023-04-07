@@ -36,7 +36,7 @@ find $dir/../scratch/ -name '*.met' -exec mv {} $dir/../run_DB/$dataset/META/${d
 
 # create PHREEQC input files
 awk -v dout=OUT/${db} -v tmpl=$dir/../shell_script/template.pqi -v out=$dir/../scratch/${job} -f $dir/../shell_script/prepare.awk  < $dir/../scratch/${pfile}
-find $dir/../scratch/ -name '*.pqi' -exec mv {} $dir/../run_DB/$dataset/IN/${db} 
+find $dir/../scratch/ -name '*.pqi' -exec mv {} $dir/../run_DB/$dataset/IN/${db} \;
 #mv $dir/../scratch/${job}*.pqi $dir/../run_DB/$dataset/IN/${db}/
 
 find $dir/../run_DB/$dataset/IN/${db} -type f -exec grep -l 'Alkalinity nd' {} + > $dir/../scratch/no_carb.dat
@@ -44,7 +44,6 @@ find $dir/../run_DB/$dataset/IN/${db} -type f -exec grep -l 'temp nd' {} + > $di
 find $dir/../run_DB/$dataset/IN/${db} -type f -exec grep -l 'pH nd' {} + > $dir/../scratch/no_ph.dat
 find $dir/../run_DB/$dataset/IN/${db} -type f -exec grep -l 'pe 0$' {} + > $dir/../scratch/no_pe.dat
 
-exit
 #grep -rl "Alkalinity nd" $dir/../run_DB/$dataset/IN/${db} > $dir/../scratch/no_carb.dat
 #grep -rl "temp nd" $dir/../run_DB/$dataset/IN/${db} > $dir/../scratch/no_temp.dat
 #grep -rl "pH nd" $dir/../run_DB/$dataset/IN/${db} > $dir/../scratch/no_ph.dat
