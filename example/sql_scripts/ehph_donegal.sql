@@ -1,6 +1,6 @@
 
 
-.open DB/FULL_wateq4f.db
+/*.open DB/FULL_wateq4f.db*/
 
 DROP VIEW if exists pe;
 DROP VIEW if exists ph;
@@ -73,7 +73,7 @@ WHERE eh_V = 0;
 
 /* EXPORT data to file */
 .mode csv
-.output scratch/ehph_donegal.csv
+.output ehph_donegal.csv
 .separator ","
 
 select * from eh_ph;
