@@ -40,5 +40,6 @@ build-*/
 docs/html
 docs/latex
 
-Supplementary/run_DB/*
-Supplementary/scratch/*
+example/run_DB/*
+example/scratch/*
+example/*.err
