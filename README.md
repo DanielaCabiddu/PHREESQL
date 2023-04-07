@@ -33,9 +33,15 @@ Simply run it to build the toolkit (together with the dependencies), generate th
 
 ## Case Study
 Our case study is described in the paper and exploits the Ireland EPA database (https://gis.epa.ie/GetData/Download). To guarantee replicability, data and source code of our case study is provided in the *example* folder.
-If you wish to replicate our case study, please run the *case_study.sh* script located located in the root directory *ROOT* (where this README lies).
+If you wish to replicate our case study, please run the *case_study.sh* script located located in the root directory *ROOT* (where this README lies) to create the complete set of PHREESQL databases:
 
 `${ROOT}/case_study.sh`
+
+The PHREESQL databases will be available in the *${ROOT}/example/DB* folder.
+
+To run some examples of database queries and generate plots, please run the *query.sh* script by providing the full database path (<DB_PATH>) of the database to be queried: 
+
+`${ROOT}/query.sh <DB_PATH>`
 
 ## Usage
 
