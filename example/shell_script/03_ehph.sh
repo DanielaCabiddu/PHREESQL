@@ -1,9 +1,18 @@
 #/bin/bash
 
+ARGS=""
+
+for var in "$@"
+do
+    ARGS="$ARGS $var"
+done
+
 echo ""
-echo "Running $BASH_SOURCE"
+echo "Running $BASH_SOURCE $ARGS"
 
 script_folder=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+DATABASE=$1
+
 
 export PHREEPLOT_PATH=${script_folder}/../bin
 export PHREEPLOT=${PHREEPLOT_PATH}/phreeplot
@@ -58,7 +67,7 @@ fi
 
 # EXTRACTS data from db
 
-sqlite3 ${script_folder}/../DB/SHORT_wateq4f.db < ${script_folder}/../sql_scripts/ehph_donegal.sql
+sqlite3 $DATABASE < ${script_folder}/../sql_scripts/ehph_donegal.sql
 mv ehph_donegal.csv ${script_folder}/../scratch/
 
 dos2unix ${script_folder}/../scratch/ehph_donegal.csv
@@ -66,7 +75,7 @@ dos2unix ${script_folder}/../scratch/ehph_donegal.csv
 awk 'BEGIN{FS=","; OFS=","} {print "1",$2,$5,"1","nd","1","1","blue"}' ${script_folder}/../scratch/ehph_donegal.csv > ${script_folder}/../scratch/ehph.csv
 
 
-sqlite3 ${script_folder}/../DB/SHORT_wateq4f.db < ${script_folder}/../sql_scripts/ehph_kilkenny.sql
+sqlite3 $DATABASE < ${script_folder}/../sql_scripts/ehph_kilkenny.sql
 mv ehph_kilkenny.csv ${script_folder}/../scratch/
 
 dos2unix ${script_folder}/../scratch/ehph_kilkenny.csv

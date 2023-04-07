@@ -2,7 +2,6 @@
 
 /*.open DB/FULL_wateq4f_2157.db*/
 
-
 create view cs2cs (site, ID, name, date, X, Y, SI, phase) as
 select m.SITE_NAME, m.ID, m.SAMPLE_NAME, m.DATE, m.COORD_X, m.COORD_Y, si.SI, si.PHASE from METADATA m 
 INNER JOIN SATURATION_INDICES si
