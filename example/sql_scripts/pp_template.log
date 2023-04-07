@@ -1,0 +1,183 @@
+
+*** PhreePlot 1 (Linux-gfortran-11.3.0-x64) 10:01:02 3 Nov 2022
+    Incorporating the iPhreeqc library (3.7.3-15968)
+      by DL Parkhurst, SR Charlton (USGS), & CAJ Appelo (Amsterdam)
+    Hunt & Track by DG Kinniburgh and DM Cooper (CEH, NERC)
+    Fitting by MJD Powell and others
+    Postscript plotting by KE Kohler
+    Linux & Mac versions by M Vetuschi Zuccolini (DISTAV, Univ. Genova)
+
+10:43:06 10 March 2023
+Input filename: /Users/zucco/Documents/Associato/PROGETTI/H2020-FESR/MATRAC/SOFTWARE/IMATI/PHREESQLib/PHREESQLIB/Supplementary/sql_scripts/pp_template.ppi.
+
+Job title                      .
+-------------------------------------------------------- System --------------------------------------------------------
+Command line parameters
+0                              /Users/zucco/softwarehouse/pp-20221012/phreeplot/bin/pp
+1                              sql_scripts/pp_template.ppi
+
+PHREEPLOT environment variable /Users/zucco/softwarehouse/pp-20221012/phreeplot
+PHREEPLOT_PATH                 /Users/zucco/softwarehouse/pp-20221012/phreeplot/bin
+PhreePlot version              1
+Speciation program             PHREEQC
+Version                        3.7.3-15968
+Database                       wateq4f.dat
+Database version               
+Current working directory      /Users/zucco/Documents/Associato/PROGETTI/H2020-FESR/MATRAC/SOFTWARE/IMATI/PHREESQLib/PHREESQLIB/Supplementary/
+System directory               /Users/zucco/softwarehouse/pp-20221012/phreeplot/system/
+Input file directory           /Users/zucco/Documents/Associato/PROGETTI/H2020-FESR/MATRAC/SOFTWARE/IMATI/PHREESQLib/PHREESQLIB/Supplementary/sql_scripts/
+Fill colour dictionary         /Users/zucco/Documents/Associato/PROGETTI/H2020-FESR/MATRAC/SOFTWARE/IMATI/PHREESQLib/PHREESQLIB/Supplementary/sql_scripts/fillcolor.dat
+Line colour dictionary         linecolor.dat (not found)
+------------------------------------------------ Ghostscript and fonts -------------------------------------------------
+Ghostscript executable         /opt/homebrew/bin/gs (installed)
+Ghostscript version            GPL Ghostscript 10.00.0 (2022-09-21)
+Fonts file                     /Users/zucco/softwarehouse/pp-20221012/phreeplot/system/fonts.dat
+Font family or font requested  Helvetica
+Base font used                 Helvetica
+
+========================================================= Job ==========================================================
+Calculation type               ht2
+Calculation method             calculate and plot
+Main species                   As
+<loop>                         min = UNDEFINED       max = UNDEFINED       int = UNDEFINED
+<y_axis>                       min =   -90.000       max =    0.0000
+<x_axis>                       min =    2.0000       max =    12.000
+Resolution                     200
+
+====================================================== Input file ======================================================
+SPECIATION
+  calculationType                      ht2
+  calculationMethod                    1
+  mainSpecies                          As
+  xmin                                 2.0
+  xmax                                 12.0
+  ymin                                 -90.0
+  ymax                                  0.0
+  resolution                           200
+  database                             "wateq4f.dat"
+
+PLOT
+  plotTitle                            "As-C-S-O-H"
+  plotTitlesize	         5
+  plotTitlecolor	       blue
+  xtitle                               pH
+  ytitle                               "Eh"
+  yscale                               Eh
+  pymin                                auto
+  pymax                                auto
+  pxmin                                auto
+  pxmax                                auto
+  pymajor 		         auto
+  pyminor 		         auto
+  pxmajor		        auto
+  pxmajor		        auto
+  colorModel                        rgb
+  plotfactor                            1.2
+  xoffset                               30
+  yoffset                               20
+  xaxislength                          110
+  yaxislength                          130
+labelSize		            3
+labelColor		           black
+extraSymbols	       "../scratch/ehph.csv"
+
+CHEMISTRY
+
+include ht1.inc                                            standard 'hunt and track' file
+
+SOLUTION 1
+   temp      25
+   units     mmol/l
+   As      40 ug/l                                       # total Hg
+   Na        584                                          # background electrolyte
+   Cl        584
+   C(4)  230 mg/l
+   S(6)  100 mg/l
+END
+
+USE solution 1
+EQUILIBRIUM_PHASES 1
+   Fix_H+     -<x_axis> NaOH                               # <x_axis> is pH so reverse sign
+    -force_equality true
+   O2(g)      <y_axis>  0.01
+END
+
+-------------------------------------------------- Override settings ---------------------------------------------------
+# add any input here that you want to override settings in pp.set and *.ppi
+--------------------------------------------------- Input chemistry ----------------------------------------------------
+
+Chemistry divided into PHREEQC simulations:
+
+    1: PRINT
+    2: -reset false
+    3: PHASES
+    4: Fix_H+
+    5: H+ = H+
+    6: log_k 0.0
+    7: SELECTED_OUTPUT 1
+    8: -high_precision true
+    9: -reset false
+   10: USER_PUNCH 1
+   11: -headings
+   12: -start
+   13: 1 small = 1e-12
+   14: 20 nout1 = 0
+   15: 40 nout3 = 0
+   16: 50 main$ = "<mainspecies>"
+   17: 60 IF (STEP_NO = 0) THEN 370 ELSE 70
+   18: 70 totel = SYS(main$, n, n$, t$, moles)
+   19: 80 h2o = TOT("water")
+   20: 90 REM Predominant species based on concn (but filter out gases)
+   21: 100 REM species are sorted largest first
+   22: 100 FOR i = 1 TO n
+   23: 110   IF (moles(i) <= small) THEN 190
+   24: 120   REM IF (t$(i) <> 'aq') THEN 180
+   25: 130   IF (INSTR(n$(i), "(g)") > 0) THEN 180
+   26: 140   PUNCH n$(i), moles(i)/h2o
+   27: 150 REM PRINT i, n$(i), moles(i)/h2o
+   28: 160   nout1 = nout1+1
+   29: 170   IF (nout1 >= 3) THEN 190
+   30: 180 NEXT i
+   31: 190 REM no forced mineral species (see ht1stability.inc)
+   32: 191 nout2 = 0
+   33: 200 REM add these constraints or overrides
+   34: 201 IF (SI("H2(g)") > 0) THEN 210 ELSE 230
+   35: 210 PUNCH "H2(g) > 1 atm", 10^SI("H2(g)")
+   36: 220 nout3 = nout3+1
+   37: 230 IF (SI("O2(g)") > -0.677) THEN 240 ELSE 260
+   38: 240 PUNCH "O2(g) > 0.21 atm", 10^SI("O2(g)")
+   39: 250 nout3 = nout3+1
+   40: 260 IF (SI("CH4(g)") > 0) THEN 270 ELSE 290
+   41: 270 PUNCH "CH4(g) > 1 atm", 10^SI("CH4(g)")
+   42: 280 nout3 = nout3+1
+   43: 290 REM add any extra 'carry' variables for viewing using name, value pairs as above
+   44: 299 nout4 = 0
+   45: 300 REM the 5 system variables (always required)
+   46: 301 po2 = SI("O2(g)")
+   47: 310 ph2 = SI("H2(g)")
+   48: 320 ph = -LA("H+")
+   49: 330 pe = -LA("e-")
+   50: 340 PUNCH "pH", ph, "pe", pe, "PO2", po2, "PH2", ph2, "temp", TC
+   51: 350 nout5 = 5
+   52: 360 REM output the 5 counters
+   53: 361 PUNCH nout1, nout2, nout3, nout4, nout5
+   54: 370 END
+   55: SOLUTION 1
+   56: temp      25
+   57: units     mmol/l
+   58: As      40 ug/l
+   59: Na        584
+   60: Cl        584
+   61: C(4)  230 mg/l
+   62: S(6)  100 mg/l
+   63: END
+........................................................ End 1 .........................................................
+   64: USE solution 1
+   65: EQUILIBRIUM_PHASES 1
+   66: Fix_H+     -<x_axis> NaOH
+   67: -force_equality true
+   68: O2(g)      <y_axis>  0.01
+   69: END
+........................................................ End 2 .........................................................
+
+2 PHREEQC simulations found.

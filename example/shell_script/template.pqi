@@ -1,0 +1,50 @@
+SOLUTION
+#ID {ID}
+#County {County}
+#Site_Name {Site_Name}
+#Easting {Easting}
+#Northing {Northing}
+#New_Code {New_Code}
+#Sample_Date {Sample_Date}
+units mg/L
+pH {pH} 
+temp {T}
+O(0) {O0}
+pe {pe}
+C(4) {Alkalinity} as HCO3
+N(-3) {N_3} as NH4 
+N(3) {N3} as NO2
+N(5) {N5} as NO3
+P {P} as PO4
+C(-4) {C_4}
+Si {Si}
+Cl {Cl}
+F {F}
+S(6) {S6} as SO4
+Na {Na}
+K {K}
+Mg {Mg}
+Ca {Ca}
+Fe {Fe} ug/L
+Mn {Mn} ug/L
+B {B} ug/L
+Al {Al} ug/L
+Cr {Cr} ug/L
+Ni {Ni} ug/L
+Cu {Cu} ug/L
+Zn {Zn} ug/L
+As {As} ug/L
+Cd {Cd} ug/L
+Sb {Sb} ug/L
+Ba {Ba} ug/L
+Pb {Pb} ug/L
+U {U} ug/L
+Hg {Hg} ug/L
+Co {Co} ug/L
+Mo {Mo} ug/L
+Sr {Sr} ug/L
+Ag {Ag} ug/L
+Be {Be} ug/L
+PRINT
+-alkalinity
+END
