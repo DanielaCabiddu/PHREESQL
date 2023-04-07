@@ -39,9 +39,9 @@ If you wish to replicate our case study, please run the *case_study.sh* script l
 
 The PHREESQL databases will be available in the *${ROOT}/example/DB* folder.
 
-To run some examples of database queries and generate plots, please run the *query.sh* script by providing the full database path (<DB_PATH>) of the database to be queried: 
+To run some examples of database queries and generate plots, please run the *${ROOT}/example/query.sh* script by providing the full database path (<DB_PATH>) of the database to be queried: 
 
-`${ROOT}/query.sh <DB_PATH>`
+`${ROOT}/example/query.sh <DB_PATH>`
 
 ## Usage
 
