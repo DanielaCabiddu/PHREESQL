@@ -60,7 +60,7 @@ To run some examples of database queries and generate plots, please run the *${R
 
 ## Citing Us
 
-If you use PhreeSQLib in your academic projects, please consider citing the library using the following BibTeX entry:
+If you use PHREESQL in your academic projects, please consider citing the library using the following BibTeX entry:
 
 [BIBTEX REFERENCE AFTER PUBLICATION]
 
