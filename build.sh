@@ -14,7 +14,7 @@ rm -f ${BUILD_DIR}/Makefile
 #mkdir -p ${BUILD_DIR}
 #cd ${BUILD_DIR}
 
-cmake -S${SCRIPT_DIR}/phreesqltool -B${BUILD_DIR} #-DBUILD_DOC=ON
+cmake -S${SCRIPT_DIR}/phreesqlexe -B${BUILD_DIR} #-DBUILD_DOC=ON
 cd ${BUILD_DIR}
 cmake --build .
 
