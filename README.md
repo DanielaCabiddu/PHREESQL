@@ -24,10 +24,24 @@ The repository includes some submodules necessary to make PHREESQL work. Please,
 
 `git clone --recursive https://github.com/DanielaCabiddu/PHREESQL/`
 
-## How to build (and test)
+## Usage
 
-PHREESQL provides a *build_and_test.sh* script, located in the root directory *ROOT* (where this README lies). 
-Simply run it to build the toolkit (together with the dependencies), generate the *PhreeSQLexe* tool and run a preliminary test:
+**PHREESQLib** is an header-only C++ library having SQlite, IPhreeQC and PROJ as mandatory dependences. 
+To exploit PHREESQLib in your C++ project:
+- build the external dependence IPhreeQC (*external/iphreeqc*);
+- build the external dependence PROJ (*external/proj-osgeo*);
+- include PHREESQLib (*phreesqlib folder*) in your project;
+- include and link IPhreeQC and PROJ in your project;
+- link SQlite in your project.
+
+**PHREESQLExe** is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. The complete set of options is attached here below:
+
+<p align="center"><img src="docs/command_line_args.png" width="1000"></p>
+
+## How to build (and test) **PHREESQLExe**
+
+PHREESQL provides a *build_and_test.sh* script, located in the root directory *ROOT* (where this README lies). It enables the possibility to automatically build both dependences (IPHREEQC and ProJ libraries) and PHREESQLexe.
+To generate the *PHREESQLexe* executable and run a preliminary test, simply run the *build_and_test.sh* script:
 
 `${ROOT}/build_and_test.sh`
 
@@ -43,23 +57,13 @@ To run some examples of database queries and generate plots, please run the *${R
 
 `${ROOT}/example/query.sh <DB_PATH>`
 
-## Usage
-
-**PHREESQLib** is an header-only C++ library having IPhreeQC and PROJ as mandatory dependences. To exploit PHREESQLib in your C++ project:
-- build the external dependence IPhreeQC (*external/iphreeqc*);
-- build the external dependence PROJ (*external/proj-osgeo*);
-- include PHREESQLib (*phreesqlib folder*) in your project;
-- include and link IPhreeQC and PROJ in your project;
-- link SQlite in your project.
-
-**PhreeSQLExe** is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. The complete set of options is attached here below:
-
-<p align="center"><img src="docs/command_line_args.png" width="1000"></p>
 
 ## Citing Us
 
 If you use PhreeSQLib in your academic projects, please consider citing the library using the following BibTeX entry:
 
 [BIBTEX REFERENCE AFTER PUBLICATION]
+
+Submitted - UNDER REVIEW
 
 ## Acknowledgments
