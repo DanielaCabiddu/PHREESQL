@@ -5,8 +5,6 @@
 echo ""
 echo "Running $BASH_SOURCE"
 
-script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
 SQLDB=$1
 DB=$2
 
@@ -45,7 +43,7 @@ then
  
 fi
 
-time ${phrsql} --fill_db -d ${script_dir}/../DB/${SQLDB}_${PHREEQCDBALL}.db -i ${data}/IN/${PHREEQCDB} -o ${data}/OUT/${PHREEQCDB} -m ${data}/META/${PHREEQCDB} 
+time ${phrsql} --fill_db -d $dir/../DB/${SQLDB}_${PHREEQCDBALL}.db -i ${data}/IN/${PHREEQCDB} -o ${data}/OUT/${PHREEQCDB} -m ${data}/META/${PHREEQCDB} 
 
 done
 

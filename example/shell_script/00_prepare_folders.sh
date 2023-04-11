@@ -24,7 +24,7 @@ folder="$dir/../run_DB/$dataset"
 
 # if [ -z $folder ] 
 # then
-   mkdir -p run_DB/$dataset
+   mkdir -p $dir/run_DB/$dataset
      for canister in IN OUT META
      do
        for pdb in $all
