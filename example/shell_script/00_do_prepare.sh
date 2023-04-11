@@ -63,8 +63,8 @@ awk -F "${db}/${job}" '{print substr($2,0,length($2))}' $dir/../scratch/temp_ > 
 for i in `cat $dir/../scratch/temp`
 do
   $SED "/^${i}$/d" $dir/../scratch/samples.dat
-  #rm -f $dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi 
-  #rm -f $dir/../run_DB/$dataset/META/${db}/${job}${i}.met
+  rm -f $dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi 
+  rm -f $dir/../run_DB/$dataset/META/${db}/${job}${i}.met
 done
 
 #echo ">>>>>>>>>>>>>>  QUI 6  <<<<<<<<<<<<<<<<<"
