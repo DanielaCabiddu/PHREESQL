@@ -44,6 +44,12 @@ find $dir/../run_DB/$dataset/IN/${db} -type f -exec grep -l 'temp nd' {} + > $di
 find $dir/../run_DB/$dataset/IN/${db} -type f -exec grep -l 'pH nd' {} + > $dir/../scratch/no_ph.dat
 find $dir/../run_DB/$dataset/IN/${db} -type f -exec grep -l 'pe 0$' {} + > $dir/../scratch/no_pe.dat
 
+#echo "Samples: " `cat $dir/../scratch/samples.dat | wc -l`
+#echo "No Temp: " `cat $dir/../scratch/no_temp.dat | wc -l`
+#echo "No Carb: " `cat $dir/../scratch/no_carb.dat | wc -l`
+#echo "No ph: " `cat $dir/../scratch/no_ph.dat | wc -l`
+#echo "No pe: " `cat $dir/../scratch/no_pe.dat | wc -l`
+
 #grep -rl "Alkalinity nd" $dir/../run_DB/$dataset/IN/${db} > $dir/../scratch/no_carb.dat
 #grep -rl "temp nd" $dir/../run_DB/$dataset/IN/${db} > $dir/../scratch/no_temp.dat
 #grep -rl "pH nd" $dir/../run_DB/$dataset/IN/${db} > $dir/../scratch/no_ph.dat
