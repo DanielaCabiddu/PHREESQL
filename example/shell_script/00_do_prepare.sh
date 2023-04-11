@@ -56,7 +56,7 @@ awk -F "${db}/${job}" '{print substr($2,0,length($2))}' $dir/../scratch/temp_ > 
 
 for i in `cat $dir/../scratch/temp`
 do
-  $SED "/${i}/d" $dir/../scratch/samples.dat
+  $SED "/^${i}$/d" $dir/../scratch/samples.dat
   #rm -f $dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi 
   #rm -f $dir/../run_DB/$dataset/META/${db}/${job}${i}.met
 done
@@ -67,9 +67,9 @@ awk -F ".pqi" '{print substr($1,0,length($1))}' $dir/../scratch/no_temp.dat > $d
 awk -F "${db}/${job}" '{print substr($2,0,length($2))}' $dir/../scratch/temp_ > $dir/../scratch/temp
 for i in `cat $dir/../scratch/temp`
 do
-  $SED "/${i}/d" $dir/../scratch/samples.dat
-  #rm -f $dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi 
-  #rm -f $dir/../run_DB/$dataset/META/${db}/${job}${i}.met
+  $SED "/^${i}$/d" $dir/../scratch/samples.dat
+  rm -f $dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi 
+  rm -f $dir/../run_DB/$dataset/META/${db}/${job}${i}.met
 done
 
 #echo ">>>>>>>>>>>>>>  QUI 7  <<<<<<<<<<<<<<<<<"
@@ -78,16 +78,16 @@ awk -F ".pqi" '{print substr($1,0,length($1))}' $dir/../scratch/no_ph.dat > $dir
 awk -F "${db}/${job}" '{print substr($2,0,length($2))}' $dir/../scratch/temp_ > $dir/../scratch/temp
 for i in `cat $dir/../scratch/temp`
 do
-  $SED "/${i}/d" $dir/../scratch/samples.dat
-  #rm -f $dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi 
-  #rm -f $dir/../run_DB/$dataset/META/${db}/${job}${i}.met
+  $SED "/^${i}$/d" $dir/../scratch/samples.dat
+  rm -f $dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi 
+  rm -f $dir/../run_DB/$dataset/META/${db}/${job}${i}.met
 done
 
 #echo ">>>>>>>>>>>>>>  QUI 8  <<<<<<<<<<<<<<<<<"
 
 awk -F ".pqi" '{print substr($1,0,length($1))}' $dir/../scratch/no_pe.dat > $dir/../scratch/temp_
 awk -F "${db}/${job}" '{print substr($2,0,length($2))}' $dir/../scratch/temp_ > $dir/../scratch/temp
-for i in `cat $dir/../scratch/temp`
+for i in `cat $dir/../scratch/samples.dat`
 do
 FILE=$dir/../run_DB/$dataset/IN/${db}/${job}${i}.pqi
 if [ -f "$FILE" ]; then
