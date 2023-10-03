@@ -1,0 +1,47 @@
+name: windows-build
+
+on:
+  push:
+    paths:
+    - examples/**
+    - phreesqlib/**
+    - phreesqlexe/**
+    - external/**
+    - .github/workflows/windows.yml
+    - build.sh
+    - test.sh
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: dependencies
+        run: |
+          choco install sqlite
+      - name: Set up Visual Studio shell
+        uses: egor-tensin/vs-shell@v2
+        with:
+          arch: x64
+      - name : link Sqlite3
+        run: |
+          cd C:/ProgramData/chocolatey/lib/SQLite/
+          ls
+          echo "===="
+          cd C:/ProgramData/chocolatey/lib/SQLite/tools
+          ls
+          lib /def:sqlite3.def
+          ls
+          cd D:/a/PHREESQL/PHREESQL
+          bash ./build.sh
+      - name: build
+        shell: bash
+        run: |
+          echo "./build.sh"
+      - name: test
+        shell: bash
+        run: |
+          echo "./test.sh"
