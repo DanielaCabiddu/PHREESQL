@@ -1,0 +1,61 @@
+name: publish-release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    name: Publish for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artifact_name: phreesqlexe
+            asset_name: phreesqlexe-ubuntu-x64
+          #- os: windows-latest
+          #  artifact_name: 01_Trimesh_Tiling.exe
+          #  asset_name: 01_Trimesh_Tiling-windows-x64.exe
+          - os: macos-latest
+            artifact_name: phreesqlexe
+            asset_name: phreesqlexe-macos-x64
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+          submodules: recursive
+
+    - name: Deps-Ubuntu
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+            sudo apt update
+            sudo apt-get install -y libsqlite3-dev
+    - name: Deps-MacOs
+      if: matrix.os == 'macos-latest'
+      run: |
+            brew install sqlite3
+    
+    - name: Build-Ubuntu
+      if: matrix.os == 'ubuntu-latest'
+      env:
+          CC: gcc-9
+          CXX: g++-9
+      run: |
+          ./build.sh
+    - name: Build-MacOs
+      if: matrix.os == 'macos-latest'
+      env:
+          CC: clang
+          CXX: clang++
+      run: |
+          ./build.sh
+          
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: build/${{ matrix.artifact_name }}
+        asset_name: ${{ matrix.asset_name }}
+        tag: ${{ github.ref }}
