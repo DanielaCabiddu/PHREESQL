@@ -1,6 +1,15 @@
 name: macos-build
 
-on: [push]
+on:
+  push:
+    paths:
+    - examples/**
+    - phreesqlib/**
+    - phreesqlexe/**
+    - external/**
+    - .github/workflows/macos.yml
+    - build.sh
+    - test.sh
 
 jobs:
   build:
