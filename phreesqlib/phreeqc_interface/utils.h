@@ -46,7 +46,9 @@ using namespace std;
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <dirent.h>
+#ifdef WIN32
+#include <direct.h>
+#endif
 
 const std::string WHITESPACE = " \n\r\t\f\v";
 
