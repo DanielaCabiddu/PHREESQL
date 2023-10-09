@@ -46,6 +46,8 @@ using namespace std;
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <dirent.h>
+
 const std::string WHITESPACE = " \n\r\t\f\v";
 
 const std::string red("\033[1;31m");
@@ -115,7 +117,12 @@ inline bool mkpath (const std::string dir)
 
             if (!dirExists(tmp))
             {
+#ifdef WIN32
+                error = _mkdir(tmp);
+#else
                 error = mkdir(tmp, S_IRWXU);
+#endif
+
 
                 if (error != 0)
                 {
@@ -127,7 +134,11 @@ inline bool mkpath (const std::string dir)
         }
     }
 
+#ifdef WIN32
+    error = _mkdir(tmp);
+#else
     error = mkdir(tmp, S_IRWXU);
+#endif
 
     if (error != 0)
     {

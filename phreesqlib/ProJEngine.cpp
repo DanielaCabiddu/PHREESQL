@@ -34,8 +34,14 @@
 #include <string>
 
 inline
-void phreesqlib::ProjEngine::epsg2epsg (const double epsg1_x, const double epsg1_y, const double epsg1_z, const unsigned int epsg1, const unsigned int epsg2,
-                 double &epsg2_x, double &epsg2_y, double &epsg2_z )
+void phreesqlib::ProjEngine::epsg2epsg (const double epsg1_x, 
+                                        const double epsg1_y, 
+                                        const double epsg1_z, 
+                                        const unsigned int epsg1, 
+                                        const unsigned int epsg2,
+                                        double &epsg2_x, 
+                                        double &epsg2_y, 
+                                        double &epsg2_z )
 {
 
     PJ_CONTEXT *c = proj_context_create();
@@ -49,7 +55,14 @@ void phreesqlib::ProjEngine::epsg2epsg (const double epsg1_x, const double epsg1
     proj_context_destroy (c);
 }
 
-void phreesqlib::ProjEngine::epsg2epsg (PJ *transformation, const double epsg1_x, const double epsg1_y, const double epsg1_z, double &epsg2_x, double &epsg2_y, double &epsg2_z )
+inline
+void phreesqlib::ProjEngine::epsg2epsg (PJ *transformation, 
+                                        const double epsg1_x, 
+                                        const double epsg1_y, 
+                                        const double epsg1_z, 
+                                        double &epsg2_x, 
+                                        double &epsg2_y, 
+                                        double &epsg2_z )
 {
 
     if (!transformation)

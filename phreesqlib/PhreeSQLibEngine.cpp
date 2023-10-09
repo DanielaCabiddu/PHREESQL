@@ -145,7 +145,7 @@ void phreesqlib::PhreeSQLibEngine::run_phreeqc_on_folder (const std::string in_f
         }
 
 #pragma omp parallel for schedule(static,1) ordered
-        for (uint i=0; i < ents.size(); i++)
+        for (int i=0; i < ents.size(); i++)
         {
               const std::string filename = ents.at(i);
 

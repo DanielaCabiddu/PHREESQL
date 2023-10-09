@@ -89,7 +89,16 @@ DIR * PhreeqcInterface::openDir(string directory)
     DIR *dir = opendir(directory.c_str());
     if (!dir)
     {
-        if (mkdir(directory.c_str(), 0777/*, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH*/) == -1)
+        int success;
+
+#ifdef WIN32
+        success = _mkdir(directory.c_str());
+#else
+        success = mkdir(directory.c_str(), 0777/*, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH*/);
+#endif
+
+
+        if (success == -1)
         {
             cerr << "Error in creating directory!" << endl;
             return NULL;
@@ -400,7 +409,7 @@ bool PhreeqcInterface::create_and_insert_EpsgTable(const std::string table_name,
 }
 
 inline
-bool PhreeqcInterface::updateAnalysisEPSG (const uint epsg,
+bool PhreeqcInterface::updateAnalysisEPSG (const unsigned int epsg,
                          const std::vector<std::string> &id,
                          const std::vector<double> &x,
                          const std::vector<double> &y)
@@ -434,7 +443,7 @@ std::string PhreeqcInterface::getMetadataTableName () const
 }
 
 inline
-uint PhreeqcInterface::getNumMetadataRecords () const
+unsigned int PhreeqcInterface::getNumMetadataRecords () const
 {
     return o_manager->getNumRows(o_manager->metadata_table_name);
 }

@@ -48,7 +48,7 @@ std::vector<std::vector<std::pair<std::string, std::string>>> DataManager::getMe
     int rc = sqlite3_exec(db, query.c_str(), printDBCallback, &res, &err_message);
     this->queryResult(rc, "data2epsg");
 
-    for (uint i=0; i < res.size(); i++)
+    for (unsigned int i=0; i < res.size(); i++)
     {
         //std::cout << "[" << i << "]" << res.at(i).size() << std::endl;
 
@@ -62,12 +62,12 @@ std::vector<std::vector<std::pair<std::string, std::string>>> DataManager::getMe
 }
 
 inline
-bool DataManager::updateMetadataEPSG (const uint epsg,
+bool DataManager::updateMetadataEPSG (const unsigned int epsg,
                          const std::vector<std::string> &id,
                          const std::vector<double> &x,
                          const std::vector<double> &y)
 {
-    for (uint i=0; i < id.size(); i++)
+    for (unsigned int i=0; i < id.size(); i++)
     {
         query = "UPDATE " + metadata_table_name + " " +
                 "SET EPSG = '" + to_string(epsg) + "', " +

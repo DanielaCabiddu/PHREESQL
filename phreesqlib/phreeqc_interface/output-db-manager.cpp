@@ -176,7 +176,7 @@ bool OutputDBManager::insertEpsg(const std::string table_name,
                const std::vector<double> &y,
                const std::vector<double> &z)
 {
-    for (uint i=0; i < id.size(); i++)
+    for (unsigned int i=0; i < id.size(); i++)
     {
         query = "INSERT OR REPLACE INTO " + table_name + " (ANALYSIS_ID, COORD_X, COORD_Y, COORD_Z) VALUES ('" +
                 id.at(i).c_str() + "', '" +

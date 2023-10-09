@@ -1,4 +1,4 @@
-/********************************************************************************
+ /********************************************************************************
 *  This file is part of PhreeSQL                                                *
 *  Copyright(C) 2023: Daniela Cabiddu                                           *
 *                                                                               *
@@ -57,15 +57,15 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
 
     phreesqlib::ProjEngine proj_engine;
 
-    for (uint i=0; i < metadata_table.size(); i++)
+    for (unsigned int i=0; i < metadata_table.size(); i++)
     {
         double x = DBL_MAX;
         double y = DBL_MAX;
         double z = DBL_MAX;
-        uint epsg_curr = UINT_MAX;
+        unsigned int epsg_curr = UINT_MAX;
         std::string id;
 
-        for (uint j=0; j < metadata_table.at(i).size(); j++)
+        for (unsigned int j=0; j < metadata_table.at(i).size(); j++)
         {
             try {
 
@@ -115,7 +115,7 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
         ids.push_back(id);
     }
 
-    for (uint t=0; t < types.size(); t++)
+    for (unsigned int t=0; t < types.size(); t++)
     {
         if (types.at(t) == TABLE)
         {
@@ -150,14 +150,14 @@ void phreesqlib::DBEngine::convert_epsg (const int epsg, const std::vector<EPSG_
             ofstream out_file;
             out_file.open(filename.c_str());
 
-            for (uint i=0; i < metadata_table.at(0).size()-1; i++)
+            for (unsigned int i=0; i < metadata_table.at(0).size()-1; i++)
                 out_file << metadata_table.at(0).at(i).first << ";";
 
             out_file << metadata_table.at(0).at(metadata_table.at(0).size()-1).first << std::endl;
 
-            for (uint i=0; i < metadata_table.size(); i++)
+            for (unsigned int i=0; i < metadata_table.size(); i++)
             {
-                for (uint j=0; j < metadata_table.at(i).size(); j++)
+                for (unsigned int j=0; j < metadata_table.at(i).size(); j++)
                 {
                     if (metadata_table.at(i).at(j).first.compare("EPSG") == 0)
                         out_file << epsg << ";";

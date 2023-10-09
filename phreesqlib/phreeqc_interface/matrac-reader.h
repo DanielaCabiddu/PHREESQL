@@ -275,7 +275,7 @@ public:
     /// \param y
     /// \return
     ///
-    bool updateAnalysisEPSG (const uint epsg,
+    bool updateAnalysisEPSG (const unsigned int epsg,
                              const std::vector<std::string> &id,
                              const std::vector<double> &x,
                              const std::vector<double> &y);
@@ -307,7 +307,7 @@ public:
     /// \brief getNumMetadataRecords
     /// \return
     ///
-    uint getNumMetadataRecords () const;
+    unsigned int getNumMetadataRecords () const;
 };
 
 #ifndef PHREESQL_STATIC

@@ -35,8 +35,8 @@ set (PHREEQC_SRC_FOLDER "${PHREEQC_FOLDER}/src")
 set (PHREEQC_BUILD_DIRECTORY ${BUILD_DIRECTORY}/phreeqc)
 file (MAKE_DIRECTORY ${PHREEQC_BUILD_DIRECTORY})
 
-IF (WIN32)
-    set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/libIPhreeqc.lib")
+IF (MSVC)
+    set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/Debug/IPhreeqcd.lib")
 ELSE()
     set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/libIPhreeqc.a")
 ENDIF()
@@ -50,7 +50,75 @@ add_custom_command(
   WORKING_DIRECTORY "${PHREEQC_BUILD_DIRECTORY}"
 )
 
+
+find_package(SQLite3)
+
+if(NOT SQLITE3_FOUND AND MSVC)
+
+    if(NOT DEFINED ${CMAKE_TOOLCHAIN_FILE})
+        if(NOT DEFINED ENV{VCPKG_ROOT})
+            if(WIN32)
+                set(VCPKG_ROOT $ENV{HOMEDRIVE}$ENV{HOMEPATH}/vcpkg_cpptruths)
+            else()
+                set(VCPKG_ROOT $ENV{HOME}/.vcpkg_cpptruths)
+            endif()
+        else()
+            set(VCPKG_ROOT $ENV{VCPKG_ROOT})
+        endif()
+
+        if(NOT EXISTS ${VCPKG_ROOT})
+            message("Cloning vcpkg in ${VCPKG_ROOT}")
+            execute_process(COMMAND git clone https://github.com/Microsoft/vcpkg.git ${VCPKG_ROOT})
+            # If a reproducible build is desired (and potentially old libraries are # ok), uncomment the
+            # following line and pin the vcpkg repository to a specific githash.
+            # execute_process(COMMAND git checkout 745a0aea597771a580d0b0f4886ea1e3a94dbca6 WORKING_DIRECTORY ${VCPKG_ROOT})
+        else()
+            # The following command has no effect if the vcpkg repository is in a detached head state.
+            message("Auto-updating vcpkg in ${VCPKG_ROOT}")
+            execute_process(COMMAND git pull WORKING_DIRECTORY ${VCPKG_ROOT})
+        endif()
+
+        if(NOT EXISTS ${VCPKG_ROOT}/README.md)
+            message(FATAL_ERROR "***** FATAL ERROR: Could not clone vcpkg *****")
+        endif()
+
+        if(WIN32)
+            set(BOOST_INCLUDEDIR ${VCPKG_ROOT}/installed/x86-windows/include)
+            set(VCPKG_EXEC ${VCPKG_ROOT}/vcpkg.exe)
+            set(VCPKG_BOOTSTRAP ${VCPKG_ROOT}/bootstrap-vcpkg.bat)
+        else()
+            set(VCPKG_EXEC ${VCPKG_ROOT}/vcpkg)
+            set(VCPKG_BOOTSTRAP ${VCPKG_ROOT}/bootstrap-vcpkg.sh)
+        endif()
+
+        if(NOT EXISTS ${VCPKG_EXEC})
+            message("Bootstrapping vcpkg in ${VCPKG_ROOT}")
+            execute_process(COMMAND ${VCPKG_BOOTSTRAP} WORKING_DIRECTORY ${VCPKG_ROOT})
+        endif()
+
+        if(NOT EXISTS ${VCPKG_EXEC})
+            message(FATAL_ERROR "***** FATAL ERROR: Could not bootstrap vcpkg *****")
+        endif()
+
+        set(CMAKE_TOOLCHAIN_FILE ${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake CACHE STRING "")
+
+        #message(STATUS "***** Checking project third party dependencies in ${VCPKG_ROOT} *****")
+        execute_process(
+                    COMMAND ${VCPKG_EXEC} install sqlite3[core,tool] --triplet x64-windows --recurse
+                    WORKING_DIRECTORY ${VCPKG_ROOT})
+
+        message ("Setting SQlite3 MACROS")
+        set (SQLite3_INCLUDE_DIR "${VCPKG_ROOT}/packages/sqlite3_x64-windows/include" )
+        set (SQLite3_LIBRARY "${SQLite3_INCLUDE_DIR}/../lib/sqlite3.lib" )
+        set (SQLite3_BINARY "${SQLite3_INCLUDE_DIR}/../tools/sqlite3.exe" )
+
+    endif()
+
+endif()
+
+
 set (PROJ_FOLDER "${EXTERNAL_FOLDER}/proj-osgeo")
+set (PROJ_INCLUDE_FOLDER "${PROJ_FOLDER}/include")
 set (PROJ_SRC_FOLDER "${PROJ_FOLDER}/src")
 
 set (PROJ_BUILD_DIRECTORY ${BUILD_DIRECTORY}/proj)
@@ -58,26 +126,47 @@ file (MAKE_DIRECTORY ${PROJ_BUILD_DIRECTORY})
 
 
 IF (WIN32)
-    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/libproj.lib")
-ELSE()
-    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/libproj.a")
-ENDIF()
+    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/Debug/proj_d.lib")
 
-add_custom_command(
+    add_custom_command(
   OUTPUT "${PROJ_LIB}"
   COMMAND
-        cmake ${PROJ_FOLDER} -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF &&
-        cmake --build . --parallel 16
+        cmake -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF  -DBUILD_APPS=OFF -DBUILD_PROJSYNC=OFF ${PROJ_FOLDER} &&
+        cmake --build . --config Debug -j 8
+
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${PROJ_BUILD_DIRECTORY}"
 )
+ELSE()
+    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/libproj.a")
+
+    add_custom_command(
+  OUTPUT "${PROJ_LIB}"
+  COMMAND
+        cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF ${PROJ_FOLDER} &&
+        cmake --build .
+  #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
+  WORKING_DIRECTORY "${PROJ_BUILD_DIRECTORY}"
+)
+ENDIF()
+
+
+
 
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER})
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp)
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/common)
 include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/PhreeqcKeywords)
 
+include_directories(BEFORE ${PROJ_INCLUDE_FOLDER})
 include_directories(BEFORE ${PROJ_SRC_FOLDER})
+
+
+if (MSVC)
+    include_directories(BEFORE ${SQLite3_INCLUDE_DIR})
+    include_directories(BEFORE ${EXTERNAL_FOLDER}/dirent_win)
+    include_directories(BEFORE ${EXTERNAL_FOLDER}/getopt_win)
+endif()
 
 if (BUILD_DOC)
     # check if Doxygen is installed
@@ -108,9 +197,9 @@ add_executable(${PROJECT_NAME}
     ${PROJ_LIB}
 )
 
-list(APPEND EXTRA_LIBS ${IPHREEQC_LIB})
-list(APPEND EXTRA_LIBS "sqlite3")
 list(APPEND EXTRA_LIBS ${PROJ_LIB})
+list(APPEND EXTRA_LIBS ${IPHREEQC_LIB})
+list(APPEND EXTRA_LIBS ${SQLite3_LIBRARY})
 
 if (OPENMP_FOUND)
     list(APPEND EXTRA_LIBS "OpenMP::OpenMP_CXX")

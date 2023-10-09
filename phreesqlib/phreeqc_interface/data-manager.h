@@ -63,7 +63,7 @@ public:
     /// \param y
     /// \return
     ///
-    bool updateMetadataEPSG (const uint epsg,
+    bool updateMetadataEPSG (const unsigned int epsg,
                              const std::vector<std::string> &id,
                              const std::vector<double> &x,
                              const std::vector<double> &y);
