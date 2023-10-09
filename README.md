@@ -38,12 +38,33 @@ To exploit PHREESQLib in your C++ project:
 
 <p align="center"><img src="docs/command_line_args.png" width="1000"></p>
 
-## How to build (and test) **PHREESQLExe**
+## How to build **PHREESQLExe**
 
-PHREESQL provides a *build_and_test.sh* script, located in the root directory *ROOT* (where this README lies). It enables the possibility to automatically build both dependences (IPHREEQC and ProJ libraries) and PHREESQLexe.
-To generate the *PHREESQLexe* executable and run a preliminary test, simply run the *build_and_test.sh* script:
+#### Linux-Ubuntu (latest) 
+To build PHREESQLExe, use the *build.sh* script available located in the root directory *ROOT* (where this README lies).
+To test it, use the *test.sh* script available in the same folder.
 
-`${ROOT}/build_and_test.sh`
+[![Linux-Ubuntu build status](https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/ubuntu.yml)
+
+#### MacOS (latest)
+
+To build PHREESQLExe, use the *build.sh* script available located in the root directory *ROOT* (where this README lies).
+To test it, use the *test.sh* script available in the same folder.
+
+[![Mac build status](https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/macos.yml/badge.svg)](https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/macos.yml)
+
+#### Windows (latest) 
+Generate the Visual Studio solution via CMake and build it.
+
+```
+cd ${ROOT} 
+mkdir build  
+cd build
+cmake -G "Visual Studio 17 2022 ../phreesqlexe
+cmake --build . --parallel 8
+```
+
+[![Windows-MSVC2022 build status](https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/windows.yml/badge.svg)](https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/windows.yml)
 
 ## Case Study
 Our case study is described in the paper and exploits the Ireland EPA database (https://gis.epa.ie/GetData/Download). To guarantee replicability, data and source code of our case study is provided in the *example* folder.
@@ -56,7 +77,6 @@ The PHREESQL databases will be available in the *${ROOT}/example/DB* folder.
 To run some examples of database queries and generate plots, please run the *${ROOT}/example/query.sh* script by providing the full database path (<DB_PATH>) of the database to be queried: 
 
 `${ROOT}/example/query.sh <DB_PATH>`
-
 
 ## Citing Us
 
