@@ -10,9 +10,9 @@ To guarantee usability by both developers and users with low programming experti
 - export both original PHREEQC inputs and outputs from an existing database for further processing;
 - process coordinates of geo-referenced data into an existing database to create a new table or to create a new database framed into a new specific coordinate reference system (CRS).
 
-##Workflow
+## Workflow [IMAGE](https://github.com/DanielaCabiddu/PHREESQL/blob/main/images/phreesql-workflow.png)
 
-\image html <p align="center"><img src="./images/phreesql-workflow.png"></p>
+<p align="center"><img src="./images/phreesql-workflow.png"></p>
 
 ## Clone
 
