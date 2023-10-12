@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('classphreesqlib_1_1DBEngine.html','');
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classphreesqlib_1_1DBEngine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -97,6 +98,16 @@ $(document).ready(function(){initNavTree('classphreesqlib_1_1DBEngine.html','');
 
 <p><code>#include &lt;<a class="el" href="DBEngine_8h_source.html">DBEngine.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a5d541469fb27a98582deb41e84f32a54"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54">EPSG_CONVERT_TYPE</a> { <b>CSV</b>
+, <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54a8d5bf863c0ae8951f978d7a205a4ba06">TABLE</a>
+, <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54af31f791d4a54c1c20f3113599af25d1a">DB</a>
+, <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54aebf0f1fc05da99285d3e3df187b2fc29">UNSET</a>
+ }</td></tr>
+<tr class="memdesc:a5d541469fb27a98582deb41e84f32a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">The EPSG_CONVERT_TYPE enum.  <a href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54">More...</a><br /></td></tr>
+<tr class="separator:a5d541469fb27a98582deb41e84f32a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a059e47301145b981f374e169271915e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1DBEngine.html#a059e47301145b981f374e169271915e9">DBEngine</a> (const std::string filename)</td></tr>
@@ -114,7 +125,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a97599f4e394eb30ab629f106ced707c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1DBEngine.html#a97599f4e394eb30ab629f106ced707c9">export_metadata</a> (const std::string out_folder, const std::vector&lt; int &gt; analysis_ids, const bool overwrite=true)</td></tr>
 <tr class="memdesc:a97599f4e394eb30ab629f106ced707c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">export_metadata  <a href="classphreesqlib_1_1DBEngine.html#a97599f4e394eb30ab629f106ced707c9">More...</a><br /></td></tr>
 <tr class="separator:a97599f4e394eb30ab629f106ced707c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf9eb36bdd4adef3e2b9c88eb71d0747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1DBEngine.html#adf9eb36bdd4adef3e2b9c88eb71d0747">convert_epsg</a> (const int epsg, const std::vector&lt; EPSG_CONVERT_TYPE &gt; types, std::vector&lt; string &gt; outputs)</td></tr>
+<tr class="memitem:adf9eb36bdd4adef3e2b9c88eb71d0747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1DBEngine.html#adf9eb36bdd4adef3e2b9c88eb71d0747">convert_epsg</a> (const int epsg, const std::vector&lt; <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54">EPSG_CONVERT_TYPE</a> &gt; types, std::vector&lt; string &gt; outputs)</td></tr>
 <tr class="memdesc:adf9eb36bdd4adef3e2b9c88eb71d0747"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert_epsg  <a href="classphreesqlib_1_1DBEngine.html#adf9eb36bdd4adef3e2b9c88eb71d0747">More...</a><br /></td></tr>
 <tr class="separator:adf9eb36bdd4adef3e2b9c88eb71d0747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a7e22445bc9d4035e3abb3cb513fa9a"><td class="memItemLeft" align="right" valign="top"><a id="a9a7e22445bc9d4035e3abb3cb513fa9a"></a>
@@ -125,8 +136,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classphreesqlib_1_1DBEngine.html" title="The DBEngine class.">DBEngine</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="DBEngine_8h_source.html#l00054">54</a> of file <a class="el" href="DBEngine_8h_source.html">DBEngine.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="DBEngine_8h_source.html#l00043">43</a> of file <a class="el" href="DBEngine_8h_source.html">DBEngine.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a5d541469fb27a98582deb41e84f32a54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d541469fb27a98582deb41e84f32a54">&#9670;&nbsp;</a></span>EPSG_CONVERT_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54">phreesqlib::DBEngine::EPSG_CONVERT_TYPE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The EPSG_CONVERT_TYPE enum. </p>
+<p>The EPSG_CONVERT_TYPE enum enables the possibility to specify how to save the output of an EPSG conversion. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5d541469fb27a98582deb41e84f32a54a8d5bf863c0ae8951f978d7a205a4ba06"></a>TABLE&#160;</td><td class="fielddoc"><p>As a CSV file. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5d541469fb27a98582deb41e84f32a54af31f791d4a54c1c20f3113599af25d1a"></a>DB&#160;</td><td class="fielddoc"><p>As a new table of the input PHREESQL database. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5d541469fb27a98582deb41e84f32a54aebf0f1fc05da99285d3e3df187b2fc29"></a>UNSET&#160;</td><td class="fielddoc"><p>As a new database which is a copy of the input one with converted EPSG. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="DBEngine_8h_source.html#l00063">63</a> of file <a class="el" href="DBEngine_8h_source.html">DBEngine.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a059e47301145b981f374e169271915e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a059e47301145b981f374e169271915e9">&#9670;&nbsp;</a></span>DBEngine()</h2>
 
@@ -159,7 +198,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DBEngine_8h_source.html#l00061">61</a> of file <a class="el" href="DBEngine_8h_source.html">DBEngine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DBEngine_8h_source.html#l00050">50</a> of file <a class="el" href="DBEngine_8h_source.html">DBEngine.h</a>.</p>
 
 </div>
 </div>
@@ -220,7 +259,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; EPSG_CONVERT_TYPE &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54">EPSG_CONVERT_TYPE</a> &gt;&#160;</td>
           <td class="paramname"><em>types</em>, </td>
         </tr>
         <tr>

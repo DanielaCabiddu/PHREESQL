@@ -98,12 +98,16 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Workflow</h1>
-<p>p align="center"&gt;<img src="./images/phreesql-workflow.png" alt="" class="inline"/></p>
+<p>PHREESQL works as shown in the <a href="https://github.com/DanielaCabiddu/PHREESQL/blob/main/images/phreesql-workflow.png">here</a>.</p>
+<p><img src="./images/phreesql-workflow.png" alt="" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md2"></a>
+Documentation</h1>
+<p>Documentation is available <a href="https://danielacabiddu.github.io/PHREESQL/index.html">here</a>. Please, be aware that it is still work in progress, and a complete version will be available soon.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Clone</h1>
 <p>The repository includes some submodules necessary to make PHREESQL work. Please, clone it recursively:</p>
 <p><code>git clone --recursive <a href="https://github.com/DanielaCabiddu/PHREESQL/">https://github.com/DanielaCabiddu/PHREESQL/</a></code></p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Usage</h1>
 <p><b>PHREESQLib</b> is an header-only C++ library having some mandatory dependences:</p>
 <ul>
@@ -119,17 +123,17 @@ Usage</h1>
 <li>link SQlite in your project.</li>
 </ul>
 <p><b>PHREESQLExe</b> is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. The complete set of options is available <a href="https://github.com/DanielaCabiddu/PHREESQL/blob/main/docs/command_line_args.png">here</a>. PHREESQLExe can be easily built (see Building). Binaries are available <a href="https://github.com/DanielaCabiddu/PHREESQL/releases">here</a>.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Linux-Ubuntu (latest)</h3>
 <p>To build PHREESQLExe, use the <em>build.sh</em> script available located in the root directory <em>ROOT</em> (where this README lies). To test it, use the <em>test.sh</em> script available in the same folder.</p>
 <p><a href="https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/ubuntu.yml"><img src="https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/ubuntu.yml/badge.svg" alt="Linux-Ubuntu build status" style="pointer-events: none;" class="inline"/></a></p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 MacOS (latest)</h3>
 <p>To build PHREESQLExe, use the <em>build.sh</em> script available located in the root directory <em>ROOT</em> (where this README lies). To test it, use the <em>test.sh</em> script available in the same folder.</p>
 <p><a href="https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/macos.yml"><img src="https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/macos.yml/badge.svg" alt="Mac build status" style="pointer-events: none;" class="inline"/></a></p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 Windows (latest)</h3>
 <p>Generate the Visual Studio solution via CMake and build it.</p>
 <div class="fragment"><div class="line">cd ${ROOT} </div>
@@ -138,21 +142,21 @@ Windows (latest)</h3>
 <div class="line">cmake -G &quot;Visual Studio 17 2022&quot; ../phreesqlexe</div>
 <div class="line">cmake --build . --parallel 8</div>
 </div><!-- fragment --><p><a href="https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/windows.yml"><img src="https://github.com/DanielaCabiddu/PHREESQL/actions/workflows/windows.yml/badge.svg" alt="Windows-MSVC2022 build status" style="pointer-events: none;" class="inline"/></a></p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Case Study</h1>
 <p>Our case study is described in the paper and exploits the Ireland EPA database (<a href="https://gis.epa.ie/GetData/Download">https://gis.epa.ie/GetData/Download</a>). To guarantee replicability, data and source code of our case study is provided in the <em>example</em> folder. If you wish to replicate our case study, please run the <em>case_study.sh</em> script located located in the root directory <em>ROOT</em> (where this README lies) to create the complete set of PHREESQL databases:</p>
 <p><code>${ROOT}/case_study.sh</code></p>
 <p>The PHREESQL databases will be available in the <em>${ROOT}/example/DB</em> folder.</p>
 <p>To run some examples of database queries and generate plots, please run the <em>${ROOT}/example/query.sh</em> script by providing the full database path (&lt;DB_PATH&gt;) of the database to be queried:</p>
 <p><code>${ROOT}/example/query.sh &lt;DB_PATH&gt;</code></p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Authors</h1>
 <ul>
 <li>Daniela Cabiddu (CNR-IMATI Genova, Italy)</li>
 <li>Marino Vetuschi Zuccolini (DISTAV Genova, Italy)</li>
 <li>Simone Pittaluga (CNR-IMATI Genova, Italy)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Citing Us</h1>
 <p>If you use PHREESQL in your academic projects, please consider citing the library using the following BibTeX entry:</p>
 <p>[BIBTEX REFERENCE AFTER PUBLICATION]</p>

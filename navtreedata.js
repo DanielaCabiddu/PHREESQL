@@ -27,12 +27,13 @@ var NAVTREE =
   [ "PHREESQL", "index.html", [
     [ "PHREESQL - a toolkit to efficiently compute and store geochemical speciation calculation", "index.html", [
       [ "Workflow", "index.html#autotoc_md1", null ],
-      [ "Clone", "index.html#autotoc_md2", null ],
-      [ "Usage", "index.html#autotoc_md3", null ],
-      [ "Building", "index.html#autotoc_md4", null ],
-      [ "Case Study", "index.html#autotoc_md8", null ],
-      [ "Authors", "index.html#autotoc_md9", null ],
-      [ "Citing Us", "index.html#autotoc_md10", null ]
+      [ "Documentation", "index.html#autotoc_md2", null ],
+      [ "Clone", "index.html#autotoc_md3", null ],
+      [ "Usage", "index.html#autotoc_md4", null ],
+      [ "Building", "index.html#autotoc_md5", null ],
+      [ "Case Study", "index.html#autotoc_md9", null ],
+      [ "Authors", "index.html#autotoc_md10", null ],
+      [ "Citing Us", "index.html#autotoc_md11", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -41,7 +42,9 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [

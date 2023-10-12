@@ -100,31 +100,32 @@ $(document).ready(function(){initNavTree('classphreesqlib_1_1PhreeSQLibEngine.ht
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9046975d1234c6155a186ed64befaf0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a9046975d1234c6155a186ed64befaf0e">PhreeSQLibEngine</a> (const std::string db)</td></tr>
-<tr class="memdesc:a9046975d1234c6155a186ed64befaf0e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html" title="The PhreeSQLibEngine class.">PhreeSQLibEngine</a>.  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a9046975d1234c6155a186ed64befaf0e">More...</a><br /></td></tr>
+<tr class="memdesc:a9046975d1234c6155a186ed64befaf0e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html" title="The PhreeSQLibEngine class.">PhreeSQLibEngine</a> creates a connection with a SQL database (stores the path of the database to be further created or updated).  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a9046975d1234c6155a186ed64befaf0e">More...</a><br /></td></tr>
 <tr class="separator:a9046975d1234c6155a186ed64befaf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c73e02722a21131d8d7c36c283f7b3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a5c73e02722a21131d8d7c36c283f7b3f">run_on_folder</a> (const std::string in_folder, const std::string out_folder, const std::string meta_folder)</td></tr>
-<tr class="memdesc:a5c73e02722a21131d8d7c36c283f7b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">run_on_folder  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a5c73e02722a21131d8d7c36c283f7b3f">More...</a><br /></td></tr>
+<tr class="memdesc:a5c73e02722a21131d8d7c36c283f7b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">run_on_folder runs PHREESQL for a collection of analysis. It assumes that both PHREEQC inputs and outputs are available, together with the corresponding metadata files.  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a5c73e02722a21131d8d7c36c283f7b3f">More...</a><br /></td></tr>
 <tr class="separator:a5c73e02722a21131d8d7c36c283f7b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a153a0799d0587361d040cb6d4af62ac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a153a0799d0587361d040cb6d4af62ac0">run_phreeqc_on_folder</a> (const std::string in_folder, const std::string out_folder, const std::string phreeqc_db_path)</td></tr>
-<tr class="memdesc:a153a0799d0587361d040cb6d4af62ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">run_phreeqc_on_folder  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a153a0799d0587361d040cb6d4af62ac0">More...</a><br /></td></tr>
+<tr class="memdesc:a153a0799d0587361d040cb6d4af62ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">run_phreeqc_on_folder runs PHREEQC speciation calculation for a collection of analysis.  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a153a0799d0587361d040cb6d4af62ac0">More...</a><br /></td></tr>
 <tr class="separator:a153a0799d0587361d040cb6d4af62ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dd1eceb73cad61e6490225ee9532a25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a0dd1eceb73cad61e6490225ee9532a25">export_input</a> (const std::string out_folder, const std::vector&lt; int &gt; analysis_ids=std::vector&lt; int &gt;(), const bool overwrite=true)</td></tr>
-<tr class="memdesc:a0dd1eceb73cad61e6490225ee9532a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">export_input  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a0dd1eceb73cad61e6490225ee9532a25">More...</a><br /></td></tr>
+<tr class="memdesc:a0dd1eceb73cad61e6490225ee9532a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">export_input queries PHREESQL database for PHREEQC inputs and stores them on files according to PHREEQC input data format. It provides the possibility to save the inputs of all the available analysis or of a subset of them.  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a0dd1eceb73cad61e6490225ee9532a25">More...</a><br /></td></tr>
 <tr class="separator:a0dd1eceb73cad61e6490225ee9532a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f8d7ab7f9b858323994446e52669ce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a4f8d7ab7f9b858323994446e52669ce8">export_output</a> (const std::string out_folder, const std::vector&lt; int &gt; analysis_ids=std::vector&lt; int &gt;(), const bool overwrite=true)</td></tr>
-<tr class="memdesc:a4f8d7ab7f9b858323994446e52669ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">export_output  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a4f8d7ab7f9b858323994446e52669ce8">More...</a><br /></td></tr>
+<tr class="memdesc:a4f8d7ab7f9b858323994446e52669ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">export_output queries PHREESQL database for PHREEQC outputs and stores them on files according to PHREEQC output data format. It provides the possibility to save the outputs of all the available analysis or of a subset of them.  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a4f8d7ab7f9b858323994446e52669ce8">More...</a><br /></td></tr>
 <tr class="separator:a4f8d7ab7f9b858323994446e52669ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a354fdc7507b4c3342afb8d7b2af77ed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a354fdc7507b4c3342afb8d7b2af77ed6">export_metadata</a> (const std::string out_folder, const std::vector&lt; int &gt; analysis_ids, const bool overwrite=true)</td></tr>
-<tr class="memdesc:a354fdc7507b4c3342afb8d7b2af77ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">export_metadata  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a354fdc7507b4c3342afb8d7b2af77ed6">More...</a><br /></td></tr>
+<tr class="memdesc:a354fdc7507b4c3342afb8d7b2af77ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">export_metadata queries PHREESQL database analysis metadata and stores them on files according to PHREESQL matadata file format. It provides the possibility to save metadata of all the available analysis or of a subset of them.  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a354fdc7507b4c3342afb8d7b2af77ed6">More...</a><br /></td></tr>
 <tr class="separator:a354fdc7507b4c3342afb8d7b2af77ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37812bcc2e14831e4d8a1e76c3def750"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a37812bcc2e14831e4d8a1e76c3def750">epsg_convert</a> (const int epsg, const std::vector&lt; EPSG_CONVERT_TYPE &gt; types, std::vector&lt; std::string &gt; outputs)</td></tr>
-<tr class="memdesc:a37812bcc2e14831e4d8a1e76c3def750"><td class="mdescLeft">&#160;</td><td class="mdescRight">epsg_convert  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#a37812bcc2e14831e4d8a1e76c3def750">More...</a><br /></td></tr>
-<tr class="separator:a37812bcc2e14831e4d8a1e76c3def750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addbc0049c2eda9e7aabad83a193c0660"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#addbc0049c2eda9e7aabad83a193c0660">epsg_convert</a> (const int epsg, const std::vector&lt; <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54">DBEngine::EPSG_CONVERT_TYPE</a> &gt; types, std::vector&lt; std::string &gt; outputs)</td></tr>
+<tr class="memdesc:addbc0049c2eda9e7aabad83a193c0660"><td class="mdescLeft">&#160;</td><td class="mdescRight">epsg_convert quesries PHREESQL database and, for each coordinate, performs an EPSG conversion from the input EPSG to a given one.  <a href="classphreesqlib_1_1PhreeSQLibEngine.html#addbc0049c2eda9e7aabad83a193c0660">More...</a><br /></td></tr>
+<tr class="separator:addbc0049c2eda9e7aabad83a193c0660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html" title="The PhreeSQLibEngine class.">PhreeSQLibEngine</a> class. </p>
+<p>The <a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html" title="The PhreeSQLibEngine class.">PhreeSQLibEngine</a> class is the PHREESQL engine. It exhibits all the PHREESQL capabilities, being able to run PHREEQC speciation calculation, build a SQL database from scratch and to update an existing database with additional data, export both original PHREEQC inputs and outputs from an existing database for further processing, and process coordinates of geo-referenced data into an existing database to create a new table or to create a new database framed into a new specific coordinate reference system (CRS). </p>
 
-<p class="definition">Definition at line <a class="el" href="PhreeSQLibEngine_8h_source.html#l00047">47</a> of file <a class="el" href="PhreeSQLibEngine_8h_source.html">PhreeSQLibEngine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PhreeSQLibEngine_8h_source.html#l00053">53</a> of file <a class="el" href="PhreeSQLibEngine_8h_source.html">PhreeSQLibEngine.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9046975d1234c6155a186ed64befaf0e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9046975d1234c6155a186ed64befaf0e">&#9670;&nbsp;</a></span>PhreeSQLibEngine()</h2>
@@ -150,21 +151,21 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html" title="The PhreeSQLibEngine class.">PhreeSQLibEngine</a>. </p>
+<p><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html" title="The PhreeSQLibEngine class.">PhreeSQLibEngine</a> creates a connection with a SQL database (stores the path of the database to be further created or updated). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">db</td><td></td></tr>
+    <tr><td class="paramname">db</td><td>the path of the PHREESQL database to be either created or updated. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="PhreeSQLibEngine_8h_source.html#l00054">54</a> of file <a class="el" href="PhreeSQLibEngine_8h_source.html">PhreeSQLibEngine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PhreeSQLibEngine_8h_source.html#l00060">60</a> of file <a class="el" href="PhreeSQLibEngine_8h_source.html">PhreeSQLibEngine.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a37812bcc2e14831e4d8a1e76c3def750"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37812bcc2e14831e4d8a1e76c3def750">&#9670;&nbsp;</a></span>epsg_convert()</h2>
+<a id="addbc0049c2eda9e7aabad83a193c0660"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addbc0049c2eda9e7aabad83a193c0660">&#9670;&nbsp;</a></span>epsg_convert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +179,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; EPSG_CONVERT_TYPE &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54">DBEngine::EPSG_CONVERT_TYPE</a> &gt;&#160;</td>
           <td class="paramname"><em>types</em>, </td>
         </tr>
         <tr>
@@ -195,12 +196,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>epsg_convert </p>
+<p>epsg_convert quesries PHREESQL database and, for each coordinate, performs an EPSG conversion from the input EPSG to a given one. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">epsg</td><td></td></tr>
-    <tr><td class="paramname">types</td><td></td></tr>
-    <tr><td class="paramname">outputs</td><td></td></tr>
+    <tr><td class="paramname">epsg</td><td>output EPSG </td></tr>
+    <tr><td class="paramname">types</td><td>specifies how to save the result (in a csv file, in a new database table, or in a new database) - multiple outputs are supported </td></tr>
+    <tr><td class="paramname">outputs</td><td>for each output type, it specifies the name of the output (the name of the csv file, of the new database table or of the new database). </td></tr>
   </table>
   </dd>
 </dl>
@@ -241,12 +242,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>export_input </p>
+<p>export_input queries PHREESQL database for PHREEQC inputs and stores them on files according to PHREEQC input data format. It provides the possibility to save the inputs of all the available analysis or of a subset of them. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">out_folder</td><td></td></tr>
-    <tr><td class="paramname">analysis_ids</td><td></td></tr>
-    <tr><td class="paramname">overwrite</td><td></td></tr>
+    <tr><td class="paramname">out_folder</td><td>the path of the folder where the inputs for PHREEQC will be stored. </td></tr>
+    <tr><td class="paramname">analysis_ids</td><td>the list of IDS of the subset of analyses of interest (optional) </td></tr>
+    <tr><td class="paramname">overwrite</td><td>specifies if existing files can be overwritten. Default: TRUE. (optional) </td></tr>
   </table>
   </dd>
 </dl>
@@ -287,12 +288,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>export_metadata </p>
+<p>export_metadata queries PHREESQL database analysis metadata and stores them on files according to PHREESQL matadata file format. It provides the possibility to save metadata of all the available analysis or of a subset of them. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">out_folder</td><td></td></tr>
-    <tr><td class="paramname">analysis_ids</td><td></td></tr>
-    <tr><td class="paramname">overwrite</td><td></td></tr>
+    <tr><td class="paramname">out_folder</td><td>the path of the folder where metadata file will be stored. </td></tr>
+    <tr><td class="paramname">analysis_ids</td><td>the list of IDS of the subset of analyses of interest (optional) </td></tr>
+    <tr><td class="paramname">overwrite</td><td>specifies if existing files can be overwritten. Default: TRUE. (optional) </td></tr>
   </table>
   </dd>
 </dl>
@@ -333,12 +334,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>export_output </p>
+<p>export_output queries PHREESQL database for PHREEQC outputs and stores them on files according to PHREEQC output data format. It provides the possibility to save the outputs of all the available analysis or of a subset of them. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">out_folder</td><td></td></tr>
-    <tr><td class="paramname">analysis_ids</td><td></td></tr>
-    <tr><td class="paramname">overwrite</td><td></td></tr>
+    <tr><td class="paramname">out_folder</td><td>the path of the folder where the outputs of PHREEQC will be stored. </td></tr>
+    <tr><td class="paramname">analysis_ids</td><td>the list of IDS of the subset of analyses of interest (optional) </td></tr>
+    <tr><td class="paramname">overwrite</td><td>specifies if existing files can be overwritten. Default: TRUE. (optional) </td></tr>
   </table>
   </dd>
 </dl>
@@ -379,13 +380,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>run_on_folder </p>
-<p><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a5c73e02722a21131d8d7c36c283f7b3f" title="run_on_folder">phreesqlib::PhreeSQLibEngine::run_on_folder</a></p>
+<p>run_on_folder runs PHREESQL for a collection of analysis. It assumes that both PHREEQC inputs and outputs are available, together with the corresponding metadata files. </p>
+<p><a class="el" href="classphreesqlib_1_1PhreeSQLibEngine.html#a5c73e02722a21131d8d7c36c283f7b3f" title="run_on_folder runs PHREESQL for a collection of analysis. It assumes that both PHREEQC inputs and out...">phreesqlib::PhreeSQLibEngine::run_on_folder</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">in_folder</td><td></td></tr>
-    <tr><td class="paramname">out_folder</td><td></td></tr>
-    <tr><td class="paramname">meta_folder</td><td></td></tr>
+    <tr><td class="paramname">in_folder</td><td>the path of the folder where the inputs for PHREEQC are located. </td></tr>
+    <tr><td class="paramname">out_folder</td><td>the path of the folder where the outputs of PHREEQC are located. </td></tr>
+    <tr><td class="paramname">meta_folder</td><td>the path of the folder where the metadata files are located.</td></tr>
     <tr><td class="paramname">folder</td><td></td></tr>
   </table>
   </dd>
@@ -427,12 +428,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>run_phreeqc_on_folder </p>
+<p>run_phreeqc_on_folder runs PHREEQC speciation calculation for a collection of analysis. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">in_folder</td><td></td></tr>
-    <tr><td class="paramname">out_folder</td><td></td></tr>
-    <tr><td class="paramname">phreeqc_db_path</td><td></td></tr>
+    <tr><td class="paramname">in_folder</td><td>the path of the folder where the inputs for PHREEQC are located. </td></tr>
+    <tr><td class="paramname">out_folder</td><td>the path of the folder where the outputs of PHREEQC will be stored. </td></tr>
+    <tr><td class="paramname">phreeqc_db_path</td><td>the path of the PHREEQC thermodynamic database to be used for the speciation calculation. </td></tr>
   </table>
   </dd>
 </dl>

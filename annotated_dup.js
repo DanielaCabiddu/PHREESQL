@@ -1,9 +1,9 @@
 var annotated_dup =
 [
     [ "phreesqlib", null, [
-      [ "Linux-Ubuntu (latest)", "index.html#autotoc_md5", null ],
-      [ "MacOS (latest)", "index.html#autotoc_md6", null ],
-      [ "Windows (latest)", "index.html#autotoc_md7", null ],
+      [ "Linux-Ubuntu (latest)", "index.html#autotoc_md6", null ],
+      [ "MacOS (latest)", "index.html#autotoc_md7", null ],
+      [ "Windows (latest)", "index.html#autotoc_md8", null ],
       [ "DBEngine", "classphreesqlib_1_1DBEngine.html", "classphreesqlib_1_1DBEngine" ],
       [ "PhreeqcEngine", "classphreesqlib_1_1PhreeqcEngine.html", "classphreesqlib_1_1PhreeqcEngine" ],
       [ "PhreeqcEngineObj", "classphreesqlib_1_1PhreeqcEngineObj.html", "classphreesqlib_1_1PhreeqcEngineObj" ],
