@@ -20,6 +20,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt-get install -y libsqlite3-dev
+          sudo apt-get install doxygen
       - name: build
         env:
           CC: gcc-9
@@ -27,7 +28,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake ../phreesqlexe -DBUILD_DOC=ON
+          cmake -DBUILD_DOC=ON ../phreesqlexe
           cmake --build .
       - name: Push to gh-pages
         if: success() && github.event_name == 'push'
