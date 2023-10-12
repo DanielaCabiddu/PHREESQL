@@ -4,3 +4,6 @@
 [submodule "external/iphreeqc"]
 	path = external/iphreeqc
 	url = https://github.com/ufz/iphreeqc.git
+[submodule "external/doxygen-awesome"]
+	path = external/doxygen-awesome
+	url = https://github.com/jothepro/doxygen-awesome-css.git

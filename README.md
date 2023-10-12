@@ -1,24 +1,20 @@
-# PHREESQL
+# PHREESQL - a toolkit to efficiently compute and store geochemical speciation calculation
 
-PHREESQL is a toolkit for efficiently storing the huge amount of data from geochemical speciation simulations run by PHREEQC in an
-SQL database. It includes both a C++ library, namely PHREESQLib, and a command-line interface, namely PHREESQLexe, to ease the usability of PHREESQLib by technical experts
-with low programming knowledge. Thanks to its relational data structure, PHREESQL allows to be exploited in third-party packages based on and to re-use them for other analyses by external packages of environmental interest.
+PHREESQL is a toolkit for efficiently storing and managing the huge amount of data coming from geochemical speciation computation run by PHREEQC. High efficiency in data extraction and filtering is guaranteed thanks to an relational SQL database structure. PHREESQL enables the geochemical community to explore the potentiality of huge water chemistry database and the developers to embed the code in application where unstructured meshes are involved or real-time sensors acquire a set of compositional and chemical-physical parameters. PHREESQL includes both a C++ library and a command-line interface to ease the usability of PHREESQL by geochemists with low programming skills.
 
-<p align="center"><img src="PHREESQL_Graphical_Abstract.jpg" width="1000"></p>
+PHREESQL is an easy-to-use framework supporting PHREEQC speciation calculations only (keyword data block SOLUTION-END), as well as performing storage and query of results. The production of a relational SQL database is the core of that toolkit. The relational database management system (RDBMS) makes it possible to permanently store in a structured framework a very large number of geochemical calculations compacting all data in a SQL binary data.
 
-## Authors
+To guarantee usability by both developers and users with low programming expertise, PHREESQL includes both a C++ library and a command-line interface, namely PHREESQLib and PHREESQLexe respectively. Thus PHREESQL exhibits the following capabilities, being able to:
+- run PHREEQC speciation calculation;
+- build a SQL database from scratch and to update an existing database with additional data;
+- export both original PHREEQC inputs and outputs from an existing database for further processing;
+- process coordinates of geo-referenced data into an existing database to create a new table or to create a new database framed into a new specific coordinate reference system (CRS).
 
-- Daniela Cabiddu (CNR-IMATI Genova, Italy)
-- Marino Vetuschi Zuccolini (DISTAV Genova, Italy)
-- Simone Pittaluga (CNR-IMATI Genova, Italy)
+##Workflow
 
-## Dependences 
-- CMake (https://cmake.org/download);
-- SQlite (https://www.sqlite.org/download.html);
-- IPhreeQC (included as a submodule in *external*);
-- PROJ (included as a submodule in *external*);
+\image html <p align="center"><img src="./images/phreesql-workflow.png"></p>
 
-## How to get PHREESQL
+## Clone
 
 The repository includes some submodules necessary to make PHREESQL work. Please, clone it recursively:
 
@@ -26,7 +22,12 @@ The repository includes some submodules necessary to make PHREESQL work. Please,
 
 ## Usage
 
-**PHREESQLib** is an header-only C++ library having SQlite, IPhreeQC and PROJ as mandatory dependences. 
+**PHREESQLib** is an header-only C++ library having some mandatory dependences:
+
+- SQlite (https://www.sqlite.org/download.html);
+- IPhreeQC (included as a submodule in *external*);
+- PROJ (included as a submodule in *external*);
+
 To exploit PHREESQLib in your C++ project:
 - build the external dependence IPhreeQC (*external/iphreeqc*);
 - build the external dependence PROJ (*external/proj-osgeo*);
@@ -34,11 +35,11 @@ To exploit PHREESQLib in your C++ project:
 - include and link IPhreeQC and PROJ in your project;
 - link SQlite in your project.
 
-**PHREESQLExe** is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. The complete set of options is attached here below:
+**PHREESQLExe** is an example of usage, and provides the possibility to automatically perform speciation calculation and storage starting from a given dataset. The complete set of options is available [here](https://github.com/DanielaCabiddu/PHREESQL/blob/main/docs/command_line_args.png). PHREESQLExe can be easily built (see Building).
+Binaries are available [here](https://github.com/DanielaCabiddu/PHREESQL/releases).
 
-<p align="center"><img src="docs/command_line_args.png" width="1000"></p>
 
-## How to build **PHREESQLExe**
+## Building
 
 #### Linux-Ubuntu (latest) 
 To build PHREESQLExe, use the *build.sh* script available located in the root directory *ROOT* (where this README lies).
@@ -60,7 +61,7 @@ Generate the Visual Studio solution via CMake and build it.
 cd ${ROOT} 
 mkdir build  
 cd build
-cmake -G "Visual Studio 17 2022 ../phreesqlexe
+cmake -G "Visual Studio 17 2022" ../phreesqlexe
 cmake --build . --parallel 8
 ```
 
@@ -78,6 +79,12 @@ To run some examples of database queries and generate plots, please run the *${R
 
 `${ROOT}/example/query.sh <DB_PATH>`
 
+## Authors
+
+- Daniela Cabiddu (CNR-IMATI Genova, Italy)
+- Marino Vetuschi Zuccolini (DISTAV Genova, Italy)
+- Simone Pittaluga (CNR-IMATI Genova, Italy)
+
 ## Citing Us
 
 If you use PHREESQL in your academic projects, please consider citing the library using the following BibTeX entry:
@@ -85,5 +92,3 @@ If you use PHREESQL in your academic projects, please consider citing the librar
 [BIBTEX REFERENCE AFTER PUBLICATION]
 
 Submitted - UNDER REVIEW
-
-## Acknowledgments
