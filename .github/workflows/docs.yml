@@ -1,4 +1,4 @@
-name: ubuntu-build
+name: docs-build
 
 on:
   workflow_dispatch:
