@@ -1,0 +1,26 @@
+var classOutputReaderWriter =
+[
+    [ "OutputReaderWriter", "classOutputReaderWriter.html#aaf404eb7dcf2e401c4bb9bf542f845ba", null ],
+    [ "checkSection", "classOutputReaderWriter.html#a28572940553abc6c05c3e0215faedb8f", null ],
+    [ "insertInAnalisys", "classOutputReaderWriter.html#ae32ca37f4c025e589353d537bd3f7c0d", null ],
+    [ "readDescriptionOfSolution", "classOutputReaderWriter.html#a10ec70b50c17c5d5c69f10f5e9842d69", null ],
+    [ "readDistributionOfAlkalinity", "classOutputReaderWriter.html#acf0811abd5ee87f808d73ead05358ebb", null ],
+    [ "readDistributionOfSpecies", "classOutputReaderWriter.html#ae11532c9564342bd01bc0f22d8729444", null ],
+    [ "readFile", "classOutputReaderWriter.html#a48a6f1276be672852306f0cafb255d03", null ],
+    [ "readMetadata", "classOutputReaderWriter.html#ab8a07709d147764131920987bb00ff15", null ],
+    [ "readSaturationIndices", "classOutputReaderWriter.html#af876d80f9c8022a0a962227d69c2757e", null ],
+    [ "readSolutionComposition", "classOutputReaderWriter.html#a715de53d3c4e4c1058d0104f2f1565e7", null ],
+    [ "writeAnalisysFile", "classOutputReaderWriter.html#a7096ec9c6c8c1f92c06d12e6b37c47f4", null ],
+    [ "writeDescriptionOfSolution", "classOutputReaderWriter.html#abb32014da2437475225f63bad6f16c28", null ],
+    [ "writeDistributionOfAlkalinity", "classOutputReaderWriter.html#a407053b0d56c07ff126d1a058aee75ce", null ],
+    [ "writeDistributionOfSpecies", "classOutputReaderWriter.html#ade32d14c3d47b17438feedd50f3e4264", null ],
+    [ "writeMetadata", "classOutputReaderWriter.html#af1def21e957976335416c954df8e26c2", null ],
+    [ "writeSaturationIndices", "classOutputReaderWriter.html#ac1115aecb92ca78548c18c4ba193effa", null ],
+    [ "writeSolutionComposition", "classOutputReaderWriter.html#a9521bb2ef6f8ff89dbac1382541ca3b8", null ],
+    [ "a", "classOutputReaderWriter.html#ad66519d6dd7f5479569fa69fb7acb443", null ],
+    [ "alk_list", "classOutputReaderWriter.html#a5a239d2206a9c008d4b6ab801e8d1eaf", null ],
+    [ "des_list", "classOutputReaderWriter.html#a79817482501856efd04db196e182e50c", null ],
+    [ "dis_list", "classOutputReaderWriter.html#a320b1e4bd07c66f3f84a2e1598af78b5", null ],
+    [ "sc_list", "classOutputReaderWriter.html#a828164892838c72b12fdbc086afe6a10", null ],
+    [ "si_list", "classOutputReaderWriter.html#a1eeaee6573b707ebd5fee1986229c3fe", null ]
+];

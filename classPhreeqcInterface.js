@@ -1,0 +1,26 @@
+var classPhreeqcInterface =
+[
+    [ "PhreeqcInterface", "classPhreeqcInterface.html#a1c96accc596bf89f67eea3b8e00b7bed", null ],
+    [ "~PhreeqcInterface", "classPhreeqcInterface.html#a63cee18d2ba830542accbe271969ff3b", null ],
+    [ "copyDB", "classPhreeqcInterface.html#aac23efb35cf84f5da42d3860834f334a", null ],
+    [ "create_and_insert_EpsgTable", "classPhreeqcInterface.html#adbe2005a32d8f8290563bb06dcb03a91", null ],
+    [ "createInputTables", "classPhreeqcInterface.html#a52a6f5adfc3d3f5f61b081f675abc1b3", null ],
+    [ "createOutputTables", "classPhreeqcInterface.html#aa110d9911480181d650c430a668bcfa6", null ],
+    [ "getData", "classPhreeqcInterface.html#a6956dc966d2f0855937132bc5a0a9b2a", null ],
+    [ "getMetadata", "classPhreeqcInterface.html#a4eee5fd4967cadadbd6cdc5edc25c1f2", null ],
+    [ "getMetadataTableName", "classPhreeqcInterface.html#a0778ff59e0bfaa266d376e91ca0ea19d", null ],
+    [ "getNumMetadataRecords", "classPhreeqcInterface.html#a5885d1f4c3dbedd6a831a970a8322dbc", null ],
+    [ "readInputOutputFiles", "classPhreeqcInterface.html#ae335bd0af3d07d2223f317b15cbad83a", null ],
+    [ "readIOMFiles", "classPhreeqcInterface.html#a47dc28647a6d4a54a77768f99c756a51", null ],
+    [ "updateAnalysisEPSG", "classPhreeqcInterface.html#a1edaf835094cf47ba71dc68346e0282b", null ],
+    [ "writeAllInputFiles", "classPhreeqcInterface.html#ac4af07a0800dcc4faed4337f52e633f4", null ],
+    [ "writeAllMetadataFiles", "classPhreeqcInterface.html#a49d844e78b70bab281c1402a379f2a6e", null ],
+    [ "writeAllOutputFiles", "classPhreeqcInterface.html#a00e52cb72172e118196efaeb193d83a0", null ],
+    [ "writeData", "classPhreeqcInterface.html#a90ec19541413328b60daf1eeaa2e5f5e", null ],
+    [ "writeInputFile", "classPhreeqcInterface.html#a17840bd60d00ab75f0640ddf7665d9cd", null ],
+    [ "writeInputFiles", "classPhreeqcInterface.html#a61a2d0fe9ba73d64ce2b9d2d7af415e8", null ],
+    [ "writeMetadataFile", "classPhreeqcInterface.html#a5731f3e4f4e6bcf02ae9c9701b0ea673", null ],
+    [ "writeMetadataFiles", "classPhreeqcInterface.html#a8e54c8852d97847b2f28c150b5fdea2c", null ],
+    [ "writeOutputFile", "classPhreeqcInterface.html#a837db186df7f54ad981d1fb8a1e73df3", null ],
+    [ "writeOutputFiles", "classPhreeqcInterface.html#af7690096cdbc3af1aa6436f6721d9a02", null ]
+];

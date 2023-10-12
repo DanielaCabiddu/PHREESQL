@@ -1,0 +1,26 @@
+var classOutputDBManager =
+[
+    [ "OutputDBManager", "classOutputDBManager.html#a15a8d95e13c98d2a70da4ebe6df0489b", null ],
+    [ "~OutputDBManager", "classOutputDBManager.html#a8108d2cc8ebb62b54e921b2552311934", null ],
+    [ "createAnalisysTable", "classOutputDBManager.html#a25350bebe7f7430204532e2f6dda0961", null ],
+    [ "createDescriptionOfSolutionTable", "classOutputDBManager.html#a2057e90004cfd9c075936af4d614b67d", null ],
+    [ "createDistributionOfAlkalinityTable", "classOutputDBManager.html#a186643c3faa86c9e92cdd2b0a426b2b4", null ],
+    [ "createDistributionOfSpeciesTable", "classOutputDBManager.html#a935a1040ac7adfa6c14db600e76cff9a", null ],
+    [ "createEpsgTable", "classOutputDBManager.html#a89927c36201b1743cbd7d1a2de77a15a", null ],
+    [ "createSaturationIndicesTable", "classOutputDBManager.html#a5b6dd23350ebc8896a8509cb89246b83", null ],
+    [ "createSolutionCompositionTable", "classOutputDBManager.html#a22cbf1cfc202c2e5ad335d888f4e424f", null ],
+    [ "insertAnalisys", "classOutputDBManager.html#a9b237863fd82977bd37ae6f25f98f6c7", null ],
+    [ "insertDescriptionOfSolution", "classOutputDBManager.html#a40f2f991dd319bcbed17856c9f3055ab", null ],
+    [ "insertDistributionOfAlkalinity", "classOutputDBManager.html#a856409f7f5e26463c6e8e55c8af228b0", null ],
+    [ "insertDistributionOfSpecies", "classOutputDBManager.html#a05282b671a296963b7f7511763df0af6", null ],
+    [ "insertEpsg", "classOutputDBManager.html#a40bfa77db251e4bf649688ef398e18c7", null ],
+    [ "insertSaturationIndices", "classOutputDBManager.html#a951a29c9c555f0078abfac2aad11ee36", null ],
+    [ "insertSolutionComposition", "classOutputDBManager.html#a854ee5876d205047f9e68f0ec298b407", null ],
+    [ "isOutputEmpty", "classOutputDBManager.html#a79fb6c8ab564a5abe34a4a0b01fbfd75", null ],
+    [ "selectValuesfromAnalisys", "classOutputDBManager.html#a873c2a3a487155b2eb14f6147edbbc5c", null ],
+    [ "selectValuesFromDescriptionOfSolution", "classOutputDBManager.html#a53336d2da43acee86f3af718dcf449be", null ],
+    [ "selectValuesFromDistributionOfAlkalinity", "classOutputDBManager.html#a9b2a7421e88c31bb0e33b70e5161146c", null ],
+    [ "selectValuesFromDistributionOfSpecies", "classOutputDBManager.html#a4f1d976424a9dff3a11cdc7938934d30", null ],
+    [ "selectValuesFromSaturationIndices", "classOutputDBManager.html#aff22993920be970c4cd7d092b0e180ce", null ],
+    [ "selectValuesFromSolutionComposition", "classOutputDBManager.html#a7106a5c07f81fc2f1c6382108036944f", null ]
+];
