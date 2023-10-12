@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     int fill_db = 0;
     int overwrite = 0;
 
-    std::vector<phreesqlib::EPSG_CONVERT_TYPE> epsg_convert_types;
+    std::vector<phreesqlib::DBEngine::EPSG_CONVERT_TYPE> epsg_convert_types;
     std::vector<std::string> epsg_convert_outputs;
 
 
@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
 
         case 'b':
           printf ("option -b (export database) with value `%s'\n", optarg);
-          epsg_convert_types.push_back(phreesqlib::DB);
+          epsg_convert_types.push_back(phreesqlib::DBEngine::EPSG_CONVERT_TYPE::DB);
           epsg_convert_outputs.push_back(optarg);
           break;
 
@@ -148,7 +148,7 @@ int main(int argc, char *argv[])
 
         case 'f':
           printf ("option -f (export filename) with value `%s'\n", optarg);
-          epsg_convert_types.push_back(phreesqlib::CSV);
+          epsg_convert_types.push_back(phreesqlib::DBEngine::EPSG_CONVERT_TYPE::CSV);
           epsg_convert_outputs.push_back(optarg);          break;
 
         case 'F':
@@ -188,7 +188,7 @@ int main(int argc, char *argv[])
 
         case 't':
           printf ("option -t (export table) with value `%s'\n", optarg);
-          epsg_convert_types.push_back(phreesqlib::TABLE);
+          epsg_convert_types.push_back(phreesqlib::DBEngine::EPSG_CONVERT_TYPE::TABLE);
           epsg_convert_outputs.push_back(optarg);
           break;
 

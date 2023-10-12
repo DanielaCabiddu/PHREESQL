@@ -242,7 +242,7 @@ void phreesqlib::PhreeSQLibEngine::export_metadata (const std::string out_folder
     delete db_engine;
 }
 
-void phreesqlib::PhreeSQLibEngine::epsg_convert (const int epsg, const std::vector<EPSG_CONVERT_TYPE> types, std::vector<std::string> outputs)
+void phreesqlib::PhreeSQLibEngine::epsg_convert (const int epsg, const std::vector<DBEngine::EPSG_CONVERT_TYPE> types, std::vector<std::string> outputs)
 {
     phreesqlib::DBEngine *db_engine = new phreesqlib::DBEngine (db_filename);
 

@@ -38,17 +38,6 @@ namespace phreesqlib
 {
 
 ///
-/// \brief The EPSG_CONVERT_TYPE enum
-///
-enum EPSG_CONVERT_TYPE
-{
-    CSV,
-    TABLE,
-    DB,
-    UNSET,
-};
-
-///
 /// \brief The DBEngine class
 ///
 class DBEngine
@@ -65,6 +54,19 @@ public:
     ~DBEngine ()
     {
     }
+
+    ///
+    /// \brief The EPSG_CONVERT_TYPE enum
+    ///
+    /// \details The EPSG_CONVERT_TYPE enum enables the possibility to specify how to save the output of an EPSG conversion.
+    ///
+    enum EPSG_CONVERT_TYPE
+    {
+        CSV,    /// As a CSV file
+        TABLE,  /// As a new table of the input PHREESQL database
+        DB,     /// As a new database which is a copy of the input one with converted EPSG
+        UNSET,  /// Unknown.
+    };
 
     ///
     /// \brief add_to_DB
