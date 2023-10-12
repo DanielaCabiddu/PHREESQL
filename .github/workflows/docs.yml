@@ -1,0 +1,42 @@
+name: docs-build
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+    - phreesqlib/**
+    - phreesqlexe/**
+    - .github/workflows/docs.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: dependencies
+        run: |
+          sudo apt update
+          sudo apt-get install -y libsqlite3-dev
+          sudo apt-get install doxygen
+      - name: build
+        env:
+          CC: gcc-9
+          CXX: g++-9
+        run: |
+          mkdir build
+          cd build
+          cmake -DBUILD_DOC=ON ../phreesqlexe
+          cmake --build .
+      - name: Push to gh-pages
+        if: success() && github.event_name == 'push'
+        # Don't use tags: https://julienrenaux.fr/2019/12/20/github-actions-security-risk/
+        uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/html
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          
