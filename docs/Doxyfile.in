@@ -7,7 +7,7 @@ INPUT                  = @doxy_main_page@ \
                          @PROJECT_SOURCE_DIR@/../phreesqlib \
                          @PROJECT_SOURCE_DIR@/../external/file-joiner-2021.07.16-11.12/src \
                          @PROJECT_SOURCE_DIR@/../README.md
-IMAGE_PATH             = @PROJECT_SOURCE_DIR@/../images/
+IMAGE_PATH             = @PROJECT_SOURCE_DIR@/../docs/
 OUTPUT_DIRECTORY       = @PROJECT_SOURCE_DIR@/../docs/
 FILE_PATTERNS          = *.h \
                          *.cpp
@@ -15,7 +15,8 @@ RECURSIVE              = YES
 USE_MDFILE_AS_MAINPAGE = @PROJECT_SOURCE_DIR@/../README.md
 SOURCE_BROWSER         = YES
 GENERATE_TREEVIEW      = YES # optional. Also works without treeview
-DISABLE_INDEX = NO
-FULL_SIDEBAR = NO
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
 HTML_EXTRA_STYLESHEET  = @PROJECT_SOURCE_DIR@/../external/doxygen-awesome/doxygen-awesome.css
 HTML_COLORSTYLE        = LIGHT # required with Doxygen >= 1.9.5
+EXTRACT_PRIVATE        = YES

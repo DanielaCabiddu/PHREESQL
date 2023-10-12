@@ -36,12 +36,18 @@
 
 /*! \file
  *  \brief Main entry point for PhreeSQLExe application.
+ *
  */
 
-/*! Main function.
- *  --fill_db
- *  --export
- */
+///
+/// \brief Main entry point for PhreeSQLExe application.
+///
+/// Input options for PhreeSQLExe application are described in the table below:
+/// \image html command_line_args.png width=800cm height=400cm
+///
+/// \return 0 if success, 1 otherwise
+///
+///
 int main(int argc, char *argv[])
 {
     std::string in_folder;
