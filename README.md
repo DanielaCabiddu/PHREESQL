@@ -16,6 +16,10 @@ PHREESQL works as shown in the [here](https://github.com/DanielaCabiddu/PHREESQL
 
 <p align="center"><img src="./images/phreesql-workflow.png" with></p>
 
+## Documentation
+
+Documentation is available [here](https://danielacabiddu.github.io/PHREESQL/index.html). Please, be aware that it is still work in progress, and a complete version will be available soon.
+
 ## Clone
 
 The repository includes some submodules necessary to make PHREESQL work. Please, clone it recursively:
