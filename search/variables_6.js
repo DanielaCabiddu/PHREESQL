@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rc_253',['rc',['../classDBManager.html#a002e665dcb45c1510baf3e5109620649',1,'DBManager']]]
+  ['query_292',['query',['../classDBManager.html#a4b180274894b31aadb2e00c12d07b30e',1,'DBManager']]]
 ];

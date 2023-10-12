@@ -22,5 +22,6 @@ var classOutputDBManager =
     [ "selectValuesFromDistributionOfAlkalinity", "classOutputDBManager.html#a9b2a7421e88c31bb0e33b70e5161146c", null ],
     [ "selectValuesFromDistributionOfSpecies", "classOutputDBManager.html#a4f1d976424a9dff3a11cdc7938934d30", null ],
     [ "selectValuesFromSaturationIndices", "classOutputDBManager.html#aff22993920be970c4cd7d092b0e180ce", null ],
-    [ "selectValuesFromSolutionComposition", "classOutputDBManager.html#a7106a5c07f81fc2f1c6382108036944f", null ]
+    [ "selectValuesFromSolutionComposition", "classOutputDBManager.html#a7106a5c07f81fc2f1c6382108036944f", null ],
+    [ "a_id", "classOutputDBManager.html#aaa09b954671ea42e50e979e2a036e38b", null ]
 ];

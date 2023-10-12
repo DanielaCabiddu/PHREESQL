@@ -59,7 +59,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"DBEngine_8cpp_source.html"
+"DBEngine_8cpp_source.html",
+"structDistributionOfSpecies.html#ac9949bbc30d4337f073ceeb4ddefa7eb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

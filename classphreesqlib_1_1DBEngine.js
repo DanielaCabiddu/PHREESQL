@@ -13,5 +13,6 @@ var classphreesqlib_1_1DBEngine =
     [ "export_input", "classphreesqlib_1_1DBEngine.html#ab6a00196d1f0f7c90273f50fd4fcc782", null ],
     [ "export_metadata", "classphreesqlib_1_1DBEngine.html#a97599f4e394eb30ab629f106ced707c9", null ],
     [ "export_output", "classphreesqlib_1_1DBEngine.html#a3c34063c33edac7709ae8e9778a1a6c4", null ],
-    [ "print_DB_summary", "classphreesqlib_1_1DBEngine.html#a9a7e22445bc9d4035e3abb3cb513fa9a", null ]
+    [ "print_DB_summary", "classphreesqlib_1_1DBEngine.html#a9a7e22445bc9d4035e3abb3cb513fa9a", null ],
+    [ "db_filename", "classphreesqlib_1_1DBEngine.html#a631990a2a21b1cedd0b197b3f70797d7", null ]
 ];

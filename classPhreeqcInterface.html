@@ -86,6 +86,8 @@ $(document).ready(function(){initNavTree('classPhreeqcInterface.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classPhreeqcInterface-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhreeqcInterface Class Reference</div>  </div>
@@ -96,10 +98,15 @@ $(document).ready(function(){initNavTree('classPhreeqcInterface.html',''); initR
  <a href="classPhreeqcInterface.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="matrac-reader_8h_source.html">matrac-reader.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for PhreeqcInterface:</div>
+<div class="dyncontent">
+<div class="center"><img src="classPhreeqcInterface__coll__graph.png" border="0" usemap="#aPhreeqcInterface_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1c96accc596bf89f67eea3b8e00b7bed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a1c96accc596bf89f67eea3b8e00b7bed">PhreeqcInterface</a> (const std::string db_path)</td></tr>
+<tr class="memitem:a1c96accc596bf89f67eea3b8e00b7bed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a1c96accc596bf89f67eea3b8e00b7bed">PhreeqcInterface</a> (const std::string <a class="el" href="classPhreeqcInterface.html#a6e7c171d2f19fffca80c7de44f792cec">db_path</a>)</td></tr>
 <tr class="memdesc:a1c96accc596bf89f67eea3b8e00b7bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">MatracReader.  <a href="classPhreeqcInterface.html#a1c96accc596bf89f67eea3b8e00b7bed">More...</a><br /></td></tr>
 <tr class="separator:a1c96accc596bf89f67eea3b8e00b7bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac23efb35cf84f5da42d3860834f334a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#aac23efb35cf84f5da42d3860834f334a">copyDB</a> (const std::string file_path)</td></tr>
@@ -167,6 +174,65 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a5885d1f4c3dbedd6a831a970a8322dbc"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a5885d1f4c3dbedd6a831a970a8322dbc">getNumMetadataRecords</a> () const</td></tr>
 <tr class="memdesc:a5885d1f4c3dbedd6a831a970a8322dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">getNumMetadataRecords  <a href="classPhreeqcInterface.html#a5885d1f4c3dbedd6a831a970a8322dbc">More...</a><br /></td></tr>
 <tr class="separator:a5885d1f4c3dbedd6a831a970a8322dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8bb485898acc1a875966c2188944d438"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a8bb485898acc1a875966c2188944d438">openDB</a> ()</td></tr>
+<tr class="memdesc:a8bb485898acc1a875966c2188944d438"><td class="mdescLeft">&#160;</td><td class="mdescRight">openDB  <a href="classPhreeqcInterface.html#a8bb485898acc1a875966c2188944d438">More...</a><br /></td></tr>
+<tr class="separator:a8bb485898acc1a875966c2188944d438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99070cbf1425f7a0c35eeb118480c64e"><td class="memItemLeft" align="right" valign="top"><a id="a99070cbf1425f7a0c35eeb118480c64e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a99070cbf1425f7a0c35eeb118480c64e">closeDB</a> ()</td></tr>
+<tr class="memdesc:a99070cbf1425f7a0c35eeb118480c64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">closeDB <br /></td></tr>
+<tr class="separator:a99070cbf1425f7a0c35eeb118480c64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11b7e28f14c646d318617c71ac1746c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a11b7e28f14c646d318617c71ac1746c1">deleteFileIfExists</a> (string path)</td></tr>
+<tr class="memdesc:a11b7e28f14c646d318617c71ac1746c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">deleteFileIfExists  <a href="classPhreeqcInterface.html#a11b7e28f14c646d318617c71ac1746c1">More...</a><br /></td></tr>
+<tr class="separator:a11b7e28f14c646d318617c71ac1746c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42db7e64175b7cc660ba6eceaf474fc7"><td class="memItemLeft" align="right" valign="top">DIR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a42db7e64175b7cc660ba6eceaf474fc7">openDir</a> (string directory)</td></tr>
+<tr class="memdesc:a42db7e64175b7cc660ba6eceaf474fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">openDir  <a href="classPhreeqcInterface.html#a42db7e64175b7cc660ba6eceaf474fc7">More...</a><br /></td></tr>
+<tr class="separator:a42db7e64175b7cc660ba6eceaf474fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9ee7115594a8254cb9cfd57513557ca7"><td class="memItemLeft" align="right" valign="top"><a id="a9ee7115594a8254cb9cfd57513557ca7"></a>
+<a class="el" href="classInputDBManager.html">InputDBManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a9ee7115594a8254cb9cfd57513557ca7">i_manager</a></td></tr>
+<tr class="memdesc:a9ee7115594a8254cb9cfd57513557ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">i_manager <br /></td></tr>
+<tr class="separator:a9ee7115594a8254cb9cfd57513557ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace20c7ae26435a9bb152de91aedec4e8"><td class="memItemLeft" align="right" valign="top"><a id="ace20c7ae26435a9bb152de91aedec4e8"></a>
+<a class="el" href="classOutputDBManager.html">OutputDBManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#ace20c7ae26435a9bb152de91aedec4e8">o_manager</a></td></tr>
+<tr class="memdesc:ace20c7ae26435a9bb152de91aedec4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">o_manager <br /></td></tr>
+<tr class="separator:ace20c7ae26435a9bb152de91aedec4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ea3d3eaea27bcfd5a3819a78cec81a"><td class="memItemLeft" align="right" valign="top"><a id="a06ea3d3eaea27bcfd5a3819a78cec81a"></a>
+<a class="el" href="classDataManager.html">DataManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a06ea3d3eaea27bcfd5a3819a78cec81a">d_manager</a></td></tr>
+<tr class="memdesc:a06ea3d3eaea27bcfd5a3819a78cec81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">d_manager <br /></td></tr>
+<tr class="separator:a06ea3d3eaea27bcfd5a3819a78cec81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697fe04a90b68807b321756e7a4fa6b2"><td class="memItemLeft" align="right" valign="top"><a id="a697fe04a90b68807b321756e7a4fa6b2"></a>
+<a class="el" href="classInputReaderWriter.html">InputReaderWriter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a697fe04a90b68807b321756e7a4fa6b2">i_file</a></td></tr>
+<tr class="memdesc:a697fe04a90b68807b321756e7a4fa6b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">i_file <br /></td></tr>
+<tr class="separator:a697fe04a90b68807b321756e7a4fa6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a174b14d200ffadb7b5336c4bb8e3168b"><td class="memItemLeft" align="right" valign="top"><a id="a174b14d200ffadb7b5336c4bb8e3168b"></a>
+<a class="el" href="classOutputReaderWriter.html">OutputReaderWriter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a174b14d200ffadb7b5336c4bb8e3168b">o_file</a></td></tr>
+<tr class="memdesc:a174b14d200ffadb7b5336c4bb8e3168b"><td class="mdescLeft">&#160;</td><td class="mdescRight">o_file <br /></td></tr>
+<tr class="separator:a174b14d200ffadb7b5336c4bb8e3168b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7c171d2f19fffca80c7de44f792cec"><td class="memItemLeft" align="right" valign="top"><a id="a6e7c171d2f19fffca80c7de44f792cec"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a6e7c171d2f19fffca80c7de44f792cec">db_path</a></td></tr>
+<tr class="memdesc:a6e7c171d2f19fffca80c7de44f792cec"><td class="mdescLeft">&#160;</td><td class="mdescRight">db_path <br /></td></tr>
+<tr class="separator:a6e7c171d2f19fffca80c7de44f792cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e42779fefe2ea657275238f6ade41a4"><td class="memItemLeft" align="right" valign="top"><a id="a7e42779fefe2ea657275238f6ade41a4"></a>
+sqlite3 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a7e42779fefe2ea657275238f6ade41a4">db</a></td></tr>
+<tr class="memdesc:a7e42779fefe2ea657275238f6ade41a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">db <br /></td></tr>
+<tr class="separator:a7e42779fefe2ea657275238f6ade41a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ab40442a5c4861b0a29ce8b28d61ae"><td class="memItemLeft" align="right" valign="top"><a id="ab1ab40442a5c4861b0a29ce8b28d61ae"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#ab1ab40442a5c4861b0a29ce8b28d61ae">rc</a></td></tr>
+<tr class="memdesc:ab1ab40442a5c4861b0a29ce8b28d61ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">rc <br /></td></tr>
+<tr class="separator:ab1ab40442a5c4861b0a29ce8b28d61ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bb9cf63317fc40cbfa8c755e9925131"><td class="memItemLeft" align="right" valign="top"><a id="a6bb9cf63317fc40cbfa8c755e9925131"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a6bb9cf63317fc40cbfa8c755e9925131">is_i_file</a></td></tr>
+<tr class="memdesc:a6bb9cf63317fc40cbfa8c755e9925131"><td class="mdescLeft">&#160;</td><td class="mdescRight">is_i_file <br /></td></tr>
+<tr class="separator:a6bb9cf63317fc40cbfa8c755e9925131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397d88ee87f0cf4df29d2a2904afd158"><td class="memItemLeft" align="right" valign="top"><a id="a397d88ee87f0cf4df29d2a2904afd158"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhreeqcInterface.html#a397d88ee87f0cf4df29d2a2904afd158">is_o_file</a></td></tr>
+<tr class="memdesc:a397d88ee87f0cf4df29d2a2904afd158"><td class="mdescLeft">&#160;</td><td class="mdescRight">is_o_file <br /></td></tr>
+<tr class="separator:a397d88ee87f0cf4df29d2a2904afd158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classPhreeqcInterface.html" title="The PhreeqcInterface class.">PhreeqcInterface</a> class. </p>
@@ -312,6 +378,42 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="matrac-reader_8cpp_source.html#l00396">396</a> of file <a class="el" href="matrac-reader_8cpp_source.html">matrac-reader.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a11b7e28f14c646d318617c71ac1746c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11b7e28f14c646d318617c71ac1746c1">&#9670;&nbsp;</a></span>deleteFileIfExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PhreeqcInterface::deleteFileIfExists </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>deleteFileIfExists </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="matrac-reader_8cpp_source.html#l00077">77</a> of file <a class="el" href="matrac-reader_8cpp_source.html">matrac-reader.cpp</a>.</p>
 
 </div>
 </div>
@@ -464,6 +566,73 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="matrac-reader_8cpp_source.html#l00446">446</a> of file <a class="el" href="matrac-reader_8cpp_source.html">matrac-reader.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8bb485898acc1a875966c2188944d438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb485898acc1a875966c2188944d438">&#9670;&nbsp;</a></span>openDB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PhreeqcInterface::openDB </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>openDB </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="matrac-reader_8cpp_source.html#l00052">52</a> of file <a class="el" href="matrac-reader_8cpp_source.html">matrac-reader.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a42db7e64175b7cc660ba6eceaf474fc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42db7e64175b7cc660ba6eceaf474fc7">&#9670;&nbsp;</a></span>openDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DIR * PhreeqcInterface::openDir </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>directory</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>openDir </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">directory</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="matrac-reader_8cpp_source.html#l00087">87</a> of file <a class="el" href="matrac-reader_8cpp_source.html">matrac-reader.cpp</a>.</p>
 
 </div>
 </div>
