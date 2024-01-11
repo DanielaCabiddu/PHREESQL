@@ -33,6 +33,20 @@
 
 using namespace std;
 
+const string DoubleQuotes(const string value)
+{
+    string retval;
+    for (auto ch : value)
+    {
+        if (ch == '\'')
+        {
+            retval.push_back('\'');
+        }
+        retval.push_back(ch);
+    }
+    return retval;
+}
+
 inline
 void OutputReaderWriter::checkSection(int size, string section, string file)
 {
@@ -58,7 +72,7 @@ bool OutputReaderWriter::readMetadata(string path)
                 key = trim(line.substr(0, line.find(":")));
                 value = trim(line.substr(line.find(":") + 1));
 
-                boost::replace_all(value, "'", "''");
+                value = DoubleQuotes(value);
 
                 insertInAnalisys(key, value);
             }
