@@ -10,18 +10,18 @@ As a matter of example and no loss of generality, we demonstrate the usage of PH
 
 The script *00_step-by-step.sh* consolidates all the PHREESQL capabilities into one, also assisting the reader in PHREEQC input generation starting from the .csv file. It enables the possibility to run the full pipeline on a user-defined project, provided as an input parameter, by sequentially calling the following bash scripts:
 
-- shell_script/00_clean_all.sh 
-- shell_script/00_prepare_folders.sh 
-- shell_script/000_gigantic_run.sh 
-- shell_script/00_create_all_output.sh 
-- shell_script/00_fill_all_db.sh 
-- shell_script/00_compute_and_fill.sh 
+- [shell_script/00_clean_all.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/00_clean_all.sh)
+- [shell_script/00_prepare_folders.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/00_prepare_folders.sh)
+- [shell_script/000_gigantic_run.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/000_gigantic_run.sh)
+- [shell_script/00_create_all_output.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/00_create_all_output.sh)
+- [shell_script/00_fill_all_db.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/00_fill_all_db.sh)
+- [shell_script/00_compute_and_fill.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/00_compute_and_fill.sh)
 
 Details on each single script are provided in the sections below.
 
 
 
-### shell_script/00_clean_all.sh 
+### shell_script/00_clean_all.sh
 
 /* Script cleaning all files in DB, scratch and run_DB*/
 
@@ -60,16 +60,16 @@ SHORT|MEDIUM|FULL phreeqc|llnl|minteq|wateq4f|sit|ALL
 
 ## How to query PHREESQL databases
 
-- shell_script/01_LL.sh
-- shell_script/02_SI.sh
-- shell_script/03_ehph.sh
-- shell_script/04_SI_compare_ALL.sh
-- shell_script/05_cs2cs.sh
-
+- [shell_script/01_LL.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/01_LL.sh)
+- [shell_script/02_SI.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/02_SI.sh)
+- [shell_script/03_ehph.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/03_ehph.sh)
+- [shell_script/04_SI_compare_ALL.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script04_SI_compare_ALL.sh)
+- [shell_script/05_cs2cs.sh](https://github.com/DanielaCabiddu/PHREESQL/blob/main/example/shell_script/05_cs2cs.sh)
 
 ### shell_script/01_LL.sh
+The LL plot (Langelier and Ludwig, 1942) is a graphical tool used to classify waters based on the chemistry of major cations and anions in percent of meq/l. Categorizing groundwater based on various criteria and applying filters can help users analyze and interpret data more effectively. Criteria can include rock type, county name, aquifer name, or time interval, and these categories can be plotted separately for better visualization and analysis. Filters can involve selecting specific time ranges or applying conditions related to electrical balance or concentration ranges to refine the dataset and focus on specific aspects of groundwater data.
 
-sql_scripts/LL.sql
+The SQL script *LL.sql*, called by the *LL.sh* bash script, is used to extract groundwater samples from the *FULL_wateq4f.db* SQL database. The filter applied in this script is based on the county’s name, allowing users to retrieve data from specific counties without applying additional compositional or temporal filters. The output consists of three ASCII files, one for the whole dataset and two for a pair of Irish counties (Kilkenny and355 Donegal, arbitrarily chosen).
 
 ### shell_script/02_SI.sh
 
