@@ -29,6 +29,8 @@
 
 #include "output-reader-writer.h"
 
+#include <boost/algorithm/string/replace.hpp>
+
 using namespace std;
 
 inline
@@ -51,11 +53,13 @@ bool OutputReaderWriter::readMetadata(string path)
     {
         while (getline(input_file, line))
         {
-
             if (line.size() > 1)
             {
                 key = trim(line.substr(0, line.find(":")));
                 value = trim(line.substr(line.find(":") + 1));
+
+                boost::replace_all(value, "'", "''");
+
                 insertInAnalisys(key, value);
             }
         }
