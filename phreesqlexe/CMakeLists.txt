@@ -7,15 +7,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_FLAGS "-std=c++17 -fpermissive")
 
+option(USE_OPENMP "Use OpenMP" OFF)
 #option(BUILD_DOC "Build documentation" OFF)
 
-find_package(OpenMP)
+if (USE_OPENMP)
+    find_package(OpenMP)
 
-if (NOT OPENMP_FOUND)
-    #set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-    #set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
-    message ("OpenMP not found. Parallelism DISABLED.")
+    if (NOT OPENMP_FOUND)
+        #set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+        #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+        #set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+        message ("OpenMP not found. Parallelism DISABLED.")
+    endif()
+else()
+    message ("OpenMP DISABLED.")
 endif()
 
 include_directories(BEFORE ../phreesqlib/)
@@ -144,7 +149,7 @@ ELSE()
   OUTPUT "${PROJ_LIB}"
   COMMAND
         cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF ${PROJ_FOLDER} &&
-        cmake --build .
+        cmake --build . --parallel 16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${PROJ_BUILD_DIRECTORY}"
 )
@@ -206,6 +211,3 @@ if (OPENMP_FOUND)
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS} )
-
-get_target_property(OUT ${PROJECT_NAME} LINK_LIBRARIES)
-message(STATUS "ldd:  ${OUT}")
