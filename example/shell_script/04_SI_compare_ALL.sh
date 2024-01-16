@@ -11,7 +11,11 @@ echo ""
 echo "Running $BASH_SOURCE $ARGS"
 
 script_folder=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-DATABASE=$1
+phrqc_db=$1
+SIZE=$2
+prj=$3
+
+DATABASE=${script_folder}/../${prj}/DB/${SIZE}_${phrqc_db}.db
 
 sqlite3 $DATABASE < ${script_folder}/../sql_scripts/SI_compare_ALL.sql
 

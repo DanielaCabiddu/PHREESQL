@@ -15,6 +15,7 @@ done
 echo ""
 echo "Running $BASH_SOURCE $ARGS"
 
+
 dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 ffile=$1
@@ -45,10 +46,10 @@ $9,$10,$11,(f*$12/(1000*(2.303*r*($6+273.15)))),\
             $13,$14,$15,$16,$17,$18,$19,\
 $20,$21,$22,$23,$24,$25,$26,$27,$28,$29,\
 $30,$31,$32,$33,$34,$35,$36,$37,$38,$39,\
-$40,$41,$42,$43,$44,$45,$46}' $dir/../scratch/${ffile} > $dir/../scratch/${pfile}
+$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$50,$51}' $dir/../${project}/scratch/${ffile} > $dir/../${project}/scratch/${pfile}
 #temp_dataset.txt
 
-echo $dir/../scratch/${ffile}
+echo $dir/../${project}/scratch/${ffile}
 
 #echo ">>>>>>>>>>>>>>  QUI 2  <<<<<<<<<<<<<<<<<"
 
@@ -58,6 +59,6 @@ echo $dir/../scratch/${ffile}
 
 #echo ">>>>>>>>>>>>>>  QUI 3  <<<<<<<<<<<<<<<<<"
 
-awk  'BEGIN {FS = ";"} {print $1}' $dir/../scratch/${pfile}  | sed '1 d' > $dir/../scratch/samples.dat
+awk  'BEGIN {FS = ";"} {print $1}' $dir/../${project}/scratch/${pfile}  | sed '1 d' > $dir/../${project}/scratch/samples.dat
 
 #echo "OUT do_preproc"

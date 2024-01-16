@@ -1,6 +1,6 @@
 
 
-/*.open DB/FULL_ALL.db*/
+/*${script_folder}/../DB/FULL_wateq4f.db*/
 
 DROP view if exists S ;
 DROP view if exists Sphreeqc ;

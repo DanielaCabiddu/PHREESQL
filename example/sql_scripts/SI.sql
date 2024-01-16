@@ -1,5 +1,5 @@
 /* OPEN DATABASE */
-/*.open DB/FULL_wateq4f.db*/
+/*${script_folder}/../DB/FULL_wateq4f.db*/
 
 drop
 	view if exists calcite;

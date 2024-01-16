@@ -11,7 +11,13 @@ echo ""
 echo "Running $BASH_SOURCE $ARGS"
 
 script_folder=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-DATABASE=$1
+
+phrqc_db=$1
+SIZE=$2
+prj=$3
+
+
+DATABASE=${script_folder}/../${prj}/DB/${SIZE}_${phrqc_db}.db
 
 
 export PHREEPLOT_PATH=${script_folder}/../bin
@@ -87,4 +93,4 @@ awk 'BEGIN{FS=","; OFS=","} {print "1",$2,$5,"1","nd","1","1","red"}' ${script_f
 
 # PhreePlot: change pdf keyword to TRUE TRUE flags of PLOT section in pp.set files (system folder)
 
-$PHREEPLOT_EXE ${script_folder}/../sql_scripts/pp_template.ppi
+$PHREEPLOT_EXE ${script_folder}/../${prj}/pp_template.ppi

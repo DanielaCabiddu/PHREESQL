@@ -1,6 +1,8 @@
 
 
-/*.open DB/FULL_wateq4f_2157.db*/
+/*${script_folder}/../DB/FULL_wateq4f.db*/
+
+DROP VIEW if exists cs2cs;
 
 create view cs2cs (site, ID, name, date, X, Y, SI, phase) as
 select m.SITE_NAME, m.ID, m.SAMPLE_NAME, m.DATE, m.COORD_X, m.COORD_Y, si.SI, si.PHASE from METADATA m 
@@ -14,8 +16,8 @@ AND m.SITE_NAME NOT LIKE '%Shallow1%'
 AND m.SITE_NAME NOT LIKE '%Shallow 2%' 
 AND m.SITE_NAME NOT LIKE '%Shallow2%' );
 
-SELECT * from cs2cs;
-
 .mode csv
 .output cs2cs.csv
 .separator ";"
+
+SELECT * from cs2cs;

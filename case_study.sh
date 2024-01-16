@@ -1,5 +1,11 @@
 #! /bin/bash
 
+prj=$1
+
+if [  -z ${prj} ]
+then
+ echo "Remember to add the name of the project you want to compute"
+else
 (
 set -e
 
@@ -12,6 +18,8 @@ then
 	${SCRIPT_DIR}/build.sh
 fi
 
-${SCRIPT_DIR}/example/00_step-by_step.sh
+${SCRIPT_DIR}/example/00_step-by-step.sh ${prj}
 
 )
+
+fi

@@ -4,7 +4,7 @@
 --
 --
 /* OPEN DATABASE */
-/*.open DB/FULL_wateq4f.db*/
+/*.open EPA_project/DB/FULL_wateq4f.db*/
 
 /* CLEAN VIEWS and TABLES */
 DROP VIEW if exists S;

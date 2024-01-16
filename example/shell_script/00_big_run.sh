@@ -35,20 +35,20 @@ export wdir=`pwd`
 
 
 # preprocessing
-source 01_do_preproc.sh ${fdb}
+source 00_do_preproc.sh ${fdb}
 
 echo "do_preproc END"
 
 # file prepration
-source 02_do_prepare.sh
+source 00_do_prepare.sh
 
 echo "do_prepare END"
 
 
 # phreeqc loop
-source 03_do_phreeqc.sh
+source 00_do_phreeqc.sh
 
-#time ${phrsql} --run_phreeqc --phreeqc_db ${db}/${PHREEQCDB}.dat -i ${data}/IN/${PHREEQCDB} -o ${data}/OUT/${PHREEQCDB} -m ${data}/META/${PHREEQCDB} #-d ${SQLDB}_${PHREEQCDB}.db 
+time ${phrsql} --run_phreeqc --phreeqc_db ${db}/${PHREEQCDB}.dat -i ${data}/IN/${PHREEQCDB} -o ${data}/OUT/${PHREEQCDB} -m ${data}/META/${PHREEQCDB} -d ${SQLDB}_${PHREEQCDB}.db 
 
 echo "do_phreeqc_END"
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# 00_create_all_input.sh SHORT [phreeqc|llnl|minteq|wateq4f|sit|ALL]
+# 00_create_all_input.sh SHORT [phreeqc|llnl|minteq|wateq4f|sit|ALL] EPA_project
+#USAGE: source 00_create_all_input.sh SHORT phreeqc EPA_project
 
 ARGS=""
 
@@ -14,11 +15,13 @@ echo "Running $BASH_SOURCE $ARGS"
 
 SQLDB=$1
 all=$2
+project=$3
+
 export dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 export phrsql=${dir}/../../build/phreesqlexe
 export db=${dir}/../../external/iphreeqc/database
-export data=${dir}/../run_DB/${SQLDB}
+export data=${dir}/../${project}/run_DB/${SQLDB}
 
 
 if [ -z "$2" ]

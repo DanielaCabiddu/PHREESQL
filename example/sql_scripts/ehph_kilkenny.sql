@@ -1,6 +1,6 @@
 
 
-/*.open DB/FULL_wateq4f.db*/
+/*${script_folder}/../DB/FULL_wateq4f.db*/
 
 DROP VIEW if exists pe;
 DROP VIEW if exists ph;

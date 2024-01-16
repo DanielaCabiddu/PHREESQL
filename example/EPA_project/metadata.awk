@@ -25,7 +25,7 @@ Database=db
 Version="3.6.1-15000"
 Epsg="29902"
 Input=out ID".pqi"
-Survey="Test4PHREESQL"
+Survey="EPA database from EPA-IE website"
 Run="00000"
 Stamp="000000000000"
 
