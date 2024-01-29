@@ -166,11 +166,13 @@ include_directories(BEFORE ${PHREEQC_SRC_FOLDER}/phreeqcpp/PhreeqcKeywords)
 include_directories(BEFORE ${PROJ_INCLUDE_FOLDER})
 include_directories(BEFORE ${PROJ_SRC_FOLDER})
 
+include_directories (BEFORE ${EXTERNAL_FOLDER}/tclap/include)
+
 
 if (MSVC)
     include_directories(BEFORE ${SQLite3_INCLUDE_DIR})
-    include_directories(BEFORE ${EXTERNAL_FOLDER}/dirent_win)
-    include_directories(BEFORE ${EXTERNAL_FOLDER}/getopt_win)
+    #include_directories(BEFORE ${EXTERNAL_FOLDER}/dirent_win)
+    #include_directories(BEFORE ${EXTERNAL_FOLDER}/getopt_win)
 endif()
 
 if (BUILD_DOC)
