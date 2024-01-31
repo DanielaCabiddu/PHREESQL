@@ -127,19 +127,21 @@ std::vector<std::vector<std::pair<std::string, std::string>>> PhreeqcInterface::
 }
 
 inline
-void PhreeqcInterface::readInputOutputFiles(string input_path, string output_path, string meta_path)
+void PhreeqcInterface::readInputOutputFiles(const string input_path, const string output_path, const string meta_path)
 {
     readIOMFiles(input_path, output_path, meta_path);
 }
 
 inline
-bool PhreeqcInterface::readIOMFiles(string ifile_path, string ofile_path, string meta_path)
+bool PhreeqcInterface::readIOMFiles(const string ifile_path, const string ofile_path, const string meta_path)
 {
     if (i_file.readFile(ifile_path) && o_file.readFile(ofile_path) && o_file.readMetadata(meta_path))
     {
         this->createInputTables();
         this->createOutputTables();
         o_manager->createAnalisysTable();
+
+        sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
 
         int result = o_manager->insertAnalisys(o_file.a, i_file.meta);
 
@@ -154,6 +156,8 @@ bool PhreeqcInterface::readIOMFiles(string ifile_path, string ofile_path, string
             o_manager->insertSaturationIndices(o_file.si_list);
         }
 
+        sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
+
         return true;
     }
     else
@@ -164,7 +168,7 @@ bool PhreeqcInterface::readIOMFiles(string ifile_path, string ofile_path, string
 
 }
 inline
-void PhreeqcInterface::writeInputFile(string directory, int analysis_id, const bool overwrite)
+void PhreeqcInterface::writeInputFile(const string directory, int analysis_id, const bool overwrite)
 {
     std::cout << "Writing Input File - Analysis ID : [" << analysis_id << "]" << std::endl;
 
@@ -214,14 +218,14 @@ void PhreeqcInterface::writeInputFile(string directory, int analysis_id, const b
 }
 
 inline
-void PhreeqcInterface::writeInputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
+void PhreeqcInterface::writeInputFiles(const string directory, const std::vector<int> &analysis_ids, const bool overwrite)
 {
     for (const int analysis_id : analysis_ids)
         writeInputFile(directory, analysis_id, overwrite);
 }
 
 inline
-void PhreeqcInterface::writeAllInputFiles(string directory, const bool overwrite)
+void PhreeqcInterface::writeAllInputFiles(const string directory, const bool overwrite)
 {
     int num = o_manager->getNumRows(o_manager->metadata_table_name);
     for (int analysis_id = 1; analysis_id <= num; analysis_id++)
@@ -233,7 +237,7 @@ void PhreeqcInterface::writeAllInputFiles(string directory, const bool overwrite
     //////////////////////////////////////////////////////////////////////////////////////
 
 inline
-void PhreeqcInterface::writeMetadataFile(string directory, int analysis_id, const bool overwrite)
+void PhreeqcInterface::writeMetadataFile(const string directory, int analysis_id, const bool overwrite)
 {
     std::cout << "Writing Metadata File - Analysis ID : [" << analysis_id << "]" << std::endl;
 
@@ -283,14 +287,14 @@ void PhreeqcInterface::writeMetadataFile(string directory, int analysis_id, cons
 }
 
 inline
-void PhreeqcInterface::writeMetadataFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
+void PhreeqcInterface::writeMetadataFiles(const string directory, const std::vector<int> &analysis_ids, const bool overwrite)
 {
     for (const int analysis_id : analysis_ids)
         writeMetadataFile(directory, analysis_id, overwrite);
 }
 
 inline
-void PhreeqcInterface::writeAllMetadataFiles(string directory, const bool overwrite)
+void PhreeqcInterface::writeAllMetadataFiles(const string directory, const bool overwrite)
 {
     int num = o_manager->getNumRows(o_manager->metadata_table_name);
     for (int analysis_id = 1; analysis_id <= num; analysis_id++)
@@ -302,7 +306,7 @@ void PhreeqcInterface::writeAllMetadataFiles(string directory, const bool overwr
     //////////////////////////////////////////////////////////////////////////////////////
 
 inline
-void PhreeqcInterface::writeOutputFile(string directory, int analysis_id, const bool overwrite)
+void PhreeqcInterface::writeOutputFile(const string directory, int analysis_id, const bool overwrite)
 {
     if (o_manager->isDBEmpty())
     {
@@ -359,14 +363,14 @@ void PhreeqcInterface::writeOutputFile(string directory, int analysis_id, const 
 }
 
 inline
-void PhreeqcInterface::writeOutputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite)
+void PhreeqcInterface::writeOutputFiles(const string directory, const std::vector<int> &analysis_ids, const bool overwrite)
 {
     for (const int analysis_id : analysis_ids)
         writeOutputFile(directory, analysis_id, overwrite);
 }
 
 inline
-void PhreeqcInterface::writeAllOutputFiles(string directory, const bool overwrite)
+void PhreeqcInterface::writeAllOutputFiles(const string directory, const bool overwrite)
 {
     int num = o_manager->getNumRows(o_manager->metadata_table_name);
     for (int analysis_id = 1; analysis_id <= num; analysis_id++)

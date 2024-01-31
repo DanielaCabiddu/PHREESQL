@@ -200,7 +200,7 @@ bool OutputDBManager::insertEpsg(const std::string table_name,
 }
 
 inline
-int OutputDBManager::insertAnalisys(Analisys &a, metadata meta)
+int OutputDBManager::insertAnalisys( Analisys &a, metadata meta)
 {
     query = "INSERT OR REPLACE INTO " + metadata_table_name + " (JOB_TYPE, SURVEY, SITE_NAME, DATE, DATABASE, PHREEQC_VERSION, RUN_NUMBER, SAMPLE_NAME, INPUT_FILE, COORD_X, COORD_Y, COORD_Z, EPSG, TIMESTAMP, TITLE, SOLUTION) VALUES ('" +
             a.job_type + "', '" +
@@ -246,9 +246,9 @@ int OutputDBManager::insertAnalisys(Analisys &a, metadata meta)
 }
 
 inline
-void OutputDBManager::insertSolutionComposition(vector<SolutionComposition> sc_list)
+void OutputDBManager::insertSolutionComposition(const vector<SolutionComposition> &sc_list)
 {
-    sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
 
     for (int i = 0; i < sc_list.size(); i++)
     {
@@ -262,13 +262,13 @@ void OutputDBManager::insertSolutionComposition(vector<SolutionComposition> sc_l
         this->queryResult(rc, "inserting solution_composition");
     }
 
-    sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
 }
 
 inline
-void OutputDBManager::insertDescriptionOfSolution(vector<DescriptionOfSolution> des_list)
+void OutputDBManager::insertDescriptionOfSolution(const vector<DescriptionOfSolution> &des_list)
 {
-    sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
 
     for (int i = 0; i < des_list.size(); i++)
     {
@@ -281,13 +281,13 @@ void OutputDBManager::insertDescriptionOfSolution(vector<DescriptionOfSolution> 
         this->queryResult(rc, "inserting description_of_solution");
     }
 
-    sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
 }
 
 inline
-void OutputDBManager::insertDistributionOfSpecies(vector<DistributionOfSpecies> dis_list)
+void OutputDBManager::insertDistributionOfSpecies(const vector<DistributionOfSpecies> &dis_list)
 {
-    sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
 
     for (int i = 0; i < dis_list.size(); i++)
     {
@@ -304,13 +304,13 @@ void OutputDBManager::insertDistributionOfSpecies(vector<DistributionOfSpecies> 
         this->queryResult(rc, "inserting distribution_of_species");
     }
 
-    sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
 }
 
 inline
-void OutputDBManager::insertDistributionOfAlkalinity(vector<DistributionOfAlkalinity> alk_list)
+void OutputDBManager::insertDistributionOfAlkalinity(const vector<DistributionOfAlkalinity> &alk_list)
 {
-    sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
 
     for (int i = 0; i < alk_list.size(); i++)
     {
@@ -325,13 +325,13 @@ void OutputDBManager::insertDistributionOfAlkalinity(vector<DistributionOfAlkali
         this->queryResult(rc, "inserting distribution_if_alkalinity");
     }
 
-    sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
 }
 
 inline
-void OutputDBManager::insertSaturationIndices(vector<SaturationIndices> si_list)
+void OutputDBManager::insertSaturationIndices(const vector<SaturationIndices> &si_list)
 {
-    sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
 
     for (int i = 0; i < si_list.size(); i++)
     {
@@ -347,11 +347,11 @@ void OutputDBManager::insertSaturationIndices(vector<SaturationIndices> si_list)
         this->queryResult(rc, "insert saturation_indicies");
     }
 
-    sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
 }
 
 inline
-bool OutputDBManager::selectValuesfromAnalisys(Analisys &a, int analysis_id)
+bool OutputDBManager::selectValuesfromAnalisys( Analisys &a, int analysis_id)
 {
     char **res;
     int row, column;

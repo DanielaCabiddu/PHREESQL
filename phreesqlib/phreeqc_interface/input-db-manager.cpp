@@ -56,9 +56,9 @@ void InputDBManager::createSolutionInputTable()
 }
 
 inline
-void InputDBManager::insertSolutionInputs(vector<SolutionInput> inputs, int a_id)
+void InputDBManager::insertSolutionInputs(const vector<SolutionInput> &inputs, int a_id)
 {
-    sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "BEGIN TRANSACTION", 0, 0, 0);
 
     for (int i = 0; i < inputs.size(); i++)
     {
@@ -72,7 +72,7 @@ void InputDBManager::insertSolutionInputs(vector<SolutionInput> inputs, int a_id
         this->queryResult(rc, "insert or replace solution_input");
     }
 
-    sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
+    // sqlite3_exec(db, "END TRANSACTION", 0, 0, 0);
 }
 
 inline
