@@ -60,7 +60,7 @@ public:
     /// \param inputs
     /// \param a_id
     ///
-    void insertSolutionInputs(vector<SolutionInput> inputs, int a_id);
+    void insertSolutionInputs(const vector<SolutionInput> &inputs, int a_id);
 
     ///
     /// \brief selectValuesFromMetadata

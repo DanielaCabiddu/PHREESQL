@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_FLAGS "-std=c++17 -fpermissive")
 
-option(USE_OPENMP "Use OpenMP" OFF)
+option(USE_OPENMP "Use OpenMP" ON)
 #option(BUILD_DOC "Build documentation" OFF)
 
 if (USE_OPENMP)
