@@ -50,7 +50,7 @@ void OutputReaderWriter::checkSection(int size, string section, string file)
 {
     if (size == 0)
     {
-        cerr << "Error in reading section '" << section << "' in file '" << file << "'" << endl;
+        cerr << "\033[1;33m[WARNING] Cannot read section '" << section << "' in file '" << file << "'\033[0m" << endl;
     }
 }
 
