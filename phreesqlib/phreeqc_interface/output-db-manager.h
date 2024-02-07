@@ -122,31 +122,31 @@ public:
     /// \brief insertSolutionComposition
     /// \param sc_list
     ///
-    void insertSolutionComposition(vector<SolutionComposition> sc_list);
+    void insertSolutionComposition(const vector<SolutionComposition> &sc_list);
 
     ///
     /// \brief insertDescriptionOfSolution
     /// \param des_list
     ///
-    void insertDescriptionOfSolution(vector<DescriptionOfSolution> des_list);
+    void insertDescriptionOfSolution(const vector<DescriptionOfSolution> &des_list);
 
     ///
     /// \brief insertDistributionOfSpecies
     /// \param dis_list
     ///
-    void insertDistributionOfSpecies(vector<DistributionOfSpecies> dis_list);
+    void insertDistributionOfSpecies(const vector<DistributionOfSpecies> &dis_list);
 
     ///
     /// \brief insertDistributionOfAlkalinity
     /// \param alk_list
     ///
-    void insertDistributionOfAlkalinity(vector<DistributionOfAlkalinity> alk_list);
+    void insertDistributionOfAlkalinity(const vector<DistributionOfAlkalinity> &alk_list);
 
     ///
     /// \brief insertSaturationIndices
     /// \param si_list
     ///
-    void insertSaturationIndices(vector<SaturationIndices> si_list);
+    void insertSaturationIndices(const vector<SaturationIndices> &si_list);
 
     ///
     /// \brief selectValuesfromAnalisys

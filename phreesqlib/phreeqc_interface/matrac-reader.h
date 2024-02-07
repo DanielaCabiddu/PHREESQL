@@ -158,7 +158,7 @@ public:
     /// \param output_path
     /// \param meta_path
     ///
-    void readInputOutputFiles(string input_path, string output_path, string meta_path);
+    void readInputOutputFiles(const string input_path, const string output_path, const string meta_path);
 
     ///
     /// \brief readIOMFiles
@@ -167,7 +167,7 @@ public:
     /// \param meta_path
     /// \return
     ///
-    bool readIOMFiles(string ifile_path, string ofile_path, string meta_path);
+    bool readIOMFiles(const string ifile_path, const string ofile_path, const string meta_path);
 
     ///
     /// \brief writeInputFile
@@ -175,7 +175,7 @@ public:
     /// \param analysis_id
     /// \param overwrite
     ///
-    void writeInputFile(string directory, int analysis_id, const bool overwrite);
+    void writeInputFile(const string directory, int analysis_id, const bool overwrite);
 
     ///
     /// \brief writeInputFiles
@@ -183,14 +183,14 @@ public:
     /// \param analysis_ids
     /// \param overwrite
     ///
-    void writeInputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite);
+    void writeInputFiles(const string directory, const std::vector<int> &analysis_ids, const bool overwrite);
 
     ///
     /// \brief writeAllInputFiles
     /// \param directory
     /// \param overwrite
     ///
-    void writeAllInputFiles(string directory, const bool overwrite);
+    void writeAllInputFiles(const string directory, const bool overwrite);
 
     //////////////////////////////////////////////////////////////////////////////////////
 
@@ -200,7 +200,7 @@ public:
     /// \param analysis_id
     /// \param overwrite
     ///
-    void writeMetadataFile(string directory, int analysis_id, const bool overwrite);
+    void writeMetadataFile(const string directory, int analysis_id, const bool overwrite);
 
     ///
     /// \brief writeMetadataFiles
@@ -208,14 +208,14 @@ public:
     /// \param analysis_ids
     /// \param overwrite
     ///
-    void writeMetadataFiles(string directory, std::vector<int> analysis_ids, const bool overwrite);
+    void writeMetadataFiles(const string directory, const std::vector<int> &analysis_ids, const bool overwrite);
 
     ///
     /// \brief writeAllMetadataFiles
     /// \param directory
     /// \param overwrite
     ///
-    void writeAllMetadataFiles(string directory, const bool overwrite);
+    void writeAllMetadataFiles(const string directory, const bool overwrite);
 
     //////////////////////////////////////////////////////////////////////////////////////
 
@@ -225,7 +225,7 @@ public:
     /// \param analysis_id
     /// \param overwrite
     ///
-    void writeOutputFile(string directory, int analysis_id, const bool overwrite);
+    void writeOutputFile(const string directory, int analysis_id, const bool overwrite);
 
     ///
     /// \brief writeOutputFiles
@@ -233,14 +233,14 @@ public:
     /// \param analysis_ids
     /// \param overwrite
     ///
-    void writeOutputFiles(string directory, std::vector<int> analysis_ids, const bool overwrite);
+    void writeOutputFiles(const string directory, const std::vector<int> &analysis_ids, const bool overwrite);
 
     ///
     /// \brief writeAllOutputFiles
     /// \param directory
     /// \param overwrite
     ///
-    void writeAllOutputFiles(string directory, const bool overwrite);
+    void writeAllOutputFiles(const string directory, const bool overwrite);
 
     ///
     /// \brief createInputTables
