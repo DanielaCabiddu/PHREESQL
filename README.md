@@ -77,13 +77,10 @@ cmake --build . --parallel 8
 Our case study is described in the paper and exploits the Ireland EPA database (https://gis.epa.ie/GetData/Download). To guarantee replicability, data and source code of our case study is provided in the *example* folder.
 If you wish to replicate our case study, please run the *case_study.sh* script located located in the root directory *ROOT* (where this README lies) to create the complete set of PHREESQL databases:
 
-`${ROOT}/case_study.sh`
+`${ROOT}/case_study.sh EPA_project`
 
-The PHREESQL databases will be available in the *${ROOT}/example/DB* folder.
+The PHREESQL databases will be available in the *${ROOT}/example/EPA_project/DB* folder.
 
-To run some examples of database queries and generate plots, please run the *${ROOT}/example/query.sh* script by providing the full database path (<DB_PATH>) of the database to be queried: 
-
-`${ROOT}/example/query.sh <DB_PATH>`
 
 ## Authors
 
