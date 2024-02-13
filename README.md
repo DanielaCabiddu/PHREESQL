@@ -81,6 +81,7 @@ If you wish to replicate our case study, please run the *case_study.sh* script l
 
 The PHREESQL databases will be available in the *${ROOT}/example/EPA_project/DB* folder.
 
+Details on how the case study actually works are provided [here](example/README.md).
 
 ## Authors
 
