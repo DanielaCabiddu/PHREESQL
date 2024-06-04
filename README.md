@@ -93,6 +93,19 @@ Details on how the case study actually works are provided [here](example/README.
 
 If you use PHREESQL in your academic projects, please consider citing the library using the following BibTeX entry:
 
-[BIBTEX REFERENCE AFTER PUBLICATION]
+```bibtex
+@article{phreesql,
+title = {PHREESQL: A Toolkit to Efficiently Compute and Store Geochemical Speciation Calculation},
+journal = {Computers & Geosciences},
+volume = {},
+pages = {},
+year = {2024},
+issn = {},
+doi = {},
+url = {},
+author = {Marino Vetuschi Zuccolini, Daniela Cabiddu, Simone Pittaluga},
+keywords = {},
+note = {in press}
+}
 
-Submitted - UNDER REVIEW
+```
