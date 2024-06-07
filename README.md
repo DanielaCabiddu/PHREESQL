@@ -91,21 +91,19 @@ Details on how the case study actually works are provided [here](example/README.
 
 ## Citing Us
 
-If you use PHREESQL in your academic projects, please consider citing the library using the following BibTeX entry:
+If you use PHREESQL in your academic projects, please consider citing us using the following BibTeX entry:
 
 ```bibtex
-@article{phreesql,
-title = {PHREESQL: A Toolkit to Efficiently Compute and Store Geochemical Speciation Calculation},
+@article{VETUSCHIZUCCOLINI2024105640,
+title = {PHREESQL: A toolkit to efficiently compute and store geochemical speciation calculation},
 journal = {Computers & Geosciences},
-volume = {},
-pages = {},
+pages = {105640},
 year = {2024},
-issn = {},
-doi = {},
-url = {},
-author = {Marino Vetuschi Zuccolini, Daniela Cabiddu, Simone Pittaluga},
-keywords = {},
-note = {in press}
+issn = {0098-3004},
+doi = {https://doi.org/10.1016/j.cageo.2024.105640},
+url = {https://www.sciencedirect.com/science/article/pii/S0098300424001237},
+author = {Marino {Vetuschi Zuccolini} and Daniela Cabiddu and Simone Pittaluga},
+keywords = {Hydrogeochemistry, Speciation computation, Relational database, Big data storage and query}
 }
 
 ```
