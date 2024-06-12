@@ -97,6 +97,7 @@ If you use PHREESQL in your academic projects, please consider citing us using t
 @article{VETUSCHIZUCCOLINI2024105640,
 title = {PHREESQL: A toolkit to efficiently compute and store geochemical speciation calculation},
 journal = {Computers & Geosciences},
+volume = {190},
 pages = {105640},
 year = {2024},
 issn = {0098-3004},
