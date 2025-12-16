@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['query_91',['query',['../classDBManager.html#a4b180274894b31aadb2e00c12d07b30e',1,'DBManager']]],
-  ['queryresult_92',['queryResult',['../classDBManager.html#a6226472d29d78f2ca0185b4238a58a06',1,'DBManager']]]
+  ['o_5ffile_0',['o_file',['../classPhreeqcInterface.html#a174b14d200ffadb7b5336c4bb8e3168b',1,'PhreeqcInterface']]],
+  ['o_5fmanager_1',['o_manager',['../classPhreeqcInterface.html#ace20c7ae26435a9bb152de91aedec4e8',1,'PhreeqcInterface']]],
+  ['opendb_2',['openDB',['../classPhreeqcInterface.html#a8bb485898acc1a875966c2188944d438',1,'PhreeqcInterface']]],
+  ['opendir_3',['openDir',['../classPhreeqcInterface.html#a42db7e64175b7cc660ba6eceaf474fc7',1,'PhreeqcInterface']]],
+  ['out_5fext_4',['out_ext',['../classphreesqlib_1_1PhreeSQLibEngine.html#a20dd00235819b117465fc83c03d3e8ca',1,'phreesqlib::PhreeSQLibEngine']]],
+  ['out_5ffilename_5',['out_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#aee0937aaf8daa6fc8a7ecc42226bd151',1,'phreesqlib::PhreeqcEngineObj']]],
+  ['outputdbmanager_6',['outputdbmanager',['../classOutputDBManager.html',1,'OutputDBManager'],['../classOutputDBManager.html#a15a8d95e13c98d2a70da4ebe6df0489b',1,'OutputDBManager::OutputDBManager()']]],
+  ['outputreaderwriter_7',['outputreaderwriter',['../classOutputReaderWriter.html',1,'OutputReaderWriter'],['../classOutputReaderWriter.html#aaf404eb7dcf2e401c4bb9bf542f845ba',1,'OutputReaderWriter::OutputReaderWriter()']]]
 ];

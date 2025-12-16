@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['get_5ferror_5fcounter_41',['get_error_counter',['../classphreesqlib_1_1PhreeqcEngineObj.html#ae0bb368d30b4a548a859baae7da23da8',1,'phreesqlib::PhreeqcEngineObj']]],
-  ['get_5fin_5ffilename_42',['get_in_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#a23b98fea88310ca0411128c5c87ba64e',1,'phreesqlib::PhreeqcEngineObj']]],
-  ['get_5fout_5ffilename_43',['get_out_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#a134b766eff827e42de393db73b0b9ff7',1,'phreesqlib::PhreeqcEngineObj']]],
-  ['getdata_44',['getData',['../classDataManager.html#a16ccbe6278f61ef816997028b12f28f5',1,'DataManager::getData()'],['../classPhreeqcInterface.html#a6956dc966d2f0855937132bc5a0a9b2a',1,'PhreeqcInterface::getData()']]],
-  ['getmetadata_45',['getMetadata',['../classDataManager.html#ad4ad10d236410da4a7143d74179913f7',1,'DataManager::getMetadata()'],['../classPhreeqcInterface.html#a4eee5fd4967cadadbd6cdc5edc25c1f2',1,'PhreeqcInterface::getMetadata() const']]],
-  ['getmetadatatablename_46',['getMetadataTableName',['../classPhreeqcInterface.html#a0778ff59e0bfaa266d376e91ca0ea19d',1,'PhreeqcInterface']]],
-  ['getnummetadatarecords_47',['getNumMetadataRecords',['../classPhreeqcInterface.html#a5885d1f4c3dbedd6a831a970a8322dbc',1,'PhreeqcInterface']]],
-  ['getnumrows_48',['getNumRows',['../classDBManager.html#a6499514abd0c6e2a27a365681b414dca',1,'DBManager']]]
+  ['efficiently_20compute_20and_20store_20geochemical_20speciation_20calculation_0',['PHREESQL - a toolkit to efficiently compute and store geochemical speciation calculation',['../index.html',1,'']]],
+  ['epsg_5fconvert_1',['epsg_convert',['../classphreesqlib_1_1PhreeSQLibEngine.html#addbc0049c2eda9e7aabad83a193c0660',1,'phreesqlib::PhreeSQLibEngine']]],
+  ['epsg_5fconvert_5ftype_2',['EPSG_CONVERT_TYPE',['../classphreesqlib_1_1DBEngine.html#a5d541469fb27a98582deb41e84f32a54',1,'phreesqlib::DBEngine']]],
+  ['err_5fmessage_3',['err_message',['../classDBManager.html#a9e125517f5808e2386c8bdd8718b50e4',1,'DBManager']]],
+  ['error_5fcounter_4',['error_counter',['../classphreesqlib_1_1PhreeqcEngineObj.html#a66440a1e4042596dab1e78a6aea1299b',1,'phreesqlib::PhreeqcEngineObj']]],
+  ['export_5finput_5',['export_input',['../classphreesqlib_1_1DBEngine.html#ab6a00196d1f0f7c90273f50fd4fcc782',1,'phreesqlib::DBEngine::export_input()'],['../classphreesqlib_1_1PhreeSQLibEngine.html#a0dd1eceb73cad61e6490225ee9532a25',1,'phreesqlib::PhreeSQLibEngine::export_input()']]],
+  ['export_5fmetadata_6',['export_metadata',['../classphreesqlib_1_1DBEngine.html#a97599f4e394eb30ab629f106ced707c9',1,'phreesqlib::DBEngine::export_metadata()'],['../classphreesqlib_1_1PhreeSQLibEngine.html#a354fdc7507b4c3342afb8d7b2af77ed6',1,'phreesqlib::PhreeSQLibEngine::export_metadata()']]],
+  ['export_5foutput_7',['export_output',['../classphreesqlib_1_1DBEngine.html#a3c34063c33edac7709ae8e9778a1a6c4',1,'phreesqlib::DBEngine::export_output()'],['../classphreesqlib_1_1PhreeSQLibEngine.html#a4f8d7ab7f9b858323994446e52669ce8',1,'phreesqlib::PhreeSQLibEngine::export_output()']]]
 ];

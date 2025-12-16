@@ -1,19 +1,5 @@
 var searchData=
 [
-  ['saturationindices_106',['SaturationIndices',['../structSaturationIndices.html',1,'']]],
-  ['sc_5flist_107',['sc_list',['../classOutputReaderWriter.html#a828164892838c72b12fdbc086afe6a10',1,'OutputReaderWriter']]],
-  ['selectvaluesfromanalisys_108',['selectValuesfromAnalisys',['../classOutputDBManager.html#a873c2a3a487155b2eb14f6147edbbc5c',1,'OutputDBManager']]],
-  ['selectvaluesfromdescriptionofsolution_109',['selectValuesFromDescriptionOfSolution',['../classOutputDBManager.html#a53336d2da43acee86f3af718dcf449be',1,'OutputDBManager']]],
-  ['selectvaluesfromdistributionofalkalinity_110',['selectValuesFromDistributionOfAlkalinity',['../classOutputDBManager.html#a9b2a7421e88c31bb0e33b70e5161146c',1,'OutputDBManager']]],
-  ['selectvaluesfromdistributionofspecies_111',['selectValuesFromDistributionOfSpecies',['../classOutputDBManager.html#a4f1d976424a9dff3a11cdc7938934d30',1,'OutputDBManager']]],
-  ['selectvaluesfrommetadata_112',['selectValuesFromMetadata',['../classInputDBManager.html#aaf4177815e70a9af251de2c2b8a33b9a',1,'InputDBManager']]],
-  ['selectvaluesfromsaturationindices_113',['selectValuesFromSaturationIndices',['../classOutputDBManager.html#aff22993920be970c4cd7d092b0e180ce',1,'OutputDBManager']]],
-  ['selectvaluesfromsolution_114',['selectValuesFromSolution',['../classInputDBManager.html#a630c9f99bc28c16a5e6ef81f60dd9027',1,'InputDBManager']]],
-  ['selectvaluesfromsolutioncomposition_115',['selectValuesFromSolutionComposition',['../classOutputDBManager.html#a7106a5c07f81fc2f1c6382108036944f',1,'OutputDBManager']]],
-  ['set_5ferror_5fcounter_116',['set_error_counter',['../classphreesqlib_1_1PhreeqcEngineObj.html#a45e085b8b68a993dfb03b8c63b3504bd',1,'phreesqlib::PhreeqcEngineObj']]],
-  ['set_5fin_5ffilename_117',['set_in_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#afe8e19e2e4d1d4ca4125511893997380',1,'phreesqlib::PhreeqcEngineObj']]],
-  ['set_5fout_5ffilename_118',['set_out_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#a6841b59434616a7a821bbe3163e54b06',1,'phreesqlib::PhreeqcEngineObj']]],
-  ['si_5flist_119',['si_list',['../classOutputReaderWriter.html#a1eeaee6573b707ebd5fee1986229c3fe',1,'OutputReaderWriter']]],
-  ['solutioncomposition_120',['SolutionComposition',['../structSolutionComposition.html',1,'']]],
-  ['solutioninput_121',['SolutionInput',['../structSolutionInput.html',1,'']]]
+  ['query_0',['query',['../classDBManager.html#a4b180274894b31aadb2e00c12d07b30e',1,'DBManager']]],
+  ['queryresult_1',['queryResult',['../classDBManager.html#a6226472d29d78f2ca0185b4238a58a06',1,'DBManager']]]
 ];

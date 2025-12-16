@@ -1,7 +1,6 @@
 var classPhreeqcInterface =
 [
     [ "PhreeqcInterface", "classPhreeqcInterface.html#a1c96accc596bf89f67eea3b8e00b7bed", null ],
-    [ "~PhreeqcInterface", "classPhreeqcInterface.html#a63cee18d2ba830542accbe271969ff3b", null ],
     [ "closeDB", "classPhreeqcInterface.html#a99070cbf1425f7a0c35eeb118480c64e", null ],
     [ "copyDB", "classPhreeqcInterface.html#aac23efb35cf84f5da42d3860834f334a", null ],
     [ "create_and_insert_EpsgTable", "classPhreeqcInterface.html#adbe2005a32d8f8290563bb06dcb03a91", null ],

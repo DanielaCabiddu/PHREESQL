@@ -25,16 +25,7 @@
 var NAVTREE =
 [
   [ "PHREESQL", "index.html", [
-    [ "PHREESQL - a toolkit to efficiently compute and store geochemical speciation calculation", "index.html", [
-      [ "Workflow", "index.html#autotoc_md1", null ],
-      [ "Documentation", "index.html#autotoc_md2", null ],
-      [ "Clone", "index.html#autotoc_md3", null ],
-      [ "Usage", "index.html#autotoc_md4", null ],
-      [ "Building", "index.html#autotoc_md5", null ],
-      [ "Case Study", "index.html#autotoc_md9", null ],
-      [ "Authors", "index.html#autotoc_md10", null ],
-      [ "Citing Us", "index.html#autotoc_md11", null ]
-    ] ],
+    [ "PHREESQL - a toolkit to efficiently compute and store geochemical speciation calculation", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -59,8 +50,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"DBEngine_8cpp_source.html",
-"structDistributionOfSpecies.html#ac9949bbc30d4337f073ceeb4ddefa7eb"
+"DBEngine_8cpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

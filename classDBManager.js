@@ -1,7 +1,6 @@
 var classDBManager =
 [
     [ "DBManager", "classDBManager.html#a0ae271d2bd44d024da2faefb1ef4a23f", null ],
-    [ "~DBManager", "classDBManager.html#ae6d8cb78041c8ff0c5e77609ca512df0", null ],
     [ "getNumRows", "classDBManager.html#a6499514abd0c6e2a27a365681b414dca", null ],
     [ "isDBEmpty", "classDBManager.html#a1771a1af8d33c3eedc119c1cabbd3088", null ],
     [ "queryResult", "classDBManager.html#a6226472d29d78f2ca0185b4238a58a06", null ],

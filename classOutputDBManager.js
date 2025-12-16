@@ -1,7 +1,6 @@
 var classOutputDBManager =
 [
     [ "OutputDBManager", "classOutputDBManager.html#a15a8d95e13c98d2a70da4ebe6df0489b", null ],
-    [ "~OutputDBManager", "classOutputDBManager.html#a8108d2cc8ebb62b54e921b2552311934", null ],
     [ "createAnalisysTable", "classOutputDBManager.html#a25350bebe7f7430204532e2f6dda0961", null ],
     [ "createDescriptionOfSolutionTable", "classOutputDBManager.html#a2057e90004cfd9c075936af4d614b67d", null ],
     [ "createDistributionOfAlkalinityTable", "classOutputDBManager.html#a186643c3faa86c9e92cdd2b0a426b2b4", null ],

@@ -7,9 +7,7 @@ var dir_9818ee51b7b2764cd8d281a2a4d4a942 =
     [ "PhreeqcEngine.h", "PhreeqcEngine_8h_source.html", null ],
     [ "PhreeqcEngineObj.h", "PhreeqcEngineObj_8h_source.html", null ],
     [ "PhreeSQLibEngine.cpp", "PhreeSQLibEngine_8cpp_source.html", null ],
-    [ "PhreeSQLibEngine.h", "PhreeSQLibEngine_8h.html", [
-      [ "PhreeSQLibEngine", "classphreesqlib_1_1PhreeSQLibEngine.html", "classphreesqlib_1_1PhreeSQLibEngine" ]
-    ] ],
+    [ "PhreeSQLibEngine.h", "PhreeSQLibEngine_8h.html", "PhreeSQLibEngine_8h" ],
     [ "ProJEngine.cpp", "ProJEngine_8cpp_source.html", null ],
     [ "ProJEngine.h", "ProJEngine_8h_source.html", null ],
     [ "ProjUtils.cpp", "ProjUtils_8cpp_source.html", null ],

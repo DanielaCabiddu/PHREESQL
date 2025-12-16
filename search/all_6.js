@@ -1,8 +1,24 @@
 var searchData=
 [
-  ['main_70',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['main_2ecpp_71',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['meta_72',['meta',['../classInputReaderWriter.html#a6df6dbecb6b621e7550bfe919d468036',1,'InputReaderWriter']]],
-  ['meta_5fext_73',['meta_ext',['../classphreesqlib_1_1PhreeSQLibEngine.html#a773739d3f8c094a3295b3669df37da7f',1,'phreesqlib::PhreeSQLibEngine']]],
-  ['metadata_5ftable_5fname_74',['metadata_table_name',['../classDBManager.html#ad3239bafa64d54fb7437892595053eda',1,'DBManager']]]
+  ['i_5ffile_0',['i_file',['../classPhreeqcInterface.html#a697fe04a90b68807b321756e7a4fa6b2',1,'PhreeqcInterface']]],
+  ['i_5fmanager_1',['i_manager',['../classPhreeqcInterface.html#a9ee7115594a8254cb9cfd57513557ca7',1,'PhreeqcInterface']]],
+  ['in_5fext_2',['in_ext',['../classphreesqlib_1_1PhreeSQLibEngine.html#a7ac9bddfeda61b912bc391663cfffc46',1,'phreesqlib::PhreeSQLibEngine']]],
+  ['in_5ffilename_3',['in_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#af518a70d17578f2d86fcaf5141b6838e',1,'phreesqlib::PhreeqcEngineObj']]],
+  ['input_5flist_4',['input_list',['../classInputReaderWriter.html#ae4d4b8e62a03cef27ab8b385f39962bf',1,'InputReaderWriter']]],
+  ['inputdbmanager_5',['inputdbmanager',['../classInputDBManager.html#a7d3f69292de2371c918557f29c86a801',1,'InputDBManager::InputDBManager()'],['../classInputDBManager.html',1,'InputDBManager']]],
+  ['inputreaderwriter_6',['inputreaderwriter',['../classInputReaderWriter.html',1,'InputReaderWriter'],['../classInputReaderWriter.html#aaa0046a7b8f4cca528f35dc3671c4d33',1,'InputReaderWriter::InputReaderWriter()']]],
+  ['insertanalisys_7',['insertAnalisys',['../classOutputDBManager.html#a9b237863fd82977bd37ae6f25f98f6c7',1,'OutputDBManager']]],
+  ['insertdescriptionofsolution_8',['insertDescriptionOfSolution',['../classOutputDBManager.html#a7c2d8a90bf5b24d00aadd268ed093b62',1,'OutputDBManager']]],
+  ['insertdistributionofalkalinity_9',['insertDistributionOfAlkalinity',['../classOutputDBManager.html#ad33ce3ee1c572ce34ea31869a18e1cfc',1,'OutputDBManager']]],
+  ['insertdistributionofspecies_10',['insertDistributionOfSpecies',['../classOutputDBManager.html#afb18f902da6453f73f3d5649a504e3f7',1,'OutputDBManager']]],
+  ['insertepsg_11',['insertEpsg',['../classOutputDBManager.html#a40bfa77db251e4bf649688ef398e18c7',1,'OutputDBManager']]],
+  ['insertinanalisys_12',['insertInAnalisys',['../classOutputReaderWriter.html#ae32ca37f4c025e589353d537bd3f7c0d',1,'OutputReaderWriter']]],
+  ['insertsaturationindices_13',['insertSaturationIndices',['../classOutputDBManager.html#a821e9a1ab261986c8c71360c065248d6',1,'OutputDBManager']]],
+  ['insertsolutioncomposition_14',['insertSolutionComposition',['../classOutputDBManager.html#a3f2fa32495f55da6961dda53c5366f0c',1,'OutputDBManager']]],
+  ['insertsolutioninputs_15',['insertSolutionInputs',['../classInputDBManager.html#a93d76863227ea3afb167bb3e98a1da0c',1,'InputDBManager']]],
+  ['is_5fi_5ffile_16',['is_i_file',['../classPhreeqcInterface.html#a6bb9cf63317fc40cbfa8c755e9925131',1,'PhreeqcInterface']]],
+  ['is_5fo_5ffile_17',['is_o_file',['../classPhreeqcInterface.html#a397d88ee87f0cf4df29d2a2904afd158',1,'PhreeqcInterface']]],
+  ['isdbempty_18',['isDBEmpty',['../classDBManager.html#a1771a1af8d33c3eedc119c1cabbd3088',1,'DBManager']]],
+  ['isinputempty_19',['isInputEmpty',['../classInputDBManager.html#a0ddd59b1bf95690b845e0e614b93a89b',1,'InputDBManager']]],
+  ['isoutputempty_20',['isOutputEmpty',['../classOutputDBManager.html#a79fb6c8ab564a5abe34a4a0b01fbfd75',1,'OutputDBManager']]]
 ];

@@ -1,24 +1,12 @@
 var searchData=
 [
-  ['i_5ffile_49',['i_file',['../classPhreeqcInterface.html#a697fe04a90b68807b321756e7a4fa6b2',1,'PhreeqcInterface']]],
-  ['i_5fmanager_50',['i_manager',['../classPhreeqcInterface.html#a9ee7115594a8254cb9cfd57513557ca7',1,'PhreeqcInterface']]],
-  ['in_5fext_51',['in_ext',['../classphreesqlib_1_1PhreeSQLibEngine.html#a7ac9bddfeda61b912bc391663cfffc46',1,'phreesqlib::PhreeSQLibEngine']]],
-  ['in_5ffilename_52',['in_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#af518a70d17578f2d86fcaf5141b6838e',1,'phreesqlib::PhreeqcEngineObj']]],
-  ['input_5flist_53',['input_list',['../classInputReaderWriter.html#ae4d4b8e62a03cef27ab8b385f39962bf',1,'InputReaderWriter']]],
-  ['inputdbmanager_54',['InputDBManager',['../classInputDBManager.html#a7d3f69292de2371c918557f29c86a801',1,'InputDBManager::InputDBManager()'],['../classInputDBManager.html',1,'InputDBManager']]],
-  ['inputreaderwriter_55',['InputReaderWriter',['../classInputReaderWriter.html',1,'InputReaderWriter'],['../classInputReaderWriter.html#aaa0046a7b8f4cca528f35dc3671c4d33',1,'InputReaderWriter::InputReaderWriter()']]],
-  ['insertanalisys_56',['insertAnalisys',['../classOutputDBManager.html#a9b237863fd82977bd37ae6f25f98f6c7',1,'OutputDBManager']]],
-  ['insertdescriptionofsolution_57',['insertDescriptionOfSolution',['../classOutputDBManager.html#a7c2d8a90bf5b24d00aadd268ed093b62',1,'OutputDBManager']]],
-  ['insertdistributionofalkalinity_58',['insertDistributionOfAlkalinity',['../classOutputDBManager.html#ad33ce3ee1c572ce34ea31869a18e1cfc',1,'OutputDBManager']]],
-  ['insertdistributionofspecies_59',['insertDistributionOfSpecies',['../classOutputDBManager.html#afb18f902da6453f73f3d5649a504e3f7',1,'OutputDBManager']]],
-  ['insertepsg_60',['insertEpsg',['../classOutputDBManager.html#a40bfa77db251e4bf649688ef398e18c7',1,'OutputDBManager']]],
-  ['insertinanalisys_61',['insertInAnalisys',['../classOutputReaderWriter.html#ae32ca37f4c025e589353d537bd3f7c0d',1,'OutputReaderWriter']]],
-  ['insertsaturationindices_62',['insertSaturationIndices',['../classOutputDBManager.html#a821e9a1ab261986c8c71360c065248d6',1,'OutputDBManager']]],
-  ['insertsolutioncomposition_63',['insertSolutionComposition',['../classOutputDBManager.html#a3f2fa32495f55da6961dda53c5366f0c',1,'OutputDBManager']]],
-  ['insertsolutioninputs_64',['insertSolutionInputs',['../classInputDBManager.html#a93d76863227ea3afb167bb3e98a1da0c',1,'InputDBManager']]],
-  ['is_5fi_5ffile_65',['is_i_file',['../classPhreeqcInterface.html#a6bb9cf63317fc40cbfa8c755e9925131',1,'PhreeqcInterface']]],
-  ['is_5fo_5ffile_66',['is_o_file',['../classPhreeqcInterface.html#a397d88ee87f0cf4df29d2a2904afd158',1,'PhreeqcInterface']]],
-  ['isdbempty_67',['isDBEmpty',['../classDBManager.html#a1771a1af8d33c3eedc119c1cabbd3088',1,'DBManager']]],
-  ['isinputempty_68',['isInputEmpty',['../classInputDBManager.html#a0ddd59b1bf95690b845e0e614b93a89b',1,'InputDBManager']]],
-  ['isoutputempty_69',['isOutputEmpty',['../classOutputDBManager.html#a79fb6c8ab564a5abe34a4a0b01fbfd75',1,'OutputDBManager']]]
+  ['geochemical_20speciation_20calculation_0',['PHREESQL - a toolkit to efficiently compute and store geochemical speciation calculation',['../index.html',1,'']]],
+  ['get_5ferror_5fcounter_1',['get_error_counter',['../classphreesqlib_1_1PhreeqcEngineObj.html#ae0bb368d30b4a548a859baae7da23da8',1,'phreesqlib::PhreeqcEngineObj']]],
+  ['get_5fin_5ffilename_2',['get_in_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#a23b98fea88310ca0411128c5c87ba64e',1,'phreesqlib::PhreeqcEngineObj']]],
+  ['get_5fout_5ffilename_3',['get_out_filename',['../classphreesqlib_1_1PhreeqcEngineObj.html#a134b766eff827e42de393db73b0b9ff7',1,'phreesqlib::PhreeqcEngineObj']]],
+  ['getdata_4',['getdata',['../classDataManager.html#a16ccbe6278f61ef816997028b12f28f5',1,'DataManager::getData()'],['../classPhreeqcInterface.html#a6956dc966d2f0855937132bc5a0a9b2a',1,'PhreeqcInterface::getData()']]],
+  ['getmetadata_5',['getmetadata',['../classDataManager.html#ad4ad10d236410da4a7143d74179913f7',1,'DataManager::getMetadata()'],['../classPhreeqcInterface.html#a4eee5fd4967cadadbd6cdc5edc25c1f2',1,'PhreeqcInterface::getMetadata() const']]],
+  ['getmetadatatablename_6',['getMetadataTableName',['../classPhreeqcInterface.html#a0778ff59e0bfaa266d376e91ca0ea19d',1,'PhreeqcInterface']]],
+  ['getnummetadatarecords_7',['getNumMetadataRecords',['../classPhreeqcInterface.html#a5885d1f4c3dbedd6a831a970a8322dbc',1,'PhreeqcInterface']]],
+  ['getnumrows_8',['getNumRows',['../classDBManager.html#a6499514abd0c6e2a27a365681b414dca',1,'DBManager']]]
 ];
