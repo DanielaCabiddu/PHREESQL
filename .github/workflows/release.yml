@@ -15,12 +15,15 @@ jobs:
           - os: ubuntu-latest
             artifact_name: phreesqlexe
             asset_name: phreesqlexe-ubuntu-x64
-          #- os: windows-latest
-          #  artifact_name: 01_Trimesh_Tiling.exe
-          #  asset_name: 01_Trimesh_Tiling-windows-x64.exe
+            artifact_path: build/phreesqlexe
+          - os: windows-latest
+            artifact_name: phreesqlexe.exe
+            asset_name: phreesqlexe-windows-x64.zip
+            artifact_path: phreesqlexe-windows-x64.zip
           - os: macos-latest
             artifact_name: phreesqlexe
             asset_name: phreesqlexe-macos-x64
+            artifact_path: build/phreesqlexe
 
     steps:
     - uses: actions/checkout@v3
@@ -44,6 +47,22 @@ jobs:
           CXX: g++-9
       run: |
           ./build.sh
+    - name: Build-Windows
+      if: matrix.os == 'windows-latest'
+      run: |
+          cd phreesqlexe
+          cmake -B ..\build -DCMAKE_BUILD_TYPE=Release
+          cmake --build ..\build --config Release
+      
+    - name: Package-Windows
+      if: matrix.os == 'windows-latest'
+      run: |
+          mkdir release-package
+          cp build\Release\phreesqlexe.exe release-package\
+          cp build\Release\proj_9_3.dll release-package\
+          cp build\Release\sqlite3.dll release-package\
+          cp build\Release\proj.db release-package\
+          Compress-Archive -Path release-package\* -DestinationPath phreesqlexe-windows-x64.zip
     - name: Build-MacOs
       if: matrix.os == 'macos-latest'
       env:
@@ -56,6 +75,6 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: build/${{ matrix.artifact_name }}
+        file: ${{ matrix.artifact_path }}
         asset_name: ${{ matrix.asset_name }}
         tag: ${{ github.ref }}
