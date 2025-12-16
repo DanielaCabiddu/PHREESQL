@@ -28,4 +28,4 @@ jobs:
       - name: build
         run: |
           cd build
-          cmake --build . --parallel 8
+          cmake --build . --config Release --parallel 8
