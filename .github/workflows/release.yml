@@ -56,7 +56,7 @@ jobs:
       run: |
           mkdir release-package
           cp build\Release\phreesqlexe.exe release-package\
-          cp build\Release\proj_9_3.dll release-package\
+          cp build\Release\proj_9.dll release-package\
           cp build\Release\sqlite3.dll release-package\
           cp build\Release\proj.db release-package\
           Compress-Archive -Path release-package\* -DestinationPath phreesqlexe-windows-x64.zip
