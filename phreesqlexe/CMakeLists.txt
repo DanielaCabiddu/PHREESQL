@@ -139,7 +139,7 @@ IF (MSVC)
     add_custom_command(
   OUTPUT "${PROJ_LIB}"
   COMMAND
-        cmake -DUSE_CCACHE=OFF -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF  -DBUILD_APPS=OFF -DBUILD_PROJSYNC=OFF ${PROJ_FOLDER} &&
+        cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF  -DBUILD_APPS=OFF -DBUILD_PROJSYNC=OFF ${PROJ_FOLDER} &&
         cmake --build . --config Release -j 8
 
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
@@ -151,7 +151,7 @@ ELSE()
     add_custom_command(
   OUTPUT "${PROJ_LIB}"
   COMMAND
-        cmake -DUSE_CCACHE=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF ${PROJ_FOLDER} &&
+        cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF ${PROJ_FOLDER} &&
         cmake --build . --config Release --parallel 16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${PROJ_BUILD_DIRECTORY}"
@@ -221,9 +221,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS} )
 if (MSVC)
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJ_BUILD_DIRECTORY}/bin/Release/proj_9_3.dll"
+            "${PROJ_BUILD_DIRECTORY}/bin/Release/proj_9.dll"
             $<TARGET_FILE_DIR:${PROJECT_NAME}>
-        COMMENT "Copying proj_9_3.dll to executable directory"
+        COMMENT "Copying proj_9.dll to executable directory"
     )
     
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
