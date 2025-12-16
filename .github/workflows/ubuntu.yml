@@ -24,9 +24,6 @@ jobs:
           sudo apt update
           sudo apt-get install -y libsqlite3-dev
       - name: build
-        env:
-          CC: gcc-9
-          CXX: g++-9
         run: |
           ./build.sh
       - name: test

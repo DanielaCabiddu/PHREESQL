@@ -42,9 +42,6 @@ jobs:
     
     - name: Build-Ubuntu
       if: matrix.os == 'ubuntu-latest'
-      env:
-          CC: gcc-9
-          CXX: g++-9
       run: |
           ./build.sh
     - name: Build-Windows
