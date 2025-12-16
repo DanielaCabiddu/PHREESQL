@@ -5,6 +5,9 @@ project(phreesqlexe LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set (CMAKE_BUILD_TYPE Release CACHE STRING "")
+set(CMAKE_CONFIGURATION_TYPES "Release" CACHE STRING "")
+
 set(CMAKE_CXX_FLAGS "-std=c++17 -fpermissive")
 
 option(USE_OPENMP "Use OpenMP" ON)
@@ -41,7 +44,7 @@ set (PHREEQC_BUILD_DIRECTORY ${BUILD_DIRECTORY}/phreeqc)
 file (MAKE_DIRECTORY ${PHREEQC_BUILD_DIRECTORY})
 
 IF (MSVC)
-    set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/Debug/IPhreeqcd.lib")
+    set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/Release/IPhreeqc.lib")
 ELSE()
     set (IPHREEQC_LIB "${PHREEQC_BUILD_DIRECTORY}/libIPhreeqc.a")
 ENDIF()
@@ -50,7 +53,7 @@ add_custom_command(
   OUTPUT "${IPHREEQC_LIB}"
   COMMAND
         cmake ${PHREEQC_FOLDER} -DCMAKE_CXX_STANDARD=11 -DBUILD_TESTING=OFF -DIPHREEQC_ENABLE_MODULE=OFF &&
-        cmake --build . --parallel 16
+        cmake --build . --config Release --parallel 16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${PHREEQC_BUILD_DIRECTORY}"
 )
@@ -130,14 +133,14 @@ set (PROJ_BUILD_DIRECTORY ${BUILD_DIRECTORY}/proj)
 file (MAKE_DIRECTORY ${PROJ_BUILD_DIRECTORY})
 
 
-IF (WIN32)
-    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/Debug/proj_d.lib")
+IF (MSVC)
+    set (PROJ_LIB "${PROJ_BUILD_DIRECTORY}/lib/Release/proj.lib")
 
     add_custom_command(
   OUTPUT "${PROJ_LIB}"
   COMMAND
         cmake -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE} -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF  -DBUILD_APPS=OFF -DBUILD_PROJSYNC=OFF ${PROJ_FOLDER} &&
-        cmake --build . --config Debug -j 8
+        cmake --build . --config Release -j 8
 
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${PROJ_BUILD_DIRECTORY}"
@@ -149,7 +152,7 @@ ELSE()
   OUTPUT "${PROJ_LIB}"
   COMMAND
         cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_CURL=OFF -DENABLE_TIFF=OFF -DBUILD_APPS=OFF ${PROJ_FOLDER} &&
-        cmake --build . --parallel 16
+        cmake --build . --config Release --parallel 16
   #DEPENDS ${SOURCE_FILES} /tmp/bin/create_foo_hh main.cpp
   WORKING_DIRECTORY "${PROJ_BUILD_DIRECTORY}"
 )
@@ -213,3 +216,27 @@ if (OPENMP_FOUND)
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS} )
+
+# Copy DLLs to executable directory on Windows
+if (MSVC)
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${PROJ_BUILD_DIRECTORY}/bin/Release/proj_9_3.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>
+        COMMENT "Copying proj_9_3.dll to executable directory"
+    )
+    
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${PROJ_BUILD_DIRECTORY}/bin/Release/sqlite3.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>
+        COMMENT "Copying sqlite3.dll to executable directory"
+    )
+    
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${PROJ_BUILD_DIRECTORY}/data/proj.db"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>
+        COMMENT "Copying proj.db to executable directory"
+    )
+endif()
